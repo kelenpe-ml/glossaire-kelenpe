@@ -225,3 +225,125 @@ Vocabulaire pour gérer Kelenpe (Prodora, Ayena, Kelenpe Ad...) face à des inve
 **Contexte / exemple concret** : à distinguer du business angel — un fonds VC investit généralement des tickets plus gros, exige un siège au board, et une term sheet plus formalisée.
 
 **Termes liés** : [Business angel](#business-angel), [Term sheet](#term-sheet), [Pacte d'actionnaires](#pacte-d-actionnaires-shareholders-agreement).
+
+---
+
+## Droit des sociétés OHADA — bases
+
+Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en Afrique du Droit des Affaires*, 17 pays) : le droit des sociétés n'est pas une loi malienne isolée mais un texte régional unique, l'**Acte Uniforme relatif au droit des sociétés commerciales et du GIE (AUSCGIE)**, directement applicable dans tous les pays membres. Les termes ci-dessous sont donc valables tels quels pour Kelenpe au Mali comme pour une société sœur au Sénégal ou en Côte d'Ivoire.
+
+## SARL (*Société à Responsabilité Limitée*)
+
+**Définition simple** : la forme de société la plus courante pour une startup ou PME OHADA — la responsabilité des associés est limitée à leurs apports (leur patrimoine personnel n'est pas engagé au-delà de ce qu'ils ont mis dans la société), avec un formalisme de gestion plus léger qu'une SA.
+
+**Contexte / exemple concret** : forme probable de Kelenpe (ou de chacune de ses filiales Prodora/Ayena si elles sont incorporées séparément) tant que le nombre d'associés reste restreint et qu'il n'y a pas besoin d'ouvrir le capital largement au public — l'AUSCGIE ne fixe plus de capital social minimum obligatoire pour la SARL depuis sa révision de 2014 (il est fixé librement dans les statuts).
+
+**Termes liés** : [SA](#sa-societe-anonyme), [Capital social](#capital-social), [Statuts](#statuts), [Gérant](#gerant-administrateur).
+
+---
+
+## SA (*Société Anonyme*)
+
+**Définition simple** : la forme de société adaptée à un actionnariat plus large et à une gouvernance plus formelle (conseil d'administration ou administrateur général selon la taille) — capital social minimum imposé par l'AUSCGIE, et c'est la forme obligatoire pour [être coté en bourse](#cote-en-bourse-publicly-listed-ipo) sur la BRVM.
+
+**Contexte / exemple concret** : trajectoire naturelle si Kelenpe grossit significativement, ouvre son capital à plusieurs investisseurs institutionnels, ou vise un jour la BRVM — la gouvernance plus lourde (conseil d'administration, commissaire aux comptes souvent obligatoire) se justifie à partir d'une certaine taille, pas avant.
+
+**Termes liés** : [SARL](#sarl-societe-a-responsabilite-limitee), [Coté en bourse](#cote-en-bourse-publicly-listed-ipo).
+
+---
+
+## GIE (*Groupement d'Intérêt Économique*)
+
+**Définition simple** : une structure légère qui permet à plusieurs entreprises (ou personnes) de mettre en commun des moyens (pas nécessairement de faire des bénéfices en son nom propre) pour développer leur activité respective — moins formel qu'une société, souvent utilisé pour une coopération ponctuelle ou un consortium.
+
+**Contexte / exemple concret** : utile à connaître si Kelenpe s'associe un jour avec d'autres entreprises maliennes pour un projet commun (ex. une mutualisation logistique pour Prodora avec d'autres marketplaces) sans vouloir créer une société à part entière.
+
+**Termes liés** : [SARL](#sarl-societe-a-responsabilite-limitee).
+
+---
+
+## Capital social
+
+**Définition simple** : la valeur totale des apports (argent, biens) que les associés mettent dans la société au moment de sa création (ou lors d'une augmentation de capital) — divisé en parts sociales (SARL) ou actions (SA), il détermine la répartition initiale du pouvoir et des droits.
+
+**Contexte / exemple concret** : à ne pas confondre avec la [valorisation](#valorisation-valuation) — le capital social de Kelenpe (ce qui est inscrit aux statuts) peut être de quelques centaines de milliers de FCFA, alors que sa valorisation estimée par un investisseur peut être bien plus élevée (elle reflète le potentiel futur, pas seulement l'apport initial).
+
+**Termes liés** : [Statuts](#statuts), [Cap table](#cap-table-table-de-capitalisation), [Valorisation](#valorisation-valuation).
+
+---
+
+## Statuts
+
+**Définition simple** : le document fondateur (constitutif) de la société — objet social, siège, capital, répartition des parts, règles de gouvernance, conditions de cession des parts. Contrairement au [pacte d'actionnaires](#pacte-d-actionnaires-shareholders-agreement) qui est privé entre associés, les statuts sont déposés au RCCM et opposables aux tiers.
+
+**Contexte / exemple concret** : les statuts de Kelenpe fixeraient par exemple si les fondateurs peuvent librement céder leurs parts à un tiers ou si un accord préalable des autres associés est requis (clause d'agrément) — un point que beaucoup de fondateurs découvrent trop tard, au moment où ils veulent justement vendre.
+
+**Termes liés** : [Capital social](#capital-social), [Pacte d'actionnaires](#pacte-d-actionnaires-shareholders-agreement), [RCCM](#rccm-registre-du-commerce-et-du-credit-mobilier).
+
+---
+
+## Gérant / Administrateur
+
+**Définition simple** : la personne qui dirige légalement la société au quotidien et engage sa responsabilité pour les actes de gestion — **gérant** pour une SARL, **administrateur général** ou **conseil d'administration + Directeur Général** pour une SA selon le mode de gouvernance choisi.
+
+**Contexte / exemple concret** : en tant que fondateur, Drissa serait typiquement désigné gérant de la SARL Kelenpe dans les statuts — un rôle juridique distinct d'être simplement "associé majoritaire" : le gérant peut engager la société vis-à-vis des tiers (signer un contrat, ouvrir un compte bancaire) même sans détenir la majorité du capital.
+
+**Termes liés** : [SARL](#sarl-societe-a-responsabilite-limitee), [Statuts](#statuts).
+
+---
+
+## Assemblée générale (AGO / AGE)
+
+**Définition simple** : la réunion officielle des associés/actionnaires où se prennent les décisions collectives. L'**AGO** (*Assemblée Générale Ordinaire*, annuelle) approuve les comptes et la gestion courante ; l'**AGE** (*Assemblée Générale Extraordinaire*) est requise pour les décisions structurantes (modification des statuts, augmentation de capital, changement de gérant).
+
+**Contexte / exemple concret** : une levée de fonds pour Kelenpe (émission de nouvelles parts pour un investisseur, donc modification du capital social) nécessiterait formellement une AGE, pas une simple décision informelle entre associés — le formalisme (procès-verbal, dépôt au RCCM) est ce qui rend l'opération opposable aux tiers.
+
+**Termes liés** : [Levée de fonds](#levee-de-fonds-fundraising), [Statuts](#statuts).
+
+---
+
+## RCCM (*Registre du Commerce et du Crédit Mobilier*)
+
+**Définition simple** : le registre officiel OHADA où toute société doit être immatriculée pour exister juridiquement et être opposable aux tiers — l'équivalent du "extrait Kbis" français, avec un numéro unique qui figure sur les factures, contrats, et documents officiels.
+
+**Contexte / exemple concret** : chaque filiale de Kelenpe incorporée séparément (si c'est le choix retenu) aurait son propre numéro RCCM auprès du greffe du tribunal de commerce de Bamako — un partenaire ou une banque le demandera systématiquement pour vérifier que l'entreprise existe légalement.
+
+**Termes liés** : [NIF](#nif-numero-d-identification-fiscale), [Statuts](#statuts).
+
+---
+
+## NIF (*Numéro d'Identification Fiscale*)
+
+**Définition simple** : l'identifiant fiscal unique attribué par l'administration fiscale malienne à toute entreprise (ou personne exerçant une activité économique), utilisé pour toutes les obligations déclaratives et de paiement d'impôts.
+
+**Contexte / exemple concret** : distinct du RCCM (qui prouve l'existence légale) — le NIF est ce qui rattache Kelenpe à l'administration fiscale malienne pour la TVA, l'impôt sur les sociétés, etc. Les deux sont généralement demandés ensemble pour ouvrir un compte bancaire professionnel ou répondre à un appel d'offres.
+
+**Termes liés** : [RCCM](#rccm-registre-du-commerce-et-du-credit-mobilier).
+
+---
+
+## Métriques publicitaires (CPM, CPC, CPA, CTR, ROAS)
+
+**Définition simple** : le vocabulaire pour discuter performance publicitaire avec un annonceur (pertinent pour **Kelenpe Ad**) :
+- **CPM** (*Coût Pour Mille* impressions) — ce que coûte le fait de montrer la pub 1000 fois, indépendamment des clics.
+- **CPC** (*Coût Par Clic*) — ce que coûte chaque clic obtenu.
+- **CPA** (*Coût Par Acquisition*) — ce que coûte chaque conversion (achat, inscription) obtenue.
+- **CTR** (*Click-Through Rate*, taux de clic) — proportion de gens qui cliquent parmi ceux qui ont vu la pub.
+- **ROAS** (*Return On Ad Spend*) — le chiffre d'affaires généré pour chaque FCFA dépensé en publicité.
+
+**Contexte / exemple concret** : `ad-engine-forge`/AdMesh (le moteur publicitaire de Kelenpe Ad) cite explicitement ClickHouse comme "la brique qui rend le dashboard rapide" pour calculer CPA/CTR/ROAS en temps réel sur de gros volumes d'événements — ce sont exactement les chiffres qu'un annonceur regardera pour juger si une campagne "marche".
+
+**Calcul** : CTR (%) = (nombre de clics ÷ nombre d'impressions) × 100. ROAS = chiffre d'affaires généré ÷ dépense publicitaire.
+*Exemple* : une campagne Kelenpe Ad génère 50 000 impressions, 750 clics, et 1 500 000 FCFA de ventes pour 300 000 FCFA dépensés → CTR = (750/50 000) × 100 = **1,5 %** ; ROAS = 1 500 000 / 300 000 = **5** (chaque FCFA dépensé rapporte 5 FCFA de vente).
+
+**Termes liés** : [RTB (Real-Time Bidding)](#rtb-real-time-bidding-et-enchere-au-second-prix), [ROI](#roi-return-on-investment).
+
+---
+
+## RTB (*Real-Time Bidding*) et enchère au second prix
+
+**Définition simple** : le **RTB** est le mécanisme par lequel un espace publicitaire est vendu aux enchères, en temps réel (quelques dizaines de millisecondes), au moment précis où un utilisateur charge une page — plusieurs annonceurs "enchérissent" automatiquement, et le plus offrant remporte l'affichage. L'**enchère au second prix** (utilisée par la plupart des plateformes, dont Google Ads) fait que le gagnant paie seulement le prix de la deuxième meilleure offre + un centime, pas son offre maximale — ce qui encourage chacun à enchérir sincèrement sa vraie valorisation sans stratégie de sous-enchère.
+
+**Contexte / exemple concret** : c'est exactement ce que le service `ad-engine` de `ad-engine-forge` implémente, en Rust pour la performance (latence cible < 100 ms, catalogue entièrement en RAM via `DashMap` pour ne jamais interroger PostgreSQL pendant l'enchère elle-même) — le README du projet précise que ce moteur d'enchère est "le chemin critique de latence" et la pièce la plus testée du système (5 tests unitaires dédiés à l'enchère au second prix et au ciblage géographique).
+
+**Termes liés** : [Métriques publicitaires](#metriques-publicitaires-cpm-cpc-cpa-ctr-roas), [gRPC & Protobuf](/backend/#grpc-protobuf).

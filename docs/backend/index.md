@@ -161,3 +161,73 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : les nombreux fichiers `AdminImageDtos.kt`, adapters et "ports" (`HttpAdminImageRepository.ts`, `AdminImageRepository.ts`) dans Prodora Admin Hub sont typiques de plumbing — ils ne contiennent pas de logique métier, ils transportent et adaptent la donnée entre le frontend et l'API backend.
 
 **Termes liés** : [Découplage](#decouplage).
+
+---
+
+## Idempotence
+
+**Définition simple** : une opération est idempotente si l'exécuter plusieurs fois produit le même résultat que l'exécuter une seule fois — rejouer la même requête par erreur (retry réseau, double clic) ne casse rien.
+
+**Contexte / exemple concret** : le script de seed de données de `ad-engine-forge` (`make seed`) est explicitement conçu comme idempotent — on peut le relancer à tout moment sans dupliquer les organisations ou les clés API de test. C'est un réflexe à avoir pour toute tâche déclenchée par un retry automatique (webhook, job de queue) : si Reelforge relance un job de transcodage après un timeout réseau côté S3, il ne faut pas que ça produise deux fois la même rendition en double.
+
+**Termes liés** : [Message queue](#message-queue-file-de-messages), [Worker](#worker).
+
+---
+
+## Architecture Electron (Main / Renderer / Preload)
+
+**Définition simple** : une application Electron (desktop, multiplateforme, basée sur Chromium + Node.js) tourne dans plusieurs processus séparés qui ne partagent pas de mémoire directement : le **process principal** (*main*, Node.js complet, accès disque/OS), le **process de rendu** (*renderer*, l'interface web, sans accès direct à Node pour des raisons de sécurité), et un **script de préchargement** (*preload*) qui fait le pont contrôlé entre les deux.
+
+**Contexte / exemple concret** : **Boutik** (logiciel de caisse desktop Kelenpe, Electron + React + TypeScript) suit exactement cette structure : `src/main/` (accès à la base SQLite locale via `better-sqlite3`, aux ventes, à l'impression), `src/renderer/` (l'interface React que voit le caissier) et `src/preload/` (le pont sécurisé entre les deux, voir IPC ci-dessous).
+
+**Termes liés** : [IPC](#ipc-inter-process-communication).
+
+---
+
+## IPC (*Inter-Process Communication*)
+
+**Définition simple** : le mécanisme par lequel deux processus séparés (qui ne partagent pas de mémoire) s'échangent des messages — indispensable dans Electron où le renderer (interface) ne peut pas appeler directement le code Node.js du main process.
+
+**Contexte / exemple concret** : dans Boutik, `src/preload/index.ts` expose un pont IPC typé (`src/shared/index.ts` partage les types entre les deux côtés) — quand l'interface React veut annuler une vente (`src/main/ventes/annulation.ts`), elle ne modifie pas directement la base SQLite : elle envoie un message IPC au main process, qui seul a le droit d'écrire dans la base.
+
+**Termes liés** : [Architecture Electron (Main / Renderer / Preload)](#architecture-electron-main-renderer-preload).
+
+---
+
+## Authentification JWT / Session
+
+**Définition simple** : deux façons courantes de savoir "qui est connecté" à chaque requête. Un **JWT** (*JSON Web Token*) est un jeton auto-porteur signé (le serveur peut le vérifier sans base de données) contenant les infos de l'utilisateur, envoyé dans l'en-tête `Authorization: Bearer <token>`. Une **session cookie** stocke un identifiant côté client (cookie, idéalement `HttpOnly` pour être inaccessible en JavaScript) qui pointe vers un état gardé côté serveur.
+
+**Contexte / exemple concret** : `admesh`/`ad-engine-forge` (Kelenpe Ad) documente utiliser les deux en parallèle : un cookie de session `HttpOnly` nommé `admesh_session` pour le dashboard web (protège contre le vol de token en JS, typiquement via une attaque XSS), et un JWT via `Authorization: Bearer` pour les appels machine-à-machine (SDK mobile, intégrations serveur à serveur) où un cookie n'a pas de sens.
+
+**Termes liés** : [API Gateway](#api-gateway).
+
+---
+
+## gRPC & Protobuf
+
+**Définition simple** : **Protobuf** (*Protocol Buffers*, format binaire compact créé par Google) décrit la structure des messages échangés entre services dans un fichier `.proto` ; **gRPC** est un framework d'appel de procédure à distance (RPC) qui utilise Protobuf pour des communications inter-services rapides et fortement typées — une alternative à REST/JSON quand la performance et le typage strict comptent plus que la lisibilité humaine directe.
+
+**Contexte / exemple concret** : `ad-engine-forge`/`admesh` définit son contrat inter-services dans `proto/ad.proto` — le moteur d'enchère Rust (chemin critique, latence cible < 100ms) et les autres services génèrent leur code de communication à partir de ce même fichier, garantissant qu'ils restent synchronisés sur le format des messages sans repasser par une doc à jour manuellement.
+
+**Termes liés** : [Microservices](#microservices), [API Gateway](#api-gateway).
+
+---
+
+## Event streaming (*Kafka / Redpanda*)
+
+**Définition simple** : une variante de la message queue (voir plus haut) pensée pour un débit très élevé d'événements bruts (clics, impressions, vues) plutôt que des "jobs" ponctuels — les messages restent dans un log ordonné que plusieurs consommateurs peuvent relire indépendamment, contrairement à une queue classique où un message consommé disparaît.
+
+**Contexte / exemple concret** : `ad-engine-forge` utilise **Redpanda** (compatible avec l'API Kafka, mais sans dépendance à la JVM — argument cité explicitement : "Kafka-compatible sans JVM") pour ingérer en temps réel les événements bruts d'impressions et de clics publicitaires, avant qu'ils soient agrégés dans ClickHouse (voir [OLAP](#oltp-vs-olap)) pour calculer CTR/CPA/ROAS.
+
+**Termes liés** : [Message queue](#message-queue-file-de-messages), [OLTP vs OLAP](#oltp-vs-olap).
+
+---
+
+## OLTP vs OLAP
+
+**Définition simple** : **OLTP** (*Online Transaction Processing*) désigne les bases de données optimisées pour beaucoup de petites lectures/écritures individuelles (ex. PostgreSQL pour "créer une commande", "mettre à jour un stock"). **OLAP** (*Online Analytical Processing*) désigne les bases optimisées pour agréger et analyser de très gros volumes de données en lecture (ex. "le CTR moyen par campagne sur 90 jours") — stockage en colonnes plutôt qu'en lignes, beaucoup plus rapide pour ce type de requête.
+
+**Contexte / exemple concret** : `ad-engine-forge` sépare explicitement les deux : PostgreSQL comme "source de vérité transactionnelle" (hiérarchie campagne → ad set → ad, OLTP), et **ClickHouse** comme moteur d'agrégation temps réel pour les métriques publicitaires — décrit comme "la brique qui rend le dashboard rapide même à des milliards de lignes" (OLAP). Utiliser PostgreSQL seul pour ce second usage serait possible mais beaucoup plus lent à grande échelle.
+
+**Termes liés** : [Event streaming (Kafka / Redpanda)](#event-streaming-kafka-redpanda), [Connection pool](#connection-pool).

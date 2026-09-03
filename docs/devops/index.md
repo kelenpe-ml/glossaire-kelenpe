@@ -101,3 +101,53 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Contexte / exemple concret** : `prodora-v2/reelforge/docs/runbook.md` — la documentation opérationnelle du pipeline de transcodage, pour intervenir rapidement en cas de panne sans devoir tout redécouvrir sous pression.
 
 **Termes liés** : [Observabilité](#observabilite-observability).
+
+---
+
+## CDN (*Content Delivery Network*)
+
+**Définition simple** : un réseau de serveurs répartis géographiquement qui mettent en cache une copie de tes fichiers statiques (images, vidéos, JS/CSS) près de chaque utilisateur, pour réduire la latence et décharger ton serveur d'origine.
+
+**Contexte / exemple concret** : Reelforge livre ses vidéos transcodées via **CloudFront** (le CDN AWS) plutôt que directement depuis S3 — l'utilisateur au Mali ou en Côte d'Ivoire télécharge les segments HLS/DASH depuis un point de présence proche, pas depuis la région AWS d'origine.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [Rendition](/streaming/#rendition).
+
+---
+
+## Feature flag (*Drapeau de fonctionnalité*)
+
+**Définition simple** : un interrupteur configuré à distance (sans redéployer le code) qui active ou désactive une fonctionnalité pour tout ou partie des utilisateurs — permet de déployer du code "éteint" en production, puis de l'activer progressivement (rollout progressif, test A/B, ou retour arrière instantané en cas de bug).
+
+**Contexte / exemple concret** : utile pour Prodora ou Kelenpe Ad avant d'activer une nouvelle fonctionnalité (ex. un nouveau mode d'enchère dans `ad-engine-forge`) pour tous les annonceurs d'un coup — on l'active d'abord pour un petit pourcentage de trafic, on observe, puis on généralise.
+
+**Termes liés** : [CI/CD](#ci-cd-integration-continue-deploiement-continu).
+
+---
+
+## WAF (*Web Application Firewall*)
+
+**Définition simple** : un filtre placé devant une application web qui inspecte le trafic HTTP entrant et bloque les requêtes qui ressemblent à des attaques connues (injection SQL, XSS, bots de scraping agressifs) avant qu'elles n'atteignent l'application.
+
+**Contexte / exemple concret** : pertinent pour Prodora Backend — `SecurityHeadersFilter.kt` gère déjà une partie de la sécurité applicative côté code, mais un WAF (souvent fourni par le reverse proxy/CDN) ajoute une couche de filtrage en amont, avant même que la requête n'atteigne le serveur Kotlin.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [CDN](#cdn-content-delivery-network).
+
+---
+
+## Healthcheck
+
+**Définition simple** : un endpoint HTTP simple (souvent `/healthz` ou `/health`) qu'un service expose pour dire "je suis vivant et je fonctionne" — utilisé par l'orchestrateur (Kubernetes, Docker Compose) pour savoir s'il doit router du trafic vers cette instance ou la redémarrer.
+
+**Contexte / exemple concret** : `ad-engine-forge` vérifie sa "Phase 0" précisément avec `curl -sf http://localhost:8080/healthz` et `curl -sf http://localhost:8081/healthz` — le jalon de départ d'une stack backend saine n'est pas "ça compile", c'est "chaque service répond correctement à son healthcheck".
+
+**Termes liés** : [Orchestration](#orchestration), [Observabilité](#observabilite-observability).
+
+---
+
+## Rate limiting (*Limitation de débit*)
+
+**Définition simple** : restreindre le nombre de requêtes qu'un client (utilisateur, clé API, IP) peut faire dans une fenêtre de temps donnée, pour protéger le service d'un abus (volontaire ou non) ou d'un pic de charge imprévu.
+
+**Contexte / exemple concret** : un rôle typique de l'API Gateway ou du reverse proxy — pertinent dès que Prodora ou Kelenpe Ad ouvrent une API publique à des intégrateurs tiers : sans rate limiting, un seul client mal configuré pourrait saturer l'infra partagée par tous les autres.
+
+**Termes liés** : [API Gateway](/backend/#api-gateway), [Reverse proxy](#reverse-proxy).

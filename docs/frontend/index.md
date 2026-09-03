@@ -111,3 +111,43 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Contexte / exemple concret** : pertinent pour le feed vidéo Ayena/Deme, où les posters/miniatures se chargent progressivement (voir [Preload](/streaming/#preload)) — un skeleton évite que la liste "saute" visuellement le temps que les vraies images arrivent.
 
 **Termes liés** : [Reduced motion](#reduced-motion-preference-de-mouvement-reduit).
+
+---
+
+## SSR / SSG / Hydration
+
+**Définition simple** : trois stratégies pour générer le HTML d'une page React/Next.js. **SSR** (*Server-Side Rendering*) : le serveur génère le HTML à chaque requête. **SSG** (*Static Site Generation*) : le HTML est généré une fois à la construction (build), puis servi tel quel (rapide, mais figé jusqu'au prochain build). **Hydration** : une fois le HTML (SSR ou SSG) affiché dans le navigateur, React "réactive" les composants pour les rendre interactifs — avant l'hydration, la page est visible mais les boutons ne réagissent pas encore.
+
+**Contexte / exemple concret** : `kelenpe-forms` (formulaire client, Next.js) et `ad-engine-forge/services/dashboard` (Next.js) doivent choisir consciemment entre SSR et SSG selon la page — un formulaire qui dépend de données utilisateur fraîches (session, contenu personnalisé) a besoin de SSR, alors qu'une page marketing statique se contente de SSG et sera bien plus rapide à charger.
+
+**Termes liés** : [Responsive design](#responsive-design).
+
+---
+
+## Design tokens
+
+**Définition simple** : les valeurs de design de base (couleurs, espacements, tailles de police, rayons de bordure) extraites en variables nommées et centralisées, plutôt que codées en dur partout — un changement de couleur de marque se fait à un seul endroit et se propage à toute l'interface.
+
+**Contexte / exemple concret** : les projets Kelenpe basés sur shadcn/ui + Tailwind (`components.json` dans Kelenpe Studio, Kelenpe Ads Studio, Prodora Frontend) utilisent ce principe via les variables CSS/Tailwind de thème — utile day one si Kelenpe veut un jour faire du [white labeling](/backend/#white-labeling-marque-blanche) : changer les tokens de thème suffit à re-marquer visuellement un produit.
+
+**Termes liés** : [Responsive design](#responsive-design), [White labeling](/backend/#white-labeling-marque-blanche).
+
+---
+
+## Accessibilité (*a11y*)
+
+**Définition simple** : concevoir une interface utilisable par tous, y compris les personnes en situation de handicap (déficience visuelle avec lecteur d'écran, motrice avec navigation clavier seule, sensibilité aux animations) — souvent abrégé "a11y" (a + 11 lettres + y).
+
+**Contexte / exemple concret** : déjà entamé dans les projets Kelenpe via `use-reduced-motion.ts` (voir [Reduced motion](#reduced-motion-preference-de-mouvement-reduit)) — d'autres réflexes à intégrer : contraste de couleur suffisant, texte alternatif sur les images produit Prodora (utile aussi pour le SEO), navigation clavier complète sur le tunnel d'achat.
+
+**Termes liés** : [Reduced motion](#reduced-motion-preference-de-mouvement-reduit).
+
+---
+
+## State management (*Gestion d'état*)
+
+**Définition simple** : la stratégie pour stocker et partager les données qui changent dans une interface (panier d'achat, utilisateur connecté, filtres actifs) entre plusieurs composants, sans que chacun doive redemander l'info à son parent (*prop drilling*).
+
+**Contexte / exemple concret** : `ma-boutik-facile` utilise un store dédié (`boutik-store.tsx`) pour partager l'état du stock/panier entre les pages sans tout faire remonter manuellement composant par composant — un choix à faire consciemment dès qu'une app React grandit (Context API natif, ou une librairie dédiée comme Zustand/Redux pour des besoins plus complexes).
+
+**Termes liés** : [Responsive design](#responsive-design).
