@@ -101,6 +101,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Message queue (File de messages)](/backend/#message-queue-file-de-messages)** — *Backend & architecture*
 - **[Microservices](/backend/#microservices)** — *Backend & architecture*
+- **[Middleware](/backend/#middleware)** — *Backend & architecture*
 - **[Multi-tenant](/backend/#multi-tenant-multi-tenant)** — *Backend & architecture*
 - **[Métriques publicitaires (CPM, CPC, CPA, CTR, ROAS)](/business/#metriques-publicitaires-cpm-cpc-cpa-ctr-roas)** — *Jargon entrepreneurial*
 

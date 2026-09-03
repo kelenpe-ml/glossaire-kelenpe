@@ -92,6 +92,16 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
+## Middleware
+
+**Définition simple** : une fonction qui s'exécute *entre* la requête entrante et la réponse finale, pour intercepter, modifier ou bloquer le traitement — authentification, logging, rewrite d'URL, headers, etc. — avant que la requête n'atteigne le code métier (ou avant que la réponse ne reparte).
+
+**Contexte / exemple concret** : sur le déploiement Vercel du glossaire, un `middleware.ts` à la racine du projet (Vercel *Routing Middleware*, anciennement *Edge Middleware*) intercepte chaque requête avant de servir les fichiers statiques VitePress, pour exiger une authentification HTTP Basic (login/mot de passe) — gratuit, contrairement à la Password Protection payante de Vercel. Même logique côté Spring Boot (filtres/interceptors) ou Express (`app.use(...)`) : le middleware JWT vérifie le token avant de laisser passer la requête vers le contrôleur.
+
+**Termes liés** : [API Gateway](#api-gateway), [Authentification JWT / Session](#authentification-jwt-session).
+
+---
+
 ## Pooling
 
 ![Pool fixe de 3 lecteurs video reutilises](/diagrams/pooling.svg)
