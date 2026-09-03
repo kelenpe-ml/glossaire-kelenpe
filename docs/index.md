@@ -2,6 +2,10 @@
 layout: home
 
 hero:
+  image:
+    light: /kelenpe-logo.png
+    dark: /kelenpe-logo-dark.png
+    alt: Kelenpe
   name: "Glossaire de Drissa"
   text: "Lexique tech & business, vivant"
   tagline: "Un terme, son sens, où je l'ai rencontré, et comment il s'articule avec les autres — pour rester pointu en dev et parler juste avec les investisseurs de Kelenpe."

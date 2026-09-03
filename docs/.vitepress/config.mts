@@ -7,7 +7,13 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+  ],
+
   themeConfig: {
+    logo: { light: '/logo.png', dark: '/logo-dark.png', alt: 'Kelenpe' },
+
     search: {
       provider: 'local',
       options: {
