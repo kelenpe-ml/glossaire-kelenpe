@@ -87,7 +87,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## K
 
-- **[KPI (Key Performance Indicator)](/business/#kpi-key-performance-indicator-indicateur-cle-de-performance)** — *Jargon entrepreneurial*
+- **[KPI (Key Performance Indicator)](/devops/#kpi-key-performance-indicator-indicateur-cle-de-performance)** — *DevOps & infra*
 
 ## L
 

@@ -88,6 +88,18 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ---
 
+## KPI (*Key Performance Indicator*, indicateur clé de performance)
+
+**Définition simple** : un indicateur chiffré choisi à l'avance pour suivre si un objectif précis est atteint — pas n'importe quel nombre mesurable, seulement ceux qui comptent vraiment pour l'objectif visé. Le terme vient du monde business, mais entre devs il désigne le plus souvent des métriques **techniques/opérationnelles** : à quel point un service tient ses promesses de fiabilité et de performance.
+
+**Contexte / exemple concret** : côté ingénierie, les KPI classiques sont la disponibilité (*uptime*, ex. 99,9%), la latence (souvent en p95/p99 — le temps de réponse que 95%/99% des requêtes respectent, pas juste la moyenne qui cache les cas lents), le taux d'erreur, le temps moyen de résolution d'incident (**MTTR**, *Mean Time To Recovery*) et la fréquence de déploiement. Sur Reelforge par exemple, un KPI naturel serait le **taux de renditions qui passent le seuil VMAF ≥ 85 du premier coup** (sans retry) — un signal direct de la santé du pipeline de transcodage. Sur `ad-engine-forge`, ce serait la latence p99 du moteur d'enchère (cible < 100ms) : dépasser ce seuil dégraderait directement le revenu publicitaire. Ces KPI techniques sont ce qu'un [healthcheck](#healthcheck) vérifie en continu et ce qu'un [runbook](#runbook) aide à corriger quand ils dérapent.
+
+**Cousin côté business** : la même logique s'applique aux métriques suivies par un investisseur (runway, ROI, CTR...) — voir le [glossaire entrepreneurial](/business/#valorisation-valuation) pour cette version-là. Le mot est le même, seul l'objectif suivi change.
+
+**Termes liés** : [Observabilité](#observabilite-observability), [Healthcheck](#healthcheck), [Runbook](#runbook).
+
+---
+
 ## Observabilité (*Observability*)
 
 **Définition simple** : la capacité à comprendre l'état interne d'un système à partir de ce qu'il expose vers l'extérieur (logs, métriques, traces) — au-delà du simple "monitoring" qui alerte sur des seuils connus, l'observabilité permet de diagnostiquer des problèmes imprévus.
