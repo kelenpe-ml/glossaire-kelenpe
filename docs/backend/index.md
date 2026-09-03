@@ -6,6 +6,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## System design
 
+![Pipeline Reelforge : client, API, S3, SQS, worker GPU, CDN, lecteur](/diagrams/reelforge-pipeline.svg)
+
 **Définition simple** : la discipline qui consiste à concevoir l'architecture globale d'un système logiciel — comment les composants communiquent, où sont les points de défaillance, comment ça scale — avant (ou en parallèle) d'écrire le code lui-même.
 
 **Contexte / exemple concret** : le choix Reelforge de découpler l'API et les Workers via une file SQS (plutôt qu'un appel direct) est une décision de system design : ça permet de scaler les workers GPU indépendamment de l'API, et d'absorber les pics de charge sans faire tomber le service d'upload.
@@ -25,6 +27,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Message queue (*File de messages*)
+
+![Message queue avec producteur, consommateur et DLQ](/diagrams/message-queue.svg)
 
 **Définition simple** : un système qui stocke temporairement des messages (souvent des "jobs" à traiter) entre un producteur et un ou plusieurs consommateurs, pour absorber les pics de charge et découpler les composants dans le temps.
 
@@ -66,6 +70,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## Microservices
 
+![Monolithe vs microservices, exemple Gift](/diagrams/microservices-vs-monolith.svg)
+
 **Définition simple** : découper une application en plusieurs services indépendants, chacun responsable d'un domaine métier précis, communiquant entre eux par API — par opposition à un *monolithe* (une seule application qui fait tout).
 
 **Contexte / exemple concret** : **Gift** (association caritative, Spring Cloud) illustre l'architecture microservices chez Kelenpe : `service-auth`, `service-gateway`, `service-cause`, `service-donation`, `service-activity`, `service-admin` — chaque service a son propre `pom.xml`, sa propre base de code, et communique via le `service-gateway` (voir ci-dessous).
@@ -76,6 +82,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## API Gateway
 
+![Client vers API Gateway vers services internes](/diagrams/api-gateway.svg)
+
 **Définition simple** : le point d'entrée unique d'une architecture microservices — il reçoit toutes les requêtes externes et les route vers le bon service interne, en centralisant souvent l'authentification, le rate limiting et le logging.
 
 **Contexte / exemple concret** : `service-gateway` chez Gift joue ce rôle : le client (app Flutter) ne parle jamais directement à `service-donation` ou `service-cause`, tout transite par la gateway qui route vers le bon service backend.
@@ -85,6 +93,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Pooling
+
+![Pool fixe de 3 lecteurs video reutilises](/diagrams/pooling.svg)
 
 **Définition simple** : maintenir un ensemble limité de ressources coûteuses à créer (connexions DB, threads, objets lourds) déjà initialisées et réutilisables, plutôt que d'en créer/détruire une à chaque besoin.
 
@@ -175,6 +185,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Architecture Electron (Main / Renderer / Preload)
+
+![Main process, preload et renderer communiquant par IPC](/diagrams/electron-architecture.svg)
 
 **Définition simple** : une application Electron (desktop, multiplateforme, basée sur Chromium + Node.js) tourne dans plusieurs processus séparés qui ne partagent pas de mémoire directement : le **process principal** (*main*, Node.js complet, accès disque/OS), le **process de rendu** (*renderer*, l'interface web, sans accès direct à Node pour des raisons de sécurité), et un **script de préchargement** (*preload*) qui fait le pont contrôlé entre les deux.
 

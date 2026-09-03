@@ -1,0 +1,30 @@
+<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reverse proxy + repartition de charge" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Reverse proxy + repartition de charge</title>
+<rect x="0" y="0" width="760" height="260" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect x="30" y="90" width="130" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="95.0" y="114.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Internet</text>
+<text x="95.0" y="129.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">utilisateurs</text>
+<rect x="220" y="90" width="170" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="305.0" y="114.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Reverse proxy</text>
+<text x="305.0" y="129.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">Traefik (Coolify)</text>
+<rect x="460" y="20" width="140" height="55" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="530.0" y="47.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Instance A</text>
+
+<rect x="460" y="95" width="140" height="55" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="530.0" y="122.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Instance B</text>
+
+<rect x="460" y="170" width="140" height="55" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="530.0" y="197.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Instance C</text>
+
+<line x1="160" y1="120" x2="220" y2="120" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<text x="190.0" y="114.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">HTTPS</text>
+<line x1="390" y1="105" x2="460" y2="47" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="390" y1="120" x2="460" y2="122" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="390" y1="135" x2="460" y2="197" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<text x="600" y="250" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" font-weight="400" fill="#64748b" >route par domaine + repartit la charge entre instances</text>
+</svg>

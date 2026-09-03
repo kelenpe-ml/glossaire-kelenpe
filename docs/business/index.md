@@ -126,6 +126,8 @@ Vocabulaire pour gérer Kelenpe (Prodora, Ayena, Kelenpe Ad...) face à des inve
 
 ## Dilution
 
+![Repartition du capital avant et apres une levee de fonds](/diagrams/dilution.svg)
+
 **Définition simple** : la réduction du pourcentage de capital détenu par un actionnaire existant lorsque de nouvelles actions sont émises (typiquement lors d'une levée de fonds). On ne perd pas de valeur en FCFA sur ses parts existantes, mais on possède une part plus petite d'un gâteau plus gros.
 
 **Calcul** : nouveau % = ancien nombre d'actions ÷ nouveau nombre total d'actions (après émission).
@@ -341,6 +343,8 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 ---
 
 ## RTB (*Real-Time Bidding*) et enchère au second prix
+
+![Trois annonceurs encherissent, le gagnant paie le second prix](/diagrams/rtb-second-price.svg)
 
 **Définition simple** : le **RTB** est le mécanisme par lequel un espace publicitaire est vendu aux enchères, en temps réel (quelques dizaines de millisecondes), au moment précis où un utilisateur charge une page — plusieurs annonceurs "enchérissent" automatiquement, et le plus offrant remporte l'affichage. L'**enchère au second prix** (utilisée par la plupart des plateformes, dont Google Ads) fait que le gagnant paie seulement le prix de la deuxième meilleure offre + un centime, pas son offre maximale — ce qui encourage chacun à enchérir sincèrement sa vraie valorisation sans stratégie de sous-enchère.
 

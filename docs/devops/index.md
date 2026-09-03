@@ -6,6 +6,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ## CI/CD (*Intégration continue / Déploiement continu*)
 
+![Etapes du pipeline CI/CD : push, build, tests, package, deploy](/diagrams/cicd-pipeline.svg)
+
 **Définition simple** : l'automatisation des étapes entre "je pousse du code" et "le code tourne en production" — build, tests, puis déploiement — pour réduire les erreurs manuelles et accélérer les livraisons.
 
 **Contexte / exemple concret** : Prodora Backend a un pipeline dans `.github/workflows/ci-cd.yml` qui s'exécute à chaque push — probablement build Kotlin/Maven + tests avant déploiement.
@@ -65,6 +67,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 ---
 
 ## Reverse proxy
+
+![Reverse proxy routant vers plusieurs instances](/diagrams/reverse-proxy-lb.svg)
 
 **Définition simple** : un serveur qui reçoit les requêtes entrantes à la place des applications finales, et les redirige vers le bon service en interne — utile pour le routing par nom de domaine, le HTTPS centralisé, ou l'équilibrage de charge.
 

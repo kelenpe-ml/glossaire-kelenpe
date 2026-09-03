@@ -6,6 +6,8 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 
 ## Carousel
 
+![Wireframe d'un carousel avec fleches et indicateurs](/diagrams/carousel-wireframe.svg)
+
 **Définition simple** : un composant d'interface qui affiche une série d'éléments (images, cartes, slides) l'un après l'autre dans un espace limité, navigable manuellement (swipe/flèches) ou automatiquement.
 
 **Contexte / exemple concret** : sur Prodora, une fiche produit avec plusieurs photos utilise typiquement un carousel pour les parcourir sans allonger la page ; côté Kelenpe Ads Studio, l'aperçu d'une campagne avec plusieurs créatifs (images/vidéos, voir `AdPreview.tsx`) suit la même logique.
@@ -25,6 +27,8 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 ---
 
 ## Hero section
+
+![Comparaison visuelle entre un hero section et un banner](/diagrams/hero-vs-banner.svg)
 
 **Définition simple** : la première section visible d'une page, en haut, généralement avec un titre fort, un visuel marquant et un call-to-action — c'est la "vitrine" qui doit convaincre en quelques secondes.
 

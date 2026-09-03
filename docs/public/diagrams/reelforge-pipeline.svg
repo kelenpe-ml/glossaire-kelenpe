@@ -1,0 +1,40 @@
+<svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline de transcodage Reelforge" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Pipeline de transcodage Reelforge</title>
+<rect x="0" y="0" width="860" height="260" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect x="20" y="30" width="110" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="75.0" y="60.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Client</text>
+
+<rect x="170" y="30" width="120" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="230.0" y="54.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">API</text>
+<text x="230.0" y="69.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">upload S3 presigne</text>
+<rect x="340" y="30" width="120" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="400.0" y="54.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">S3</text>
+<text x="400.0" y="69.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">source de verite</text>
+<rect x="510" y="30" width="130" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="575.0" y="54.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">SQS</text>
+<text x="575.0" y="69.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">file de jobs</text>
+<rect x="680" y="30" width="160" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="760.0" y="54.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Worker GPU</text>
+<text x="760.0" y="69.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">FFmpeg NVENC</text>
+<line x1="130" y1="60" x2="170" y2="60" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="290" y1="60" x2="340" y2="60" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="460" y1="60" x2="510" y2="60" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="640" y1="60" x2="680" y2="60" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<rect x="680" y="150" width="160" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="760.0" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">S3 (outputs)</text>
+<text x="760.0" y="189.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">renditions HLS/DASH</text>
+<rect x="510" y="150" width="130" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="575.0" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">CloudFront</text>
+<text x="575.0" y="189.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">CDN</text>
+<rect x="340" y="150" width="120" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="400.0" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Lecteur</text>
+<text x="400.0" y="189.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ABR</text>
+<line x1="680" y1="180" x2="640" y2="180" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="510" y1="180" x2="460" y2="180" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<text x="760" y="130" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" font-weight="400" fill="#64748b" >probe -&gt; thumbnail -&gt; transcode (CMAF) -&gt; VMAF -&gt; package</text>
+</svg>

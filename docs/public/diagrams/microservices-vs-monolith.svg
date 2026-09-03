@@ -1,0 +1,37 @@
+<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monolithe vs microservices" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Monolithe vs microservices</title>
+<rect x="0" y="0" width="760" height="260" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+  </marker>
+</defs>
+<rect x="40" y="60" width="260" height="150" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="170.0" y="129.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Monolithe</text>
+<text x="170.0" y="144.3" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">tout le code, un seul deploiement</text>
+<rect x="420" y="30" width="90" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="465.0" y="55.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">auth</text>
+
+<rect x="420" y="100" width="90" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="465.0" y="125.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">cause</text>
+
+<rect x="420" y="170" width="90" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="465.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">donation</text>
+
+<rect x="560" y="30" width="90" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="605.0" y="55.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">activity</text>
+
+<rect x="560" y="100" width="90" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="605.0" y="125.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">admin</text>
+
+<rect x="650" y="170" width="0" height="0" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="650.0" y="170.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b"></text>
+
+<rect x="650" y="65" width="90" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="695.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">gateway</text>
+
+<line x1="510" y1="55" x2="650" y2="90" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="510" y1="125" x2="650" y2="115" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<line x1="510" y1="195" x2="650" y2="140" stroke="#64748b" stroke-width="1.75" marker-end="url(#arrow)" />
+<text x="600" y="250" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" font-weight="400" fill="#64748b" >ex. Gift : service-auth, service-cause, service-donation... derriere service-gateway</text>
+</svg>

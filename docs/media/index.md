@@ -26,6 +26,8 @@ Extrait principalement de **Media Editor Forge** (éditeur de statuts type "Stor
 
 ## Z-index
 
+![Calques empiles par z-index sur un canvas transparent](/diagrams/compositing-zindex.svg)
+
 **Définition simple** : l'ordre d'empilement des calques — plus le z-index est élevé, plus l'élément est dessiné "au-dessus" des autres.
 
 **Contexte / exemple concret** : `OverlayFrameCompositor.compose()` fait `layers.sortedBy { it.zIndex }` avant de dessiner — le calque avec le plus petit z-index est peint en premier (donc en dessous), les suivants viennent par-dessus.

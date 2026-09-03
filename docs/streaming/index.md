@@ -26,6 +26,8 @@ Extrait principalement de **Reelforge** (pipeline de transcodage vidéo en Go, K
 
 ## ABR (*Adaptive Bitrate Streaming*)
 
+![Ladder ABR avec 4 renditions et bascule adaptative](/diagrams/abr-ladder.svg)
+
 **Définition simple** : la technique qui permet au lecteur vidéo de changer de rendition (qualité) en cours de lecture selon la bande passante et les performances de l'appareil, sans interrompre la lecture — c'est ce qui évite le freeze quand le réseau se dégrade.
 
 **Contexte / exemple concret** : Reelforge encode systématiquement en ladder ABR (plusieurs renditions H.264 packagées en HLS + DASH via CMAF) pour que le lecteur choisisse la meilleure qualité disponible en temps réel. Côté lecture, **Ayena** applique une version applicative du même principe : `VideoPlayerPool` force une **rendition basse au démarrage** (`forceLow = true`, 480×854, bitrate max 1,2 Mbps) puis relève la qualité ~900ms après la première frame rendue (`scheduleQualityLift`), pour un démarrage rapide sans flash de qualité.
@@ -55,6 +57,8 @@ Extrait principalement de **Reelforge** (pipeline de transcodage vidéo en Go, K
 ---
 
 ## CMAF
+
+![Un jeu de segments CMAF, deux manifestes HLS et DASH](/diagrams/cmaf-hls-dash.svg)
 
 **Définition simple** : *Common Media Application Format* — un format de segmentation vidéo unique (fMP4) qui sert à la fois de base pour HLS et DASH, évitant d'encoder/stocker deux fois la même vidéo pour les deux protocoles.
 
