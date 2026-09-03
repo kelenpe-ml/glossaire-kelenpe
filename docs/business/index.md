@@ -210,6 +210,18 @@ Vocabulaire pour gérer Kelenpe (Prodora, Ayena, Kelenpe Ad...) face à des inve
 
 ---
 
+---
+
+## KPI (*Key Performance Indicator*, indicateur clé de performance)
+
+**Définition simple** : un indicateur chiffré choisi à l'avance pour suivre si un objectif précis est atteint — pas n'importe quel nombre mesurable, seulement ceux qui comptent vraiment pour l'objectif visé. Un bon KPI répond à une question business claire ; s'il ne change rien à une décision, ce n'est pas un KPI, juste une statistique.
+
+**Contexte / exemple concret** : chaque produit Kelenpe aurait ses propres KPI selon son objectif du moment. Pour **Prodora** (marketplace), ça peut être le GMV (volume de vente total transitant par la plateforme) ou le nombre de vendeurs actifs ; pour **Ayena** (feed vidéo), la rétention à J7 (proportion d'utilisateurs qui reviennent une semaine après leur inscription) ; pour **Kelenpe Ad**, le [CTR ou le ROAS](#metriques-publicitaires-cpm-cpc-cpa-ctr-roas) d'une campagne ; et au niveau de Kelenpe dans son ensemble face à un investisseur, le [runway](#runway) ou le [burn rate](#burn-rate). Le piège classique : suivre dix métriques "parce qu'on peut les mesurer" plutôt que les 2-3 qui reflètent vraiment si la stratégie du moment fonctionne.
+
+**Termes liés** : [ROI](#roi-return-on-investment), [Métriques publicitaires](#metriques-publicitaires-cpm-cpc-cpa-ctr-roas), [Runway](#runway), [Burn rate](#burn-rate).
+
+---
+
 ## Business angel
 
 **Définition simple** : un investisseur individuel (souvent un entrepreneur ou cadre fortuné) qui place son propre argent dans une startup en phase précoce, en échange de capital — généralement avant qu'un fonds de capital-risque structuré n'intervienne.

@@ -85,6 +85,10 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Idempotence](/backend/#idempotence)** — *Backend & architecture*
 - **[IPC (Inter-Process Communication)](/backend/#ipc-inter-process-communication)** — *Backend & architecture*
 
+## K
+
+- **[KPI (Key Performance Indicator)](/business/#kpi-key-performance-indicator-indicateur-cle-de-performance)** — *Jargon entrepreneurial*
+
 ## L
 
 
