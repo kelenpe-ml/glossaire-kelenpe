@@ -43,7 +43,8 @@ export default defineConfig({
           { text: 'DevOps & infra', link: '/devops/' },
           { text: 'Transcoding & streaming vidéo', link: '/streaming/' },
           { text: 'Édition média & traitement image', link: '/media/' },
-          { text: 'Jargon entrepreneurial & investisseurs', link: '/business/' }
+          { text: 'Jargon entrepreneurial & investisseurs', link: '/business/' },
+          { text: 'CropSuite (PFE)', link: '/cropsuite/' }
         ]
       }
     ],
@@ -55,6 +56,7 @@ export default defineConfig({
       '/streaming/': [{ text: 'Transcoding & streaming vidéo', items: [{ text: 'Vue d’ensemble', link: '/streaming/' }] }],
       '/media/': [{ text: 'Édition média & traitement image', items: [{ text: 'Vue d’ensemble', link: '/media/' }] }],
       '/business/': [{ text: 'Jargon entrepreneurial & investisseurs', items: [{ text: 'Vue d’ensemble', link: '/business/' }] }],
+      '/cropsuite/': [{ text: 'CropSuite (PFE)', items: [{ text: 'Vue d’ensemble', link: '/cropsuite/' }] }],
       '/': [{ text: 'Glossaire', items: [{ text: 'Index alphabétique', link: '/glossaire' }] }]
     },
 

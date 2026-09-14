@@ -57,6 +57,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Découplage](/backend/#decouplage)** — *Backend & architecture*
 
 ## E
+- **[EAC (Enquête Agricole de Conjoncture)](/cropsuite/#eac-enquete-agricole-de-conjoncture)** — *CropSuite (PFE)*
+
 
 - **[ETI (Mid-cap)](/business/#eti-mid-cap)** — *Jargon entrepreneurial*
 - **[Event streaming (Kafka / Redpanda)](/backend/#event-streaming-kafka-redpanda)** — *Backend & architecture*
@@ -90,22 +92,28 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[KPI (Key Performance Indicator)](/devops/#kpi-key-performance-indicator-indicateur-cle-de-performance)** — *DevOps & infra*
 
 ## L
-
-
 - **[Layer / Calque](/media/#layer-calque)** — *Édition média*
+
+
+
 - **[Levée de fonds](/business/#levee-de-fonds-fundraising)** — *Jargon entrepreneurial*
 - **[Load balancing](/devops/#load-balancing-repartition-de-charge)** — *DevOps & infra*
+- **[Logique floue (Fuzzy)](/cropsuite/#logique-floue-fuzzy)** — *CropSuite (PFE)*
 - **[Lossy vs Lossless](/media/#lossy-vs-lossless)** — *Édition média*
 
 ## M
-
 - **[Message queue (File de messages)](/backend/#message-queue-file-de-messages)** — *Backend & architecture*
+
+
+- **[Métriques publicitaires (CPM, CPC, CPA, CTR, ROAS)](/business/#metriques-publicitaires-cpm-cpc-cpa-ctr-roas)** — *Jargon entrepreneurial*
 - **[Microservices](/backend/#microservices)** — *Backend & architecture*
 - **[Middleware](/backend/#middleware)** — *Backend & architecture*
+- **[Minimum de Liebig](/cropsuite/#minimum-de-liebig)** — *CropSuite (PFE)*
 - **[Multi-tenant](/backend/#multi-tenant-multi-tenant)** — *Backend & architecture*
-- **[Métriques publicitaires (CPM, CPC, CPA, CTR, ROAS)](/business/#metriques-publicitaires-cpm-cpc-cpa-ctr-roas)** — *Jargon entrepreneurial*
 
 ## N
+- **[NDVI](/cropsuite/#ndvi)** — *CropSuite (PFE)*
+
 
 - **[NIF (Numéro d'Identification Fiscale)](/business/#nif-numero-d-identification-fiscale)** — *Jargon entrepreneurial*
 
@@ -116,13 +124,15 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Orchestration](/devops/#orchestration)** — *DevOps & infra*
 
 ## P
-
-
 - **[PaaS (Platform as a Service)](/devops/#paas-platform-as-a-service)** — *DevOps & infra*
+
+
+
 - **[Pacte d'actionnaires](/business/#pacte-d-actionnaires-shareholders-agreement)** — *Jargon entrepreneurial*
+- **[pH](/cropsuite/#ph)** — *CropSuite (PFE)*
 - **[Pipeline](/devops/#pipeline)** — *DevOps & infra*
-- **[PME](/business/#pme-sme-small-and-medium-enterprise)** — *Jargon entrepreneurial*
 - **[Plumbing](/backend/#plumbing)** — *Backend & architecture*
+- **[PME](/business/#pme-sme-small-and-medium-enterprise)** — *Jargon entrepreneurial*
 - **[Pooling](/backend/#pooling)** — *Backend & architecture*
 - **[Prefetch](/streaming/#prefetch)** — *Transcoding & streaming*
 - **[Preload](/streaming/#preload)** — *Transcoding & streaming*
@@ -143,11 +153,13 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Résolution](/streaming/#resolution-resolution)** — *Transcoding & streaming*
 
 ## S
-
 - **[SA (Société Anonyme)](/business/#sa-societe-anonyme)** — *Jargon entrepreneurial*
+
+
 - **[SARL (Société à Responsabilité Limitée)](/business/#sarl-societe-a-responsabilite-limitee)** — *Jargon entrepreneurial*
 - **[Scalabilité](/backend/#scalabilite-scalability)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*
+- **[SIG (Système d'Information Géographique)](/cropsuite/#sig-systeme-d-information-geographique)** — *CropSuite (PFE)*
 - **[Skeleton loading](/frontend/#skeleton-loading-squelette-de-chargement)** — *Frontend & UI/UX*
 - **[SSR / SSG / Hydration](/frontend/#ssr-ssg-hydration)** — *Frontend & UI/UX*
 - **[State management](/frontend/#state-management-gestion-d-etat)** — *Frontend & UI/UX*
