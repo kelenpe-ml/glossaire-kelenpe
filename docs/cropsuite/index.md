@@ -54,6 +54,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 ---
 
+## Période critique
+
+**Définition simple** : le moment précis du cycle de vie d'une plante où elle est la plus sensible à une condition donnée (température, eau...) — pas tout le cycle, un passage précis. La même contrainte a un impact très différent selon qu'elle survient pendant cette période ou en dehors.
+
+**Contexte / exemple concret** : la floraison est souvent la période critique pour la température chez le mil ou le sorgho — une chaleur excessive tolérable en phase de croissance végétative peut empêcher la formation des grains si elle survient pile pendant la floraison. C'est pour capter ce genre d'effet ponctuel que CropSuite utilise des données climatiques journalières plutôt qu'une simple moyenne annuelle, qui masquerait un manque d'eau ou un pic de chaleur survenu au mauvais moment.
+
+**Termes liés** : [Minimum de Liebig](#minimum-de-liebig).
+
+---
+
 ## SIG (*Système d'Information Géographique*)
 
 **Définition simple** : un outil qui stocke, affiche et permet d'interroger des données localisées sur une carte (plusieurs couches superposées — sol, relief, parcelles...). Un SIG se limite à la visualisation : il montre l'information, il ne produit aucune recommandation.

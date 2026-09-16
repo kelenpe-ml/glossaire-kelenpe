@@ -129,14 +129,15 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 
 - **[Pacte d'actionnaires](/business/#pacte-d-actionnaires-shareholders-agreement)** — *Jargon entrepreneurial*
+- **[Période critique](/cropsuite/#periode-critique)** — *CropSuite (PFE)*
 - **[pH](/cropsuite/#ph)** — *CropSuite (PFE)*
 - **[Pipeline](/devops/#pipeline)** — *DevOps & infra*
 - **[Plumbing](/backend/#plumbing)** — *Backend & architecture*
 - **[PME](/business/#pme-sme-small-and-medium-enterprise)** — *Jargon entrepreneurial*
 - **[Pooling](/backend/#pooling)** — *Backend & architecture*
 - **[Prefetch](/streaming/#prefetch)** — *Transcoding & streaming*
-- **[Preload](/streaming/#preload)** — *Transcoding & streaming*
 
+- **[Preload](/streaming/#preload)** — *Transcoding & streaming*
 ## R
 
 - **[Rachat hostile](/business/#rachat-hostile-hostile-takeover)** — *Jargon entrepreneurial*
