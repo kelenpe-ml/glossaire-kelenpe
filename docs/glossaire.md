@@ -148,6 +148,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Responsive design](/frontend/#responsive-design)** — *Frontend & UI/UX*
 - **[Reverse proxy](/devops/#reverse-proxy)** — *DevOps & infra*
 - **[ROI (Return on Investment)](/business/#roi-return-on-investment)** — *Jargon entrepreneurial*
+- **[RRPCF (Recurrence Rate of Potential Crop Failure)](/cropsuite/#rrpcf-recurrence-rate-of-potential-crop-failure)** — *CropSuite (PFE)*
 - **[RTB (Real-Time Bidding)](/business/#rtb-real-time-bidding-et-enchere-au-second-prix)** — *Jargon entrepreneurial*
 - **[Runbook](/devops/#runbook)** — *DevOps & infra*
 - **[Runway](/business/#runway)** — *Jargon entrepreneurial*

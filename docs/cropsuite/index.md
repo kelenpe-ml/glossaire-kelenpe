@@ -64,6 +64,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 ---
 
+## RRPCF (*Recurrence Rate of Potential Crop Failure*)
+
+**Définition simple** : le taux de récurrence d'échec potentiel de culture. Pour une date de semis donnée, on rejoue le cycle de la culture sur chacune des 20 dernières années de climat réel, et on compte le pourcentage d'années où un seuil climatique critique aurait été dépassé pendant le cycle (donc une récolte ratée). Un RRPCF de 0 % veut dire qu'aucune des 20 années passées n'aurait posé problème pour cette date précise ; c'est une fréquence historique, pas une garantie pour l'avenir.
+
+**Contexte / exemple concret** : dans le PFE, ce calcul est piloté par le paramètre `consider_variability`. Testé en conditions contrôlées sur Koulikoro et Sikasso (43 200 pixels par zone, ≈ 40 % et ≈ 50 % du territoire de chaque région), il s'avère que la date de semis que CropSuite retient déjà comme optimale — choisie sur température, précipitation et sol, indépendamment de ce module — tombe presque toujours sur un jour à RRPCF nul ou très faible. Résultat : activer ou désactiver ce module change quasiment rien au score final, d'où le choix de le désactiver en production (moins de calcul, aucune perte mesurée).
+
+**Termes liés** : [Logique floue (Fuzzy)](#logique-floue-fuzzy), [Période critique](#periode-critique), [Minimum de Liebig](#minimum-de-liebig).
+
+---
+
 ## SIG (*Système d'Information Géographique*)
 
 **Définition simple** : un outil qui stocke, affiche et permet d'interroger des données localisées sur une carte (plusieurs couches superposées — sol, relief, parcelles...). Un SIG se limite à la visualisation : il montre l'information, il ne produit aucune recommandation.
