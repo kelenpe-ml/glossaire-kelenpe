@@ -136,6 +136,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[pH](/cropsuite/#ph)** — *CropSuite (PFE)*
 - **[Pipeline](/devops/#pipeline)** — *DevOps & infra*
 - **[Plumbing](/backend/#plumbing)** — *Backend & architecture*
+- **[Pluvial](/cropsuite/#pluvial)** — *CropSuite (PFE)*
 - **[PME](/business/#pme-sme-small-and-medium-enterprise)** — *Jargon entrepreneurial*
 - **[Pooling](/backend/#pooling)** — *Backend & architecture*
 - **[Prefetch](/streaming/#prefetch)** — *Transcoding & streaming*

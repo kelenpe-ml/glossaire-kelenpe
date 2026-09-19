@@ -94,6 +94,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 ---
 
+## Pluvial
+
+**Définition simple** : agriculture qui dépend uniquement de la pluie pour l'eau des cultures, sans irrigation artificielle (pas de puits, forage, système goutte-à-goutte ou submersion contrôlée). S'oppose à « irrigué ».
+
+**Contexte / exemple concret** : le PFE modélise volontairement uniquement le pluvial (`irrigation = n` dans la configuration CropSuite) — ni l'irrigation ni la culture de contre-saison ne sont couvertes. C'est un choix de périmètre assumé dès le départ, pas une limitation découverte après coup.
+
+**Termes liés** : [Saison favorable](#saison-favorable).
+
+---
+
 ## Raster
 
 **Définition simple** : une image organisée en grille de pixels, où chaque pixel porte une valeur numérique (un score d'aptitude, un code de facteur limitant...) plutôt qu'une couleur. S'oppose aux données « vectorielles » (points, lignes, polygones).
