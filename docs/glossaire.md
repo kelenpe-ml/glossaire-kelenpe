@@ -73,6 +73,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 ## G
 
 - **[Garbage collector (GC)](/backend/#garbage-collector-gc)** — *Backend & architecture*
+- **[GeoTIFF](/cropsuite/#geotiff)** — *CropSuite (PFE)*
 - **[GIE (Groupement d'Intérêt Économique)](/business/#gie-groupement-d-interet-economique)** — *Jargon entrepreneurial*
 - **[gRPC & Protobuf](/backend/#grpc-protobuf)** — *Backend & architecture*
 - **[Gérant / Administrateur](/business/#gerant-administrateur)** — *Jargon entrepreneurial*
@@ -122,6 +123,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Observabilité](/devops/#observabilite-observability)** — *DevOps & infra*
 - **[OLTP vs OLAP](/backend/#oltp-vs-olap)** — *Backend & architecture*
+- **[Opérationnalisation malienne](/cropsuite/#operationnalisation-malienne)** — *CropSuite (PFE)*
 - **[Orchestration](/devops/#orchestration)** — *DevOps & infra*
 
 ## P
@@ -142,6 +144,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 ## R
 
 - **[Rachat hostile](/business/#rachat-hostile-hostile-takeover)** — *Jargon entrepreneurial*
+- **[Raster](/cropsuite/#raster)** — *CropSuite (PFE)*
 - **[Rate limiting](/devops/#rate-limiting-limitation-de-debit)** — *DevOps & infra*
 - **[RCCM (Registre du Commerce et du Crédit Mobilier)](/business/#rccm-registre-du-commerce-et-du-credit-mobilier)** — *Jargon entrepreneurial*
 - **[Reduced motion](/frontend/#reduced-motion-preference-de-mouvement-reduit)** — *Frontend & UI/UX*

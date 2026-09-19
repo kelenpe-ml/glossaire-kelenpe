@@ -24,6 +24,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 ---
 
+## GeoTIFF
+
+**Définition simple** : format de fichier image qui associe, en plus des pixels eux-mêmes, une géoréférence — chaque pixel sait à quelle coordonnée réelle (latitude/longitude) il correspond. Un standard largement utilisé pour diffuser des cartes.
+
+**Contexte / exemple concret** : c'est le format dans lequel CropSuite écrit tous ses résultats (`crop_suitability.tif`, `multiple_cropping.tif`...). L'API du PFE les lit directement avec la bibliothèque `rasterio`, sans base de données intermédiaire.
+
+**Termes liés** : [Raster](#raster), [SIG (Système d'Information Géographique)](#sig-systeme-d-information-geographique).
+
+---
+
 ## Logique floue (*Fuzzy*)
 
 **Définition simple** : une façon de noter progressivement une variable (comme un variateur de lumière) plutôt que de trancher brutalement oui/non (comme un interrupteur). Une valeur proche de l'idéal reçoit un score élevé, une valeur éloignée un score faible, sans couperet net entre les deux.
@@ -54,6 +64,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 ---
 
+## Opérationnalisation malienne
+
+**Définition simple** : le fait d'adapter et de configurer un outil scientifique générique (ici CropSuite) pour qu'il produise des résultats utilisables dans un contexte réel précis — ici le Mali — plutôt que d'inventer un nouveau modèle depuis zéro.
+
+**Contexte / exemple concret** : c'est la formule que la conclusion du PFE utilise pour cadrer sa propre contribution : « l'apport du PFE est l'opérationnalisation malienne et l'exposition en système d'information [...] et non l'invention de CropSuite ». Concrètement : choix des cultures et des régions pertinentes pour le Sahel, configuration des paramètres CropSuite, validation contre des données de terrain maliennes (EAC), puis exposition via une API et une application mobile.
+
+**Termes liés** : [EAC (Enquête Agricole de Conjoncture)](#eac-enquete-agricole-de-conjoncture).
+
+---
+
 ## pH
 
 **Définition simple** : échelle de 0 à 14 qui mesure si un sol est acide ou basique (alcalin) — 0 très acide, 7 neutre, 14 très basique. Chaque plante a une plage de pH optimale dans laquelle elle absorbe bien les nutriments du sol ; en dehors de cette plage, même un sol par ailleurs riche devient moins exploitable.
@@ -71,6 +91,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 **Contexte / exemple concret** : la floraison est souvent la période critique pour la température chez le mil ou le sorgho — une chaleur excessive tolérable en phase de croissance végétative peut empêcher la formation des grains si elle survient pile pendant la floraison. C'est pour capter ce genre d'effet ponctuel que CropSuite utilise des données climatiques journalières plutôt qu'une simple moyenne annuelle, qui masquerait un manque d'eau ou un pic de chaleur survenu au mauvais moment.
 
 **Termes liés** : [Minimum de Liebig](#minimum-de-liebig).
+
+---
+
+## Raster
+
+**Définition simple** : une image organisée en grille de pixels, où chaque pixel porte une valeur numérique (un score d'aptitude, un code de facteur limitant...) plutôt qu'une couleur. S'oppose aux données « vectorielles » (points, lignes, polygones).
+
+**Contexte / exemple concret** : chaque culture testée par CropSuite produit son propre raster de score d'aptitude (0 à 100) sur toute l'emprise Koulikoro ou Sikasso. L'API échantillonne ce raster au point GPS de l'utilisateur pour répondre en quelques millisecondes, sans recalcul.
+
+**Termes liés** : [GeoTIFF](#geotiff), [SIG (Système d'Information Géographique)](#sig-systeme-d-information-geographique).
 
 ---
 
