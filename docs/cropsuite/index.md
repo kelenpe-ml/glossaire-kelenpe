@@ -4,6 +4,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 
 [[toc]]
 
+## Cycle de culture
+
+**Définition simple** : la durée, en jours, entre le semis et la récolte d'une culture — le temps dont la plante a besoin pour boucler tout son cycle de vie. C'est un paramètre fixe par culture, saisi dans la configuration de CropSuite (donné en entrée, pas calculé).
+
+**Contexte / exemple concret** : le mil a un cycle d'environ 100 jours, le sorgho environ 110-120 selon la variété. C'est cette durée que CropSuite compare à la longueur de la [saison favorable](#saison-favorable) d'une zone pour estimer le potentiel de cultures multiples d'un pixel — un cycle court permet plus facilement de tenir deux récoltes dans la même année.
+
+**Termes liés** : [Saison favorable](#saison-favorable), [Période critique](#periode-critique).
+
+---
+
 ## EAC (*Enquête Agricole de Conjoncture*)
 
 **Définition simple** : enquêtes de terrain géolocalisées menées au Mali par l'INSTAT, qui recensent notamment les cultures pratiquées et les rendements déclarés par région. Dans le PFE, l'EAC sert uniquement à vérifier après coup si les cartes produites par CropSuite reflètent la réalité — elle n'entre jamais dans le calcul du moteur.
@@ -71,6 +81,16 @@ Vocabulaire technique de mon système d'aide à la décision agricole pour le Ma
 **Contexte / exemple concret** : dans le PFE, ce calcul est piloté par le paramètre `consider_variability`. Testé en conditions contrôlées sur Koulikoro et Sikasso (43 200 pixels par zone, ≈ 40 % et ≈ 50 % du territoire de chaque région), il s'avère que la date de semis que CropSuite retient déjà comme optimale — choisie sur température, précipitation et sol, indépendamment de ce module — tombe presque toujours sur un jour à RRPCF nul ou très faible. Résultat : activer ou désactiver ce module change quasiment rien au score final, d'où le choix de le désactiver en production (moins de calcul, aucune perte mesurée).
 
 **Termes liés** : [Logique floue (Fuzzy)](#logique-floue-fuzzy), [Période critique](#periode-critique), [Minimum de Liebig](#minimum-de-liebig).
+
+---
+
+## Saison favorable
+
+**Définition simple** : la période de l'année, en nombre de jours, où le climat d'un pixel (température, précipitations) reste dans la plage tolérée par une culture donnée — donc où cultiver reste climatiquement viable. En dehors de cette fenêtre, la culture ne peut pas raisonnablement pousser.
+
+**Contexte / exemple concret** : CropSuite compare la longueur de cette saison favorable au [cycle de culture](#cycle-de-culture) pour calculer le potentiel de cultures multiples d'un pixel : si la saison dure au moins deux fois la durée d'un cycle, deux récoltes de la même culture deviennent théoriquement possibles sur la même parcelle dans l'année.
+
+**Termes liés** : [Cycle de culture](#cycle-de-culture), [RRPCF (Recurrence Rate of Potential Crop Failure)](#rrpcf-recurrence-rate-of-potential-crop-failure).
 
 ---
 

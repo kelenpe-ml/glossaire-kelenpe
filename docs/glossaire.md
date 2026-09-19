@@ -47,6 +47,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Conteneurisation](/devops/#conteneurisation-containerization)** — *DevOps & infra*
 - **[Coté en bourse (IPO)](/business/#cote-en-bourse-publicly-listed-ipo)** — *Jargon entrepreneurial*
 - **[Cutout / Détourage](/media/#cutout-detourage)** — *Édition média*
+- **[Cycle de culture](/cropsuite/#cycle-de-culture)** — *CropSuite (PFE)*
 
 ## D
 
@@ -156,6 +157,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## S
 - **[SA (Société Anonyme)](/business/#sa-societe-anonyme)** — *Jargon entrepreneurial*
+- **[Saison favorable](/cropsuite/#saison-favorable)** — *CropSuite (PFE)*
 
 
 - **[SARL (Société à Responsabilité Limitée)](/business/#sarl-societe-a-responsabilite-limitee)** — *Jargon entrepreneurial*
