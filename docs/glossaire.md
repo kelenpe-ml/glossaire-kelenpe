@@ -54,6 +54,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Bluetooth SPP (Serial Port Profile)](/backend/#bluetooth-spp-serial-port-profile)** — *Backend & architecture*
 - **[Boucle d'événements et tâche bloquante (Event loop, blocking task)](/backend/#boucle-d-evenements-et-tache-bloquante-event-loop-blocking-task)** — *Backend & architecture*
 - **[Branche (Branch)](/devops/#branche-branch)** — *DevOps & infra*
+- **[Branche de vérification (Verification branch)](/devops/#branche-de-verification-verification-branch)** — *DevOps & infra*
 - **[Breakpoint](/frontend/#breakpoint)** — *Frontend & UI/UX*
 - **[BSPCE](/business/#bspce)** — *Jargon entrepreneurial*
 - **[Buffering / Stall](/streaming/#buffering-stall)** — *Transcoding & streaming*
@@ -86,6 +87,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Clé de chiffrement (Encryption key)](/backend/#cle-de-chiffrement-encryption-key)** — *Backend & architecture*
 - **[Clé publique / clé privée (Public / private key)](/backend/#cle-publique-cle-privee-public-private-key)** — *Backend & architecture*
 - **[Cliff](/business/#cliff)** — *Jargon entrepreneurial*
+- **[ClipboardItem](/backend/#clipboarditem)** — *Backend & architecture*
 - **[CMAF](/streaming/#cmaf)** — *Transcoding & streaming*
 - **[Code mort (Dead code)](/backend/#code-mort-dead-code)** — *Backend & architecture*
 - **[Code QR (QR code)](/media/#code-qr-qr-code)** — *Édition média*
@@ -183,6 +185,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[FIFO (First In, First Out)](/backend/#fifo-first-in-first-out)** — *Backend & architecture*
 - **[Fil d'exécution (Thread)](/backend/#fil-d-execution-thread)** — *Backend & architecture*
 - **[File d'impression (Print spooler)](/devops/#file-d-impression-print-spooler)** — *DevOps & infra*
+- **[Fin de session Windows (query-session-end)](/backend/#fin-de-session-windows-query-session-end)** — *Backend & architecture*
 - **[Fin de support (End of life, EOL)](/devops/#fin-de-support-end-of-life-eol)** — *DevOps & infra*
 - **[Fins de ligne CRLF / LF (Line endings)](/devops/#fins-de-ligne-crlf-lf-line-endings)** — *DevOps & infra*
 - **[Fixture (Jeu de test)](/devops/#fixture-jeu-de-test)** — *DevOps & infra*
@@ -256,6 +259,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Jeu de données d'entraînement (Training dataset, DIS5K, DUTS)](/media/#jeu-de-donnees-d-entrainement-training-dataset-dis5k-duts)** — *Édition média*
 - **[Job](/devops/#job)** — *DevOps & infra*
+- **[Jonction (Junction, directory junction)](/devops/#jonction-junction-directory-junction)** — *DevOps & infra*
 - **[JPEG](/media/#jpeg)** — *Édition média*
 - **[JPEG XL](/media/#jpeg-xl)** — *Édition média*
 - **[JSON (JavaScript Object Notation)](/backend/#json-javascript-object-notation)** — *Backend & architecture*
@@ -393,6 +397,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[ReDoS (Regular expression Denial of Service)](/devops/#redos-regular-expression-denial-of-service)** — *DevOps & infra*
 - **[Reduced motion](/frontend/#reduced-motion-preference-de-mouvement-reduit)** — *Frontend & UI/UX*
 - **[Refactorisation (Refactor)](/backend/#refactorisation-refactor)** — *Backend & architecture*
+- **[Région live (aria-live)](/frontend/#region-live-aria-live)** — *Frontend & UI/UX*
 - **[rem](/frontend/#rem)** — *Frontend & UI/UX*
 - **[Remboursement ciblé (Targeted repayment)](/business/#remboursement-cible-targeted-repayment)** — *Jargon entrepreneurial*
 - **[Rendition](/streaming/#rendition)** — *Transcoding & streaming*
@@ -461,6 +466,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Tableur Excel (xlsx / xls)](/devops/#tableur-excel-xlsx-xls)** — *DevOps & infra*
 - **[Tâche longue (Long task)](/frontend/#tache-longue-long-task)** — *Frontend & UI/UX*
 - **[Tailwind](/frontend/#tailwind)** — *Frontend & UI/UX*
+- **[taskkill](/devops/#taskkill)** — *DevOps & infra*
 - **[taskset](/devops/#taskset)** — *DevOps & infra*
 - **[TCP (Transmission Control Protocol)](/backend/#tcp-transmission-control-protocol)** — *Backend & architecture*
 - **[Tenseur (Tensor)](/backend/#tenseur-tensor)** — *Backend & architecture*

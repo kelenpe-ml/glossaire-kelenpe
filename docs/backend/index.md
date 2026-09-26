@@ -1199,3 +1199,23 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [onnxruntime](/media/#onnxruntime), [utilityProcess](#utilityprocess).
 
 ---
+
+## ClipboardItem
+
+**Définition simple** : Un « paquet » pour le presse-papiers qui contient la même donnée sous un ou plusieurs formats (texte, image PNG…), à la manière de l'API du navigateur. Depuis Electron 44, le presse-papiers d'Electron se lit et s'écrit ainsi, de façon asynchrone.
+
+**Contexte / exemple concret** : Le test Ctrl+V de Boutik met une image dans le presse-papiers avec `clipboard.write([new ClipboardItem({ "image/png": … })])` ; l'ancien `clipboard.writeImage` n'existe plus en Electron 44.
+
+**Termes liés** : [Presse-papiers](/frontend/#presse-papiers-clipboard), [Format de presse-papiers](/frontend/#format-de-presse-papiers-clipboard-format), [Asynchrone / synchrone](#asynchrone-synchrone-asynchronous-synchronous).
+
+---
+
+## Fin de session Windows (*query-session-end*)
+
+**Définition simple** : Le moment où Windows s'éteint, redémarre ou déconnecte l'utilisateur : il demande à chaque application si elle peut se fermer. Une application qui refuse apparaît dans l'écran « Ces applications empêchent l'arrêt ».
+
+**Contexte / exemple concret** : Si un ticket est en cours, Boutik refuse cette fermeture (événement `query-session-end` d'Electron) et affiche sa confirmation : le commerçant choisit de rester ou de fermer.
+
+**Termes liés** : [Fenêtre modale](/frontend/#fenetre-modale-modal-dialog), [Délai d'attente](#delai-d-attente-timeout).
+
+---

@@ -1139,3 +1139,33 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Termes liés** : [DLL](#dll-dynamic-link-library), [Visual C++ Redistributable](#visual-c-redistributable), [Redistribution](/business/#redistribution).
 
 ---
+
+## Jonction (*Junction, directory junction*)
+
+**Définition simple** : Sous Windows, un dossier « raccourci » : il pointe vers un autre dossier, et tout ce qui est écrit dedans va en réalité dans le dossier cible. Le supprimer ne supprime que le raccourci.
+
+**Contexte / exemple concret** : Les e2e de Boutik sous Windows remplacent `%APPDATA%\Boutik` par une jonction vers un dossier jetable : l'application croit écrire dans son dossier habituel, les tests lisent les mêmes fichiers que sous Linux, et rien ne reste après.
+
+**Termes liés** : [Test e2e](#test-e2e-end-to-end-test-test-de-bout-en-bout), [Fixture](#fixture-jeu-de-test).
+
+---
+
+## taskkill
+
+**Définition simple** : La commande Windows qui arrête un programme (et, avec `/T`, tous les programmes qu'il a lancés).
+
+**Contexte / exemple concret** : Les e2e de Boutik sous Windows arrêtent l'application avec `taskkill /PID … /T /F` à la fin de chaque scénario, ou quand un scénario dépasse sa limite de temps.
+
+**Termes liés** : [Test e2e](#test-e2e-end-to-end-test-test-de-bout-en-bout), [Délai d'attente](/backend/#delai-d-attente-timeout).
+
+---
+
+## Branche de vérification (*Verification branch*)
+
+**Définition simple** : Une branche Git sur laquelle on pousse un état du code seulement pour le faire vérifier par la CI, sans toucher à la branche principale partagée.
+
+**Contexte / exemple concret** : Pour Boutik, Drissa pousse sur `ci/verification` (`git push origin main:ci/verification`) : le workflow Build Windows se lance, avec l'installateur et les e2e sous Windows.
+
+**Termes liés** : [Branche](#branche-branch), [Push](#push), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Workflow](#workflow).
+
+---

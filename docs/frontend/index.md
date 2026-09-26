@@ -783,3 +783,13 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Termes liés** : [UI / UX](#ui-ux-user-interface-user-experience).
 
 ---
+
+## Région live (*aria-live*)
+
+**Définition simple** : Une zone de la page que les lecteurs d'écran surveillent : quand son texte change, ils le lisent à voix haute, sans que la personne ait à y aller. « polite » veut dire « quand l'utilisateur a fini ce qu'il fait ».
+
+**Contexte / exemple concret** : Le champ à suggestions de Boutik a une région live qui annonce « 5 suggestions : flèche bas pour les parcourir, Tab pour accepter » ; un seul message à la fois, mis à jour quand le nombre change.
+
+**Termes liés** : [Lecteur d'écran](#lecteur-d-ecran-screen-reader), [Accessibilité](#accessibilite-a11y), [aria-label](#aria-label).
+
+---
