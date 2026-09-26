@@ -351,3 +351,323 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 **Contexte / exemple concret** : c'est exactement ce que le service `ad-engine` de `ad-engine-forge` implémente, en Rust pour la performance (latence cible < 100 ms, catalogue entièrement en RAM via `DashMap` pour ne jamais interroger PostgreSQL pendant l'enchère elle-même) — le README du projet précise que ce moteur d'enchère est "le chemin critique de latence" et la pièce la plus testée du système (5 tests unitaires dédiés à l'enchère au second prix et au ciblage géographique).
 
 **Termes liés** : [Métriques publicitaires](#metriques-publicitaires-cpm-cpc-cpa-ctr-roas), [gRPC & Protobuf](/backend/#grpc-protobuf).
+
+---
+
+## Licence logicielle (*Software license*)
+
+**Définition simple** : Le contrat qui dit ce qu'on a le droit de faire avec un logiciel : l'installer, sur combien d'ordinateurs, pour combien de temps, le modifier ou le redistribuer. On n'achète pas le logiciel lui-même, mais un droit d'usage.
+
+**Contexte / exemple concret** : Boutik sera vendu sous licence : un fichier signé par Kelenpe, vérifié hors ligne par l'application, qui dit combien de postes sont autorisés et jusqu'à quand.
+
+**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Formules de licence](#formules-de-licence-license-tiers), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature).
+
+---
+
+## Licence annuelle (*Annual license*)
+
+**Définition simple** : Un droit d'usage payé pour un an, à renouveler. L'éditeur a un revenu régulier ; le client paie moins au départ qu'avec un achat définitif.
+
+**Contexte / exemple concret** : Modèle envisagé pour Boutik, avec une période d'essai avant le premier paiement.
+
+**Termes liés** : [Licence logicielle](#licence-logicielle-software-license), [Période d'essai](#periode-d-essai-trial-period).
+
+---
+
+## Période d'essai (*Trial period*)
+
+**Définition simple** : Un temps pendant lequel on peut utiliser le logiciel gratuitement, pour le juger avant d'acheter.
+
+**Contexte / exemple concret** : Prévue pour Boutik : le commerçant l'installe, s'en sert dans sa vraie boutique, puis achète une licence s'il est convaincu.
+
+**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Onboarding](#onboarding-accueil-du-nouvel-utilisateur).
+
+---
+
+## Formules de licence (*License tiers*)
+
+**Définition simple** : Les différentes offres d'un même logiciel, à des prix différents, selon l'usage (nombre de postes, fonctions).
+
+**Contexte / exemple concret** : Formules envisagées pour Boutik : Solo (1 poste), Duo (2 postes), 5 postes.
+
+**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Licence logicielle](#licence-logicielle-software-license), [Fonctionnalités à la carte](#fonctionnalites-a-la-carte-add-on-features).
+
+---
+
+## Poste facturable (*Billable seat*)
+
+**Définition simple** : Un ordinateur qui compte dans le prix de la licence : chaque poste en plus coûte en plus.
+
+**Contexte / exemple concret** : Dans Boutik, un poste est un ordinateur où l'application est installée et appairée ; son identifiant de poste permet de les compter.
+
+**Termes liés** : [Appairage d'un poste](#appairage-d-un-poste-device-pairing), [Identifiant de poste](/backend/#identifiant-de-poste-device-id), [Formules de licence](#formules-de-licence-license-tiers).
+
+---
+
+## Appairage d'un poste (*Device pairing*)
+
+**Définition simple** : Rattacher un ordinateur à une licence (ou à une boutique), pour qu'il soit reconnu comme autorisé.
+
+**Contexte / exemple concret** : Prévu pour Boutik : un nouveau poste est appairé à la licence de la boutique, dans la limite de la formule choisie.
+
+**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Révocation de licence](#revocation-de-licence-license-revocation).
+
+---
+
+## Révocation de licence (*License revocation*)
+
+**Définition simple** : Retirer l'autorisation d'une licence ou d'un poste avant sa date de fin (ordinateur volé, remplacé, abonnement non payé).
+
+**Contexte / exemple concret** : Prévu pour Boutik : désappairer un poste perdu pour en autoriser un autre. Hors ligne, la révocation n'est connue du poste qu'à la prochaine mise à jour de sa licence.
+
+**Termes liés** : [Appairage d'un poste](#appairage-d-un-poste-device-pairing), [Backoffice](/backend/#backoffice).
+
+---
+
+## Licence open source (*Open source license*)
+
+**Définition simple** : Une licence qui autorise à lire, utiliser, modifier et redistribuer un logiciel, avec plus ou moins de conditions selon la licence.
+
+**Contexte / exemple concret** : Boutik n'est pas open source, mais il utilise des bibliothèques open source (React, SQLCipher, libwebp…) dont il doit respecter les licences.
+
+**Termes liés** : [MIT](#mit), [Apache-2.0](#apache-2-0), [AGPL-3.0](#agpl-3-0), [Copyleft](#copyleft).
+
+---
+
+## MIT
+
+**Définition simple** : Une licence open source très permissive : on fait ce qu'on veut du code, y compris dans un produit commercial fermé, à condition de garder la mention de l'auteur et de la licence.
+
+**Contexte / exemple concret** : React, lucide-react, onnxruntime, BEN2 sont sous licence MIT : utilisables dans Boutik.
+
+**Termes liés** : [Licence open source](#licence-open-source-open-source-license), [Apache-2.0](#apache-2-0).
+
+---
+
+## Apache-2.0
+
+**Définition simple** : Une licence open source permissive, comme MIT, avec en plus une protection sur les brevets et l'obligation de signaler les fichiers modifiés.
+
+**Contexte / exemple concret** : `@jsquash/webp` (le codec d'images de Boutik), `wasm-feature-detect`, U²-Net sont sous Apache-2.0.
+
+**Termes liés** : [MIT](#mit), [Licence open source](#licence-open-source-open-source-license).
+
+---
+
+## AGPL-3.0
+
+**Définition simple** : Une licence open source très exigeante : si on utilise le code dans un produit, même fourni seulement par Internet, on doit publier tout le code source du produit sous la même licence.
+
+**Contexte / exemple concret** : `@imgly/background-removal` (détourage dans le navigateur) est sous AGPL : l'utiliser obligerait à publier tout le code de Boutik. Écarté.
+
+**Termes liés** : [Copyleft](#copyleft), [Licence open source](#licence-open-source-open-source-license).
+
+---
+
+## Copyleft
+
+**Définition simple** : Le principe de certaines licences open source (GPL, AGPL) : tout logiciel qui reprend le code doit être distribué sous la même licence, donc lui aussi ouvert. L'inverse d'une licence permissive comme MIT.
+
+**Contexte / exemple concret** : Pour un produit commercial fermé comme Boutik, une dépendance copyleft est à éviter.
+
+**Termes liés** : [AGPL-3.0](#agpl-3-0), [MIT](#mit).
+
+---
+
+## OFL-1.1 (*SIL Open Font License*)
+
+**Définition simple** : La licence open source des polices de caractères : on peut les utiliser et les embarquer dans un logiciel, même commercial, à condition de joindre le texte de la licence et de ne pas vendre la police seule.
+
+**Contexte / exemple concret** : Les polices Outfit et Figtree de Boutik sont sous OFL-1.1 : leurs licences sont livrées dans le dossier `licences/` de l'installateur.
+
+**Termes liés** : [Police embarquée](/frontend/#police-embarquee-embedded-font), [Licence open source](#licence-open-source-open-source-license).
+
+---
+
+## Licence non commerciale (*Non-commercial license*)
+
+**Définition simple** : Une licence qui autorise l'usage gratuit pour la recherche ou l'apprentissage, mais l'interdit dans un produit vendu ou une activité commerciale.
+
+**Contexte / exemple concret** : Les modèles RMBG de BRIA et le jeu de données DIS5K sont non commerciaux : écartés pour Boutik.
+
+**Termes liés** : [RMBG](/media/#rmbg-bria), [Jeu de données d'entraînement](/media/#jeu-de-donnees-d-entrainement-training-dataset-dis5k-duts).
+
+---
+
+## Redistribution
+
+**Définition simple** : Le fait de livrer le code ou les fichiers de quelqu'un d'autre avec son propre produit. Chaque licence dit si c'est permis, et à quelles conditions.
+
+**Contexte / exemple concret** : Livrer avec Boutik les DLL Visual C++ de Microsoft ou les polices Outfit et Figtree est de la redistribution, permise par leurs licences.
+
+**Termes liés** : [Licence open source](#licence-open-source-open-source-license), [Visual C++ Redistributable](/devops/#visual-c-redistributable).
+
+---
+
+## Ardoise (*Créance client*)
+
+**Définition simple** : L'argent qu'un client doit à la boutique pour des achats faits à crédit (« mettre sur l'ardoise »). Pour la boutique, c'est une créance : une somme à recevoir.
+
+**Contexte / exemple concret** : L'écran Créances de Boutik montre l'ardoise de chaque client : ventes à crédit, remboursements, reste dû. Une vente à crédit exige un client identifié.
+
+**Termes liés** : [Avoir](#avoir-trop-percu-store-credit), [Imputation](#imputation), [Remboursement ciblé](#remboursement-cible-targeted-repayment).
+
+---
+
+## Avoir (*Trop-perçu, store credit*)
+
+**Définition simple** : Une somme que la boutique doit au client : il a trop payé, ou une vente déjà payée a été annulée. Il pourra s'en servir pour ses prochains achats.
+
+**Contexte / exemple concret** : Quand on annule dans Boutik une vente qui avait déjà reçu de l'argent, on choisit : reporter l'argent sur ses autres dettes (FIFO) ou en faire un avoir.
+
+**Termes liés** : [Ardoise](#ardoise-creance-client), [Imputation](#imputation).
+
+---
+
+## Imputation
+
+**Définition simple** : Décider à quelle dette précise s'applique un paiement, quand un client en a plusieurs.
+
+**Contexte / exemple concret** : Dans Boutik, un remboursement peut viser une vente précise (remboursement ciblé) ou être imputé aux ventes les plus anciennes d'abord (FIFO).
+
+**Termes liés** : [FIFO](/backend/#fifo-first-in-first-out), [Remboursement ciblé](#remboursement-cible-targeted-repayment), [Ardoise](#ardoise-creance-client).
+
+---
+
+## Remboursement ciblé (*Targeted repayment*)
+
+**Définition simple** : Un paiement de client affecté à une vente à crédit précise, choisie par le caissier, plutôt qu'à la plus ancienne.
+
+**Contexte / exemple concret** : Dans l'écran Créances de Boutik, on peut choisir la vente que le client règle ; sinon, l'argent va aux plus anciennes (FIFO).
+
+**Termes liés** : [Imputation](#imputation), [FIFO](/backend/#fifo-first-in-first-out), [Ardoise](#ardoise-creance-client).
+
+---
+
+## Prix de gros (*Wholesale price*)
+
+**Définition simple** : Un prix réduit pour les grosses quantités, accordé aux revendeurs ou aux gros acheteurs.
+
+**Contexte / exemple concret** : Dans Boutik, un produit vendu au carton peut avoir un « prix carton grossiste », appliqué à partir d'un certain nombre de cartons ; il doit être inférieur au prix carton normal.
+
+**Termes liés** : [Vente au carton](#vente-au-carton-case-sale).
+
+---
+
+## Vente au carton (*Case sale*)
+
+**Définition simple** : Vendre un produit par carton entier (par exemple 24 bouteilles) plutôt qu'à l'unité, à un prix propre au carton.
+
+**Contexte / exemple concret** : Un produit de Boutik peut se vendre à l'unité et au carton : on indique le nombre d'unités par carton et le prix du carton ; le stock reste compté en unités.
+
+**Termes liés** : [Prix de gros](#prix-de-gros-wholesale-price), [Valeur du stock](#valeur-du-stock-inventory-value).
+
+---
+
+## Ticket moyen (*Average basket*)
+
+**Définition simple** : Le montant moyen dépensé par vente. Il montre si les clients achètent plus ou moins à chaque passage.
+
+**Contexte / exemple concret** : Indiqué dans les Rapports de Boutik, à côté du chiffre d'affaires.
+
+**Termes liés** : [Chiffre d'affaires](#chiffre-d-affaires-revenue-turnover).
+
+**Calcul** : ticket moyen = chiffre d'affaires ÷ nombre de ventes. 150 000 FCFA sur 60 ventes → 2 500 FCFA.
+
+---
+
+## Chiffre d'affaires (*Revenue, turnover*)
+
+**Définition simple** : Le total des ventes sur une période, avant de retirer les dépenses. À ne pas confondre avec le bénéfice (ce qui reste une fois tout payé).
+
+**Contexte / exemple concret** : L'Accueil et les Rapports de Boutik donnent le chiffre d'affaires du jour, de la semaine ou d'une période choisie, sans compter les ventes annulées.
+
+**Termes liés** : [Ticket moyen](#ticket-moyen-average-basket).
+
+**Calcul** : chiffre d'affaires = somme des montants des ventes de la période (ventes annulées exclues).
+
+---
+
+## Valeur du stock (*Inventory value*)
+
+**Définition simple** : Ce que vaut la marchandise en rayon : pour chaque produit, la quantité multipliée par son prix.
+
+**Contexte / exemple concret** : Donnée par Boutik à partir de la projection des produits.
+
+**Termes liés** : [Réapprovisionnement](#reapprovisionnement-restocking), [Projection](/backend/#projection).
+
+**Calcul** : valeur du stock = somme, pour chaque produit, de (stock × prix unitaire).
+
+---
+
+## Réapprovisionnement (*Restocking*)
+
+**Définition simple** : Faire rentrer de la marchandise pour remonter le stock (livraison d'un fournisseur, achat au marché).
+
+**Contexte / exemple concret** : Le bouton « Réapprovisionner » du Stock de Boutik enregistre un mouvement de stock d'origine « réappro » ; les produits sous leur seuil sont signalés « Stock faible ».
+
+**Termes liés** : [Ajustement de stock](#ajustement-de-stock-stock-adjustment), [Valeur du stock](#valeur-du-stock-inventory-value).
+
+---
+
+## Ajustement de stock (*Stock adjustment*)
+
+**Définition simple** : Corriger le stock enregistré pour qu'il corresponde au stock réel (casse, perte, erreur de comptage), avec un motif.
+
+**Contexte / exemple concret** : Dans Boutik, « Ajuster le stock » demande un écart (+ ou −) et un motif (« Casse transport ») ; les motifs déjà utilisés sont proposés en suggestion.
+
+**Termes liés** : [Réapprovisionnement](#reapprovisionnement-restocking), [Événement immuable](/backend/#evenement-immuable-immutable-event).
+
+---
+
+## Duplicata (*Duplicate receipt*)
+
+**Définition simple** : Une copie d'un ticket déjà imprimé, marquée comme telle pour qu'on ne la confonde pas avec l'original.
+
+**Contexte / exemple concret** : L'Historique de Boutik réimprime un ticket marqué « DUPLICATA » (et « ANNULÉE » si la vente a été annulée).
+
+**Termes liés** : [ESC/POS](/media/#esc-pos).
+
+---
+
+## TVA / TTC (*VAT, all taxes included*)
+
+**Définition simple** : La TVA (taxe sur la valeur ajoutée) est un impôt ajouté au prix de vente ; TTC (toutes taxes comprises) désigne le prix final payé par le client, HT (hors taxes) le prix sans la taxe. Au Mali, le taux normal est de 18 %.
+
+**Contexte / exemple concret** : Boutik affiche des prix TTC et ne calcule pas encore la TVA : la plupart des petites boutiques visées n'y sont pas assujetties.
+
+**Termes liés** : [Chiffre d'affaires](#chiffre-d-affaires-revenue-turnover).
+
+**Calcul** : prix TTC = prix HT × (1 + taux). Avec 18 % : 10 000 FCFA HT → 11 800 FCFA TTC.
+
+---
+
+## Fonctionnalités à la carte (*Add-on features*)
+
+**Définition simple** : Des fonctions vendues à part, que le client ajoute à son offre de base seulement s'il en a besoin.
+
+**Contexte / exemple concret** : Piste pour Boutik : le détourage automatique des photos pourrait être un module facultatif (téléchargé ou livré sur clé USB), pour ne pas alourdir l'installation de base.
+
+**Termes liés** : [Formules de licence](#formules-de-licence-license-tiers), [Feature flag](/devops/#feature-flag-drapeau-de-fonctionnalite).
+
+---
+
+## Onboarding (*Accueil du nouvel utilisateur*)
+
+**Définition simple** : Les premiers pas d'un nouvel utilisateur : la mise en route qui l'amène jusqu'au moment où l'outil lui est utile.
+
+**Contexte / exemple concret** : Au premier lancement de Boutik : nom de la boutique, compte patron, mot de passe, puis les codes de secours à noter, avant tout le reste.
+
+**Termes liés** : [Friction](#friction), [UI / UX](/frontend/#ui-ux-user-interface-user-experience).
+
+---
+
+## Friction
+
+**Définition simple** : Tout ce qui ralentit ou décourage un utilisateur : une étape de trop, un champ inutile, un message peu clair. Chaque friction fait perdre des utilisateurs.
+
+**Contexte / exemple concret** : Dans Boutik, on réduit la friction en proposant le nom du produit comme nom d'image, en mémorisant les saisies (suggestions) et en encaissant au clavier seul.
+
+**Termes liés** : [Onboarding](#onboarding-accueil-du-nouvel-utilisateur), [UI / UX](/frontend/#ui-ux-user-interface-user-experience).
+
+---
