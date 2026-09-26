@@ -1099,3 +1099,43 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Termes liés** : [Fonction pure](/backend/#fonction-pure-pure-function), [Adressage par contenu](/backend/#adressage-par-contenu-content-addressing).
 
 ---
+
+## Hook d'empaquetage (*afterPack*)
+
+**Définition simple** : Un petit script qu'electron-builder lance à un moment précis de la fabrication du paquet (ici : juste après avoir rassemblé les fichiers, avant de faire l'installateur), pour les retoucher.
+
+**Contexte / exemple concret** : `scripts/apres-empaquetage.cjs` de Boutik retire les binaires onnxruntime des autres systèmes (macOS, Linux ou Windows selon le paquet), des processeurs ARM, et DirectML : l'AppImage passe de 201 à 158,5 Mo.
+
+**Termes liés** : [electron-builder](#electron-builder), [Packaging](#packaging), [DirectML](/media/#directml).
+
+---
+
+## Installation silencieuse (*Silent install*)
+
+**Définition simple** : Installer un logiciel sans aucune fenêtre ni question, en donnant les choix d'avance sur la ligne de commande. Utile pour les machines de test ou les déploiements en série.
+
+**Contexte / exemple concret** : La CI Windows de Boutik installe l'installateur NSIS avec `/S /D=C:\BoutikCI`, puis lance l'exécutable installé pour détourer une photo de test.
+
+**Termes liés** : [NSIS](#nsis-nullsoft-scriptable-install-system), [Installateur](#installateur-installer), [Job](#job).
+
+---
+
+## Espace de noms utilisateur (*User namespace*)
+
+**Définition simple** : Une « bulle » de Linux où un programme peut avoir une autre identité (par exemple se croire administrateur) sans aucun droit réel sur le système. Combinée à un espace de noms réseau, elle permet de couper le réseau d'un programme sans être administrateur.
+
+**Contexte / exemple concret** : Le test « réseau coupé » du détourage de Boutik lance l'exécutable avec `unshare -rn` (réseau coupé), puis un second espace de noms utilisateur qui lui rend son identité normale : Electron refuse de démarrer en se croyant administrateur.
+
+**Termes liés** : [Espace de noms réseau](#espace-de-noms-reseau-network-namespace), [sudo / root](#sudo-root).
+
+---
+
+## Déploiement local des DLL (*App-local deployment*)
+
+**Définition simple** : Livrer les DLL dont un programme a besoin dans son propre dossier, au lieu de compter sur leur installation dans Windows. Microsoft l'autorise pour les bibliothèques Visual C++.
+
+**Contexte / exemple concret** : La CI Windows de Boutik copie `msvcp140.dll`, `vcruntime140.dll` et `vcruntime140_1.dll` à côté de `onnxruntime.dll` : le détourage marche même sur un Windows où le Visual C++ Redistributable n'est pas installé.
+
+**Termes liés** : [DLL](#dll-dynamic-link-library), [Visual C++ Redistributable](#visual-c-redistributable), [Redistribution](/business/#redistribution).
+
+---

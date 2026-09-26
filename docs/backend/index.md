@@ -1167,3 +1167,35 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [Adressage par contenu](#adressage-par-contenu-content-addressing), [Hachage](#hachage-hash-empreinte).
 
 ---
+
+## CORS (*Cross-Origin Resource Sharing*)
+
+**Définition simple** : La règle des navigateurs qui empêche une page de lire des données venant d'une autre « origine » (un autre site, un autre protocole), sauf si celle-ci l'autorise par un en-tête (`Access-Control-Allow-Origin`). Sans cette autorisation, la page peut afficher une image, mais pas en lire les pixels.
+
+**Contexte / exemple concret** : Le protocole `boutik-image://` de Boutik envoie cet en-tête : l'interface peut relire les pixels d'une image (les tests vérifient ainsi la transparence d'un détourage). Rien ne sort pour autant de l'application, et une session reste exigée.
+
+**Termes liés** : [Protocole personnalisé](#protocole-personnalise-custom-protocol), [Content Security Policy](/frontend/#content-security-policy-csp).
+
+---
+
+## Tenseur (*Tensor*)
+
+**Définition simple** : Un tableau de nombres à plusieurs dimensions, la forme dans laquelle un modèle d'IA reçoit et rend ses données. Une image en couleur devient par exemple un tenseur « 1 image × 3 couleurs × 320 lignes × 320 colonnes » (on note NCHW).
+
+**Contexte / exemple concret** : Avant le détourage, Boutik transforme la photo réduite à 320 × 320 en tenseur de 307 200 nombres (`tenseurEntree`, dans `detourage/calcul.ts`) ; le modèle rend un tenseur de 320 × 320 valeurs, qui devient le masque.
+
+**Termes liés** : [Modèle d'IA](/media/#modele-d-ia-ai-model-reseau-de-neurones), [Inférence](/media/#inference-inference), [Masque](/media/#masque-mask).
+
+**Calcul** : nombre de valeurs = images × couleurs × hauteur × largeur. Pour U²-Net p : 1 × 3 × 320 × 320 = 307 200.
+
+---
+
+## Réserve mémoire (*Memory arena*)
+
+**Définition simple** : Une grande zone de mémoire qu'un moteur réserve d'avance et garde pour lui, afin d'aller plus vite ensuite. Le prix : la mémoire reste occupée même quand le calcul est fini.
+
+**Contexte / exemple concret** : Boutik désactive la réserve mémoire d'onnxruntime (`enableCpuMemArena: false`), comme dans l'essai de détourage ; de toute façon, le processus de calcul est arrêté après chaque image, ce qui rend toute sa mémoire.
+
+**Termes liés** : [onnxruntime](/media/#onnxruntime), [utilityProcess](#utilityprocess).
+
+---

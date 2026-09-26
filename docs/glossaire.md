@@ -104,6 +104,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[contextBridge](/backend/#contextbridge)** — *Backend & architecture*
 - **[Contraste 4,5:1 (WCAG contrast)](/frontend/#contraste-4-5-1-wcag-contrast)** — *Frontend & UI/UX*
 - **[Copyleft](/business/#copyleft)** — *Jargon entrepreneurial*
+- **[CORS (Cross-Origin Resource Sharing)](/backend/#cors-cross-origin-resource-sharing)** — *Backend & architecture*
 - **[Coté en bourse (IPO)](/business/#cote-en-bourse-publicly-listed-ipo)** — *Jargon entrepreneurial*
 - **[Coupe du papier (Paper cut)](/media/#coupe-du-papier-paper-cut)** — *Édition média*
 - **[Croissance quadratique (Quadratic growth)](/backend/#croissance-quadratique-quadratic-growth)** — *Backend & architecture*
@@ -129,6 +130,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Délai uniformisé (Timing attack protection)](/backend/#delai-uniformise-timing-attack-protection)** — *Backend & architecture*
 - **[Dépendance (Dependency)](/devops/#dependance-dependency)** — *DevOps & infra*
 - **[Dépendance de production / de développement (dependencies, devDependencies)](/devops/#dependance-de-production-de-developpement-dependencies-devdependencies)** — *DevOps & infra*
+- **[Déploiement local des DLL (App-local deployment)](/devops/#deploiement-local-des-dll-app-local-deployment)** — *DevOps & infra*
 - **[Dérivation de clé (Key derivation, PBKDF2)](/backend/#derivation-de-cle-key-derivation-pbkdf2)** — *Backend & architecture*
 - **[Dernier écrit gagne (Last-Write-Wins, LWW)](/backend/#dernier-ecrit-gagne-last-write-wins-lww)** — *Backend & architecture*
 - **[Design tokens](/frontend/#design-tokens)** — *Frontend & UI/UX*
@@ -158,6 +160,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Énumération de comptes (Account enumeration)](/backend/#enumeration-de-comptes-account-enumeration)** — *Backend & architecture*
 - **[ESC/POS](/media/#esc-pos)** — *Édition média*
 - **[Espace de noms réseau (Network namespace)](/devops/#espace-de-noms-reseau-network-namespace)** — *DevOps & infra*
+- **[Espace de noms utilisateur (User namespace)](/devops/#espace-de-noms-utilisateur-user-namespace)** — *DevOps & infra*
 - **[Espace de travail (Workspace)](/frontend/#espace-de-travail-workspace)** — *Frontend & UI/UX*
 - **[Espace insécable (Non-breaking space)](/frontend/#espace-insecable-non-breaking-space)** — *Frontend & UI/UX*
 - **[État (state)](/frontend/#etat-state)** — *Frontend & UI/UX*
@@ -223,6 +226,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[HMAC (Hash-based Message Authentication Code)](/backend/#hmac-hash-based-message-authentication-code)** — *Backend & architecture*
 - **[HMR (Hot Module Replacement)](/frontend/#hmr-hot-module-replacement)** — *Frontend & UI/UX*
 - **[Hook](/frontend/#hook)** — *Frontend & UI/UX*
+- **[Hook d'empaquetage (afterPack)](/devops/#hook-d-empaquetage-afterpack)** — *DevOps & infra*
 - **[Hook Git (Git hook)](/devops/#hook-git-git-hook)** — *DevOps & infra*
 - **[Horloge logique (Logical clock, Lamport clock)](/backend/#horloge-logique-logical-clock-lamport-clock)** — *Backend & architecture*
 - **[Hors ligne d'abord (Offline-first)](/backend/#hors-ligne-d-abord-offline-first)** — *Backend & architecture*
@@ -242,6 +246,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Info-bulle (Tooltip)](/frontend/#info-bulle-tooltip)** — *Frontend & UI/UX*
 - **[Injection de panne (Fault injection)](/devops/#injection-de-panne-fault-injection)** — *DevOps & infra*
 - **[Installateur (Installer)](/devops/#installateur-installer)** — *DevOps & infra*
+- **[Installation silencieuse (Silent install)](/devops/#installation-silencieuse-silent-install)** — *DevOps & infra*
 - **[Instantané (Snapshot)](/backend/#instantane-snapshot)** — *Backend & architecture*
 - **[IntersectionObserver](/frontend/#intersectionobserver)** — *Frontend & UI/UX*
 - **[IPC (Inter-Process Communication)](/backend/#ipc-inter-process-communication)** — *Backend & architecture*
@@ -393,6 +398,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Rendition](/streaming/#rendition)** — *Transcoding & streaming*
 - **[Rendu interruptible (startTransition, concurrent rendering)](/frontend/#rendu-interruptible-starttransition-concurrent-rendering)** — *Frontend & UI/UX*
 - **[Requête SQL (SQL query)](/backend/#requete-sql-sql-query)** — *Backend & architecture*
+- **[Réserve mémoire (Memory arena)](/backend/#reserve-memoire-memory-arena)** — *Backend & architecture*
 - **[Résolution](/streaming/#resolution-resolution)** — *Transcoding & streaming*
 - **[Résolution d'entrée d'un modèle (Model input resolution)](/media/#resolution-d-entree-d-un-modele-model-input-resolution)** — *Édition média*
 - **[Responsive design](/frontend/#responsive-design)** — *Frontend & UI/UX*
@@ -457,6 +463,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Tailwind](/frontend/#tailwind)** — *Frontend & UI/UX*
 - **[taskset](/devops/#taskset)** — *DevOps & infra*
 - **[TCP (Transmission Control Protocol)](/backend/#tcp-transmission-control-protocol)** — *Backend & architecture*
+- **[Tenseur (Tensor)](/backend/#tenseur-tensor)** — *Backend & architecture*
 - **[Term sheet](/business/#term-sheet)** — *Jargon entrepreneurial*
 - **[Test de performance (Benchmark)](/devops/#test-de-performance-benchmark)** — *DevOps & infra*
 - **[Test de régression (Regression test)](/devops/#test-de-regression-regression-test)** — *DevOps & infra*
