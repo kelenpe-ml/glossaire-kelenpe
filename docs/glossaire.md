@@ -253,7 +253,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[--inspect](/devops/#inspect)** — *DevOps & infra*
 - **[Idempotence](/backend/#idempotence)** — *Backend & architecture*
 - **[Identifiant de poste (device_id)](/backend/#identifiant-de-poste-device-id)** — *Backend & architecture*
-- **[Identifiant technique (Technical identifier, UUID)](/backend/#identifiant-technique-technical-identifier-uuid)** — *Backend & architecture*
+- **[Identifiant technique (Technical identifier)](/backend/#identifiant-technique-technical-identifier)** — *Backend & architecture*
 - **[Images par seconde (Frames per second, fps)](/frontend/#images-par-seconde-frames-per-second-fps)** — *Frontend & UI/UX*
 - **[Impression raster (Raster printing)](/media/#impression-raster-raster-printing)** — *Édition média*
 - **[Imprimante thermique (Thermal printer)](/media/#imprimante-thermique-thermal-printer)** — *Édition média*

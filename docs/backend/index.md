@@ -1340,12 +1340,12 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
-## Identifiant technique (*Technical identifier, UUID*)
+## Identifiant technique (*Technical identifier*)
 
 **Définition simple** : Un code sans signification (comme `3f2a9c10-1b2c-…`) qui désigne un objet de façon unique : il permet de le retrouver sans rien révéler de lui, contrairement à son nom.
 
 **Contexte / exemple concret** : Le journal des erreurs de Boutik désigne produits, ventes et clients par leur identifiant technique, jamais par leur nom : le support peut suivre un problème sans voir qui a acheté quoi.
 
-**Termes liés** : [Caviardage des données sensibles](#caviardage-des-donnees-sensibles-redaction), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
+**Termes liés** : [UUID](#uuid-universally-unique-identifier), [Caviardage des données sensibles](#caviardage-des-donnees-sensibles-redaction), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
 
 ---
