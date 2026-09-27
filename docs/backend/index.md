@@ -1309,3 +1309,43 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Trace d'appels](#trace-d-appels-stack-trace).
 
 ---
+
+## Erreur non rattrapée (*Uncaught exception*)
+
+**Définition simple** : Une erreur qu'aucun morceau de code n'a prévu d'attraper (pas de `try … catch` autour). Elle remonte jusqu'au programme entier, qui peut s'arrêter ou continuer dans un état douteux.
+
+**Contexte / exemple concret** : Boutik écoute ces erreurs dans le processus principal (`process.on("uncaughtException")`) et dans l'interface (`window.onerror`) : chacune est écrite dans le journal des erreurs avec sa trace d'appels, au lieu de disparaître.
+
+**Termes liés** : [Promesse rejetée sans traitement](#promesse-rejetee-sans-traitement-unhandled-rejection), [Trace d'appels](#trace-d-appels-stack-trace), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
+
+---
+
+## Promesse rejetée sans traitement (*Unhandled rejection*)
+
+**Définition simple** : Une opération asynchrone (une promesse) qui échoue sans que personne n'attende son résultat ni ne traite l'échec. L'erreur est silencieuse : rien ne s'affiche, mais quelque chose n'a pas été fait.
+
+**Contexte / exemple concret** : Boutik les capte dans le main (`unhandledRejection`) et dans l'interface (`unhandledrejection`) pour les écrire dans le journal des erreurs : c'est souvent la seule trace d'un enregistrement ou d'une impression qui n'a pas eu lieu.
+
+**Termes liés** : [Promesse et await](#promesse-et-await-promise), [Erreur non rattrapée](#erreur-non-rattrapee-uncaught-exception).
+
+---
+
+## Lignes JSON (*JSON Lines*)
+
+**Définition simple** : Un fichier où chaque ligne est un petit document JSON complet. On peut y ajouter une ligne sans relire le reste, et un programme peut le relire ligne par ligne, même si la dernière est abîmée.
+
+**Contexte / exemple concret** : Le journal des erreurs de Boutik (`logs/boutik.log`) est en lignes JSON : date, niveau, source, message, contexte, trace. Le rapport de problème les relit ; plus tard, l'envoi direct au support pourra les reprendre telles quelles.
+
+**Termes liés** : [JSON](#json-javascript-object-notation), [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Rotation des journaux](/devops/#rotation-des-journaux-log-rotation).
+
+---
+
+## Identifiant technique (*Technical identifier, UUID*)
+
+**Définition simple** : Un code sans signification (comme `3f2a9c10-1b2c-…`) qui désigne un objet de façon unique : il permet de le retrouver sans rien révéler de lui, contrairement à son nom.
+
+**Contexte / exemple concret** : Le journal des erreurs de Boutik désigne produits, ventes et clients par leur identifiant technique, jamais par leur nom : le support peut suivre un problème sans voir qui a acheté quoi.
+
+**Termes liés** : [Caviardage des données sensibles](#caviardage-des-donnees-sensibles-redaction), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
+
+---

@@ -89,6 +89,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[CI/CD](/devops/#ci-cd-integration-continue-deploiement-continu)** — *DevOps & infra*
 - **[Classement par fréquence et récence (Frecency)](/frontend/#classement-par-frequence-et-recence-frecency)** — *Frontend & UI/UX*
 - **[CLAUDE.md](/devops/#claude-md)** — *DevOps & infra*
+- **[Clé d'un composant React (key)](/frontend/#cle-d-un-composant-react-key)** — *Frontend & UI/UX*
 - **[Clé de chiffrement (Encryption key)](/backend/#cle-de-chiffrement-encryption-key)** — *Backend & architecture*
 - **[Clé publique / clé privée (Public / private key)](/backend/#cle-publique-cle-privee-public-private-key)** — *Backend & architecture*
 - **[Cliff](/business/#cliff)** — *Jargon entrepreneurial*
@@ -168,6 +169,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Émulateur (Emulator)](/devops/#emulateur-emulator)** — *DevOps & infra*
 - **[Entropie (Entropy)](/backend/#entropie-entropy)** — *Backend & architecture*
 - **[Énumération de comptes (Account enumeration)](/backend/#enumeration-de-comptes-account-enumeration)** — *Backend & architecture*
+- **[Erreur non rattrapée (Uncaught exception)](/backend/#erreur-non-rattrapee-uncaught-exception)** — *Backend & architecture*
 - **[ESC/POS](/media/#esc-pos)** — *Édition média*
 - **[Espace de noms réseau (Network namespace)](/devops/#espace-de-noms-reseau-network-namespace)** — *DevOps & infra*
 - **[Espace de noms utilisateur (User namespace)](/devops/#espace-de-noms-utilisateur-user-namespace)** — *DevOps & infra*
@@ -251,6 +253,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[--inspect](/devops/#inspect)** — *DevOps & infra*
 - **[Idempotence](/backend/#idempotence)** — *Backend & architecture*
 - **[Identifiant de poste (device_id)](/backend/#identifiant-de-poste-device-id)** — *Backend & architecture*
+- **[Identifiant technique (Technical identifier, UUID)](/backend/#identifiant-technique-technical-identifier-uuid)** — *Backend & architecture*
 - **[Images par seconde (Frames per second, fps)](/frontend/#images-par-seconde-frames-per-second-fps)** — *Frontend & UI/UX*
 - **[Impression raster (Raster printing)](/media/#impression-raster-raster-printing)** — *Édition média*
 - **[Imprimante thermique (Thermal printer)](/media/#imprimante-thermique-thermal-printer)** — *Édition média*
@@ -294,6 +297,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Licence logicielle (Software license)](/business/#licence-logicielle-software-license)** — *Jargon entrepreneurial*
 - **[Licence non commerciale (Non-commercial license)](/business/#licence-non-commerciale-non-commercial-license)** — *Jargon entrepreneurial*
 - **[Licence open source (Open source license)](/business/#licence-open-source-open-source-license)** — *Jargon entrepreneurial*
+- **[Lignes JSON (JSON Lines)](/backend/#lignes-json-json-lines)** — *Backend & architecture*
 - **[Load balancing](/devops/#load-balancing-repartition-de-charge)** — *DevOps & infra*
 - **[Logique floue (Fuzzy)](/cropsuite/#logique-floue-fuzzy)** — *CropSuite (PFE)*
 - **[Lossy vs Lossless](/media/#lossy-vs-lossless)** — *Édition média*
@@ -392,6 +396,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Prix de gros (Wholesale price)](/business/#prix-de-gros-wholesale-price)** — *Jargon entrepreneurial*
 - **[Projection](/backend/#projection)** — *Backend & architecture*
 - **[Promesse et await (Promise)](/backend/#promesse-et-await-promise)** — *Backend & architecture*
+- **[Promesse rejetée sans traitement (Unhandled rejection)](/backend/#promesse-rejetee-sans-traitement-unhandled-rejection)** — *Backend & architecture*
 - **[Props](/frontend/#props)** — *Frontend & UI/UX*
 - **[Protocole personnalisé (Custom protocol)](/backend/#protocole-personnalise-custom-protocol)** — *Backend & architecture*
 - **[Puppeteer](/devops/#puppeteer)** — *DevOps & infra*

@@ -843,3 +843,13 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Termes liés** : [React](#react), [Situation de course](/devops/#situation-de-course-race-condition).
 
 ---
+
+## Clé d'un composant React (*key*)
+
+**Définition simple** : Une étiquette que React utilise pour savoir si un composant affiché est « le même » qu'avant ou un nouveau. Même clé : React garde le composant et son état ; clé différente : il le recrée à neuf.
+
+**Contexte / exemple concret** : Chaque écran de Boutik a son écran de secours, avec le chemin de l'écran comme clé. Sans elle, React gardait la même instance d'un écran à l'autre, et un écran planté le restait même après avoir changé d'écran (défaut trouvé par le test e2e du journal).
+
+**Termes liés** : [React](#react), [Écran de secours en cas de plantage](#ecran-de-secours-en-cas-de-plantage-error-boundary).
+
+---
