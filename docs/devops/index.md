@@ -1299,3 +1299,23 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Termes liés** : [Test unitaire](#test-unitaire-unit-test), [Fixture](#fixture-jeu-de-test), [EBUSY](#ebusy-fichier-verrouille).
 
 ---
+
+## Situation de course (*Race condition*)
+
+**Définition simple** : Un résultat qui dépend de l'ordre ou de la vitesse de deux choses qui se passent en même temps. Tout marche quand l'une arrive toujours avant l'autre, et échoue le jour où l'ordre change (machine chargée, autre version).
+
+**Contexte / exemple concret** : Le test e2e des images de Boutik attendait 300 ms, puis prenait l'absence de fenêtre d'aperçu pour un fichier refusé. Quand la lecture du fichier dépassait 300 ms (presse-papiers asynchrone d'Electron 44), l'aperçu s'ouvrait après coup et la vérification suivante ratait. Correction : attendre ce qui doit arriver, jamais un délai fixe.
+
+**Termes liés** : [Test instable](#test-instable-flaky-test), [Ralentissement émulé du processeur](#ralentissement-emule-du-processeur-cpu-throttling).
+
+---
+
+## Ralentissement émulé du processeur (*CPU throttling*)
+
+**Définition simple** : Faire tourner une page comme sur une machine plus lente, en demandant au navigateur de la ralentir (`Emulation.setCPUThrottlingRate` du protocole de débogage). Sert à reproduire un problème qui n'apparaît que sur un PC lent.
+
+**Contexte / exemple concret** : Pour reproduire la course du test des images, ralentir le processeur n'a pas suffi : le retard venait de la lecture du fichier. Il a fallu retarder cette lecture elle-même (800 ms), ce qui a fait échouer l'ancien test à coup sûr, et passer le test corrigé.
+
+**Termes liés** : [Situation de course](#situation-de-course-race-condition), [Test instable](#test-instable-flaky-test).
+
+---

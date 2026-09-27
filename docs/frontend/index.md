@@ -813,3 +813,33 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Termes liés** : [React](#react), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
 
 ---
+
+## Interrupteur (*Switch*)
+
+**Définition simple** : Une commande à deux positions, activée ou non, qui change un réglage tout de suite (sans bouton « Enregistrer » à côté). Pour les lecteurs d'écran, on la déclare avec `role="switch"` et `aria-checked`.
+
+**Contexte / exemple concret** : Dans la vérification d'un lot de photos, chaque vignette de Boutik est un interrupteur « Fond retiré » : coché, la photo sera enregistrée sans son fond ; décoché, avec. Un clic ou Espace le bascule, et le texte sous la vignette (« Fond retiré » ou « Original ») le dit aussi, pas seulement la couleur.
+
+**Termes liés** : [Région live](#region-live-aria-live), [aria-label](#aria-label), [Focus itinérant](#focus-itinerant-roving-tabindex).
+
+---
+
+## Focus itinérant (*Roving tabindex*)
+
+**Définition simple** : Dans une grille ou une liste, un seul élément reçoit la touche Tab (`tabindex=0`), les autres sont sautés (`tabindex=-1`) ; les flèches déplacent ce « seul élément ». Tab entre dans la grille puis en sort d'un coup, au lieu de passer par chaque case.
+
+**Contexte / exemple concret** : La grille des photos d'un lot, dans Boutik : Tab arrive sur la vignette choisie, les flèches passent à la voisine (← → ↑ ↓, Début, Fin), Espace bascule la vignette, Entrée l'ouvre pour la pivoter ou la rogner.
+
+**Termes liés** : [Interrupteur](#interrupteur-switch), [Accessibilité](#accessibilite-a11y).
+
+---
+
+## Mode strict de React (*StrictMode*)
+
+**Définition simple** : Un mode de vérification de React, actif seulement en développement : il monte chaque composant, le démonte puis le remonte, pour révéler les effets qui ne savent pas s'arrêter proprement.
+
+**Contexte / exemple concret** : Boutik tourne en mode strict. La vérification d'un lot lance une boucle de détourage dans un effet : chaque montage a donc son propre signal d'arrêt, et le démontage abandonne les photos en attente créées par cette boucle, sans quoi elles resteraient en mémoire.
+
+**Termes liés** : [React](#react), [Situation de course](/devops/#situation-de-course-race-condition).
+
+---

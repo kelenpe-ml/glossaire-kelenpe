@@ -198,6 +198,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Fins de ligne CRLF / LF (Line endings)](/devops/#fins-de-ligne-crlf-lf-line-endings)** — *DevOps & infra*
 - **[Fixture (Jeu de test)](/devops/#fixture-jeu-de-test)** — *DevOps & infra*
 - **[Focus](/frontend/#focus)** — *Frontend & UI/UX*
+- **[Focus itinérant (Roving tabindex)](/frontend/#focus-itinerant-roving-tabindex)** — *Frontend & UI/UX*
 - **[Fonction pure (Pure function)](/backend/#fonction-pure-pure-function)** — *Backend & architecture*
 - **[Fonctionnalités à la carte (Add-on features)](/business/#fonctionnalites-a-la-carte-add-on-features)** — *Jargon entrepreneurial*
 - **[Fond en damier (Checkerboard background)](/media/#fond-en-damier-checkerboard-background)** — *Édition média*
@@ -261,6 +262,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Installateur (Installer)](/devops/#installateur-installer)** — *DevOps & infra*
 - **[Installation silencieuse (Silent install)](/devops/#installation-silencieuse-silent-install)** — *DevOps & infra*
 - **[Instantané (Snapshot)](/backend/#instantane-snapshot)** — *Backend & architecture*
+- **[Interrupteur (Switch)](/frontend/#interrupteur-switch)** — *Frontend & UI/UX*
 - **[IntersectionObserver](/frontend/#intersectionobserver)** — *Frontend & UI/UX*
 - **[IPC (Inter-Process Communication)](/backend/#ipc-inter-process-communication)** — *Backend & architecture*
 - **[IS-Net](/media/#is-net)** — *Édition média*
@@ -318,6 +320,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Mise à jour de l'application (Application update, distribution des versions)](/devops/#mise-a-jour-de-l-application-application-update-distribution-des-versions)** — *DevOps & infra*
 - **[MIT](/business/#mit)** — *Jargon entrepreneurial*
 - **[Mode RAW](/devops/#mode-raw)** — *DevOps & infra*
+- **[Mode strict de React (StrictMode)](/frontend/#mode-strict-de-react-strictmode)** — *Frontend & UI/UX*
 - **[Modèle d'IA (AI model, réseau de neurones)](/media/#modele-d-ia-ai-model-reseau-de-neurones)** — *Édition média*
 - **[Modèle maître/client (Primary/replica)](/backend/#modele-maitre-client-primary-replica)** — *Backend & architecture*
 - **[Module natif (Native module)](/devops/#module-natif-native-module)** — *DevOps & infra*
@@ -398,6 +401,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Raccourci clavier (Keyboard shortcut)](/frontend/#raccourci-clavier-keyboard-shortcut)** — *Frontend & UI/UX*
 - **[Rachat hostile](/business/#rachat-hostile-hostile-takeover)** — *Jargon entrepreneurial*
+- **[Ralentissement émulé du processeur (CPU throttling)](/devops/#ralentissement-emule-du-processeur-cpu-throttling)** — *DevOps & infra*
 - **[Raster](/cropsuite/#raster)** — *CropSuite (PFE)*
 - **[Rate limiting](/devops/#rate-limiting-limitation-de-debit)** — *DevOps & infra*
 - **[RBAC (Role-Based Access Control)](/backend/#rbac-role-based-access-control)** — *Backend & architecture*
@@ -459,6 +463,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Signature cryptographique (Digital signature)](/backend/#signature-cryptographique-digital-signature)** — *Backend & architecture*
 - **[Signature de code (Code signing, SmartScreen)](/devops/#signature-de-code-code-signing-smartscreen)** — *DevOps & infra*
 - **[SIMD (Single Instruction, Multiple Data)](/backend/#simd-single-instruction-multiple-data)** — *Backend & architecture*
+- **[Situation de course (Race condition)](/devops/#situation-de-course-race-condition)** — *DevOps & infra*
 - **[Skeleton loading](/frontend/#skeleton-loading-squelette-de-chargement)** — *Frontend & UI/UX*
 - **[Skia](/media/#skia)** — *Édition média*
 - **[SNMP (Simple Network Management Protocol)](/backend/#snmp-simple-network-management-protocol)** — *Backend & architecture*
