@@ -176,6 +176,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Espace de travail (Workspace)](/frontend/#espace-de-travail-workspace)** — *Frontend & UI/UX*
 - **[Espace insécable (Non-breaking space)](/frontend/#espace-insecable-non-breaking-space)** — *Frontend & UI/UX*
 - **[État (state)](/frontend/#etat-state)** — *Frontend & UI/UX*
+- **[État incertain d'un processus (Undefined state after an uncaught exception)](/backend/#etat-incertain-d-un-processus-undefined-state-after-an-uncaught-exception)** — *Backend & architecture*
 - **[ETI (Mid-cap)](/business/#eti-mid-cap)** — *Jargon entrepreneurial*
 - **[Événement immuable (Immutable event)](/backend/#evenement-immuable-immutable-event)** — *Backend & architecture*
 - **[Event sourcing (journal d'événements)](/backend/#event-sourcing-journal-d-evenements)** — *Backend & architecture*
@@ -418,6 +419,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Rebase](/devops/#rebase)** — *DevOps & infra*
 - **[Recompilation (Rebuild)](/devops/#recompilation-rebuild)** — *DevOps & infra*
 - **[Reconstruction d'une projection (Replay)](/backend/#reconstruction-d-une-projection-replay)** — *Backend & architecture*
+- **[Redémarrage contrôlé (Controlled restart)](/backend/#redemarrage-controle-controlled-restart)** — *Backend & architecture*
 - **[Redimensionnement (Resizing, Lanczos)](/media/#redimensionnement-resizing-lanczos)** — *Édition média*
 - **[Redistribution](/business/#redistribution)** — *Jargon entrepreneurial*
 - **[ReDoS (Regular expression Denial of Service)](/devops/#redos-regular-expression-denial-of-service)** — *DevOps & infra*

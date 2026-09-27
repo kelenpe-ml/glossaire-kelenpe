@@ -1349,3 +1349,23 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [UUID](#uuid-universally-unique-identifier), [Caviardage des données sensibles](#caviardage-des-donnees-sensibles-redaction), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
 
 ---
+
+## État incertain d'un processus (*Undefined state after an uncaught exception*)
+
+**Définition simple** : Après une erreur non rattrapée, un programme a pu s'arrêter au milieu d'une opération : une donnée à moitié modifiée, une ressource restée ouverte. La documentation de Node prévient qu'il n'est alors plus sûr de continuer comme si de rien n'était.
+
+**Contexte / exemple concret** : Quand le processus principal de Boutik rencontre une erreur non rattrapée, il l'écrit dans le journal puis conseille au commerçant de redémarrer (« Un problème est survenu. Nous vous conseillons de redémarrer Boutik. »), avec insistance si cela se répète trois fois en dix minutes.
+
+**Termes liés** : [Erreur non rattrapée](#erreur-non-rattrapee-uncaught-exception), [Redémarrage contrôlé](#redemarrage-controle-controlled-restart).
+
+---
+
+## Redémarrage contrôlé (*Controlled restart*)
+
+**Définition simple** : Relancer un programme proprement, par le même chemin qu'une fermeture normale : on prévient si un travail serait perdu, on laisse la possibilité de rester, puis on ferme et on relance.
+
+**Contexte / exemple concret** : Le bouton « Redémarrer » de Boutik ferme la fenêtre comme la croix : si un ticket ou une saisie est en cours, la confirmation habituelle demande « Redémarrer Boutik ? » et « Rester dans Boutik » annule tout. Sinon l'exécutable se ferme et se relance ; un nouveau démarrage apparaît dans le journal.
+
+**Termes liés** : [État incertain d'un processus](#etat-incertain-d-un-processus-undefined-state-after-an-uncaught-exception), [Erreur non rattrapée](#erreur-non-rattrapee-uncaught-exception).
+
+---
