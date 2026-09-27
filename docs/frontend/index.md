@@ -793,3 +793,23 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Termes liés** : [Lecteur d'écran](#lecteur-d-ecran-screen-reader), [Accessibilité](#accessibilite-a11y), [aria-label](#aria-label).
 
 ---
+
+## Barre de progression (*Progress bar*)
+
+**Définition simple** : Un indicateur qui montre où en est une tâche longue (par exemple 120 sur 500), pour que l'utilisateur sache qu'elle avance et combien de temps il reste.
+
+**Contexte / exemple concret** : L'écran Import de Boutik affichait « Import 120/500 » pendant qu'il créait les produits un par un. Depuis l'import en une seule transaction (septembre 2026), il n'y a plus d'étapes à compter : un message d'attente la remplace.
+
+**Termes liés** : [Traitement par lot](/backend/#traitement-par-lot-batch-processing), [Atomicité](/backend/#atomicite-atomicity-tout-ou-rien).
+
+---
+
+## Écran de secours en cas de plantage (*Error boundary*)
+
+**Définition simple** : Un composant React qui attrape une erreur survenue en dessinant une partie de l'écran, et affiche à la place un écran de secours (message, bouton pour recharger) au lieu d'une page blanche.
+
+**Contexte / exemple concret** : Boutik n'en a pas encore : une erreur de rendu imprévue donnerait une fenêtre vide. À placer autour de chaque écran, sans faire perdre le ticket en cours de la caisse.
+
+**Termes liés** : [React](#react), [Journal d'erreurs](/devops/#journal-d-erreurs-log).
+
+---

@@ -1169,3 +1169,133 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Termes liés** : [Branche](#branche-branch), [Push](#push), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Workflow](#workflow).
 
 ---
+
+## Journal d'erreurs (*Log*)
+
+**Définition simple** : Un fichier ou un flux où un programme note, avec l'heure, ce qu'il fait et ce qui se passe mal, pour comprendre un problème après coup.
+
+**Contexte / exemple concret** : Boutik écrit ses messages sur la sortie de la console (« [Boutik] Base ouverte… »), que lisent les tests e2e. Il n'y a pas encore de fichier de journal sur le poste de la boutique. Règle : jamais de secret dedans.
+
+**Termes liés** : [Niveau de journalisation](#niveau-de-journalisation-log-level), [Rotation des journaux](#rotation-des-journaux-log-rotation), [Caviardage des données sensibles](/backend/#caviardage-des-donnees-sensibles-redaction).
+
+---
+
+## Niveau de journalisation (*Log level*)
+
+**Définition simple** : L'importance d'un message de journal : détail (debug), information, avertissement, erreur. On choisit le niveau minimum à garder, pour ne pas noyer l'essentiel.
+
+**Contexte / exemple concret** : Boutik utilise `console.info` (« Clé SQLCipher générée… »), `console.warn` (« Suggestions de saisie non mémorisées ») et `console.error`.
+
+**Termes liés** : [Journal d'erreurs](#journal-d-erreurs-log).
+
+---
+
+## Rotation des journaux (*Log rotation*)
+
+**Définition simple** : Remplacer régulièrement le fichier de journal par un nouveau et ne garder que les derniers (par taille ou par date), pour qu'il ne remplisse jamais le disque.
+
+**Contexte / exemple concret** : Boutik n'écrit pas encore de fichier de journal. S'il en écrit un, la rotation sera obligatoire : les PC des boutiques ont de petits disques et personne pour les surveiller.
+
+**Termes liés** : [Journal d'erreurs](#journal-d-erreurs-log).
+
+---
+
+## Mise à jour de l'application (*Application update, distribution des versions*)
+
+**Définition simple** : Faire passer les postes à une nouvelle version : la construire, la distribuer (installateur, téléchargement), l'installer, en gardant lisibles les données créées par l'ancienne version.
+
+**Contexte / exemple concret** : L'installateur Windows de Boutik est construit par la CI ; il n'y a pas encore de mise à jour automatique. `test:e2e:mise-a-jour` rouvre avec la nouvelle version une base créée sous Electron 37 (clé, données, images, codes de secours, PIN).
+
+**Termes liés** : [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Version majeure](#version-majeure-semantic-versioning-semver).
+
+---
+
+## git fetch
+
+**Définition simple** : Télécharger les nouveautés du dépôt distant (commits, branches) sans toucher à son propre travail : les branches distantes (`origin/main`) sont mises à jour, les branches locales non.
+
+**Contexte / exemple concret** : Avant de fusionner dans Boutik, `git fetch origin` montre si `origin/main` a bougé depuis la dernière fois.
+
+**Termes liés** : [git pull](#git-pull), [Branche locale / branche distante](#branche-locale-branche-distante-local-branch-remote-branch).
+
+---
+
+## git pull
+
+**Définition simple** : Un `git fetch` suivi de l'intégration des nouveautés dans la branche locale courante. Avec `--ff-only`, Git refuse s'il faudrait créer un commit de fusion.
+
+**Contexte / exemple concret** : Sur Boutik, `git pull --ff-only` sur `main` récupère ce qui a été poussé ailleurs sans jamais créer de fusion par surprise.
+
+**Termes liés** : [git fetch](#git-fetch), [Avance rapide](#avance-rapide-fast-forward-ff-only), [Fusion](#fusion-merge).
+
+---
+
+## Avance rapide (*Fast-forward, --ff-only*)
+
+**Définition simple** : Quand la branche cible n'a rien que la branche intégrée n'ait déjà, Git déplace simplement son pointeur vers le dernier commit : pas de commit de fusion, l'historique reste une ligne droite. `--ff-only` n'accepte que ce cas.
+
+**Contexte / exemple concret** : La branche `test/electron-44` de Boutik est rebasée sur `main` : sa fusion peut se faire en avance rapide (`git merge --ff-only`).
+
+**Termes liés** : [Fusion](#fusion-merge), [Rebase](#rebase), [Refus non-fast-forward](#refus-non-fast-forward-non-fast-forward-rejection).
+
+---
+
+## Branche locale / branche distante (*Local branch / remote branch*)
+
+**Définition simple** : Une branche locale est sur l'ordinateur, là où l'on committe (`main`). Une branche distante est la copie connue de la branche du dépôt partagé (`origin/main`), mise à jour par `git fetch`. Les deux peuvent diverger.
+
+**Contexte / exemple concret** : `test/electron-44` n'existe que sur le poste ; `git push origin test/electron-44:ci/verification` crée ou met à jour la branche distante `ci/verification`, qui déclenche le workflow Windows.
+
+**Termes liés** : [Branche](#branche-branch), [Push](#push), [git fetch](#git-fetch), [Branche de vérification](#branche-de-verification-verification-branch).
+
+---
+
+## Poussée forcée prudente (*--force-with-lease*)
+
+**Définition simple** : Un push qui remplace la branche distante seulement si elle est encore là où on l'a vue la dernière fois. Si quelqu'un a poussé entre-temps, Git refuse au lieu d'écraser son travail, contrairement à `--force`.
+
+**Contexte / exemple concret** : Pour republier sur `ci/verification` un commit plus ancien que celui qui y est déjà (une mesure « avant », par exemple) : `git push --force-with-lease origin <commit>:ci/verification`.
+
+**Termes liés** : [Push](#push), [Refus non-fast-forward](#refus-non-fast-forward-non-fast-forward-rejection).
+
+---
+
+## Refus non-fast-forward (*Non-fast-forward rejection*)
+
+**Définition simple** : Git refuse un push quand la branche distante contient des commits absents de la branche envoyée : les accepter les effacerait. On récupère d'abord ces commits (fetch, puis fusion ou rebase), ou, si l'effacement est voulu, on utilise une poussée forcée prudente.
+
+**Contexte / exemple concret** : Pousser sur `ci/verification` un commit plus ancien que celui qui y est est refusé ainsi (« rejected, non-fast-forward »).
+
+**Termes liés** : [Avance rapide](#avance-rapide-fast-forward-ff-only), [Poussée forcée prudente](#poussee-forcee-prudente-force-with-lease).
+
+---
+
+## EBUSY (*fichier verrouillé*)
+
+**Définition simple** : Un code d'erreur du système : « ressource occupée ou verrouillée ». Sous Windows, il apparaît typiquement quand on supprime ou renomme un fichier qu'un programme tient encore ouvert.
+
+**Contexte / exemple concret** : Job Windows de Boutik, septembre 2026 : un test ouvrait la base avec une mauvaise clé, et la connexion restait ouverte ; la suppression du dossier temporaire échouait avec EBUSY.
+
+**Termes liés** : [Verrouillage de fichier sous Windows](#verrouillage-de-fichier-sous-windows-file-locking), [Ménage de fin de test](#menage-de-fin-de-test-teardown).
+
+---
+
+## Verrouillage de fichier sous Windows (*File locking*)
+
+**Définition simple** : Windows empêche par défaut de supprimer ou de renommer un fichier tant qu'un programme l'a ouvert. Linux laisse faire : le fichier disparaît quand le dernier programme le ferme. Le même code peut donc marcher sous Linux et échouer sous Windows.
+
+**Contexte / exemple concret** : Le défaut de `ouvrirConnexion` (base laissée ouverte après une clé refusée) était invisible sous Linux ; la CI Windows l'a révélé. La fonction referme maintenant la base avant de signaler l'erreur.
+
+**Termes liés** : [EBUSY](#ebusy-fichier-verrouille), [Fichier de verrouillage](#fichier-de-verrouillage-lockfile).
+
+---
+
+## Ménage de fin de test (*Teardown*)
+
+**Définition simple** : Ce qu'un test fait à la fin pour tout remettre en état (fermer les connexions, arrêter les processus, supprimer les fichiers temporaires), dans un bloc exécuté même si le test échoue (`finally`).
+
+**Contexte / exemple concret** : Dans Boutik, `tests/outils/base-temporaire.ts` ferme toutes les bases ouvertes par un test avant de supprimer son dossier ; `lancerApp` arrête l'app et désactive la règle Hyprland même en cas d'échec.
+
+**Termes liés** : [Test unitaire](#test-unitaire-unit-test), [Fixture](#fixture-jeu-de-test), [EBUSY](#ebusy-fichier-verrouille).
+
+---

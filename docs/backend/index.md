@@ -1279,3 +1279,33 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [Fenêtre modale](/frontend/#fenetre-modale-modal-dialog), [Délai d'attente](#delai-d-attente-timeout).
 
 ---
+
+## Traitement par lot (*Batch processing*)
+
+**Définition simple** : Faire beaucoup d'opérations d'un coup plutôt qu'une par une : le coût fixe de chaque opération (appel, vérification, écriture sur le disque) n'est payé qu'une fois.
+
+**Contexte / exemple concret** : L'import de produits de Boutik envoie toutes les lignes en un seul appel, écrites dans une seule transaction. Sur la CI Windows, l'ancienne méthode (une écriture par ligne) prenait 35,6 s pour 500 produits, soit 71 ms par produit.
+
+**Termes liés** : [Transaction](#transaction), [Atomicité](#atomicite-atomicity-tout-ou-rien), [Journal WAL](#journal-wal-write-ahead-logging).
+
+---
+
+## Trace d'appels (*Stack trace*)
+
+**Définition simple** : La liste des fonctions en cours au moment d'une erreur, de la plus profonde à la plus haute, avec pour chacune le fichier et la ligne. Elle montre le chemin qui a mené au problème.
+
+**Contexte / exemple concret** : Quand un test de Boutik échoue, `node --test` affiche la trace : l'erreur EBUSY du job Windows pointait vers `tests/base-connexion.test.ts:63`. Une trace ne doit jamais contenir de secret, car elle finit souvent dans un journal.
+
+**Termes liés** : [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Caviardage des données sensibles](#caviardage-des-donnees-sensibles-redaction).
+
+---
+
+## Caviardage des données sensibles (*Redaction*)
+
+**Définition simple** : Retirer ou masquer une donnée sensible (mot de passe, code, empreinte) avant de l'afficher, de l'envoyer ou de l'écrire dans un journal, pour qu'elle ne fuie pas par ce chemin.
+
+**Contexte / exemple concret** : Toute lecture d'événement dans Boutik passe par `rowToEvent`, qui retire les champs de `CHAMPS_SENSIBLES` (`secretHash`, `hashes`). Le test e2e des codes de secours vérifie que ni les lectures de l'interface ni les journaux de l'app ne contiennent de code ou d'empreinte.
+
+**Termes liés** : [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Trace d'appels](#trace-d-appels-stack-trace).
+
+---
