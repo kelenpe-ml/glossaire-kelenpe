@@ -1,0 +1,26 @@
+<svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enveloppes de clé : une clé, plusieurs serrures" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Enveloppes de clé : une clé, plusieurs serrures</title>
+<rect x="0" y="0" width="820" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<rect x="310" y="50" width="200" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="410.0" y="77.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Clé de sauvegarde</text>
+<text x="410.0" y="94.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">chiffre toute la copie</text>
+<rect x="40" y="170" width="170" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="125.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Enveloppe 1</text>
+<text x="125.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">mot de passe</text>
+<line x1="125" y1="170" x2="410" y2="110" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="230" y="170" width="170" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="315.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Enveloppe 2</text>
+<text x="315.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">code de secours 1</text>
+<line x1="315" y1="170" x2="410" y2="110" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="420" y="170" width="170" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="505.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Enveloppe 3</text>
+<text x="505.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">code de secours 2</text>
+<line x1="505" y1="170" x2="410" y2="110" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="610" y="170" width="170" height="56" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="695.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">…</text>
+<text x="695.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">codes 3 à 5</text>
+<line x1="695" y1="170" x2="410" y2="110" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="410" y="256" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Chaque enveloppe contient la même clé, verrouillée par un secret (argon2id).</text>
+<text x="410" y="274" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Ouvrir une seule enveloppe suffit ; changer le mot de passe = refaire une enveloppe, pas la copie.</text>
+</svg>

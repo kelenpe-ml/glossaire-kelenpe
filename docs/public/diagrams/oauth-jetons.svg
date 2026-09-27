@@ -1,0 +1,33 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OAuth : autorisation une fois, jetons ensuite" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>OAuth : autorisation une fois, jetons ensuite</title>
+<rect x="0" y="0" width="820" height="330" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<rect x="30" y="60" width="150" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="105.0" y="85.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Boutik</text>
+<text x="105.0" y="102.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">application de bureau</text>
+<rect x="335" y="60" width="150" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="410.0" y="85.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Google</text>
+<text x="410.0" y="102.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">page de consentement</text>
+<rect x="640" y="60" width="150" height="56" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="715.0" y="85.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Commerçant</text>
+<text x="715.0" y="102.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">dans son navigateur</text>
+<line x1="180" y1="80" x2="335" y2="80" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="257.5" y="73.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">1. ouvre la page</text>
+<line x1="640" y1="88" x2="485" y2="88" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="562" y="80" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">2. accepte</text>
+<line x1="335" y1="112" x2="180" y2="112" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="257.5" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">3. code (127.0.0.1)</text>
+<rect x="30" y="170" width="230" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="145.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Jeton d’accès</text>
+<text x="145.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">≈ 1 h, pour chaque envoi</text>
+<rect x="290" y="170" width="250" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="415.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Jeton de renouvellement</text>
+<text x="415.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">durable, dans le coffre du système</text>
+<rect x="570" y="170" width="220" height="56" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="680.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Portée drive.file</text>
+<text x="680.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">seulement ses propres fichiers</text>
+<line x1="290" y1="198" x2="260" y2="198" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="275" y="244" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">renouvelle</text>
+<text x="410" y="290" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Jeton d’accès expiré : Boutik en redemande un avec le jeton de renouvellement, sans rien demander au commerçant.</text>
+<text x="410" y="310" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Accès retiré depuis le compte Google : le renouvellement échoue, Boutik demande de reconnecter.</text>
+</svg>

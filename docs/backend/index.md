@@ -620,9 +620,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Une copie de la base mise de côté pour la retrouver après une panne, un vol ou une erreur. Pour servir, la copie doit être cohérente : prise à un instant où la base est complète.
 
-**Contexte / exemple concret** : Avec le journal WAL, les dernières écritures de Boutik peuvent être dans `boutik.db-wal`. Une future sauvegarde ne devra donc jamais copier `boutik.db` seul : les trois fichiers ensemble, application fermée, ou l'API de sauvegarde de SQLite (`backup`), qui produit une copie cohérente même base ouverte.
+**Contexte / exemple concret** : Avec le journal WAL, les dernières écritures de Boutik peuvent être dans `boutik.db-wal` : copier `boutik.db` seul donnerait une copie incomplète. La sauvegarde de Boutik ne copie donc jamais le fichier. Elle lit le journal d'événements, les photos et les termes dans une seule transaction de lecture (un instantané cohérent, même si une vente s'enregistre au même moment), puis les range dans un fichier `.boutik` chiffré. Réglages > Sauvegarde > « Enregistrer une copie ».
 
-**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Report du journal](#report-du-journal-checkpoint), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Report du journal](#report-du-journal-checkpoint), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Sauvegarde incrémentale](#sauvegarde-incrementale-incremental-backup), [Restauration](#restauration-restore).
 
 ---
 
@@ -676,9 +676,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Fabriquer une clé de chiffrement à partir d'un secret (un mot de passe, une phrase) par un calcul volontairement long, répété des centaines de milliers de fois. Pour l'utilisateur, c'est une fraction de seconde ; pour un voleur qui essaie des milliards de secrets, ce sont des siècles. PBKDF2 est la méthode la plus répandue.
 
-**Contexte / exemple concret** : SQLCipher 4 passe le secret de Boutik par PBKDF2-HMAC-SHA512, 256 000 tours, avant de s'en servir pour chiffrer.
+**Contexte / exemple concret** : SQLCipher 4 passe le secret de Boutik par PBKDF2-HMAC-SHA512, 256 000 tours, avant de s'en servir pour chiffrer. Pour les copies de sauvegarde, Boutik dérive une clé du mot de passe du patron avec [argon2id](#argon2id) (64 Mio de mémoire, 3 passes, environ un tiers de seconde) : c'est elle qui ouvre l'[enveloppe](#enveloppe-de-cle-key-wrapping) de la copie. Les codes de secours, tirés au hasard (environ 79 bits), se contentent d'une dérivation plus légère : on ne peut pas les deviner.
 
-**Termes liés** : [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Force brute](#force-brute-brute-force), [HMAC](#hmac-hash-based-message-authentication-code).
+**Termes liés** : [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Force brute](#force-brute-brute-force), [HMAC](#hmac-hash-based-message-authentication-code), [Enveloppe de clé](#enveloppe-de-cle-key-wrapping).
 
 ---
 
@@ -1379,5 +1379,111 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Le bouton « Redémarrer » de Boutik ferme la fenêtre comme la croix : si un ticket ou une saisie est en cours, la confirmation habituelle demande « Redémarrer Boutik ? » et « Rester dans Boutik » annule tout. Sinon l'exécutable se ferme et se relance ; un nouveau démarrage apparaît dans le journal.
 
 **Termes liés** : [État incertain d'un processus](#etat-incertain-d-un-processus-undefined-state-after-an-uncaught-exception), [Erreur non rattrapée](#erreur-non-rattrapee-uncaught-exception).
+
+---
+
+## Sauvegarde incrémentale (*Incremental backup*)
+
+![Deux copies successives : les tranches du journal et les photos qui n'ont pas changé gardent le même nom et ne sont pas renvoyées ; seules la dernière tranche, la nouvelle photo et les termes partent](/diagrams/sauvegarde-incrementale.svg)
+
+**Définition simple** : Une sauvegarde qui n'envoie que ce qui a changé depuis la précédente, au lieu de tout recopier chaque fois. On découpe les données en morceaux, chacun nommé par une [empreinte](#hachage-hash-empreinte) de son contenu : un morceau inchangé garde le même nom, et la destination l'a déjà. La restauration, elle, reste simple : une liste (le manifeste) dit quels morceaux forment la copie.
+
+**Contexte / exemple concret** : Une copie de Boutik est découpée en objets : le journal par tranches de 2 000 événements, une photo par objet, les termes des suggestions. Le lendemain, seuls la dernière tranche (qui s'est remplie), les nouvelles photos et les termes changent. Mesuré sur une boutique réaliste : 300 produits avec photo, 3 000 ventes : copie complète de 55 Mio (presque tout en photos), puis 560 Kio à envoyer le lendemain (30 ventes et 2 photos de plus : 4 objets nouveaux sur 308). C'est ce qui rendra supportable, en données mobiles, l'envoi quotidien vers Google Drive.
+
+**Termes liés** : [Sauvegarde de la base](#sauvegarde-de-la-base-database-backup), [Restauration](#restauration-restore), [Hachage](#hachage-hash-empreinte), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+
+**Calcul** : envoi quotidien = en-tête + somme des objets absents de la copie précédente. Boutique de test (12 produits, 60 ventes, puis 2 produits et 30 ventes le lendemain) : 16 objets dont 4 nouveaux, soit 390 Kio envoyés au lieu de 2,6 Mio.
+
+---
+
+## Chiffrement authentifié (*Authenticated encryption, AES-GCM*)
+
+![Données et clé entrent dans AES-256-GCM, qui produit le chiffré et une étiquette de 16 octets ; à la lecture, une étiquette juste rend les données, un seul octet modifié provoque un refus](/diagrams/chiffrement-authentifie.svg)
+
+**Définition simple** : Un [chiffrement](#chiffrement-encryption) qui, en plus de cacher les données, produit une petite « étiquette » calculée sur chaque octet. À la lecture, on recalcule l'étiquette : si un seul octet a changé (panne de disque, fichier abîmé, modification volontaire), elle ne correspond plus, et rien n'est rendu. On ne peut pas refaire l'étiquette sans la clé. AES-GCM est la méthode la plus courante.
+
+**Contexte / exemple concret** : Chaque objet d'une copie de Boutik est chiffré en [AES-256](#aes-256-advanced-encryption-standard)-GCM. Le test automatique modifie un seul octet au début, au milieu ou à la fin d'une copie : elle est refusée avec « Ce fichier n'est pas une copie de Boutik, ou il est abîmé. », avant que la base ne soit touchée.
+
+**Termes liés** : [AES-256](#aes-256-advanced-encryption-standard), [HMAC](#hmac-hash-based-message-authentication-code), [Clé de chiffrement](#cle-de-chiffrement-encryption-key), [Restauration](#restauration-restore).
+
+---
+
+## Enveloppe de clé (*Key wrapping*)
+
+![Une clé de sauvegarde au centre, et plusieurs enveloppes (mot de passe, codes de secours) qui l'ouvrent chacune](/diagrams/enveloppe-de-cle.svg)
+
+**Définition simple** : Une [clé de chiffrement](#cle-de-chiffrement-encryption-key) elle-même chiffrée par un autre secret, comme une clé de maison rangée dans un petit coffre à code. On peut faire plusieurs « enveloppes » de la même clé, chacune avec son secret : n'importe laquelle suffit à la retrouver. Changer un secret revient à refaire une enveloppe, sans rechiffrer les données.
+
+**Contexte / exemple concret** : Une copie de Boutik est chiffrée par une clé de sauvegarde tirée au hasard. Elle contient une enveloppe par le mot de passe du patron et une par code de secours encore valable : le patron peut l'ouvrir avec l'un ou l'autre. Les enveloppes sont préparées quand ces secrets passent en clair (création de la boutique, connexion, nouvelle série de codes) et gardées sur le poste : une copie automatique n'a besoin d'aucun secret.
+
+**Termes liés** : [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [argon2id](#argon2id), [safeStorage](#safestorage), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+
+---
+
+## Restauration (*Restore*)
+
+![Fichier choisi, secret, vérification de chaque objet, résumé avec confirmation, puis écriture et contrôle ; un secret faux ou un octet modifié arrête tout avant l'écriture](/diagrams/restauration.svg)
+
+**Définition simple** : Remettre les données d'une sauvegarde dans l'application, par exemple sur un ordinateur neuf après une panne ou un vol. Une bonne restauration vérifie tout avant d'écrire quoi que ce soit, montre ce qu'elle va remettre, et ne remplace jamais des données existantes sans le demander clairement.
+
+**Contexte / exemple concret** : Au premier lancement, Boutik propose « Créer une boutique » ou « Restaurer une sauvegarde ». Le commerçant choisit le fichier, tape son mot de passe ou un code de secours. Boutik vérifie chaque objet, affiche « Épicerie Awa, copie du 27 septembre, 300 produits, 3 000 ventes », puis restaure après confirmation. Le journal est réinséré, les [projections](#projection) sont [reconstruites](#reconstruction-d-une-projection-replay) et comparées à la copie, et le poste reçoit un nouvel identifiant. Un mot de passe faux déclenche une attente croissante.
+
+**Termes liés** : [Sauvegarde de la base](#sauvegarde-de-la-base-database-backup), [Sauvegarde incrémentale](#sauvegarde-incrementale-incremental-backup), [Event sourcing](#event-sourcing-journal-d-evenements), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+
+---
+
+## MTP (*Media Transfer Protocol*)
+
+**Définition simple** : La façon dont un téléphone Android se présente à un ordinateur par câble USB, en mode « Transfert de fichiers ». Il n'apparaît pas comme une clé USB avec une lettre (E:, F:), mais comme un appareil dans « Ce PC » : on peut y copier des fichiers avec l'Explorateur, mais un programme ne peut pas y écrire par un simple chemin de fichier.
+
+**Contexte / exemple concret** : Pour envoyer une copie de Boutik sur le téléphone du commerçant par câble, sans nouveau module, Boutik devra passer par le Shell de Windows (PowerShell, `Shell.Application`, `CopyHere`), qui sait parler MTP comme l'Explorateur. Il faudra aussi vérifier que le fichier est bien arrivé : la copie ne rend pas de résultat fiable. Détails : `docs/etude-destinations-sauvegarde.md` de Boutik.
+
+**Termes liés** : [LocalSend](#localsend), [Sauvegarde de la base](#sauvegarde-de-la-base-database-backup).
+
+---
+
+## LocalSend
+
+![Boutik cherche les appareils sur le Wi-Fi par multicast, le téléphone répond, Boutik propose un fichier, le commerçant accepte, le fichier part en HTTPS](/diagrams/localsend.svg)
+
+**Définition simple** : Une application libre et gratuite (Android, iPhone, Windows, Mac, Linux) pour envoyer des fichiers d'un appareil à l'autre sur le même Wi-Fi, sans Internet ni compte, un peu comme AirDrop. Son protocole est public (licence MIT) : un autre logiciel peut envoyer des fichiers à un téléphone qui a LocalSend, sans reprendre son code.
+
+**Contexte / exemple concret** : Destination recommandée en premier pour les copies de Boutik. Boutik annonce sa présence sur le réseau (multicast `224.0.0.167`, port 53317, comme [mDNS](#mdns-multicast-dns) pour les imprimantes), trouve « Téléphone d'Awa », propose le fichier. Le commerçant touche « Accepter », et la copie part en HTTPS, sans consommer de données mobiles, même quand le PC utilise le partage de connexion du téléphone.
+
+**Termes liés** : [MTP](#mtp-media-transfer-protocol), [mDNS](#mdns-multicast-dns), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+
+---
+
+## OAuth (*OAuth 2.0*)
+
+![Boutik ouvre la page de Google, le commerçant accepte, Google renvoie un code à Boutik, qui obtient un jeton d'accès et un jeton de renouvellement limités à la portée drive.file](/diagrams/oauth-jetons.svg)
+
+**Définition simple** : La méthode standard pour qu'une application agisse sur un compte (Google, par exemple) **sans jamais connaître son mot de passe**. L'utilisateur se connecte chez Google, voit ce que l'application demande, accepte ; Google remet alors à l'application des [jetons](#jeton-d-acces-et-jeton-de-renouvellement-access-token-refresh-token) limités à ce qui a été accepté (la [portée](#portee-d-acces-scope)). L'utilisateur peut retirer cet accès à tout moment depuis son compte.
+
+**Contexte / exemple concret** : Pour envoyer les copies sur le Google Drive du commerçant, Boutik ouvrira son navigateur sur la page de Google. Après « Autoriser », Google renvoie un code à Boutik par une adresse locale (`127.0.0.1`), protégé par PKCE. Boutik ne voit jamais le mot de passe Google, et aucun serveur de Kelenpe n'est sur le chemin.
+
+**Termes liés** : [Portée d'accès](#portee-d-acces-scope), [Jeton d'accès et jeton de renouvellement](#jeton-d-acces-et-jeton-de-renouvellement-access-token-refresh-token), [API](#api-application-programming-interface).
+
+---
+
+## Portée d'accès (*Scope*)
+
+**Définition simple** : Ce qu'une application a le droit de faire sur un compte, demandé au moment de l'autorisation [OAuth](#oauth-oauth-2-0) et affiché à l'utilisateur. Plus la portée est étroite, moins il y a de risque en cas de fuite, et plus l'autorisation est facile à obtenir de Google.
+
+**Contexte / exemple concret** : Boutik demandera `drive.file` : il ne voit et ne modifie **que les fichiers qu'il a créés** dans le Drive du commerçant, jamais ses photos ni ses documents. Google classe cette portée « non sensible » : une vérification de base suffit. La portée `drive` (tout le Drive) est « restreinte », avec audit de sécurité obligatoire.
+
+**Termes liés** : [OAuth](#oauth-oauth-2-0), [Jeton d'accès et jeton de renouvellement](#jeton-d-acces-et-jeton-de-renouvellement-access-token-refresh-token).
+
+---
+
+## Jeton d'accès et jeton de renouvellement (*Access token, refresh token*)
+
+![Le jeton de renouvellement, gardé dans le coffre du système, sert à obtenir de nouveaux jetons d'accès d'une heure](/diagrams/oauth-jetons.svg)
+
+**Définition simple** : Deux « laissez-passer » remis par [OAuth](#oauth-oauth-2-0). Le **jeton d'accès** accompagne chaque demande (envoyer un fichier) et n'est valable qu'environ une heure. Le **jeton de renouvellement** dure longtemps et sert seulement à obtenir un nouveau jeton d'accès, sans redemander l'accord de l'utilisateur. C'est lui le vrai secret à protéger.
+
+**Contexte / exemple concret** : Boutik gardera le jeton de renouvellement Google chiffré par le coffre du système ([safeStorage](#safestorage)), comme la clé de la base, et ne l'écrira jamais dans un journal. Piège connu : tant que l'application est en statut « Test » chez Google, ce jeton expire au bout de 7 jours. Il faut la passer « En production » avant de la distribuer.
+
+**Termes liés** : [OAuth](#oauth-oauth-2-0), [Portée d'accès](#portee-d-acces-scope), [safeStorage](#safestorage).
 
 ---

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sauvegarde incrémentale : seuls les objets nouveaux partent" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Sauvegarde incrémentale : seuls les objets nouveaux partent</title>
+<rect x="0" y="0" width="820" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="410" y="34" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="600" fill="#1e293b">Chaque objet est repéré par une empreinte de son contenu : inchangé, il garde le même nom</text>
+<text x="90" y="80" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">Lundi</text>
+<text x="90" y="180" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">Mardi</text>
+<rect x="160" y="55" width="95" height="44" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="207.5" y="82.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 1</text>
+<rect x="265" y="55" width="95" height="44" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="312.5" y="82.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 2</text>
+<rect x="370" y="55" width="95" height="44" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="417.5" y="82.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 3</text>
+<rect x="475" y="55" width="95" height="44" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="522.5" y="82.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">photo A</text>
+<rect x="580" y="55" width="95" height="44" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="627.5" y="82.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">termes</text>
+<rect x="160" y="155" width="95" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="207.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 1</text>
+<text x="207.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">déjà envoyé</text>
+<rect x="265" y="155" width="95" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="312.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 2</text>
+<text x="312.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">déjà envoyé</text>
+<rect x="370" y="155" width="95" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="417.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">journal 3 ’</text>
+<text x="417.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">à envoyer</text>
+<rect x="475" y="155" width="95" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="522.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">photo A</text>
+<text x="522.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">déjà envoyé</text>
+<rect x="580" y="155" width="95" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="627.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">photo B</text>
+<text x="627.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">à envoyer</text>
+<rect x="685" y="155" width="95" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="732.5" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">termes ’</text>
+<text x="732.5" y="191.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">à envoyer</text>
+<text x="410" y="238" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Gris : déjà sur la destination, rien à renvoyer. Vert : nouveau, seul à partir.</text>
+<text x="410" y="258" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#16a34a">300 produits avec photo, 3 000 ventes : copie complète 55 Mio ; le lendemain, 0,56 Mio à envoyer.</text>
+<text x="410" y="278" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">La restauration relit le manifeste de mardi et retrouve tous ses objets.</text>
+</svg>

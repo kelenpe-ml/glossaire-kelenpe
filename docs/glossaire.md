@@ -83,6 +83,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Chargement progressif (Lazy loading)](/frontend/#chargement-progressif-lazy-loading)** — *Frontend & UI/UX*
 - **[Chiffre d'affaires (Revenue, turnover)](/business/#chiffre-d-affaires-revenue-turnover)** — *Jargon entrepreneurial*
 - **[Chiffrement (Encryption)](/backend/#chiffrement-encryption)** — *Backend & architecture*
+- **[Chiffrement authentifié (Authenticated encryption, AES-GCM)](/backend/#chiffrement-authentifie-authenticated-encryption-aes-gcm)** — *Backend & architecture*
 - **[Chiffrement des données de Boutik (Encryption at rest)](/backend/#chiffrement-des-donnees-de-boutik-encryption-at-rest)** — *Backend & architecture*
 - **[Chrome DevTools Protocol (CDP)](/devops/#chrome-devtools-protocol-cdp)** — *DevOps & infra*
 - **[Chromium](/frontend/#chromium)** — *Frontend & UI/UX*
@@ -169,6 +170,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Émulateur (Emulator)](/devops/#emulateur-emulator)** — *DevOps & infra*
 - **[Entropie (Entropy)](/backend/#entropie-entropy)** — *Backend & architecture*
 - **[Énumération de comptes (Account enumeration)](/backend/#enumeration-de-comptes-account-enumeration)** — *Backend & architecture*
+- **[Enveloppe de clé (Key wrapping)](/backend/#enveloppe-de-cle-key-wrapping)** — *Backend & architecture*
 - **[Erreur non rattrapée (Uncaught exception)](/backend/#erreur-non-rattrapee-uncaught-exception)** — *Backend & architecture*
 - **[ESC/POS](/media/#esc-pos)** — *Édition média*
 - **[Espace de noms réseau (Network namespace)](/devops/#espace-de-noms-reseau-network-namespace)** — *DevOps & infra*
@@ -273,6 +275,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## J
 
+- **[Jeton d'accès et jeton de renouvellement (Access token, refresh token)](/backend/#jeton-d-acces-et-jeton-de-renouvellement-access-token-refresh-token)** — *Backend & architecture*
 - **[Jeu de données d'entraînement (Training dataset, DIS5K, DUTS)](/media/#jeu-de-donnees-d-entrainement-training-dataset-dis5k-duts)** — *Édition média*
 - **[Job](/devops/#job)** — *DevOps & infra*
 - **[Jonction (Junction, directory junction)](/devops/#jonction-junction-directory-junction)** — *DevOps & infra*
@@ -300,6 +303,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Licence open source (Open source license)](/business/#licence-open-source-open-source-license)** — *Jargon entrepreneurial*
 - **[Lignes JSON (JSON Lines)](/backend/#lignes-json-json-lines)** — *Backend & architecture*
 - **[Load balancing](/devops/#load-balancing-repartition-de-charge)** — *DevOps & infra*
+- **[LocalSend](/backend/#localsend)** — *Backend & architecture*
 - **[Logique floue (Fuzzy)](/cropsuite/#logique-floue-fuzzy)** — *CropSuite (PFE)*
 - **[Lossy vs Lossless](/media/#lossy-vs-lossless)** — *Édition média*
 - **[lucide-react](/frontend/#lucide-react)** — *Frontend & UI/UX*
@@ -329,6 +333,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Modèle d'IA (AI model, réseau de neurones)](/media/#modele-d-ia-ai-model-reseau-de-neurones)** — *Édition média*
 - **[Modèle maître/client (Primary/replica)](/backend/#modele-maitre-client-primary-replica)** — *Backend & architecture*
 - **[Module natif (Native module)](/devops/#module-natif-native-module)** — *DevOps & infra*
+- **[MTP (Media Transfer Protocol)](/backend/#mtp-media-transfer-protocol)** — *Backend & architecture*
 - **[Multi-tenant](/backend/#multi-tenant-multi-tenant)** — *Backend & architecture*
 
 ## N
@@ -348,6 +353,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## O
 
+- **[OAuth (OAuth 2.0)](/backend/#oauth-oauth-2-0)** — *Backend & architecture*
 - **[Observabilité](/devops/#observabilite-observability)** — *DevOps & infra*
 - **[OFL-1.1 (SIL Open Font License)](/business/#ofl-1-1-sil-open-font-license)** — *Jargon entrepreneurial*
 - **[OLTP vs OLAP](/backend/#oltp-vs-olap)** — *Backend & architecture*
@@ -387,6 +393,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Polyfill](/devops/#polyfill)** — *DevOps & infra*
 - **[Pooling](/backend/#pooling)** — *Backend & architecture*
 - **[Port](/backend/#port)** — *Backend & architecture*
+- **[Portée d'accès (Scope)](/backend/#portee-d-acces-scope)** — *Backend & architecture*
 - **[Poste facturable (Billable seat)](/business/#poste-facturable-billable-seat)** — *Jargon entrepreneurial*
 - **[Poussée forcée prudente (--force-with-lease)](/devops/#poussee-forcee-prudente-force-with-lease)** — *DevOps & infra*
 - **[PowerShell](/devops/#powershell)** — *DevOps & infra*
@@ -437,6 +444,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Résolution](/streaming/#resolution-resolution)** — *Transcoding & streaming*
 - **[Résolution d'entrée d'un modèle (Model input resolution)](/media/#resolution-d-entree-d-un-modele-model-input-resolution)** — *Édition média*
 - **[Responsive design](/frontend/#responsive-design)** — *Frontend & UI/UX*
+- **[Restauration (Restore)](/backend/#restauration-restore)** — *Backend & architecture*
 - **[Reverse proxy](/devops/#reverse-proxy)** — *DevOps & infra*
 - **[Révocation de licence (License revocation)](/business/#revocation-de-licence-license-revocation)** — *Jargon entrepreneurial*
 - **[RMBG (BRIA)](/media/#rmbg-bria)** — *Édition média*
@@ -460,6 +468,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Saison favorable](/cropsuite/#saison-favorable)** — *CropSuite (PFE)*
 - **[SARL (Société à Responsabilité Limitée)](/business/#sarl-societe-a-responsabilite-limitee)** — *Jargon entrepreneurial*
 - **[Sauvegarde de la base (Database backup)](/backend/#sauvegarde-de-la-base-database-backup)** — *Backend & architecture*
+- **[Sauvegarde incrémentale (Incremental backup)](/backend/#sauvegarde-incrementale-incremental-backup)** — *Backend & architecture*
 - **[Scalabilité](/backend/#scalabilite-scalability)** — *Backend & architecture*
 - **[Schéma (Schema)](/backend/#schema-schema)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*
