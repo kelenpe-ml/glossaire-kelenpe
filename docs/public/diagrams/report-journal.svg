@@ -1,0 +1,20 @@
+<svg viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Report du journal WAL dans la base" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Report du journal WAL dans la base</title>
+<rect x="0" y="0" width="820" height="220" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="165" y="40" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="600" fill="#1e293b">boutik.db-wal</text>
+<rect x="40" y="60" width="75" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="77.5" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">page 12</text>
+<rect x="125" y="60" width="75" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="162.5" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">page 7</text>
+<rect x="210" y="60" width="75" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="247.5" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">page 12’</text>
+<text x="165" y="128" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">écritures récentes, à la suite</text>
+<line x1="300" y1="82" x2="490" y2="82" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="395.0" y="75.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">report (checkpoint)</text>
+<rect x="500" y="50" width="280" height="70" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="640.0" y="82.0" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13.5" font-weight="600" fill="#1e293b">boutik.db</text>
+<text x="640.0" y="99.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">pages 7 et 12 à jour</text>
+<text x="410" y="172" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Automatique de temps en temps et à la fermeture. Après une suppression « réelle »</text>
+<text x="410" y="190" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">(image, suggestions), Boutik le demande aussitôt et vide le fichier -wal (TRUNCATE).</text>
+</svg>

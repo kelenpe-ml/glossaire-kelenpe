@@ -560,6 +560,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## Journal WAL (*Write-Ahead Logging*)
 
+![Journal de retour arrière et journal WAL côte à côte : fichier créé puis effacé à chaque transaction, contre écritures à la suite dans boutik.db-wal, reportées plus tard dans boutik.db](/diagrams/journal-wal.svg)
+
 **Définition simple** : Une façon pour SQLite d'enregistrer les modifications : au lieu de réécrire la base à chaque fois, il les ajoute à la suite dans un fichier à part (le « journal WAL »), puis les reporte dans la base de temps en temps. Écrire à la suite coûte moins cher au disque que créer puis effacer un fichier à chaque opération. Un petit fichier d'index (`-shm`) aide à retrouver les pages rangées dans le journal.
 
 **Contexte / exemple concret** : Depuis septembre 2026, Boutik ouvre sa base en mode WAL (`main/base-connexion.ts`) : à côté de `boutik.db` apparaissent `boutik.db-wal` et `boutik.db-shm`. SQLCipher chiffre aussi les pages du journal ; `tests/base-connexion.test.ts` vérifie qu'aucun texte saisi ne s'y lit en clair. Conséquence : une sauvegarde ne copie jamais `boutik.db` seul.
@@ -570,6 +572,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## Journal de retour arrière (*Rollback journal*)
 
+![Journal de retour arrière et journal WAL côte à côte : fichier créé puis effacé à chaque transaction, contre écritures à la suite dans boutik.db-wal](/diagrams/journal-wal.svg)
+
 **Définition simple** : Le mode d'enregistrement par défaut de SQLite : avant de modifier la base, il copie les anciennes pages dans un fichier à part ; en cas de coupure, il les remet en place. Ce fichier est créé puis effacé à chaque transaction.
 
 **Contexte / exemple concret** : Boutik utilisait ce mode jusqu'en septembre 2026. Sur la machine Windows de la CI, créer et effacer ce fichier à chaque écriture coûtait plus de 40 ms : 10 000 suggestions ajoutées une par une dépassaient 7 minutes. D'où le passage au journal WAL.
@@ -579,6 +583,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Report du journal (*Checkpoint*)
+
+![Pages du fichier boutik.db-wal recopiées dans boutik.db lors du report](/diagrams/report-journal.svg)
 
 **Définition simple** : Le moment où SQLite recopie dans le fichier principal de la base les modifications accumulées dans le journal WAL. Il se fait tout seul de temps en temps et à la fermeture ; on peut aussi le demander, et vider le journal au passage (mode `TRUNCATE`).
 
@@ -599,6 +605,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Atomicité (*Atomicity, tout ou rien*)
+
+![Import de produits : toutes les lignes valides, 500 produits enregistrés ; une ligne refusée, aucun produit enregistré](/diagrams/atomicite.svg)
 
 **Définition simple** : Une opération est atomique quand elle se fait entièrement ou pas du tout, jamais à moitié. Dans une base de données, on l'obtient en mettant toutes les écritures dans une seule transaction.
 
@@ -1282,6 +1290,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## Traitement par lot (*Batch processing*)
 
+![Une par une : 500 appels et 500 écritures ; par lot : un appel et une transaction](/diagrams/traitement-par-lot.svg)
+
 **Définition simple** : Faire beaucoup d'opérations d'un coup plutôt qu'une par une : le coût fixe de chaque opération (appel, vérification, écriture sur le disque) n'est payé qu'une fois.
 
 **Contexte / exemple concret** : L'import de produits de Boutik envoie toutes les lignes en un seul appel, écrites dans une seule transaction. Sur la CI Windows, l'ancienne méthode (une écriture par ligne) prenait 35,6 s pour 500 produits, soit 71 ms par produit.
@@ -1361,6 +1371,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 ---
 
 ## Redémarrage contrôlé (*Controlled restart*)
+
+![Erreur non rattrapée, journal, message de redémarrage, puis confirmation si un ticket est en cours, ou fermeture et relance](/diagrams/redemarrage-controle.svg)
 
 **Définition simple** : Relancer un programme proprement, par le même chemin qu'une fermeture normale : on prévient si un travail serait perdu, on laisse la possibilité de rester, puis on ferme et on relance.
 

@@ -1192,6 +1192,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ## Rotation des journaux (*Log rotation*)
 
+![boutik.log devient boutik.1.log, chaque fichier recule d’un rang, boutik.4.log est supprimé : 5 fichiers de 1 Mo au plus](/diagrams/rotation-journaux.svg)
+
 **Définition simple** : Remplacer régulièrement le fichier de journal par un nouveau et ne garder que les derniers (par taille ou par date), pour qu'il ne remplisse jamais le disque.
 
 **Contexte / exemple concret** : Boutik n'écrit pas encore de fichier de journal. S'il en écrit un, la rotation sera obligatoire : les PC des boutiques ont de petits disques et personne pour les surveiller.
@@ -1232,6 +1234,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ## Avance rapide (*Fast-forward, --ff-only*)
 
+![Trois cas de branches Git : avance rapide, refus non-fast-forward, poussée forcée prudente](/diagrams/branches-git.svg)
+
 **Définition simple** : Quand la branche cible n'a rien que la branche intégrée n'ait déjà, Git déplace simplement son pointeur vers le dernier commit : pas de commit de fusion, l'historique reste une ligne droite. `--ff-only` n'accepte que ce cas.
 
 **Contexte / exemple concret** : La branche `test/electron-44` de Boutik est rebasée sur `main` : sa fusion peut se faire en avance rapide (`git merge --ff-only`).
@@ -1252,6 +1256,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ## Poussée forcée prudente (*--force-with-lease*)
 
+![Trois cas de branches Git : avance rapide, refus non-fast-forward, poussée forcée prudente](/diagrams/branches-git.svg)
+
 **Définition simple** : Un push qui remplace la branche distante seulement si elle est encore là où on l'a vue la dernière fois. Si quelqu'un a poussé entre-temps, Git refuse au lieu d'écraser son travail, contrairement à `--force`.
 
 **Contexte / exemple concret** : Pour republier sur `ci/verification` un commit plus ancien que celui qui y est déjà (une mesure « avant », par exemple) : `git push --force-with-lease origin <commit>:ci/verification`.
@@ -1261,6 +1267,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 ---
 
 ## Refus non-fast-forward (*Non-fast-forward rejection*)
+
+![Trois cas de branches Git : avance rapide, refus non-fast-forward, poussée forcée prudente](/diagrams/branches-git.svg)
 
 **Définition simple** : Git refuse un push quand la branche distante contient des commits absents de la branche envoyée : les accepter les effacerait. On récupère d'abord ces commits (fetch, puis fusion ou rebase), ou, si l'effacement est voulu, on utilise une poussée forcée prudente.
 
@@ -1301,6 +1309,8 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 ---
 
 ## Situation de course (*Race condition*)
+
+![Deux frises : sur une machine rapide l’aperçu est ouvert avant la vérification à 300 ms ; sur une machine chargée il arrive à 800 ms et le test conclut à tort](/diagrams/situation-course.svg)
 
 **Définition simple** : Un résultat qui dépend de l'ordre ou de la vitesse de deux choses qui se passent en même temps. Tout marche quand l'une arrive toujours avant l'autre, et échoue le jour où l'ordre change (machine chargée, autre version).
 

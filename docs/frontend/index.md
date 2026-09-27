@@ -806,6 +806,8 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 
 ## Écran de secours en cas de plantage (*Error boundary*)
 
+![Fenêtre de Boutik : la barre de navigation reste, l’écran Stock planté affiche un message avec Recharger l’écran et Accueil](/diagrams/ecran-secours.svg)
+
 **Définition simple** : Un composant React qui attrape une erreur survenue en dessinant une partie de l'écran, et affiche à la place un écran de secours (message, bouton pour recharger) au lieu d'une page blanche.
 
 **Contexte / exemple concret** : Boutik n'en a pas encore : une erreur de rendu imprévue donnerait une fenêtre vide. À placer autour de chaque écran, sans faire perdre le ticket en cours de la caisse.
@@ -825,6 +827,8 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 ---
 
 ## Focus itinérant (*Roving tabindex*)
+
+![Grille de vignettes : une seule a tabindex 0 et reçoit Tab, les autres -1 ; les flèches déplacent la vignette choisie](/diagrams/focus-itinerant.svg)
 
 **Définition simple** : Dans une grille ou une liste, un seul élément reçoit la touche Tab (`tabindex=0`), les autres sont sautés (`tabindex=-1`) ; les flèches déplacent ce « seul élément ». Tab entre dans la grille puis en sort d'un coup, au lieu de passer par chaque case.
 
