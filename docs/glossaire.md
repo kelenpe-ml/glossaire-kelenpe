@@ -33,6 +33,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Assemblée générale (AGO / AGE)](/business/#assemblee-generale-ago-age)** — *Jargon entrepreneurial*
 - **[Assertion](/devops/#assertion)** — *DevOps & infra*
 - **[Asynchrone / synchrone (Asynchronous / synchronous)](/backend/#asynchrone-synchrone-asynchronous-synchronous)** — *Backend & architecture*
+- **[Atomicité (Atomicity, tout ou rien)](/backend/#atomicite-atomicity-tout-ou-rien)** — *Backend & architecture*
 - **[Attente croissante (Backoff)](/backend/#attente-croissante-backoff)** — *Backend & architecture*
 - **[Authentification JWT / Session](/backend/#authentification-jwt-session)** — *Backend & architecture*
 - **[Autocomplétion (Autocomplete)](/frontend/#autocompletion-autocomplete)** — *Frontend & UI/UX*
@@ -150,6 +151,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[.exe](/devops/#exe)** — *DevOps & infra*
 - **[EAC (Enquête Agricole de Conjoncture)](/cropsuite/#eac-enquete-agricole-de-conjoncture)** — *CropSuite (PFE)*
+- **[Écriture synchrone sur le disque (fsync, PRAGMA synchronous)](/backend/#ecriture-synchrone-sur-le-disque-fsync-pragma-synchronous)** — *Backend & architecture*
 - **[Ed25519](/backend/#ed25519)** — *Backend & architecture*
 - **[Effacement sécurisé (secure_delete)](/backend/#effacement-securise-secure-delete)** — *Backend & architecture*
 - **[Electron](/devops/#electron)** — *DevOps & infra*
@@ -260,6 +262,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Jeu de données d'entraînement (Training dataset, DIS5K, DUTS)](/media/#jeu-de-donnees-d-entrainement-training-dataset-dis5k-duts)** — *Édition média*
 - **[Job](/devops/#job)** — *DevOps & infra*
 - **[Jonction (Junction, directory junction)](/devops/#jonction-junction-directory-junction)** — *DevOps & infra*
+- **[Journal de retour arrière (Rollback journal)](/backend/#journal-de-retour-arriere-rollback-journal)** — *Backend & architecture*
+- **[Journal WAL (Write-Ahead Logging)](/backend/#journal-wal-write-ahead-logging)** — *Backend & architecture*
 - **[JPEG](/media/#jpeg)** — *Édition média*
 - **[JPEG XL](/media/#jpeg-xl)** — *Édition média*
 - **[JSON (JavaScript Object Notation)](/backend/#json-javascript-object-notation)** — *Backend & architecture*
@@ -402,6 +406,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Remboursement ciblé (Targeted repayment)](/business/#remboursement-cible-targeted-repayment)** — *Jargon entrepreneurial*
 - **[Rendition](/streaming/#rendition)** — *Transcoding & streaming*
 - **[Rendu interruptible (startTransition, concurrent rendering)](/frontend/#rendu-interruptible-starttransition-concurrent-rendering)** — *Frontend & UI/UX*
+- **[Report du journal (Checkpoint)](/backend/#report-du-journal-checkpoint)** — *Backend & architecture*
 - **[Requête SQL (SQL query)](/backend/#requete-sql-sql-query)** — *Backend & architecture*
 - **[Réserve mémoire (Memory arena)](/backend/#reserve-memoire-memory-arena)** — *Backend & architecture*
 - **[Résolution](/streaming/#resolution-resolution)** — *Transcoding & streaming*
@@ -428,6 +433,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[safeStorage](/backend/#safestorage)** — *Backend & architecture*
 - **[Saison favorable](/cropsuite/#saison-favorable)** — *CropSuite (PFE)*
 - **[SARL (Société à Responsabilité Limitée)](/business/#sarl-societe-a-responsabilite-limitee)** — *Jargon entrepreneurial*
+- **[Sauvegarde de la base (Database backup)](/backend/#sauvegarde-de-la-base-database-backup)** — *Backend & architecture*
 - **[Scalabilité](/backend/#scalabilite-scalability)** — *Backend & architecture*
 - **[Schéma (Schema)](/backend/#schema-schema)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*

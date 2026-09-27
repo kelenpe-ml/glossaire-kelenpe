@@ -558,6 +558,66 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
+## Journal WAL (*Write-Ahead Logging*)
+
+**Définition simple** : Une façon pour SQLite d'enregistrer les modifications : au lieu de réécrire la base à chaque fois, il les ajoute à la suite dans un fichier à part (le « journal WAL »), puis les reporte dans la base de temps en temps. Écrire à la suite coûte moins cher au disque que créer puis effacer un fichier à chaque opération. Un petit fichier d'index (`-shm`) aide à retrouver les pages rangées dans le journal.
+
+**Contexte / exemple concret** : Depuis septembre 2026, Boutik ouvre sa base en mode WAL (`main/base-connexion.ts`) : à côté de `boutik.db` apparaissent `boutik.db-wal` et `boutik.db-shm`. SQLCipher chiffre aussi les pages du journal ; `tests/base-connexion.test.ts` vérifie qu'aucun texte saisi ne s'y lit en clair. Conséquence : une sauvegarde ne copie jamais `boutik.db` seul.
+
+**Termes liés** : [Journal de retour arrière](#journal-de-retour-arriere-rollback-journal), [Report du journal](#report-du-journal-checkpoint), [Écriture synchrone sur le disque](#ecriture-synchrone-sur-le-disque-fsync-pragma-synchronous), [Sauvegarde de la base](#sauvegarde-de-la-base-database-backup), [SQLCipher](#sqlcipher), [Transaction](#transaction).
+
+---
+
+## Journal de retour arrière (*Rollback journal*)
+
+**Définition simple** : Le mode d'enregistrement par défaut de SQLite : avant de modifier la base, il copie les anciennes pages dans un fichier à part ; en cas de coupure, il les remet en place. Ce fichier est créé puis effacé à chaque transaction.
+
+**Contexte / exemple concret** : Boutik utilisait ce mode jusqu'en septembre 2026. Sur la machine Windows de la CI, créer et effacer ce fichier à chaque écriture coûtait plus de 40 ms : 10 000 suggestions ajoutées une par une dépassaient 7 minutes. D'où le passage au journal WAL.
+
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Transaction](#transaction), [Base de données SQLite](#base-de-donnees-sqlite-sqlite).
+
+---
+
+## Report du journal (*Checkpoint*)
+
+**Définition simple** : Le moment où SQLite recopie dans le fichier principal de la base les modifications accumulées dans le journal WAL. Il se fait tout seul de temps en temps et à la fermeture ; on peut aussi le demander, et vider le journal au passage (mode `TRUNCATE`).
+
+**Contexte / exemple concret** : Quand le patron vide les suggestions de saisie ou supprime une image, Boutik demande un report complet (`wal_checkpoint(TRUNCATE)`) : les données effacées ne restent pas dans `boutik.db-wal`, même chiffrées.
+
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Sauvegarde de la base](#sauvegarde-de-la-base-database-backup).
+
+---
+
+## Écriture synchrone sur le disque (*fsync, PRAGMA synchronous*)
+
+**Définition simple** : Obliger le système à vraiment graver les données sur le disque avant de continuer, au lieu de les garder un moment en mémoire. C'est plus lent, mais une coupure de courant juste après ne perd rien de ce qui a été validé.
+
+**Contexte / exemple concret** : Boutik règle SQLite sur `synchronous = FULL` : chaque vente validée est sur le disque avant que la caisse rende la main. C'est important au Mali, où les coupures de courant sont fréquentes.
+
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Transaction](#transaction).
+
+---
+
+## Atomicité (*Atomicity, tout ou rien*)
+
+**Définition simple** : Une opération est atomique quand elle se fait entièrement ou pas du tout, jamais à moitié. Dans une base de données, on l'obtient en mettant toutes les écritures dans une seule transaction.
+
+**Contexte / exemple concret** : L'import de produits de Boutik est atomique depuis septembre 2026 : toutes les lignes sont vérifiées, puis écrites dans une seule transaction. Si le main refuse une ligne, rien n'est importé et l'écran le dit. Avant, chaque ligne était un appel séparé et un import pouvait s'arrêter au milieu.
+
+**Termes liés** : [Transaction](#transaction), [Journal WAL](#journal-wal-write-ahead-logging).
+
+---
+
+## Sauvegarde de la base (*Database backup*)
+
+**Définition simple** : Une copie de la base mise de côté pour la retrouver après une panne, un vol ou une erreur. Pour servir, la copie doit être cohérente : prise à un instant où la base est complète.
+
+**Contexte / exemple concret** : Avec le journal WAL, les dernières écritures de Boutik peuvent être dans `boutik.db-wal`. Une future sauvegarde ne devra donc jamais copier `boutik.db` seul : les trois fichiers ensemble, application fermée, ou l'API de sauvegarde de SQLite (`backup`), qui produit une copie cohérente même base ouverte.
+
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Report du journal](#report-du-journal-checkpoint), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+
+---
+
 ## Chiffrement des données de Boutik (*Encryption at rest*)
 
 **Définition simple** : Comment Boutik protège les données sur le disque (« au repos ») : si quelqu'un vole l'ordinateur ou copie le fichier de la base, il ne peut rien lire.
