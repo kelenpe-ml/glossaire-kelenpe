@@ -162,6 +162,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 ## E
 
 - **[Envoy](/devops/#envoy)** — *DevOps & infra*
+- **[Exception à une règle de sécurité (Security exception)](/backend/#exception-a-une-regle-de-securite-security-exception)** — *Backend & architecture*
 - **[.exe](/devops/#exe)** — *DevOps & infra*
 - **[EAC (Enquête Agricole de Conjoncture)](/cropsuite/#eac-enquete-agricole-de-conjoncture)** — *CropSuite (PFE)*
 - **[EBUSY (fichier verrouillé)](/devops/#ebusy-fichier-verrouille)** — *DevOps & infra*
@@ -225,6 +226,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## G
 
+- **[gio](/devops/#gio)** — *DevOps & infra*
 - **[.gitattributes](/devops/#gitattributes)** — *DevOps & infra*
 - **[.gitignore](/devops/#gitignore)** — *DevOps & infra*
 - **[Garbage collector (GC)](/backend/#garbage-collector-gc)** — *Backend & architecture*
@@ -242,6 +244,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## H
 
+- **[GVfs et gvfs-mtp (GNOME Virtual File System)](/devops/#gvfs-et-gvfs-mtp-gnome-virtual-file-system)** — *DevOps & infra*
 - **[Hachage (Hash, empreinte)](/backend/#hachage-hash-empreinte)** — *Backend & architecture*
 - **[Handler (Gestionnaire)](/backend/#handler-gestionnaire)** — *Backend & architecture*
 - **[HAProxy](/devops/#haproxy)** — *DevOps & infra*
@@ -284,6 +287,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## J
 
+- **[Isolation par instantané (Snapshot isolation)](/backend/#isolation-par-instantane-snapshot-isolation)** — *Backend & architecture*
 - **[Jeton d'accès et jeton de renouvellement (Access token, refresh token)](/backend/#jeton-d-acces-et-jeton-de-renouvellement-access-token-refresh-token)** — *Backend & architecture*
 - **[Jeu de données d'entraînement (Training dataset, DIS5K, DUTS)](/media/#jeu-de-donnees-d-entrainement-training-dataset-dis5k-duts)** — *Édition média*
 - **[Job](/devops/#job)** — *DevOps & infra*
@@ -555,6 +559,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## U
 
+- **[udev](/devops/#udev)** — *DevOps & infra*
 - **[U²-Net et U²-Net p (U2-Net)](/media/#u2-net-et-u2-net-p-u2-net)** — *Édition média*
 - **[UI / UX (User Interface / User Experience)](/frontend/#ui-ux-user-interface-user-experience)** — *Frontend & UI/UX*
 - **[Upsert](/backend/#upsert)** — *Backend & architecture*

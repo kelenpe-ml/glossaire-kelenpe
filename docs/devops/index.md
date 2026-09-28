@@ -1503,3 +1503,35 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 **Termes liés** : [Terminaison TLS](#terminaison-tls-tls-termination), [Caddy](#caddy), [Traefik](#traefik).
 
 ---
+
+## gio
+
+**Définition simple** : une commande de Linux (livrée avec la bibliothèque GLib) pour manipuler des fichiers où qu'ils soient : sur le disque, sur un partage réseau, ou sur un téléphone Android branché en USB. Par exemple `gio list`, `gio copy`, `gio mount -li` (liste des volumes, dont les téléphones). Pour les téléphones, elle s'appuie sur [GVfs et gvfs-mtp](#gvfs-et-gvfs-mtp-gnome-virtual-file-system).
+
+**Contexte / exemple concret** : sous Linux, Boutik écrit ses copies sur le téléphone du patron avec `gio` : `gio mount -li` pour le trouver (adresse `mtp://SAMSUNG_…/`), `gio copy` pour déposer la copie, `gio remove` pour effacer les plus anciennes. Aucun module natif à ajouter à Boutik.
+
+**Termes liés** : [GVfs et gvfs-mtp](#gvfs-et-gvfs-mtp-gnome-virtual-file-system), [MTP](/backend/#mtp-media-transfer-protocol), [Rotation des copies](#rotation-des-copies-backup-rotation).
+
+---
+
+## GVfs et gvfs-mtp (*GNOME Virtual File System*)
+
+![Boutik appelle gio, qui passe par le service GVfs, puis par gvfs-mtp (libmtp), jusqu'au téléphone en Transfert de fichiers ; sans gvfs et gvfs-mtp, gio ne voit aucun téléphone](/diagrams/gio-gvfs-mtp.svg)
+
+**Définition simple** : GVfs est un ensemble de petits services de la session Linux qui font apparaître des endroits « qui ne sont pas des disques » (partages réseau, téléphones, appareils photo) comme des dossiers ordinaires, pour [gio](#gio) et les gestionnaires de fichiers. gvfs-mtp est la partie qui parle aux téléphones Android en [MTP](/backend/#mtp-media-transfer-protocol). Ils sont démarrés à la demande par [D-Bus](#d-bus).
+
+**Contexte / exemple concret** : sur le poste de dev sous [Hyprland](/frontend/#hyprland), `gio` était présent mais ne voyait aucun téléphone : gvfs et gvfs-mtp n'étaient pas installés (`sudo pacman -S gvfs gvfs-mtp`). Sur les bureaux GNOME, ils sont presque toujours déjà là.
+
+**Termes liés** : [gio](#gio), [D-Bus](#d-bus), [udev](#udev), [MTP](/backend/#mtp-media-transfer-protocol).
+
+---
+
+## udev
+
+**Définition simple** : le service de Linux qui voit arriver les appareils (clé USB, téléphone, imprimante) et applique des règles : quel nom leur donner, et qui a le droit de s'en servir. Sans règle adaptée, un téléphone branché n'est utilisable que par l'administrateur.
+
+**Contexte / exemple concret** : la bibliothèque libmtp installe des règles udev qui donnent l'accès aux téléphones Android à l'utilisateur connecté : pas besoin de `sudo` pour que Boutik y dépose ses copies.
+
+**Termes liés** : [GVfs et gvfs-mtp](#gvfs-et-gvfs-mtp-gnome-virtual-file-system), [MTP](/backend/#mtp-media-transfer-protocol).
+
+---

@@ -980,9 +980,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un processus secondaire qu'Electron sait lancer, pour faire un travail lourd hors du processus principal sans le bloquer ; il communique par messages.
 
-**Contexte / exemple concret** : Piste pour Boutik si le traitement des images (≈ 0,6 s par grande photo) devait gêner : le déplacer dans un utilityProcess.
+**Contexte / exemple concret** : Boutik en lance un par tâche lourde, puis l'arrête pour rendre toute sa mémoire au système : un par image à détourer, et un par copie de sauvegarde. Préparer une copie de 55 Mio (lire la base, compresser, chiffrer) prend quelques secondes, pendant lesquelles la caisse continue d'encaisser comme si de rien n'était.
 
-**Termes liés** : [Worker](#worker), [Fil d'exécution](#fil-d-execution-thread), [Architecture Electron](#architecture-electron-main-renderer-preload).
+**Termes liés** : [Worker](#worker), [Fil d'exécution](#fil-d-execution-thread), [Architecture Electron](#architecture-electron-main-renderer-preload), [Isolation par instantané](#isolation-par-instantane-snapshot-isolation).
 
 ---
 
@@ -1543,5 +1543,27 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Pour restaurer une sauvegarde, Boutik construit la nouvelle base à part, puis la met à la place de l'ancienne. Un fichier `restauration-en-cours.json` dit où il en est. Si le courant coupe, le démarrage suivant garde l'ancienne boutique entière, ou finit la bascule vers la nouvelle : jamais un mélange. Vérifié en arrêtant brutalement Boutik avant chacune des 9 étapes.
 
 **Termes liés** : [Atomicité](#atomicite-atomicity-tout-ou-rien), [Restauration](#restauration-restore), [Journal WAL](#journal-wal-write-ahead-logging).
+
+---
+
+## Exception à une règle de sécurité (*Security exception*)
+
+**Définition simple** : un cas où l'on autorise, « juste pour cette fois », ce qu'une règle de sécurité interdit d'habitude. Chaque exception est une porte de plus à surveiller : elle se justifie mal, s'oublie vite, et c'est souvent par elle qu'une faille arrive. Quand une exception semble nécessaire, la bonne question est souvent : « qu'est-ce qui, dans le parcours, nous oblige à la faire ? »
+
+**Contexte / exemple concret** : dans Boutik, tout canal sensible passe par `gererProtege` (session obligatoire). Pour proposer la sauvegarde juste après la création de la boutique, une exception permettait de chercher le téléphone sans session pendant 30 minutes. La vraie cause : le patron n'avait pas de session juste après avoir créé sa boutique. Correction : sa session est ouverte dans l'appel même de création (il vient de choisir son mot de passe), et l'exception a été supprimée.
+
+**Termes liés** : [Attaque hors ligne](#attaque-hors-ligne-offline-attack), [Force brute](#force-brute-brute-force).
+
+---
+
+## Isolation par instantané (*Snapshot isolation*)
+
+![La copie lit la base telle qu'à 10:00:00 pendant que la caisse ajoute une vente à 10:00:01 : la copie est cohérente sans cette vente, la suivante l'aura](/diagrams/isolation-instantane.svg)
+
+**Définition simple** : la façon dont une base de données laisse quelqu'un lire tranquillement pendant que d'autres écrivent. Celui qui lit voit la base telle qu'elle était au début de sa lecture, comme sur une photo ; les modifications faites entre-temps ne lui arrivent pas à moitié. Personne n'attend personne.
+
+**Contexte / exemple concret** : en [journal WAL](#journal-wal-write-ahead-logging), SQLite offre cet instantané à chaque transaction de lecture. Le processus qui prépare une copie de sauvegarde de Boutik lit toute la base dans une seule transaction : une vente enregistrée pendant ce temps est entière dans la copie ou absente, jamais à moitié. Vérifié en enregistrant une vente pendant une copie, puis en restaurant cette copie ailleurs : aucune différence. (À ne pas confondre avec l'[instantané](#instantane-snapshot) d'event sourcing, qui évite de rejouer tout le journal.)
+
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Atomicité](#atomicite-atomicity-tout-ou-rien), [utilityProcess](#utilityprocess).
 
 ---
