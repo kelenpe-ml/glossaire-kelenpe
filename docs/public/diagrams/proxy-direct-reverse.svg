@@ -1,0 +1,44 @@
+<svg viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Proxy direct et reverse proxy" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Proxy direct et reverse proxy</title>
+<rect x="0" y="0" width="820" height="320" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="205" y="36" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Proxy direct : au service des clients</text>
+<text x="615" y="36" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Reverse proxy : au service des serveurs</text>
+<line x1="410" y1="50" x2="410" y2="300" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="25" y="70" width="90" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="70.0" y="97.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">PC 1</text>
+<line x1="115" y1="92" x2="160" y2="150" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="25" y="130" width="90" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="70.0" y="157.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">PC 2</text>
+<line x1="115" y1="152" x2="160" y2="150" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="25" y="190" width="90" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="70.0" y="217.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">PC 3</text>
+<line x1="115" y1="212" x2="160" y2="150" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="160" y="120" width="110" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="215.0" y="147.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Proxy</text>
+<text x="215.0" y="164.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">du bureau</text>
+<line x1="270" y1="150" x2="305" y2="150" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="305" y="120" width="90" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="350.0" y="147.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Internet</text>
+<text x="350.0" y="164.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">tous les sites</text>
+<text x="205" y="272" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Les sites voient le proxy, pas les PC :</text>
+<text x="205" y="290" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">il filtre ou cache ce que le bureau consulte.</text>
+<rect x="425" y="120" width="90" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="470.0" y="147.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Visiteurs</text>
+<text x="470.0" y="164.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">Internet</text>
+<line x1="515" y1="150" x2="550" y2="150" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="550" y="120" width="110" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="605.0" y="147.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Reverse</text>
+<text x="605.0" y="164.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">proxy</text>
+<rect x="700" y="70" width="100" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="750.0" y="97.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Site web</text>
+<line x1="660" y1="150" x2="700" y2="92" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="700" y="130" width="100" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="750.0" y="157.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">API</text>
+<line x1="660" y1="150" x2="700" y2="152" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="700" y="190" width="100" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="750.0" y="217.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Admin</text>
+<line x1="660" y1="150" x2="700" y2="212" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="615" y="272" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Les visiteurs voient le reverse proxy, pas les serveurs :</text>
+<text x="615" y="290" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">il reçoit tout et envoie chaque demande au bon service.</text>
+</svg>

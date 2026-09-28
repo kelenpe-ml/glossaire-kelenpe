@@ -68,13 +68,37 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ## Reverse proxy
 
+![Proxy direct au service des clients d'un bureau, à gauche ; reverse proxy au service des serveurs, qui reçoit les visiteurs et envoie chaque demande au site, à l'API ou à l'administration, à droite](/diagrams/proxy-direct-reverse.svg)
+
+**Définition simple** : un serveur placé **devant** des applications, qui reçoit toutes les requêtes venues d'Internet et les transmet, en interne, au bon service. Les visiteurs ne parlent qu'à lui ; ils ne voient jamais les serveurs qui sont derrière. C'est l'inverse d'un [proxy direct](#proxy-direct-forward-proxy), qui, lui, est placé devant des **clients** (les ordinateurs d'un bureau) pour sortir vers Internet à leur place.
+
+Ce qu'un reverse proxy fait, selon l'outil :
+
+- **router** : `shop.exemple.ml` vers la boutique en ligne, `api.exemple.ml` vers l'API, `/admin` vers l'administration, sur un seul serveur et une seule adresse IP ;
+- **porter le HTTPS** ([terminaison TLS](#terminaison-tls-tls-termination)) : un seul endroit détient les certificats et les renouvelle ;
+- **répartir la charge** entre plusieurs copies d'une application ([load balancing](#load-balancing-repartition-de-charge)) et écarter celle qui ne répond plus ;
+- **protéger** : cacher les serveurs internes, [limiter le débit](#rate-limiting-limitation-de-debit), refuser les requêtes suspectes ;
+- **accélérer** : [cache HTTP](/backend/#cache-http-http-cache-cache-control), compression, service direct des fichiers statiques (images, CSS).
+
 ![Reverse proxy routant vers plusieurs instances](/diagrams/reverse-proxy-lb.svg)
 
-**Définition simple** : un serveur qui reçoit les requêtes entrantes à la place des applications finales, et les redirige vers le bon service en interne — utile pour le routing par nom de domaine, le HTTPS centralisé, ou l'équilibrage de charge.
+**Les principaux reverse proxies et leurs différences**
 
-**Contexte / exemple concret** : `coolify_config/prodora_backend_traefik.yml` référence Traefik, le reverse proxy utilisé par Coolify pour router le trafic vers les bons conteneurs selon le domaine appelé.
+| Outil | Né en, écrit en | Point fort | Configuration | HTTPS automatique | Quand le choisir |
+|---|---|---|---|---|---|
+| [Nginx](#nginx) | 2004, C | Très rapide, léger, sert aussi les fichiers statiques ; le plus répandu | Fichier texte, rechargé à chaque changement | Non (outil à part : [Let's Encrypt](#let-s-encrypt) avec certbot) | Serveur classique, trafic élevé, beaucoup de documentation |
+| [Apache HTTP Server](#apache-http-server) | 1995, C | Serveur web historique, très modulable, `.htaccess` par dossier | Fichiers de configuration, modules | Non (module ou certbot) | Hébergement mutualisé, applications PHP anciennes ; rarement choisi aujourd'hui pour être seulement un reverse proxy |
+| [HAProxy](#haproxy) | 2001, C | Spécialiste de la répartition de charge, en [couche 4 et 7](#couche-4-couche-7-l4-l7) ; vérification de santé et statistiques très fines | Fichier texte | Non | Beaucoup de trafic à répartir entre de nombreux serveurs, y compris hors web (bases de données) |
+| [Caddy](#caddy) | 2015, Go | HTTPS automatique par défaut, configuration la plus courte | Fichier `Caddyfile` de quelques lignes, ou API | Oui, sans rien faire | Petit serveur, projet personnel, démarrage rapide |
+| [Traefik](#traefik) | 2016, Go | Se configure tout seul en lisant les conteneurs [Docker](#docker) ou [Kubernetes](#kubernetes) | Étiquettes posées sur les conteneurs ; tableau de bord | Oui | Plateforme de conteneurs où les services apparaissent et disparaissent (Coolify) |
+| [Envoy](#envoy) | 2016, C++ | Pensé pour les [microservices](/backend/#microservices) : configuration changée à chaud par une API, mesures et traces très détaillées | API de configuration, rarement à la main | Non (géré par l'outil qui le pilote) | Grands systèmes de microservices, souvent caché derrière un autre outil qui le configure |
+| [Cloudflare](#cloudflare) et services en ligne | — | Reverse proxy hébergé chez un fournisseur, dans le monde entier : [CDN](#cdn-content-delivery-network), protection contre les attaques par saturation | Tableau de bord du fournisseur | Oui | Site public exposé à Internet ; en plus d'un reverse proxy local, pas à la place |
 
-**Termes liés** : [PaaS](#paas-platform-as-a-service), [Load balancing](#load-balancing-repartition-de-charge).
+En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécialiste de la répartition ; Caddy, le plus simple ; Traefik, le plus adapté aux conteneurs ; Envoy, l'outil des grandes architectures ; Cloudflare, la couche mondiale devant le reste. Apache reste présent surtout par l'historique.
+
+**Contexte / exemple concret** : `coolify_config/prodora_backend_traefik.yml` référence Traefik, le reverse proxy utilisé par Coolify pour router le trafic vers les bons conteneurs selon le domaine appelé : chaque conteneur porte ses règles (domaine, port), et Traefik obtient seul son certificat HTTPS. Boutik, lui, n'en a pas besoin : il tourne hors ligne sur l'ordinateur de la boutique, sans serveur exposé à Internet.
+
+**Termes liés** : [Proxy direct](#proxy-direct-forward-proxy), [Terminaison TLS](#terminaison-tls-tls-termination), [Load balancing](#load-balancing-repartition-de-charge), [Couche 4 / couche 7](#couche-4-couche-7-l4-l7), [API Gateway](/backend/#api-gateway), [PaaS](#paas-platform-as-a-service), [CDN](#cdn-content-delivery-network).
 
 ---
 
@@ -1351,5 +1375,131 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Contexte / exemple concret** : Si Boutik ne trouve pas le téléphone, il affiche un dessin de cette notification avec « Transfert de fichiers » coché, et conseille d'essayer un autre câble : certains câbles bon marché ne transportent que le courant.
 
 **Termes liés** : [MTP](/backend/#mtp-media-transfer-protocol), [Rotation des copies](#rotation-des-copies-backup-rotation).
+
+---
+
+## Proxy direct (*Forward proxy*)
+
+![Proxy direct au service des clients d'un bureau, à gauche ; reverse proxy au service des serveurs, à droite](/diagrams/proxy-direct-reverse.svg)
+
+**Définition simple** : un intermédiaire placé devant les **clients** (les ordinateurs d'une entreprise, d'une école) : ils passent par lui pour aller sur Internet. Les sites visités ne voient que le proxy. Il sert à filtrer les sites permis, à garder en mémoire les pages souvent demandées, ou à sortir par une seule adresse. C'est l'inverse d'un [reverse proxy](#reverse-proxy), placé devant les serveurs.
+
+**Contexte / exemple concret** : un cybercafé de Bamako qui bloque certains sites pour tous ses postes utilise un proxy direct. Un site qui reçoit des visiteurs derrière Traefik utilise un reverse proxy.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [CDN](#cdn-content-delivery-network).
+
+---
+
+## Terminaison TLS (*TLS termination*)
+
+![Le navigateur envoie une connexion HTTPS chiffrée au reverse proxy, qui la déchiffre avec le certificat et transmet la requête à l'application sur le réseau interne](/diagrams/terminaison-tls.svg)
+
+**Définition simple** : TLS est le chiffrement qui donne le cadenas du HTTPS. « Terminer » TLS, c'est déchiffrer la connexion à un endroit précis, le plus souvent le [reverse proxy](#reverse-proxy), puis transmettre la requête en clair (ou rechiffrée) aux applications derrière. Le certificat et sa clé ne vivent qu'à cet endroit.
+
+**Contexte / exemple concret** : derrière Traefik, les conteneurs de Prodora ne gèrent aucun certificat : Traefik les obtient auprès de [Let's Encrypt](#let-s-encrypt), les renouvelle et déchiffre le trafic. Si le réseau entre le proxy et les applications n'est pas de confiance (plusieurs machines, fournisseur tiers), on rechiffre ce trajet aussi.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [Let's Encrypt](#let-s-encrypt), [Chiffrement](/backend/#chiffrement-encryption).
+
+---
+
+## Couche 4 / couche 7 (*L4 / L7*)
+
+![À gauche, un répartiteur de couche 4 envoie les connexions aux serveurs sans les lire ; à droite, un répartiteur de couche 7 lit la requête et envoie /api à l'API, le reste au site](/diagrams/couche-4-couche-7.svg)
+
+**Définition simple** : deux niveaux auxquels un répartiteur de charge peut travailler, d'après la numérotation classique des couches du réseau. En **couche 4**, il transfère des connexions sans regarder ce qu'elles contiennent : très rapide, et valable pour tout (web, base de données, jeu). En **couche 7**, il lit la requête web (domaine, chemin, en-têtes) : il peut router `/api` ailleurs que `/`, porter le HTTPS, mettre en cache, mais travaille un peu plus.
+
+**Contexte / exemple concret** : [HAProxy](#haproxy) sait faire les deux. Traefik, Caddy et Nginx sont surtout utilisés en couche 7, pour router des sites web selon leur nom de domaine.
+
+**Termes liés** : [Load balancing](#load-balancing-repartition-de-charge), [Reverse proxy](#reverse-proxy), [HAProxy](#haproxy).
+
+---
+
+## Nginx
+
+**Définition simple** : serveur web et [reverse proxy](#reverse-proxy) très rapide et léger, écrit en C (2004), le plus utilisé au monde avec Apache. Il sert aussi des fichiers statiques (images, pages) et fait office de cache. Sa configuration est un fichier texte qu'on recharge après chaque changement. Libre (licence BSD), avec une version commerciale (NGINX Plus, chez F5).
+
+**Contexte / exemple concret** : c'est le choix classique pour mettre une application Node ou PHP derrière un nom de domaine sur un serveur unique. Le HTTPS s'obtient en ajoutant certbot ([Let's Encrypt](#let-s-encrypt)).
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [Apache HTTP Server](#apache-http-server), [Caddy](#caddy).
+
+---
+
+## Apache HTTP Server
+
+**Définition simple** : le serveur web historique (1995), très modulable, qui peut aussi faire [reverse proxy](#reverse-proxy) grâce à ses modules. Chaque dossier d'un site peut avoir ses propres règles (`.htaccess`). Libre, licence Apache-2.0 ; à ne pas confondre avec la fondation Apache, qui publie beaucoup d'autres logiciels.
+
+**Contexte / exemple concret** : encore courant chez les hébergeurs mutualisés et pour les sites PHP anciens (WordPress). Pour un nouveau projet, on lui préfère souvent Nginx, Caddy ou Traefik comme reverse proxy.
+
+**Termes liés** : [Nginx](#nginx), [Reverse proxy](#reverse-proxy), [Apache-2.0](/business/#apache-2-0).
+
+---
+
+## HAProxy
+
+**Définition simple** : logiciel spécialisé dans la répartition de charge (2001, écrit en C), en [couche 4 et en couche 7](#couche-4-couche-7-l4-l7). Il vérifie en continu la santé de chaque serveur, retire ceux qui ne répondent plus, et donne des statistiques très fines. Il ne sert pas de fichiers : il répartit. Libre (licence GPL), avec une version entreprise.
+
+**Contexte / exemple concret** : utilisé quand beaucoup de trafic doit être partagé entre de nombreux serveurs, y compris pour des bases de données, là où Nginx ou Traefik servent surtout des sites web.
+
+**Termes liés** : [Load balancing](#load-balancing-repartition-de-charge), [Couche 4 / couche 7](#couche-4-couche-7-l4-l7), [Reverse proxy](#reverse-proxy).
+
+---
+
+## Caddy
+
+**Définition simple** : serveur web et [reverse proxy](#reverse-proxy) écrit en Go (2015), connu pour obtenir et renouveler tout seul les certificats HTTPS ([Let's Encrypt](#let-s-encrypt)), sans aucune configuration. Un site derrière Caddy tient souvent en deux lignes de `Caddyfile`. Libre, licence Apache-2.0.
+
+**Contexte / exemple concret** : `boutik.exemple.ml { reverse_proxy localhost:3000 }` suffit pour publier une application en HTTPS. Coolify le propose aussi comme autre reverse proxy que Traefik.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [Traefik](#traefik), [Terminaison TLS](#terminaison-tls-tls-termination).
+
+---
+
+## Traefik
+
+**Définition simple** : [reverse proxy](#reverse-proxy) écrit en Go (2016), pensé pour les conteneurs : il lit lui-même les conteneurs [Docker](#docker) ou [Kubernetes](#kubernetes) qui démarrent, et crée les routes d'après les étiquettes posées dessus (domaine, port). Il obtient seul les certificats HTTPS et offre un tableau de bord. Libre, licence MIT.
+
+**Contexte / exemple concret** : c'est le reverse proxy de Coolify dans l'infra Kelenpe : quand un nouveau service est déployé, Traefik le découvre et le publie sur son domaine, sans qu'on touche à sa configuration.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [PaaS](#paas-platform-as-a-service), [Conteneurisation](#conteneurisation-containerization), [Caddy](#caddy).
+
+---
+
+## Envoy
+
+**Définition simple** : proxy écrit en C++ (Lyft, 2016, aujourd'hui projet de la CNCF), conçu pour les grands systèmes de [microservices](/backend/#microservices) : sa configuration change à chaud par une API, et il mesure et trace chaque requête en détail. On l'écrit rarement à la main : d'autres outils le pilotent (Istio, certaines passerelles d'API). Libre, licence Apache-2.0.
+
+**Contexte / exemple concret** : pertinent quand des dizaines de services se parlent entre eux et qu'il faut suivre chaque appel. Pour les projets actuels de Kelenpe, Traefik ou Caddy suffisent largement.
+
+**Termes liés** : [Reverse proxy](#reverse-proxy), [Microservices](/backend/#microservices), [API Gateway](/backend/#api-gateway).
+
+---
+
+## Cloudflare
+
+**Définition simple** : entreprise qui place un immense [reverse proxy](#reverse-proxy) mondial devant les sites de ses clients : les visiteurs se connectent au centre Cloudflare le plus proche, qui sert ce qu'il a en cache ([CDN](#cdn-content-delivery-network)), filtre les attaques qui cherchent à saturer le site, puis transmet le reste au vrai serveur. Offre gratuite pour les petits sites.
+
+**Contexte / exemple concret** : se met **devant** un reverse proxy local (Traefik, Nginx), pas à sa place : Cloudflare protège et accélère l'accès depuis Internet, le reverse proxy local route vers les bons conteneurs.
+
+**Termes liés** : [CDN](#cdn-content-delivery-network), [Reverse proxy](#reverse-proxy), [Rate limiting](#rate-limiting-limitation-de-debit).
+
+---
+
+## Kubernetes
+
+**Définition simple** : système qui fait tourner et surveille des conteneurs sur un groupe de machines : il les démarre, les relance quand ils tombent, en ajoute quand la charge monte et répartit le trafic entre eux. Très puissant, mais lourd à installer et à maintenir pour de petits projets.
+
+**Contexte / exemple concret** : Reelforge s'appuie sur Kubernetes ; pour les petits projets, Kelenpe préfère Coolify, plus simple. Dans Kubernetes, un reverse proxy (Traefik, Nginx, Envoy…) fait entrer le trafic d'Internet vers les bons services.
+
+**Termes liés** : [Conteneurisation](#conteneurisation-containerization), [Docker](#docker), [PaaS](#paas-platform-as-a-service), [Traefik](#traefik).
+
+---
+
+## Let's Encrypt
+
+**Définition simple** : autorité qui délivre gratuitement des certificats HTTPS, valables 90 jours, renouvelés automatiquement par un programme (certbot, ou directement Caddy et Traefik). Elle vérifie seulement qu'on contrôle bien le nom de domaine.
+
+**Contexte / exemple concret** : les sites derrière Traefik dans Coolify ont leur cadenas HTTPS grâce à Let's Encrypt, sans rien payer ni rien renouveler à la main.
+
+**Termes liés** : [Terminaison TLS](#terminaison-tls-tls-termination), [Caddy](#caddy), [Traefik](#traefik).
 
 ---

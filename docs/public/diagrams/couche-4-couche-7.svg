@@ -1,0 +1,38 @@
+<svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Répartition couche 4 et couche 7" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Répartition couche 4 et couche 7</title>
+<rect x="0" y="0" width="820" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="205" y="36" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Couche 4 : sans lire</text>
+<text x="615" y="36" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600" fill="#1e293b">Couche 7 : en lisant la requête</text>
+<line x1="410" y1="50" x2="410" y2="280" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="30" y="90" width="110" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="85.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Connexion</text>
+<text x="85.0" y="132.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">vers le port 443</text>
+<line x1="140" y1="118" x2="180" y2="118" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="180" y="90" width="100" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="230.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Répartiteur</text>
+<text x="230.0" y="132.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">choisit au tour</text>
+<rect x="310" y="70" width="80" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="350.0" y="95.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Serveur A</text>
+<rect x="310" y="126" width="80" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="350.0" y="151.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Serveur B</text>
+<line x1="280" y1="110" x2="310" y2="90" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<line x1="280" y1="126" x2="310" y2="146" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="205" y="220" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Très rapide, marche pour tout (web, base de</text>
+<text x="205" y="238" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">données, jeux) ; ne sait pas ce qui est demandé.</text>
+<rect x="430" y="90" width="120" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="490.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">GET /api/ventes</text>
+<text x="490.0" y="132.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">Host: shop.ml</text>
+<line x1="550" y1="118" x2="590" y2="118" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="590" y="90" width="100" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="640.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Répartiteur</text>
+<text x="640.0" y="132.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">lit l’adresse</text>
+<rect x="715" y="70" width="85" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="757.5" y="95.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">API</text>
+<rect x="715" y="126" width="85" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="757.5" y="151.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Site</text>
+<line x1="690" y1="110" x2="715" y2="90" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<line x1="690" y1="126" x2="715" y2="146" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="615" y="220" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Route selon le domaine ou le chemin, ajoute</text>
+<text x="615" y="238" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">HTTPS, cache, compression ; un peu plus lent.</text>
+</svg>

@@ -18,6 +18,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Alpha prémultiplié (Premultiplied alpha)](/media/#alpha-premultiplie-premultiplied-alpha)** — *Édition média*
 - **[Animation](/frontend/#animation)** — *Frontend & UI/UX*
 - **[any](/frontend/#any)** — *Frontend & UI/UX*
+- **[Apache HTTP Server](/devops/#apache-http-server)** — *DevOps & infra*
 - **[Apache-2.0](/business/#apache-2-0)** — *Jargon entrepreneurial*
 - **[API (Application Programming Interface)](/backend/#api-application-programming-interface)** — *Backend & architecture*
 - **[API Gateway](/backend/#api-gateway)** — *Backend & architecture*
@@ -74,6 +75,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Cache HTTP (HTTP cache, Cache-Control)](/backend/#cache-http-http-cache-cache-control)** — *Backend & architecture*
 - **[Cache invalidation](/backend/#cache-invalidation)** — *Backend & architecture*
 - **[Caching](/backend/#caching)** — *Backend & architecture*
+- **[Caddy](/devops/#caddy)** — *DevOps & infra*
 - **[Canal IPC (IPC channel)](/backend/#canal-ipc-ipc-channel)** — *Backend & architecture*
 - **[Canvas](/media/#canvas)** — *Édition média*
 - **[Cap table (Table de capitalisation)](/business/#cap-table-table-de-capitalisation)** — *Jargon entrepreneurial*
@@ -97,6 +99,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Clé publique / clé privée (Public / private key)](/backend/#cle-publique-cle-privee-public-private-key)** — *Backend & architecture*
 - **[Cliff](/business/#cliff)** — *Jargon entrepreneurial*
 - **[ClipboardItem](/backend/#clipboarditem)** — *Backend & architecture*
+- **[Cloudflare](/devops/#cloudflare)** — *DevOps & infra*
 - **[CMAF](/streaming/#cmaf)** — *Transcoding & streaming*
 - **[Code mort (Dead code)](/backend/#code-mort-dead-code)** — *Backend & architecture*
 - **[Code QR (QR code)](/media/#code-qr-qr-code)** — *Édition média*
@@ -117,6 +120,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Copyleft](/business/#copyleft)** — *Jargon entrepreneurial*
 - **[CORS (Cross-Origin Resource Sharing)](/backend/#cors-cross-origin-resource-sharing)** — *Backend & architecture*
 - **[Coté en bourse (IPO)](/business/#cote-en-bourse-publicly-listed-ipo)** — *Jargon entrepreneurial*
+- **[Couche 4 / couche 7 (L4 / L7)](/devops/#couche-4-couche-7-l4-l7)** — *DevOps & infra*
 - **[Coupe du papier (Paper cut)](/media/#coupe-du-papier-paper-cut)** — *Édition média*
 - **[Croissance quadratique (Quadratic growth)](/backend/#croissance-quadratique-quadratic-growth)** — *Backend & architecture*
 - **[CSS (Cascading Style Sheets)](/frontend/#css-cascading-style-sheets)** — *Frontend & UI/UX*
@@ -157,6 +161,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## E
 
+- **[Envoy](/devops/#envoy)** — *DevOps & infra*
 - **[.exe](/devops/#exe)** — *DevOps & infra*
 - **[EAC (Enquête Agricole de Conjoncture)](/cropsuite/#eac-enquete-agricole-de-conjoncture)** — *CropSuite (PFE)*
 - **[EBUSY (fichier verrouillé)](/devops/#ebusy-fichier-verrouille)** — *DevOps & infra*
@@ -239,6 +244,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Hachage (Hash, empreinte)](/backend/#hachage-hash-empreinte)** — *Backend & architecture*
 - **[Handler (Gestionnaire)](/backend/#handler-gestionnaire)** — *Backend & architecture*
+- **[HAProxy](/devops/#haproxy)** — *DevOps & infra*
 - **[HashRouter / BrowserRouter](/frontend/#hashrouter-browserrouter)** — *Frontend & UI/UX*
 - **[Healthcheck](/devops/#healthcheck)** — *DevOps & infra*
 - **[HEIC](/media/#heic)** — *Édition média*
@@ -296,9 +302,11 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## L
 
+- **[Kubernetes](/devops/#kubernetes)** — *DevOps & infra*
 - **[LAN (Local Area Network)](/backend/#lan-local-area-network)** — *Backend & architecture*
 - **[Layer / Calque](/media/#layer-calque)** — *Édition média*
 - **[Lecteur d'écran (Screen reader)](/frontend/#lecteur-d-ecran-screen-reader)** — *Frontend & UI/UX*
+- **[Let's Encrypt](/devops/#let-s-encrypt)** — *DevOps & infra*
 - **[Levée de fonds](/business/#levee-de-fonds-fundraising)** — *Jargon entrepreneurial*
 - **[Licence annuelle (Annual license)](/business/#licence-annuelle-annual-license)** — *Jargon entrepreneurial*
 - **[Licence logicielle (Software license)](/business/#licence-logicielle-software-license)** — *Jargon entrepreneurial*
@@ -345,6 +353,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[nativeImage](/media/#nativeimage)** — *Édition média*
 - **[NDVI](/cropsuite/#ndvi)** — *CropSuite (PFE)*
+- **[Nginx](/devops/#nginx)** — *DevOps & infra*
 - **[NIF (Numéro d'Identification Fiscale)](/business/#nif-numero-d-identification-fiscale)** — *Jargon entrepreneurial*
 - **[Niveau de journalisation (Log level)](/devops/#niveau-de-journalisation-log-level)** — *DevOps & infra*
 - **[Node-API](/devops/#node-api)** — *DevOps & infra*
@@ -413,6 +422,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Promesse rejetée sans traitement (Unhandled rejection)](/backend/#promesse-rejetee-sans-traitement-unhandled-rejection)** — *Backend & architecture*
 - **[Props](/frontend/#props)** — *Frontend & UI/UX*
 - **[Protocole personnalisé (Custom protocol)](/backend/#protocole-personnalise-custom-protocol)** — *Backend & architecture*
+- **[Proxy direct (Forward proxy)](/devops/#proxy-direct-forward-proxy)** — *DevOps & infra*
 - **[Puppeteer](/devops/#puppeteer)** — *DevOps & infra*
 - **[Push](/devops/#push)** — *DevOps & infra*
 
@@ -523,6 +533,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[TCP (Transmission Control Protocol)](/backend/#tcp-transmission-control-protocol)** — *Backend & architecture*
 - **[Tenseur (Tensor)](/backend/#tenseur-tensor)** — *Backend & architecture*
 - **[Term sheet](/business/#term-sheet)** — *Jargon entrepreneurial*
+- **[Terminaison TLS (TLS termination)](/devops/#terminaison-tls-tls-termination)** — *DevOps & infra*
 - **[Test de performance (Benchmark)](/devops/#test-de-performance-benchmark)** — *DevOps & infra*
 - **[Test de régression (Regression test)](/devops/#test-de-regression-regression-test)** — *DevOps & infra*
 - **[Test e2e (End-to-end test, test de bout en bout)](/devops/#test-e2e-end-to-end-test-test-de-bout-en-bout)** — *DevOps & infra*
@@ -532,6 +543,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Ticket moyen (Average basket)](/business/#ticket-moyen-average-basket)** — *Jargon entrepreneurial*
 - **[Timeline](/media/#timeline)** — *Édition média*
 - **[Trace d'appels (Stack trace)](/backend/#trace-d-appels-stack-trace)** — *Backend & architecture*
+- **[Traefik](/devops/#traefik)** — *DevOps & infra*
 - **[Traitement par lot (Batch processing)](/backend/#traitement-par-lot-batch-processing)** — *Backend & architecture*
 - **[Transaction](/backend/#transaction)** — *Backend & architecture*
 - **[Transcodage](/streaming/#transcodage-transcoding)** — *Transcoding & streaming*
