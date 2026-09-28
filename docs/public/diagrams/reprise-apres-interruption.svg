@@ -1,0 +1,27 @@
+<svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reprise après interruption d’une restauration" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Reprise après interruption d’une restauration</title>
+<rect x="0" y="0" width="820" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="410" y="34" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="600" fill="#1e293b">Un marqueur sur le disque dit où l’on en est ; au redémarrage, Boutik finit ou annule</text>
+<rect x="30" y="60" width="220" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="140.0" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Préparation</text>
+<text x="140.0" y="104.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">nouvelle base construite à part</text>
+<rect x="300" y="60" width="220" height="60" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="410.0" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Bascule</text>
+<text x="410.0" y="104.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ancienne de côté, nouvelle en place</text>
+<rect x="570" y="60" width="220" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="680.0" y="87.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Terminé</text>
+<text x="680.0" y="104.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">marqueur effacé</text>
+<line x1="250" y1="90" x2="300" y2="90" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<line x1="520" y1="90" x2="570" y2="90" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<rect x="30" y="170" width="220" height="56" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="140.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Coupure ici</text>
+<text x="140.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">→ ancienne base intacte</text>
+<rect x="300" y="170" width="220" height="56" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="410.0" y="195.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Coupure ici</text>
+<text x="410.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">→ bascule finie au démarrage</text>
+<line x1="140" y1="120" x2="140" y2="170" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<line x1="410" y1="120" x2="410" y2="170" stroke="#64748b" stroke-width="1.75" marker-end="url(#fleche)"/>
+<text x="410" y="260" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#16a34a">Jamais un mélange des deux bases : chaque étape peut être refaite sans dommage.</text>
+<text x="410" y="280" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Vérifié : arrêt brutal du programme avant chacune des 9 étapes, puis redémarrage.</text>
+</svg>

@@ -1487,3 +1487,61 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Termes liés** : [OAuth](#oauth-oauth-2-0), [Portée d'accès](#portee-d-acces-scope), [safeStorage](#safestorage).
 
 ---
+
+## Attaque hors ligne (*Offline attack*)
+
+![En ligne, chaque essai passe par l'écran de Boutik et l'attente croissante ; hors ligne, sur une copie volée, le voleur essaie sans limite, seules la lenteur d'argon2id et la solidité du mot de passe protègent](/diagrams/attaque-hors-ligne.svg)
+
+**Définition simple** : Deviner un secret sur des données volées, sur son propre ordinateur, sans passer par l'application. Aucune attente entre les essais, aucun blocage : le voleur essaie autant qu'il veut, aussi vite que son matériel le permet. Seuls un calcul lent à chaque essai et un secret difficile à deviner protègent alors.
+
+**Contexte / exemple concret** : Sur l'écran de connexion de Boutik, un mot de passe faux déclenche une [attente croissante](#attente-croissante-backoff). Mais une copie de sauvegarde `.boutik` volée (sur un téléphone perdu, par exemple) peut être attaquée hors ligne. C'est pourquoi Boutik refuse les mots de passe courants et encourage une [phrase de passe](#phrase-de-passe-passphrase) : [argon2id](#argon2id) rend chaque essai coûteux, mais ne sauve pas « motdepasse2024 ».
+
+**Termes liés** : [Force brute](#force-brute-brute-force), [Solidité d'un mot de passe](#solidite-d-un-mot-de-passe-password-strength), [Enveloppe de clé](#enveloppe-de-cle-key-wrapping).
+
+---
+
+## Solidité d'un mot de passe (*Password strength*)
+
+![Quatre mots de passe et leur niveau : motdepasse2024 refusé, Xk7#pq2! moyen, maisonbleue faible, « le riz de ségou est bon » très bon](/diagrams/solidite-mot-de-passe.svg)
+
+**Définition simple** : À quel point un mot de passe est difficile à deviner. Ce qui compte le plus : ne pas être dans les listes que les voleurs essaient d'abord, et être long. Les règles « une majuscule, un chiffre, un symbole » poussent vers des mots de passe courts, difficiles à retenir et faciles à deviner (« Password1! »).
+
+**Contexte / exemple concret** : Boutik montre un indicateur (Refusé, Faible, Moyen, Bon, Très bon) quand le patron choisit son mot de passe, avec cette explication : « Ce mot de passe protège aussi vos copies de sauvegarde. » Il refuse les [mots de passe courants](#liste-de-mots-de-passe-courants-common-password-list) et ceux bâtis sur le nom de la boutique. Un ancien mot de passe faible n'est pas refusé, mais Mon compte le signale.
+
+**Termes liés** : [Entropie](#entropie-entropy), [Phrase de passe](#phrase-de-passe-passphrase), [Attaque hors ligne](#attaque-hors-ligne-offline-attack).
+
+**Calcul** : estimation de Boutik ≈ nombre de caractères × 2,5 à 4 bits (selon la variété des caractères). « le riz de ségou est bon » : 23 × 3 = 69 bits, très bon ; « Xk7#pq2! » : 8 × 4 = 32 bits, moyen.
+
+---
+
+## Liste de mots de passe courants (*Common password list*)
+
+**Définition simple** : La liste des mots de passe que les gens choisissent le plus souvent (« 123456 », « azerty », « motdepasse », un prénom suivi d'une année), tirée de fuites de données réelles. Les voleurs les essaient en premier : un mot de passe de cette liste tombe en quelques secondes.
+
+**Contexte / exemple concret** : Boutik embarque environ 17 000 mots de passe courants (listes anglaise et française de SecLists, licence MIT, plus quelques mots propres au Mali comme « bamako2025 » ou « inchallah »). Tout est hors ligne, sans appel réseau. Les variantes sont aussi refusées : chiffres ou symboles ajoutés à la fin, lettres remplacées par des chiffres (« p@ssw0rd »).
+
+**Termes liés** : [Solidité d'un mot de passe](#solidite-d-un-mot-de-passe-password-strength), [Force brute](#force-brute-brute-force).
+
+---
+
+## Phrase de passe (*Passphrase*)
+
+**Définition simple** : Un mot de passe fait de plusieurs mots ordinaires, par exemple quatre ou cinq mots sans lien évident. Facile à retenir, facile à taper, et très difficile à deviner parce qu'il est long.
+
+**Contexte / exemple concret** : Boutik encourage le patron à choisir une courte phrase connue de lui seul : l'indicateur de solidité la note « Très bon », même tout en minuscules et sans chiffre.
+
+**Termes liés** : [Solidité d'un mot de passe](#solidite-d-un-mot-de-passe-password-strength), [Entropie](#entropie-entropy).
+
+---
+
+## Reprise après interruption (*Crash recovery*)
+
+![Un marqueur sur le disque suit la préparation puis la bascule ; une coupure pendant la préparation laisse l'ancienne base intacte, une coupure pendant la bascule est finie au redémarrage](/diagrams/reprise-apres-interruption.svg)
+
+**Définition simple** : Ce que fait un programme au démarrage quand il s'est arrêté brutalement (coupure de courant, plantage) au milieu d'une opération. Il note sur le disque, avant chaque étape risquée, où il en est ; au redémarrage, il lit cette note et finit l'opération ou l'annule, pour ne jamais laisser les données à moitié modifiées.
+
+**Contexte / exemple concret** : Pour restaurer une sauvegarde, Boutik construit la nouvelle base à part, puis la met à la place de l'ancienne. Un fichier `restauration-en-cours.json` dit où il en est. Si le courant coupe, le démarrage suivant garde l'ancienne boutique entière, ou finit la bascule vers la nouvelle : jamais un mélange. Vérifié en arrêtant brutalement Boutik avant chacune des 9 étapes.
+
+**Termes liés** : [Atomicité](#atomicite-atomicity-tout-ou-rien), [Restauration](#restauration-restore), [Journal WAL](#journal-wal-write-ahead-logging).
+
+---

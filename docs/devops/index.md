@@ -1329,3 +1329,27 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 **Termes liés** : [Situation de course](#situation-de-course-race-condition), [Test instable](#test-instable-flaky-test).
 
 ---
+
+## Rotation des copies (*Backup rotation*)
+
+![Dix copies datées dans le dossier Boutik du téléphone : la nouvelle arrive, la plus ancienne est effacée](/diagrams/rotation-copies.svg)
+
+**Définition simple** : Garder un nombre fixe de copies de sauvegarde : à chaque nouvelle copie, la plus ancienne est effacée. L'espace utilisé ne grandit pas sans fin, et on peut quand même revenir plusieurs jours en arrière (utile si une erreur n'est découverte que tard).
+
+**Contexte / exemple concret** : Boutik garde les 10 dernières copies dans le dossier « Boutik » du téléphone du patron. La date et l'heure sont dans le nom du fichier (`Boutik-Epicerie-Awa-2026-09-28-101500.boutik`), ce qui permet de trier les copies sans lire leur contenu. Les autres fichiers du téléphone ne sont jamais touchés.
+
+**Termes liés** : [Rotation des journaux](#rotation-des-journaux-log-rotation), [Sauvegarde incrémentale](/backend/#sauvegarde-incrementale-incremental-backup).
+
+---
+
+## Mode recharge seule / transfert de fichiers (*USB charging only / File transfer*)
+
+![En « recharge seulement », le câble ne fait passer que le courant et l'ordinateur ne voit aucun fichier ; en « Transfert de fichiers » (MTP), l'ordinateur voit le stockage du téléphone et Boutik peut y écrire](/diagrams/mode-usb-telephone.svg)
+
+**Définition simple** : Quand on branche un téléphone Android à un ordinateur, il demande à quoi sert le câble. En « recharge seulement » (souvent le choix par défaut), il se recharge et l'ordinateur ne voit rien. En « Transfert de fichiers », l'ordinateur voit son stockage par [MTP](/backend/#mtp-media-transfer-protocol) et peut y copier des fichiers. Le choix se fait dans la notification « Chargement via USB », téléphone déverrouillé.
+
+**Contexte / exemple concret** : Si Boutik ne trouve pas le téléphone, il affiche un dessin de cette notification avec « Transfert de fichiers » coché, et conseille d'essayer un autre câble : certains câbles bon marché ne transportent que le courant.
+
+**Termes liés** : [MTP](/backend/#mtp-media-transfer-protocol), [Rotation des copies](#rotation-des-copies-backup-rotation).
+
+---

@@ -857,3 +857,33 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 **Termes liés** : [React](#react), [Écran de secours en cas de plantage](#ecran-de-secours-en-cas-de-plantage-error-boundary).
 
 ---
+
+## Application compagnon (*Companion app*)
+
+**Définition simple** : Une petite application, souvent sur téléphone, qui accompagne un logiciel principal plutôt que de le remplacer. Elle montre ou reçoit une partie de ses données, pour que l'utilisateur les ait sous la main hors de son bureau.
+
+**Contexte / exemple concret** : Une application mobile compagnon de Boutik est prévue (chantier séparé, après la licence) : recevoir les copies de sauvegarde sans câble et montrer au patron son stock, ses créances et ses ventes du jour. Pour qu'elle n'ait aucun calcul métier à refaire, Boutik lui préparera une « vue prête à afficher » dans la copie ; le format le permet déjà.
+
+**Termes liés** : [Flutter](#flutter), [PWA](#pwa-progressive-web-app-application-web-progressive).
+
+---
+
+## PWA (*Progressive Web App, application web progressive*)
+
+**Définition simple** : Un site web qui se comporte comme une application : on l'ajoute à l'écran d'accueil du téléphone, il s'ouvre en plein écran et peut fonctionner sans réseau grâce à des fichiers gardés en mémoire. Pas de boutique d'applications à passer, mais un accès plus limité au téléphone (fichiers, arrière-plan) qu'une vraie application.
+
+**Contexte / exemple concret** : Pour l'application compagnon de Boutik, une PWA serait rapide à distribuer. Mais recevoir des copies en arrière-plan depuis l'ordinateur de la boutique demande un accès au téléphone qu'une PWA n'a pas bien sous Android : c'est une raison de préférer une application native.
+
+**Termes liés** : [Application compagnon](#application-compagnon-companion-app), [Flutter](#flutter).
+
+---
+
+## Flutter
+
+**Définition simple** : Un outil de Google pour écrire une application une seule fois, dans le langage Dart, et la faire tourner sur Android, iPhone, ordinateur et web. Il dessine lui-même son interface, qui a donc le même aspect partout.
+
+**Contexte / exemple concret** : L'application mobile compagnon de Boutik sera écrite en Flutter, Android d'abord. Les copies `.boutik` sont lisibles en Dart sans SQLite ni Node : en-tête JSON, argon2id, AES-256-GCM, HMAC et gzip existent tous dans les paquets Dart courants.
+
+**Termes liés** : [Application compagnon](#application-compagnon-companion-app), [PWA](#pwa-progressive-web-app-application-web-progressive).
+
+---
