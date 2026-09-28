@@ -1,0 +1,44 @@
+<svg viewBox="0 0 820 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Journal d&#x27;événements et projections : une commande vérifiée ajoute un événement au journal ; les projections en sont tirées et servent aux lectures ; on peut toujours les reconstruire" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Journal d&#x27;événements et projections : une commande vérifiée ajoute un événement au journal ; les projections en sont tirées et servent aux lectures ; on peut toujours les reconstruire</title>
+<rect x="0" y="0" width="820" height="390" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Écrire = ajouter un événement ; lire = interroger une projection</text>
+<text x="30" y="220" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Une projection se reconstruit</text>
+<text x="30" y="238" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">en rejouant tout le journal :</text>
+<text x="30" y="256" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">elle n&#x27;est qu&#x27;un résultat,</text>
+<text x="30" y="274" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">jamais la source de vérité.</text>
+<rect x="30" y="60" width="160" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="110.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Commande</text>
+<text x="110.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">depuis un écran</text>
+<rect x="220" y="60" width="170" height="64" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="305.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Règles métier</text>
+<text x="305.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">vérifiées d&#x27;abord</text>
+<rect x="420" y="50" width="200" height="84" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="520.0" y="79.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Journal d&#x27;événements</text>
+<text x="520.0" y="96.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ajouts seuls</text>
+<text x="520.0" y="113.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">jamais modifié</text>
+<rect x="650" y="60" width="140" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="720.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Copies, synchro</text>
+<text x="720.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">lisent le journal</text>
+<rect x="330" y="210" width="140" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="400.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Projection A</text>
+<text x="400.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ex. stock</text>
+<rect x="490" y="210" width="140" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="560.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Projection B</text>
+<text x="560.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ex. ventes</text>
+<rect x="650" y="210" width="140" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="720.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Projection C</text>
+<text x="720.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ex. clients</text>
+<rect x="330" y="310" width="460" height="52" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="560.0" y="332.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Lectures des écrans</text>
+<text x="560.0" y="349.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">rapides, jamais dans le journal</text>
+<line x1="192.0" y1="92.0" x2="218.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="392.0" y1="92.0" x2="418.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="622.0" y1="92.0" x2="648.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="483.8" y1="136.0" x2="424.7" y2="208.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="532.1" y1="136.0" x2="551.8" y2="208.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="580.3" y1="136.0" x2="678.9" y2="208.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="449.0" y1="268.0" x2="514.3" y2="308.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="560.0" y1="268.0" x2="560.0" y2="308.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="671.0" y1="268.0" x2="605.7" y2="308.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

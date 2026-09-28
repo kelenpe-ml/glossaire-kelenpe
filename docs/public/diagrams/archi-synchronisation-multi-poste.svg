@@ -1,0 +1,38 @@
+<svg viewBox="0 0 820 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Synchronisation multi-poste pair-à-pair : les postes du réseau local échangent les événements manquants, sans maître ni serveur ; un nouveau poste reçoit l&#x27;historique d&#x27;un autre ; les conflits suivent la personne" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Synchronisation multi-poste pair-à-pair : les postes du réseau local échangent les événements manquants, sans maître ni serveur ; un nouveau poste reçoit l&#x27;historique d&#x27;un autre ; les conflits suivent la personne</title>
+<rect x="0" y="0" width="820" height="430" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Réseau local, sans poste maître ni serveur</text>
+<text x="30" y="256" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Conflits : selon la personne, pas la machine</text>
+<rect x="30" y="60" width="180" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="120.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Poste A</text>
+<text x="120.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">journal complet</text>
+<rect x="320" y="60" width="180" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="410.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Poste B</text>
+<text x="410.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">journal complet</text>
+<rect x="610" y="60" width="180" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="700.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Poste C</text>
+<text x="700.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">journal complet</text>
+<rect x="320" y="170" width="180" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="410.0" y="194.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Nouveau poste</text>
+<text x="410.0" y="211.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">reçoit l&#x27;historique</text>
+<rect x="30" y="270" width="240" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="150.0" y="298.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Version du patron</text>
+<text x="150.0" y="315.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">l&#x27;emporte d&#x27;office</text>
+<rect x="290" y="270" width="260" height="64" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="420.0" y="298.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Entre employés</text>
+<text x="420.0" y="315.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">deux versions ; la récente en attente</text>
+<rect x="580" y="270" width="210" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="685.0" y="298.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Badge « conflit »</text>
+<text x="685.0" y="315.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">le patron tranche</text>
+<rect x="30" y="364" width="760" height="46" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="410.0" y="391.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Préparé : identifiant de poste et horloge logique sur chaque événement</text>
+<line x1="212.0" y1="92.0" x2="318.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-start="url(#fleche)" marker-end="url(#fleche)"/>
+<rect x="200.6" y="44.0" width="128.8" height="17" rx="4" fill="#f8fafc"/>
+<text x="265" y="56" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">événements manquants</text>
+<line x1="502.0" y1="92.0" x2="608.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-start="url(#fleche)" marker-end="url(#fleche)"/>
+<rect x="490.6" y="44.0" width="128.8" height="17" rx="4" fill="#f8fafc"/>
+<text x="555" y="56" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">événements manquants</text>
+<line x1="410.0" y1="126.0" x2="410.0" y2="168.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="552.0" y1="302.0" x2="578.0" y2="302.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

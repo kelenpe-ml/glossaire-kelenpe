@@ -1,0 +1,42 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mises à jour hors ligne : l&#x27;éditeur signe ; la mise à jour arrive par téléchargement partiel ou par fichier ; la signature est vérifiée ; on attend un moment sûr, on copie, on installe ; si la version ne démarre pas, retour à la précédente" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Mises à jour hors ligne : l&#x27;éditeur signe ; la mise à jour arrive par téléchargement partiel ou par fichier ; la signature est vérifiée ; on attend un moment sûr, on copie, on installe ; si la version ne démarre pas, retour à la précédente</title>
+<rect x="0" y="0" width="820" height="400" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Jamais forcée, jamais sans signature</text>
+<rect x="30" y="60" width="150" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="105.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Éditeur</text>
+<text x="105.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">signe hors ligne</text>
+<rect x="210" y="40" width="180" height="48" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="300.0" y="68.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Téléchargement partiel</text>
+<rect x="210" y="100" width="180" height="48" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="300.0" y="128.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Fichier transmis</text>
+<rect x="420" y="60" width="160" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="500.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Signature</text>
+<text x="500.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">vérifiée</text>
+<rect x="620" y="60" width="170" height="64" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="705.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✗ Non signée</text>
+<text x="705.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">refusée</text>
+<rect x="30" y="206" width="170" height="64" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="115.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Moment sûr</text>
+<text x="115.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">jamais pendant une vente</text>
+<rect x="230" y="206" width="170" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="315.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Copie</text>
+<text x="315.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">de sauvegarde</text>
+<rect x="430" y="206" width="150" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="505.0" y="242.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Installation</text>
+<rect x="430" y="318" width="170" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="515.0" y="350.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Elle démarre</text>
+<rect x="620" y="318" width="170" height="56" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="705.0" y="342.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✗ Elle plante</text>
+<text x="705.0" y="359.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">retour à la précédente</text>
+<path d="M 500 126 L 500 176 L 115 176 L 115 204" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="182.0" y1="80.9" x2="208.0" y2="77.2" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="182.0" y1="104.6" x2="208.0" y2="108.9" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="392.0" y1="76.9" x2="418.0" y2="80.5" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="392.0" y1="109.3" x2="418.0" y2="105.1" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="582.0" y1="92.0" x2="618.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="202.0" y1="238.0" x2="228.0" y2="238.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="402.0" y1="238.0" x2="428.0" y2="238.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="508.1" y1="272.0" x2="512.2" y2="316.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="568.0" y1="272.0" x2="649.4" y2="316.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

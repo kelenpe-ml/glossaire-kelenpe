@@ -1,0 +1,24 @@
+<svg viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Clé de réserve : l&#x27;application embarque deux clés publiques ; si la clé en service fuit, une mise à jour la retire et la réserve prend le relais, sans réactiver chaque poste" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Clé de réserve : l&#x27;application embarque deux clés publiques ; si la clé en service fuit, une mise à jour la retire et la réserve prend le relais, sans réactiver chaque poste</title>
+<rect x="0" y="0" width="820" height="250" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Changer de clé sans toucher aux postes</text>
+<text x="30" y="212" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Sans réserve, une fuite obligerait à redonner une licence à chaque poste, à la main.</text>
+<rect x="30" y="60" width="240" height="110" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="150.0" y="94.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">1. Au départ</text>
+<text x="150.0" y="111.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">clés publiques : A et B</text>
+<text x="150.0" y="128.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">A signe les licences</text>
+<text x="150.0" y="145.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">B gardée hors ligne</text>
+<rect x="290" y="60" width="240" height="110" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="410.0" y="94.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">2. Fuite de A</text>
+<text x="410.0" y="111.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">mise à jour signée</text>
+<text x="410.0" y="128.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">A retirée de la liste</text>
+<text x="410.0" y="145.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ses signatures refusées</text>
+<rect x="550" y="60" width="240" height="110" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="670.0" y="94.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">3. Après</text>
+<text x="670.0" y="111.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">B signe les licences</text>
+<text x="670.0" y="128.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">nouvelle réserve C</text>
+<text x="670.0" y="145.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">aucun poste réactivé</text>
+<line x1="272.0" y1="115.0" x2="288.0" y2="115.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="532.0" y1="115.0" x2="548.0" y2="115.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

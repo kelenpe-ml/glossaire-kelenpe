@@ -49,6 +49,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 ## B
 
 - **[Backoffice](/backend/#backoffice)** — *Backend & architecture*
+- **[Backoffice et gestion des clés de signature](/architectures/backoffice-cles)** — *Architectures*
 - **[Banner (Bannière)](/frontend/#banner-banniere)** — *Frontend & UI/UX*
 - **[Barre de progression (Progress bar)](/frontend/#barre-de-progression-progress-bar)** — *Frontend & UI/UX*
 - **[Base de données SQLite (SQLite)](/backend/#base-de-donnees-sqlite-sqlite)** — *Backend & architecture*
@@ -89,8 +90,9 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Chargement progressif (Lazy loading)](/frontend/#chargement-progressif-lazy-loading)** — *Frontend & UI/UX*
 - **[Chiffre d'affaires (Revenue, turnover)](/business/#chiffre-d-affaires-revenue-turnover)** — *Jargon entrepreneurial*
 - **[Chiffrement (Encryption)](/backend/#chiffrement-encryption)** — *Backend & architecture*
+- **[Chiffrement au repos (Encryption at rest)](/backend/#chiffrement-au-repos-encryption-at-rest)** — *Backend & architecture*
 - **[Chiffrement authentifié (Authenticated encryption, AES-GCM)](/backend/#chiffrement-authentifie-authenticated-encryption-aes-gcm)** — *Backend & architecture*
-- **[Chiffrement des données de Boutik (Encryption at rest)](/backend/#chiffrement-des-donnees-de-boutik-encryption-at-rest)** — *Backend & architecture*
+- **[Chiffrement des données locales](/architectures/chiffrement-donnees-locales)** — *Architectures*
 - **[Chrome DevTools Protocol (CDP)](/devops/#chrome-devtools-protocol-cdp)** — *DevOps & infra*
 - **[Chromium](/frontend/#chromium)** — *Frontend & UI/UX*
 - **[CI/CD](/devops/#ci-cd-integration-continue-deploiement-continu)** — *DevOps & infra*
@@ -98,6 +100,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[CLAUDE.md](/devops/#claude-md)** — *DevOps & infra*
 - **[Clé d'un composant React (key)](/frontend/#cle-d-un-composant-react-key)** — *Frontend & UI/UX*
 - **[Clé de chiffrement (Encryption key)](/backend/#cle-de-chiffrement-encryption-key)** — *Backend & architecture*
+- **[Clé de réserve (Backup key, rotation de clé)](/backend/#cle-de-reserve-backup-key-rotation-de-cle)** — *Backend & architecture*
 - **[Clé publique / clé privée (Public / private key)](/backend/#cle-publique-cle-privee-public-private-key)** — *Backend & architecture*
 - **[Cliff](/business/#cliff)** — *Jargon entrepreneurial*
 - **[ClipboardItem](/backend/#clipboarditem)** — *Backend & architecture*
@@ -106,6 +109,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Code mort (Dead code)](/backend/#code-mort-dead-code)** — *Backend & architecture*
 - **[Code QR (QR code)](/media/#code-qr-qr-code)** — *Édition média*
 - **[Codec](/streaming/#codec)** — *Transcoding & streaming*
+- **[Codes de secours et récupération d'un compte hors ligne](/architectures/codes-de-secours)** — *Architectures*
 - **[Commit](/devops/#commit)** — *DevOps & infra*
 - **[Commit conventionnel (Conventional commit)](/devops/#commit-conventionnel-conventional-commit)** — *DevOps & infra*
 - **[Commit de fusion (Merge commit)](/devops/#commit-de-fusion-merge-commit)** — *DevOps & infra*
@@ -115,6 +119,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Compression LZMA / xz](/devops/#compression-lzma-xz)** — *DevOps & infra*
 - **[Conflit d'écriture (Write conflict)](/backend/#conflit-d-ecriture-write-conflict)** — *Backend & architecture*
 - **[Connection pool](/backend/#connection-pool)** — *Backend & architecture*
+- **[Connexion facturée à l'usage (Metered connection)](/devops/#connexion-facturee-a-l-usage-metered-connection)** — *DevOps & infra*
 - **[Conteneurisation](/devops/#conteneurisation-containerization)** — *DevOps & infra*
 - **[Content Security Policy (CSP)](/frontend/#content-security-policy-csp)** — *Frontend & UI/UX*
 - **[content-visibility](/frontend/#content-visibility)** — *Frontend & UI/UX*
@@ -158,6 +163,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[DirectML](/media/#directml)** — *Édition média*
 - **[DLL (Dynamic Link Library)](/devops/#dll-dynamic-link-library)** — *DevOps & infra*
 - **[Docker](/devops/#docker)** — *DevOps & infra*
+- **[Document de conception (Design document)](/devops/#document-de-conception-design-document)** — *DevOps & infra*
 - **[DPAPI (Data Protection API)](/backend/#dpapi-data-protection-api)** — *Backend & architecture*
 - **[Due diligence](/business/#due-diligence)** — *Jargon entrepreneurial*
 - **[Duplicata (Duplicate receipt)](/business/#duplicata-duplicate-receipt)** — *Jargon entrepreneurial*
@@ -273,6 +279,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Identifiant de poste (device_id)](/backend/#identifiant-de-poste-device-id)** — *Backend & architecture*
 - **[Identifiant technique (Technical identifier)](/backend/#identifiant-technique-technical-identifier)** — *Backend & architecture*
 - **[Images par seconde (Frames per second, fps)](/frontend/#images-par-seconde-frames-per-second-fps)** — *Frontend & UI/UX*
+- **[Implémentation de référence (Reference implementation)](/devops/#implementation-de-reference-reference-implementation)** — *DevOps & infra*
+- **[Impression de tickets ESC/POS](/architectures/impression-escpos)** — *Architectures*
 - **[Impression raster (Raster printing)](/media/#impression-raster-raster-printing)** — *Édition média*
 - **[Imprimante thermique (Thermal printer)](/media/#imprimante-thermique-thermal-printer)** — *Édition média*
 - **[Imputation](/business/#imputation)** — *Jargon entrepreneurial*
@@ -296,7 +304,9 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Job](/devops/#job)** — *DevOps & infra*
 - **[Jonction (Junction, directory junction)](/devops/#jonction-junction-directory-junction)** — *DevOps & infra*
 - **[Journal d'erreurs (Log)](/devops/#journal-d-erreurs-log)** — *DevOps & infra*
+- **[Journal d'événements et projections](/architectures/journal-evenements)** — *Architectures*
 - **[Journal de retour arrière (Rollback journal)](/backend/#journal-de-retour-arriere-rollback-journal)** — *Backend & architecture*
+- **[Journal des erreurs et rapport de problème](/architectures/journal-erreurs)** — *Architectures*
 - **[Journal WAL (Write-Ahead Logging)](/backend/#journal-wal-write-ahead-logging)** — *Backend & architecture*
 - **[JPEG](/media/#jpeg)** — *Édition média*
 - **[JPEG XL](/media/#jpeg-xl)** — *Édition média*
@@ -313,10 +323,12 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[LAN (Local Area Network)](/backend/#lan-local-area-network)** — *Backend & architecture*
 - **[Layer / Calque](/media/#layer-calque)** — *Édition média*
 - **[Lecteur d'écran (Screen reader)](/frontend/#lecteur-d-ecran-screen-reader)** — *Frontend & UI/UX*
+- **[Lecture seule (Read-only mode)](/backend/#lecture-seule-read-only-mode)** — *Backend & architecture*
 - **[Let's Encrypt](/devops/#let-s-encrypt)** — *DevOps & infra*
 - **[Levée de fonds](/business/#levee-de-fonds-fundraising)** — *Jargon entrepreneurial*
 - **[Licence annuelle (Annual license)](/business/#licence-annuelle-annual-license)** — *Jargon entrepreneurial*
 - **[Licence logicielle (Software license)](/business/#licence-logicielle-software-license)** — *Jargon entrepreneurial*
+- **[Licence logicielle hors ligne](/architectures/licence-hors-ligne)** — *Architectures*
 - **[Licence non commerciale (Non-commercial license)](/business/#licence-non-commerciale-non-commercial-license)** — *Jargon entrepreneurial*
 - **[Licence open source (Open source license)](/business/#licence-open-source-open-source-license)** — *Jargon entrepreneurial*
 - **[Lignes JSON (JSON Lines)](/backend/#lignes-json-json-lines)** — *Backend & architecture*
@@ -346,6 +358,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Miniature (Thumbnail)](/media/#miniature-thumbnail)** — *Édition média*
 - **[Minimum de Liebig](/cropsuite/#minimum-de-liebig)** — *CropSuite (PFE)*
 - **[Mise à jour de l'application (Application update, distribution des versions)](/devops/#mise-a-jour-de-l-application-application-update-distribution-des-versions)** — *DevOps & infra*
+- **[Mise à jour différentielle (Differential update, delta)](/devops/#mise-a-jour-differentielle-differential-update-delta)** — *DevOps & infra*
+- **[Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne)** — *Architectures*
 - **[MIT](/business/#mit)** — *Jargon entrepreneurial*
 - **[Mode recharge seule / transfert de fichiers (USB charging only / File transfer)](/devops/#mode-recharge-seule-transfert-de-fichiers-usb-charging-only-file-transfer)** — *DevOps & infra*
 - **[Mode RAW](/devops/#mode-raw)** — *DevOps & infra*
@@ -393,6 +407,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Pacte d'actionnaires](/business/#pacte-d-actionnaires-shareholders-agreement)** — *Jargon entrepreneurial*
 - **[Pagination](/backend/#pagination)** — *Backend & architecture*
 - **[Pair-à-pair (Peer-to-peer, P2P)](/backend/#pair-a-pair-peer-to-peer-p2p)** — *Backend & architecture*
+- **[Parrainage (Referral program)](/business/#parrainage-referral-program)** — *Jargon entrepreneurial*
 - **[Payload (Charge utile)](/backend/#payload-charge-utile)** — *Backend & architecture*
 - **[Percentile (p95)](/frontend/#percentile-p95)** — *Frontend & UI/UX*
 - **[Période critique](/cropsuite/#periode-critique)** — *CropSuite (PFE)*
@@ -424,6 +439,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Preload](/streaming/#preload)** — *Transcoding & streaming*
 - **[Presse-papiers (Clipboard)](/frontend/#presse-papiers-clipboard)** — *Frontend & UI/UX*
 - **[Prix de gros (Wholesale price)](/business/#prix-de-gros-wholesale-price)** — *Jargon entrepreneurial*
+- **[Prix fondateur (Founder pricing)](/business/#prix-fondateur-founder-pricing)** — *Jargon entrepreneurial*
 - **[Projection](/backend/#projection)** — *Backend & architecture*
 - **[Promesse et await (Promise)](/backend/#promesse-et-await-promise)** — *Backend & architecture*
 - **[Promesse rejetée sans traitement (Unhandled rejection)](/backend/#promesse-rejetee-sans-traitement-unhandled-rejection)** — *Backend & architecture*
@@ -461,6 +477,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[ReDoS (Regular expression Denial of Service)](/devops/#redos-regular-expression-denial-of-service)** — *DevOps & infra*
 - **[Reduced motion](/frontend/#reduced-motion-preference-de-mouvement-reduit)** — *Frontend & UI/UX*
 - **[Refactorisation (Refactor)](/backend/#refactorisation-refactor)** — *Backend & architecture*
+- **[Référence de paiement (Payment reference)](/business/#reference-de-paiement-payment-reference)** — *Jargon entrepreneurial*
 - **[Refus non-fast-forward (Non-fast-forward rejection)](/devops/#refus-non-fast-forward-non-fast-forward-rejection)** — *DevOps & infra*
 - **[Région live (aria-live)](/frontend/#region-live-aria-live)** — *Frontend & UI/UX*
 - **[rem](/frontend/#rem)** — *Frontend & UI/UX*
@@ -475,11 +492,13 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Résolution d'entrée d'un modèle (Model input resolution)](/media/#resolution-d-entree-d-un-modele-model-input-resolution)** — *Édition média*
 - **[Responsive design](/frontend/#responsive-design)** — *Frontend & UI/UX*
 - **[Restauration (Restore)](/backend/#restauration-restore)** — *Backend & architecture*
+- **[Retour à la version précédente (Rollback)](/devops/#retour-a-la-version-precedente-rollback)** — *DevOps & infra*
 - **[Reverse proxy](/devops/#reverse-proxy)** — *DevOps & infra*
 - **[Révocation de licence (License revocation)](/business/#revocation-de-licence-license-revocation)** — *Jargon entrepreneurial*
 - **[RMBG (BRIA)](/media/#rmbg-bria)** — *Édition média*
 - **[Rogner / recadrer (Crop)](/media/#rogner-recadrer-crop)** — *Édition média*
 - **[ROI (Return on Investment)](/business/#roi-return-on-investment)** — *Jargon entrepreneurial*
+- **[Rôles, modules et permissions vérifiés côté serveur](/architectures/permissions)** — *Architectures*
 - **[Rollup](/devops/#rollup)** — *DevOps & infra*
 - **[Rotation des copies (Backup rotation)](/devops/#rotation-des-copies-backup-rotation)** — *DevOps & infra*
 - **[Rotation des journaux (Log rotation)](/devops/#rotation-des-journaux-log-rotation)** — *DevOps & infra*
@@ -498,12 +517,14 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[safeStorage](/backend/#safestorage)** — *Backend & architecture*
 - **[Saison favorable](/cropsuite/#saison-favorable)** — *CropSuite (PFE)*
 - **[SARL (Société à Responsabilité Limitée)](/business/#sarl-societe-a-responsabilite-limitee)** — *Jargon entrepreneurial*
+- **[Sauvegarde chiffrée sans serveur](/architectures/sauvegarde-chiffree)** — *Architectures*
 - **[Sauvegarde de la base (Database backup)](/backend/#sauvegarde-de-la-base-database-backup)** — *Backend & architecture*
 - **[Sauvegarde incrémentale (Incremental backup)](/backend/#sauvegarde-incrementale-incremental-backup)** — *Backend & architecture*
 - **[Scalabilité](/backend/#scalabilite-scalability)** — *Backend & architecture*
 - **[Schéma (Schema)](/backend/#schema-schema)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*
 - **[sendInputEvent](/devops/#sendinputevent)** — *DevOps & infra*
+- **[Séparation développement / production](/architectures/developpement-production)** — *Architectures*
 - **[SHA-256](/backend/#sha-256)** — *Backend & architecture*
 - **[SheetJS](/devops/#sheetjs)** — *DevOps & infra*
 - **[SIG (Système d'Information Géographique)](/cropsuite/#sig-systeme-d-information-geographique)** — *CropSuite (PFE)*
@@ -513,6 +534,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Situation de course (Race condition)](/devops/#situation-de-course-race-condition)** — *DevOps & infra*
 - **[Skeleton loading](/frontend/#skeleton-loading-squelette-de-chargement)** — *Frontend & UI/UX*
 - **[Skia](/media/#skia)** — *Édition média*
+- **[Skill (Claude Code)](/devops/#skill-claude-code)** — *DevOps & infra*
+- **[Skill personnel (Personal skill)](/devops/#skill-personnel-personal-skill)** — *DevOps & infra*
 - **[SNMP (Simple Network Management Protocol)](/backend/#snmp-simple-network-management-protocol)** — *Backend & architecture*
 - **[Socket](/backend/#socket)** — *Backend & architecture*
 - **[Solidité d'un mot de passe (Password strength)](/backend/#solidite-d-un-mot-de-passe-password-strength)** — *Backend & architecture*
@@ -525,11 +548,14 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Statuts](/business/#statuts)** — *Jargon entrepreneurial*
 - **[Stock-options](/business/#stock-options-stock-options)** — *Jargon entrepreneurial*
 - **[sudo / root](/devops/#sudo-root)** — *DevOps & infra*
+- **[Suggestions de saisie](/architectures/suggestions-saisie)** — *Architectures*
+- **[Suppression de fond d'image hors ligne](/architectures/suppression-fond-image)** — *Architectures*
 - **[Suppression logique (Soft delete, archivage, tombstone)](/backend/#suppression-logique-soft-delete-archivage-tombstone)** — *Backend & architecture*
 - **[Surface d'attaque (Attack surface)](/backend/#surface-d-attaque-attack-surface)** — *Backend & architecture*
 - **[SVG](/frontend/#svg-scalable-vector-graphics)** — *Frontend & UI/UX*
 - **[Swap](/devops/#swap)** — *DevOps & infra*
 - **[Synchronisation](/backend/#synchronisation)** — *Backend & architecture*
+- **[Synchronisation multi-poste pair-à-pair](/architectures/synchronisation-multi-poste)** — *Architectures*
 - **[System design](/backend/#system-design)** — *Backend & architecture*
 - **[systemd-run](/devops/#systemd-run)** — *DevOps & infra*
 
@@ -582,6 +608,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Variable d'environnement (Environment variable)](/devops/#variable-d-environnement-environment-variable)** — *DevOps & infra*
 - **[Vector (Vecteur)](/frontend/#vector-vecteur)** — *Frontend & UI/UX*
 - **[Vente au carton (Case sale)](/business/#vente-au-carton-case-sale)** — *Jargon entrepreneurial*
+- **[Vérification sous Windows sans PC Windows](/architectures/verification-windows)** — *Architectures*
 - **[Verrouillage de fichier sous Windows (File locking)](/devops/#verrouillage-de-fichier-sous-windows-file-locking)** — *DevOps & infra*
 - **[Version majeure (Semantic versioning, semver)](/devops/#version-majeure-semantic-versioning-semver)** — *DevOps & infra*
 - **[Vesting](/business/#vesting)** — *Jargon entrepreneurial*

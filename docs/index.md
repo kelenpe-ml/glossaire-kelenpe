@@ -39,4 +39,7 @@ features:
   - title: Jargon entrepreneurial & investisseurs
     details: PME, stock-options, vesting, cap table, valorisation, term sheet.
     link: /business/
+  - title: Architectures
+    details: Les systèmes complets (journal d'événements, sauvegarde, licence, synchronisation…), décrits pour tout logiciel, avec l'exemple de Boutik.
+    link: /architectures/
 ---

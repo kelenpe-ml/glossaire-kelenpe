@@ -52,7 +52,7 @@ Extrait principalement de **Media Editor Forge** (éditeur de statuts type "Stor
 
 **Contexte / exemple concret** : `SelfieSegmenterEngine.kt` et `CutoutStickerExtractor.kt` dans Media Editor Forge utilisent la segmentation de sujet (type ML Kit Selfie Segmentation) pour transformer une photo en sticker détouré ou remplacer l'arrière-plan (`BackgroundReplacementEffect.kt`, `BackgroundStillCompositor.kt`).
 
-**Termes liés** : [Layer / Calque](#layer-calque), [Compositing](#compositing).
+**Termes liés** : [Layer / Calque](#layer-calque), [Compositing](#compositing), [Suppression de fond d'image hors ligne](/architectures/suppression-fond-image).
 
 ---
 
@@ -115,7 +115,7 @@ Extrait principalement de **Media Editor Forge** (éditeur de statuts type "Stor
 
 **Contexte / exemple concret** : `main/impression/ticket.ts` de Boutik fabrique les octets ESC/POS du ticket (en-tête de la boutique, lignes, total), testés octet par octet contre des fichiers de référence.
 
-**Termes liés** : [Imprimante thermique](#imprimante-thermique-thermal-printer), [Mode RAW](/devops/#mode-raw), [Fichier de référence](/devops/#fichier-de-reference-golden-file).
+**Termes liés** : [Imprimante thermique](#imprimante-thermique-thermal-printer), [Mode RAW](/devops/#mode-raw), [Fichier de référence](/devops/#fichier-de-reference-golden-file), [Impression de tickets ESC/POS](/architectures/impression-escpos).
 
 ---
 

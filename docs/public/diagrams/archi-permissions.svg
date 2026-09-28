@@ -1,0 +1,33 @@
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rôles, modules et permissions : l&#x27;interface ne fait que masquer ; le point d&#x27;entrée du processus principal vérifie la session et le module avant toute commande, sinon il refuse" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Rôles, modules et permissions : l&#x27;interface ne fait que masquer ; le point d&#x27;entrée du processus principal vérifie la session et le module avant toute commande, sinon il refuse</title>
+<rect x="0" y="0" width="820" height="340" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Seule la vérification du côté serveur compte : l&#x27;interface peut être contournée</text>
+<rect x="30" y="80" width="190" height="72" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="125.0" y="103.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Interface</text>
+<text x="125.0" y="120.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">masque les boutons :</text>
+<text x="125.0" y="137.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">confort seulement</text>
+<rect x="290" y="80" width="230" height="72" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="405.0" y="103.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Point d&#x27;entrée protégé</text>
+<text x="405.0" y="120.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">session ouverte ?</text>
+<text x="405.0" y="137.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">module accordé ?</text>
+<rect x="600" y="44" width="190" height="58" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="695.0" y="69.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Commande</text>
+<text x="695.0" y="86.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">auteur tiré de la session</text>
+<rect x="600" y="132" width="190" height="58" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="695.0" y="157.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✗ Refus</text>
+<text x="695.0" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">noté au journal des erreurs</text>
+<rect x="200" y="240" width="190" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="295.0" y="268.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Session</text>
+<text x="295.0" y="285.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">qui est connecté</text>
+<rect x="420" y="240" width="190" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="515.0" y="268.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Table des accès</text>
+<text x="515.0" y="285.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">action → module ou rôle</text>
+<line x1="222.0" y1="116.0" x2="288.0" y2="116.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="229.2" y="108.0" width="51.6" height="17" rx="4" fill="#f8fafc"/>
+<text x="255.0" y="120.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">demande</text>
+<line x1="522.0" y1="98.7" x2="598.0" y2="87.4" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="522.0" y1="134.2" x2="598.0" y2="145.9" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="319.0" y1="238.0" x2="378.2" y2="154.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="491.0" y1="238.0" x2="431.8" y2="154.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

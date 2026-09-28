@@ -1,0 +1,36 @@
+<svg viewBox="0 0 820 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Suppression de fond hors ligne : l&#x27;image réduite passe dans un processus séparé qui produit un masque ; l&#x27;aperçu montre l&#x27;original et la version détourée ; en cas d&#x27;erreur, l&#x27;original est gardé" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Suppression de fond hors ligne : l&#x27;image réduite passe dans un processus séparé qui produit un masque ; l&#x27;aperçu montre l&#x27;original et la version détourée ; en cas d&#x27;erreur, l&#x27;original est gardé</title>
+<rect x="0" y="0" width="820" height="370" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Tout se passe sur le poste</text>
+<text x="30" y="300" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Aucune image ne quitte l&#x27;ordinateur ; le calcul lourd ne bloque jamais l&#x27;interface.</text>
+<text x="30" y="322" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Plusieurs photos : l&#x27;une après l&#x27;autre, avec progression, puis une seule validation.</text>
+<rect x="30" y="60" width="140" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="100.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Photo</text>
+<text x="100.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">gardée en mémoire</text>
+<rect x="200" y="60" width="160" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="280.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Réduction</text>
+<text x="280.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">petite image</text>
+<rect x="390" y="50" width="200" height="84" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="490.0" y="79.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Processus séparé</text>
+<text x="490.0" y="96.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">modèle embarqué</text>
+<text x="490.0" y="113.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">arrêté après</text>
+<rect x="620" y="60" width="170" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="705.0" y="88.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Masque</text>
+<text x="705.0" y="105.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">agrandi à la taille</text>
+<rect x="30" y="190" width="330" height="64" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="195.0" y="218.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✗ Annulé, trop long, erreur</text>
+<text x="195.0" y="235.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">l&#x27;original est gardé</text>
+<rect x="390" y="190" width="200" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="490.0" y="218.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Aperçu</text>
+<text x="490.0" y="235.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">original ou détouré</text>
+<rect x="620" y="190" width="170" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="705.0" y="218.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Enregistré</text>
+<text x="705.0" y="235.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">seule la version choisie</text>
+<line x1="172.0" y1="92.0" x2="198.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="362.0" y1="92.0" x2="388.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="592.0" y1="92.0" x2="618.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="390.2" y1="136.0" x2="272.2" y2="188.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="648.8" y1="126.0" x2="546.2" y2="188.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="592.0" y1="222.0" x2="618.0" y2="222.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

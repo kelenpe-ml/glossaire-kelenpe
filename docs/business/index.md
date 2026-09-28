@@ -360,7 +360,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Contexte / exemple concret** : Boutik sera vendu sous licence : un fichier signé par Kelenpe, vérifié hors ligne par l'application, qui dit combien de postes sont autorisés et jusqu'à quand.
 
-**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Formules de licence](#formules-de-licence-license-tiers), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature).
+**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Formules de licence](#formules-de-licence-license-tiers), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -370,7 +370,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Contexte / exemple concret** : Modèle envisagé pour Boutik, avec une période d'essai avant le premier paiement.
 
-**Termes liés** : [Licence logicielle](#licence-logicielle-software-license), [Période d'essai](#periode-d-essai-trial-period).
+**Termes liés** : [Licence logicielle](#licence-logicielle-software-license), [Période d'essai](#periode-d-essai-trial-period), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -378,9 +378,9 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un temps pendant lequel on peut utiliser le logiciel gratuitement, pour le juger avant d'acheter.
 
-**Contexte / exemple concret** : Prévue pour Boutik : le commerçant l'installe, s'en sert dans sa vraie boutique, puis achète une licence s'il est convaincu.
+**Contexte / exemple concret** : Conçue pour Boutik : un mois, toutes les fonctionnalités, sans paiement ni internet au démarrage ; le commerçant s'en sert dans sa vraie boutique, puis achète une licence s'il est convaincu.
 
-**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Onboarding](#onboarding-accueil-du-nouvel-utilisateur).
+**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Onboarding](#onboarding-accueil-du-nouvel-utilisateur), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -388,9 +388,9 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Les différentes offres d'un même logiciel, à des prix différents, selon l'usage (nombre de postes, fonctions).
 
-**Contexte / exemple concret** : Formules envisagées pour Boutik : Solo (1 poste), Duo (2 postes), 5 postes.
+**Contexte / exemple concret** : Formules conçues pour Boutik (prix à confirmer par des entretiens) : Solo (1 poste), Duo (2 postes), Boutique (jusqu'à 5 postes), payées à l'année ou au trimestre. Détail : `docs/licence.md` du dépôt Boutik.
 
-**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Licence logicielle](#licence-logicielle-software-license), [Fonctionnalités à la carte](#fonctionnalites-a-la-carte-add-on-features).
+**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Licence logicielle](#licence-logicielle-software-license), [Fonctionnalités à la carte](#fonctionnalites-a-la-carte-add-on-features), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -410,7 +410,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Contexte / exemple concret** : Prévu pour Boutik : un nouveau poste est appairé à la licence de la boutique, dans la limite de la formule choisie.
 
-**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Révocation de licence](#revocation-de-licence-license-revocation).
+**Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Révocation de licence](#revocation-de-licence-license-revocation), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -420,7 +420,37 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Contexte / exemple concret** : Prévu pour Boutik : désappairer un poste perdu pour en autoriser un autre. Hors ligne, la révocation n'est connue du poste qu'à la prochaine mise à jour de sa licence.
 
-**Termes liés** : [Appairage d'un poste](#appairage-d-un-poste-device-pairing), [Backoffice](/backend/#backoffice).
+**Termes liés** : [Appairage d'un poste](#appairage-d-un-poste-device-pairing), [Backoffice](/backend/#backoffice), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Référence de paiement (*Payment reference*)
+
+**Définition simple** : Un code court, propre à chaque client, qu'il indique avec son paiement (dans le motif d'un transfert d'argent mobile, par exemple) pour que l'éditeur sache sans ambiguïté qui a payé quoi.
+
+**Contexte / exemple concret** : Conçu pour Boutik : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4M`. Au lancement, Drissa rapproche le paiement et la référence, puis valide d'un clic dans le backoffice, ce qui fabrique la licence.
+
+**Termes liés** : [Backoffice](/backend/#backoffice), [Licence logicielle](#licence-logicielle-software-license), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
+
+---
+
+## Prix fondateur (*Founder pricing*)
+
+**Définition simple** : Une réduction réservée aux tout premiers clients, en échange de leur confiance et de leur aide (retours, témoignage, recommandation). Elle dure en général tant qu'ils restent clients sans interruption.
+
+**Contexte / exemple concret** : Conçu pour Boutik : 10 boutiques fondatrices, −30 % pendant 2 ans tant qu'elles renouvellent sans interruption, en échange de retours, d'un témoignage, et de montrer Boutik à un commerçant intéressé.
+
+**Termes liés** : [Parrainage](#parrainage-referral-program), [Formules de licence](#formules-de-licence-license-tiers).
+
+---
+
+## Parrainage (*Referral program*)
+
+**Définition simple** : Récompenser un client qui en amène un autre. Cela coûte moins cher qu'une publicité, et la recommandation d'un pair convainc mieux qu'une annonce.
+
+**Contexte / exemple concret** : Conçu pour Boutik : 2 mois offerts au parrain. Les conditions (le filleul doit-il payer une année ? cumul avec le prix fondateur ?) restent des questions ouvertes.
+
+**Termes liés** : [Prix fondateur](#prix-fondateur-founder-pricing), [Formules de licence](#formules-de-licence-license-tiers).
 
 ---
 

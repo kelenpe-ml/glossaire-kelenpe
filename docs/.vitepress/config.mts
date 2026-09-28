@@ -44,7 +44,8 @@ export default defineConfig({
           { text: 'Transcoding & streaming vidéo', link: '/streaming/' },
           { text: 'Édition média & traitement image', link: '/media/' },
           { text: 'Jargon entrepreneurial & investisseurs', link: '/business/' },
-          { text: 'CropSuite (PFE)', link: '/cropsuite/' }
+          { text: 'CropSuite (PFE)', link: '/cropsuite/' },
+          { text: 'Architectures', link: '/architectures/' }
         ]
       }
     ],
@@ -57,6 +58,24 @@ export default defineConfig({
       '/media/': [{ text: 'Édition média & traitement image', items: [{ text: 'Vue d’ensemble', link: '/media/' }] }],
       '/business/': [{ text: 'Jargon entrepreneurial & investisseurs', items: [{ text: 'Vue d’ensemble', link: '/business/' }] }],
       '/cropsuite/': [{ text: 'CropSuite (PFE)', items: [{ text: 'Vue d’ensemble', link: '/cropsuite/' }] }],
+      '/architectures/': [{ text: 'Architectures', items: [
+        { text: 'Vue d’ensemble', link: '/architectures/' },
+        { text: 'Journal d’événements et projections', link: '/architectures/journal-evenements' },
+        { text: 'Rôles, modules et permissions', link: '/architectures/permissions' },
+        { text: 'Développement / production', link: '/architectures/developpement-production' },
+        { text: 'Chiffrement des données locales', link: '/architectures/chiffrement-donnees-locales' },
+        { text: 'Codes de secours', link: '/architectures/codes-de-secours' },
+        { text: 'Sauvegarde chiffrée sans serveur', link: '/architectures/sauvegarde-chiffree' },
+        { text: 'Impression de tickets ESC/POS', link: '/architectures/impression-escpos' },
+        { text: 'Suppression de fond d’image', link: '/architectures/suppression-fond-image' },
+        { text: 'Suggestions de saisie', link: '/architectures/suggestions-saisie' },
+        { text: 'Journal des erreurs et rapport', link: '/architectures/journal-erreurs' },
+        { text: 'Vérification sous Windows', link: '/architectures/verification-windows' },
+        { text: 'Licence logicielle hors ligne', link: '/architectures/licence-hors-ligne' },
+        { text: 'Mises à jour hors ligne', link: '/architectures/mises-a-jour-hors-ligne' },
+        { text: 'Backoffice et clés de signature', link: '/architectures/backoffice-cles' },
+        { text: 'Synchronisation multi-poste', link: '/architectures/synchronisation-multi-poste' }
+      ] }],
       '/': [{ text: 'Glossaire', items: [{ text: 'Index alphabétique', link: '/glossaire' }] }]
     },
 

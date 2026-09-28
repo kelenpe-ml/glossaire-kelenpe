@@ -424,7 +424,7 @@ Vocabulaire du visuel et de l'interface, avec des repères vers les projets Kele
 
 **Contexte / exemple concret** : Les suggestions de saisie de Boutik : 5 propositions au plus, les plus utilisées en tête, acceptées par Tab.
 
-**Termes liés** : [Texte fantôme](#texte-fantome-ghost-text), [Classement par fréquence et récence](#classement-par-frequence-et-recence-frecency), [datalist](#datalist).
+**Termes liés** : [Texte fantôme](#texte-fantome-ghost-text), [Classement par fréquence et récence](#classement-par-frequence-et-recence-frecency), [datalist](#datalist), [Suggestions de saisie](/architectures/suggestions-saisie).
 
 ---
 

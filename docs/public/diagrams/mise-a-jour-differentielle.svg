@@ -1,0 +1,34 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mise à jour différentielle : on compare les blocs de la version installée et de la nouvelle, et seuls les blocs changés ou nouveaux sont téléchargés" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Mise à jour différentielle : on compare les blocs de la version installée et de la nouvelle, et seuls les blocs changés ou nouveaux sont téléchargés</title>
+<rect x="0" y="0" width="820" height="330" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Ne télécharger que ce qui a changé</text>
+<text x="30" y="88" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Installée</text>
+<text x="30" y="178" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Nouvelle</text>
+<text x="620" y="170" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#16a34a">c′ changé, f nouveau</text>
+<text x="30" y="312" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Sur une connexion facturée à l&#x27;usage, la taille est annoncée avant de télécharger.</text>
+<rect x="170" y="60" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="198.0" y="86.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">a</text>
+<rect x="240" y="60" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="268.0" y="86.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">b</text>
+<rect x="310" y="60" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="338.0" y="86.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">c</text>
+<rect x="380" y="60" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="408.0" y="86.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">d</text>
+<rect x="450" y="60" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="478.0" y="86.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">e</text>
+<rect x="170" y="150" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="198.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">a</text>
+<rect x="240" y="150" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="268.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">b</text>
+<rect x="310" y="150" width="56" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="338.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">c′</text>
+<rect x="380" y="150" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="408.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">d</text>
+<rect x="450" y="150" width="56" height="44" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="478.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">e</text>
+<rect x="520" y="150" width="56" height="44" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="548.0" y="176.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">f</text>
+<rect x="30" y="236" width="760" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="410.0" y="265.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Téléchargé : 2 blocs sur 6 — les autres sont repris de la version installée</text>
+</svg>

@@ -262,7 +262,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : C'est la règle n° 1 de Boutik : toute écriture passe par un événement (`writeEvent`, dans `events/store.ts`). Une vente ajoute un événement `VenteEnregistree` ; le stock affiché est calculé à partir de tous les événements du produit. On peut ainsi toujours savoir qui a fait quoi, et quand.
 
-**Termes liés** : [Événement immuable](#evenement-immuable-immutable-event), [Projection](#projection), [Reconstruction d'une projection](#reconstruction-d-une-projection-replay), [Agrégat](#agregat-aggregate), [Source unique de vérité](#source-unique-de-verite-single-source-of-truth).
+**Termes liés** : [Événement immuable](#evenement-immuable-immutable-event), [Projection](#projection), [Reconstruction d'une projection](#reconstruction-d-une-projection-replay), [Agrégat](#agregat-aggregate), [Source unique de vérité](#source-unique-de-verite-single-source-of-truth), [Journal d'événements et projections](/architectures/journal-evenements).
 
 ---
 
@@ -302,7 +302,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Boutik tient plusieurs projections dans la base : `produits_projection` (stock, prix), `clients_projection`, `ventes_projection`, `ardoise_projection` (dettes des clients), `images_projection`… Chaque nouvel événement les met à jour immédiatement.
 
-**Termes liés** : [Event sourcing](#event-sourcing-journal-d-evenements), [Reconstruction d'une projection](#reconstruction-d-une-projection-replay), [Source unique de vérité](#source-unique-de-verite-single-source-of-truth), [Table](#table).
+**Termes liés** : [Event sourcing](#event-sourcing-journal-d-evenements), [Reconstruction d'une projection](#reconstruction-d-une-projection-replay), [Source unique de vérité](#source-unique-de-verite-single-source-of-truth), [Table](#table), [Journal d'événements et projections](/architectures/journal-evenements).
 
 ---
 
@@ -390,9 +390,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Mettre plusieurs copies des mêmes données d'accord entre elles, par exemple deux caisses d'une même boutique, pour que chacune voie les ventes de l'autre.
 
-**Contexte / exemple concret** : Pas encore faite dans Boutik, mais tout est prévu pour : événements immuables, horloge logique, identifiant de poste. Pour les images, le plan est écrit dans `docs/images.md` : les événements voyagent d'abord, les octets des images ensuite, demandés par leur empreinte.
+**Contexte / exemple concret** : Conçue pour Boutik le 28 septembre 2026, pas encore construite (voir la page d'architecture [Synchronisation multi-poste pair-à-pair](/architectures/synchronisation-multi-poste)) : tout est prêt dans le journal (événements immuables, horloge logique, identifiant de poste). Pour les images, le plan est écrit dans `docs/images.md` : les événements voyagent d'abord, les octets des images ensuite, demandés par leur empreinte.
 
-**Termes liés** : [Pair-à-pair](#pair-a-pair-peer-to-peer-p2p), [Modèle maître/client](#modele-maitre-client-primary-replica), [Conflit d'écriture](#conflit-d-ecriture-write-conflict), [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [Adressage par contenu](#adressage-par-contenu-content-addressing).
+**Termes liés** : [Pair-à-pair](#pair-a-pair-peer-to-peer-p2p), [Modèle maître/client](#modele-maitre-client-primary-replica), [Conflit d'écriture](#conflit-d-ecriture-write-conflict), [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [Adressage par contenu](#adressage-par-contenu-content-addressing), [Synchronisation multi-poste](/architectures/synchronisation-multi-poste).
 
 ---
 
@@ -400,9 +400,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Des appareils qui échangent directement entre eux, sans serveur central : chacun est à la fois client et serveur.
 
-**Contexte / exemple concret** : Une piste pour synchroniser les caisses de Boutik sur le réseau local de la boutique, sans Internet ni serveur : chaque poste enverrait aux autres les événements qui leur manquent.
+**Contexte / exemple concret** : Choix retenu pour synchroniser les caisses de Boutik (conçu le 28 septembre 2026, pas encore construit) : sur le réseau local, sans Internet, sans serveur ni poste maître, chaque poste envoie aux autres les événements qui leur manquent.
 
-**Termes liés** : [Synchronisation](#synchronisation), [Modèle maître/client](#modele-maitre-client-primary-replica), [LAN](#lan-local-area-network).
+**Termes liés** : [Synchronisation](#synchronisation), [Modèle maître/client](#modele-maitre-client-primary-replica), [LAN](#lan-local-area-network), [Synchronisation multi-poste](/architectures/synchronisation-multi-poste).
 
 ---
 
@@ -410,7 +410,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Une organisation où un appareil (le maître) détient la version de référence des données ; les autres (les clients) lui envoient leurs changements et reçoivent les siens. Plus simple à raisonner que le pair-à-pair, mais tout dépend du maître.
 
-**Contexte / exemple concret** : Autre piste étudiée pour Boutik : le poste du patron serait le maître, les caisses des employés s'y synchroniseraient quand elles le voient sur le réseau.
+**Contexte / exemple concret** : Piste étudiée puis écartée pour Boutik : avec le poste du patron comme maître, toutes les caisses s'arrêteraient de se synchroniser dès qu'il est éteint. Boutik a retenu le pair-à-pair.
 
 **Termes liés** : [Pair-à-pair](#pair-a-pair-peer-to-peer-p2p), [Synchronisation](#synchronisation).
 
@@ -422,7 +422,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Exemple pour Boutik synchronisé : sur deux caisses hors ligne, le prix du riz est changé à 500 et à 550 FCFA. Au moment de synchroniser, il faut choisir. Les ventes, elles, ne sont jamais en conflit : ce sont des ajouts.
 
-**Termes liés** : [Dernier écrit gagne](#dernier-ecrit-gagne-last-write-wins-lww), [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [Synchronisation](#synchronisation).
+**Termes liés** : [Dernier écrit gagne](#dernier-ecrit-gagne-last-write-wins-lww), [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [Synchronisation](#synchronisation), [Synchronisation multi-poste](/architectures/synchronisation-multi-poste).
 
 ---
 
@@ -552,9 +552,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Une version de SQLite qui chiffre tout le fichier de la base : sans la clé, le fichier n'est qu'un bruit illisible, même ouvert avec un autre programme.
 
-**Contexte / exemple concret** : Boutik l'utilise via le module `better-sqlite3-multiple-ciphers`, en mode SQLCipher 4 (AES-256 sur chaque page, plus un contrôle d'intégrité HMAC-SHA512). Voir « Chiffrement des données de Boutik » pour la chaîne complète.
+**Contexte / exemple concret** : Boutik l'utilise via le module `better-sqlite3-multiple-ciphers`, en mode SQLCipher 4 (AES-256 sur chaque page, plus un contrôle d'intégrité HMAC-SHA512). Voir « Chiffrement au repos » et la page d'architecture [Chiffrement des données locales](/architectures/chiffrement-donnees-locales) pour la chaîne complète.
 
-**Termes liés** : [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [AES-256](#aes-256-advanced-encryption-standard), [Base de données SQLite](#base-de-donnees-sqlite-sqlite), [Clé de chiffrement](#cle-de-chiffrement-encryption-key).
+**Termes liés** : [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [AES-256](#aes-256-advanced-encryption-standard), [Base de données SQLite](#base-de-donnees-sqlite-sqlite), [Clé de chiffrement](#cle-de-chiffrement-encryption-key).
 
 ---
 
@@ -622,21 +622,17 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Avec le journal WAL, les dernières écritures de Boutik peuvent être dans `boutik.db-wal` : copier `boutik.db` seul donnerait une copie incomplète. La sauvegarde de Boutik ne copie donc jamais le fichier. Elle lit le journal d'événements, les photos et les termes dans une seule transaction de lecture (un instantané cohérent, même si une vente s'enregistre au même moment), puis les range dans un fichier `.boutik` chiffré. Réglages > Sauvegarde > « Enregistrer une copie ».
 
-**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Report du journal](#report-du-journal-checkpoint), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Sauvegarde incrémentale](#sauvegarde-incrementale-incremental-backup), [Restauration](#restauration-restore).
+**Termes liés** : [Journal WAL](#journal-wal-write-ahead-logging), [Report du journal](#report-du-journal-checkpoint), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [Sauvegarde incrémentale](#sauvegarde-incrementale-incremental-backup), [Restauration](#restauration-restore), [Sauvegarde chiffrée sans serveur](/architectures/sauvegarde-chiffree).
 
 ---
 
-## Chiffrement des données de Boutik (*Encryption at rest*)
+## Chiffrement au repos (*Encryption at rest*)
 
-**Définition simple** : Comment Boutik protège les données sur le disque (« au repos ») : si quelqu'un vole l'ordinateur ou copie le fichier de la base, il ne peut rien lire.
+![Une clé tirée au hasard chiffre chaque page de la base ; le coffre du système la protège ; un disque volé reste illisible ; les secrets des comptes sont hachés](/diagrams/archi-chiffrement-donnees-locales.svg)
 
-**Contexte / exemple concret** : La chaîne complète :
+**Définition simple** : Chiffrer les données là où elles sont enregistrées (disque, fichier de base de données), et non pendant leur transport : si quelqu'un vole l'ordinateur ou copie le fichier, il ne peut rien lire sans la clé. Le système complet (où garder la clé, que faire si le coffre manque, pièges) est décrit dans la page d'architecture [Chiffrement des données locales](/architectures/chiffrement-donnees-locales).
 
-1. Au premier lancement, Boutik tire une clé secrète de 256 bits au hasard (générateur cryptographique).
-2. Cette clé est rangée dans le fichier `boutik.key`, elle-même chiffrée par le coffre du système : DPAPI sous Windows, le trousseau (libsecret, gnome-keyring ou KWallet) sous Linux, via `safeStorage` d'Electron. Seule la session Windows ou Linux de l'utilisateur peut la relire.
-3. La base `boutik.db` est chiffrée par SQLCipher 4 avec cette clé : la clé passe par PBKDF2-HMAC-SHA512 (256 000 tours), puis chaque page du fichier est chiffrée en AES-256 et accompagnée d'un HMAC-SHA512, qui détecte toute altération.
-4. Les mots de passe, PIN et codes de secours ne sont pas chiffrés mais hachés avec argon2id : même avec la base ouverte, on ne peut pas les relire.
-5. Si le coffre du système manque (Linux sans trousseau), la clé est écrite en clair dans `boutik.key` (lisible par ce seul utilisateur) et un bandeau propose de réparer le coffre.
+**Contexte / exemple concret** : Boutik chiffre toute sa base par SQLCipher, avec une clé de 256 bits tirée au hasard et rangée dans le coffre du système (DPAPI sous Windows, trousseau sous Linux) ; les mots de passe, eux, sont hachés. La chaîne complète, étape par étape, est dans la section « Exemple : Boutik » de la page d'architecture.
 
 **Termes liés** : [SQLCipher](#sqlcipher), [AES-256](#aes-256-advanced-encryption-standard), [Clé de chiffrement](#cle-de-chiffrement-encryption-key), [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [HMAC](#hmac-hash-based-message-authentication-code), [DPAPI](#dpapi-data-protection-api), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [safeStorage](#safestorage), [Hachage](#hachage-hash-empreinte), [argon2id](#argon2id).
 
@@ -656,9 +652,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Transformer des données lisibles en données illisibles à l'aide d'une clé ; seul celui qui a la clé peut faire l'opération inverse (déchiffrer). À ne pas confondre avec le hachage, qui ne se défait pas.
 
-**Contexte / exemple concret** : Boutik chiffre toute sa base de données (voir « Chiffrement des données de Boutik »).
+**Contexte / exemple concret** : Boutik chiffre toute sa base de données (voir « Chiffrement au repos »).
 
-**Termes liés** : [Clé de chiffrement](#cle-de-chiffrement-encryption-key), [AES-256](#aes-256-advanced-encryption-standard), [Hachage](#hachage-hash-empreinte), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [Clé de chiffrement](#cle-de-chiffrement-encryption-key), [AES-256](#aes-256-advanced-encryption-standard), [Hachage](#hachage-hash-empreinte), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest).
 
 ---
 
@@ -668,7 +664,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : La clé de la base de Boutik (256 bits tirés au hasard) est dans `boutik.key`, protégée par le coffre du système (DPAPI ou trousseau Linux).
 
-**Termes liés** : [Chiffrement](#chiffrement-encryption), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [safeStorage](#safestorage).
+**Termes liés** : [Chiffrement](#chiffrement-encryption), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [safeStorage](#safestorage).
 
 ---
 
@@ -678,7 +674,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : SQLCipher 4 passe le secret de Boutik par PBKDF2-HMAC-SHA512, 256 000 tours, avant de s'en servir pour chiffrer. Pour les copies de sauvegarde, Boutik dérive une clé du mot de passe du patron avec [argon2id](#argon2id) (64 Mio de mémoire, 3 passes, environ un tiers de seconde) : c'est elle qui ouvre l'[enveloppe](#enveloppe-de-cle-key-wrapping) de la copie. Les codes de secours, tirés au hasard (environ 79 bits), se contentent d'une dérivation plus légère : on ne peut pas les deviner.
 
-**Termes liés** : [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Force brute](#force-brute-brute-force), [HMAC](#hmac-hash-based-message-authentication-code), [Enveloppe de clé](#enveloppe-de-cle-key-wrapping).
+**Termes liés** : [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [Force brute](#force-brute-brute-force), [HMAC](#hmac-hash-based-message-authentication-code), [Enveloppe de clé](#enveloppe-de-cle-key-wrapping).
 
 ---
 
@@ -688,7 +684,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : SQLCipher ajoute un HMAC-SHA512 à chaque page de la base de Boutik : un fichier trafiqué est refusé à l'ouverture au lieu de donner des données fausses.
 
-**Termes liés** : [Hachage](#hachage-hash-empreinte), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest), [Signature cryptographique](#signature-cryptographique-digital-signature).
+**Termes liés** : [Hachage](#hachage-hash-empreinte), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [Signature cryptographique](#signature-cryptographique-digital-signature).
 
 ---
 
@@ -718,7 +714,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Boutik hache avec argon2id le mot de passe du patron, le PIN des employés et les codes de secours (module `argon2`, 64 Mo par calcul). Seule l'empreinte est gardée : elle commence par `$argon2id$`.
 
-**Termes liés** : [Hachage](#hachage-hash-empreinte), [bcrypt](#bcrypt), [Force brute](#force-brute-brute-force), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [Hachage](#hachage-hash-empreinte), [bcrypt](#bcrypt), [Force brute](#force-brute-brute-force), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest).
 
 ---
 
@@ -759,6 +755,18 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Pour les licences de Boutik, la clé privée resterait chez Kelenpe (pour signer), la clé publique serait intégrée à l'application (pour vérifier).
 
 **Termes liés** : [Signature cryptographique](#signature-cryptographique-digital-signature), [Ed25519](#ed25519).
+
+---
+
+## Clé de réserve (*Backup key, rotation de clé*)
+
+![Au départ, l'application connaît les clés publiques A et B, A signe et B est gardée hors ligne ; après une fuite de A, une mise à jour signée la retire ; ensuite B signe, une nouvelle réserve C est préparée, et aucun poste n'est réactivé](/diagrams/rotation-cle-reserve.svg)
+
+**Définition simple** : Une seconde paire de clés, préparée à l'avance et gardée hors ligne, dont la clé publique est déjà connue des programmes qui vérifient. Si la clé en service fuit, on passe à la réserve (c'est la rotation de clé) par une simple mise à jour, sans refaire la confiance poste par poste.
+
+**Contexte / exemple concret** : Conçu pour Boutik : dès la première version, l'application embarque les clés publiques de deux clés de licence, celle en service et une de réserve gardée hors ligne. La clé des mises à jour n'a pas encore de réserve : c'est une question ouverte de `docs/licence.md`.
+
+**Termes liés** : [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key), [Signature cryptographique](#signature-cryptographique-digital-signature), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 
 ---
 
@@ -872,7 +880,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Boutik combine un rôle (patron ou employé) et des modules (ventes, stock, comptabilité, rapports) : un employé n'accède qu'aux modules cochés pour lui. Voir « Permissions et modules ».
 
-**Termes liés** : [Permissions et modules](#permissions-et-modules), [Authentification JWT / Session](#authentification-jwt-session).
+**Termes liés** : [Permissions et modules](#permissions-et-modules), [Authentification JWT / Session](#authentification-jwt-session), [Rôles, modules et permissions](/architectures/permissions).
 
 ---
 
@@ -882,7 +890,19 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Chaque canal IPC sensible est rattaché à un module dans `main/acces.ts` (par exemple `boutik:images:ajouter` → `stock`) et vérifié par `gererProtege`. Un caissier sans le module stock voit les images à la caisse, mais ne peut pas ouvrir la collection.
 
-**Termes liés** : [RBAC](#rbac-role-based-access-control), [Canal IPC](#canal-ipc-ipc-channel), [Défense en profondeur](#defense-en-profondeur-defense-in-depth).
+**Termes liés** : [RBAC](#rbac-role-based-access-control), [Canal IPC](#canal-ipc-ipc-channel), [Défense en profondeur](#defense-en-profondeur-defense-in-depth), [Rôles, modules et permissions](/architectures/permissions).
+
+---
+
+## Lecture seule (*Read-only mode*)
+
+![Cycle de vie d'une licence : essai, licence active, rappels, grâce, puis lecture seule où les données restent libres](/diagrams/archi-licence-hors-ligne.svg)
+
+**Définition simple** : Un état où l'on peut encore tout consulter et exporter, mais plus créer ni modifier. Pour une licence expirée, c'est l'alternative au blocage total : le client garde l'accès à ses données, seul le travail nouveau s'arrête.
+
+**Contexte / exemple concret** : Conçu pour Boutik : après la fin d'une licence ou d'un essai et 7 jours de grâce, consultation, historique, ardoises, stock et export restent possibles, mais plus de nouvelle vente. Règle : ne jamais prendre les données en otage. Le périmètre exact (remboursement d'une ardoise, entrée de stock) reste une question ouverte.
+
+**Termes liés** : [Licence logicielle](/business/#licence-logicielle-software-license), [Permissions et modules](#permissions-et-modules), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -890,7 +910,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Quand un logiciel « appelle la maison » : il contacte, souvent en arrière-plan, un serveur de son éditeur (vérifier une licence, envoyer des statistiques).
 
-**Contexte / exemple concret** : Boutik n'en fait pas : aucune connexion Internet n'est nécessaire, et les licences prévues se vérifient hors ligne par signature.
+**Contexte / exemple concret** : Boutik n'en a pas besoin pour fonctionner : les licences se vérifient hors ligne par signature. Seule exception prévue (conçue, pas construite) : l'essai s'enregistre discrètement auprès du serveur quand une connexion apparaît ; ce qui est envoyé reste à décider (voir `docs/licence.md`, questions ouvertes).
 
 **Termes liés** : [Hors ligne d'abord](#hors-ligne-d-abord-offline-first), [Signature cryptographique](#signature-cryptographique-digital-signature).
 
@@ -900,9 +920,9 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : L'outil interne de l'éditeur, invisible pour les clients, qui sert à gérer l'activité : clients, licences, paiements, support.
 
-**Contexte / exemple concret** : Prévu pour Kelenpe : émettre et révoquer les licences de Boutik, suivre les postes facturables.
+**Contexte / exemple concret** : Conçu pour Kelenpe (pas encore construit) : boutiques et formules, paiements, codes d'activation et de transfert, essais, publication des mises à jour de Boutik ; en TypeScript, dans le dépôt de Boutik. Voir [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 
-**Termes liés** : [Licence logicielle](/business/#licence-logicielle-software-license), [Révocation de licence](/business/#revocation-de-licence-license-revocation).
+**Termes liés** : [Licence logicielle](/business/#licence-logicielle-software-license), [Révocation de licence](/business/#revocation-de-licence-license-revocation), [Backoffice et gestion des clés](/architectures/backoffice-cles).
 
 ---
 
@@ -1132,7 +1152,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Sous Windows, la clé de la base de Boutik est protégée par DPAPI, via `safeStorage` d'Electron.
 
-**Termes liés** : [safeStorage](#safestorage), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [safeStorage](#safestorage), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest).
 
 ---
 
@@ -1152,7 +1172,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : `safeStorage.encryptString(cle)` protège la clé de la base de Boutik dans `boutik.key`. `isEncryptionAvailable()` dit si le coffre est là ; sinon, repli sur une clé en clair et bandeau d'avertissement.
 
-**Termes liés** : [DPAPI](#dpapi-data-protection-api), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [DPAPI](#dpapi-data-protection-api), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest).
 
 ---
 
@@ -1202,7 +1222,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Chromium range son cache sur le disque, non chiffré. Boutik envoie donc ses images avec `cache-control: no-store` : une image supprimée de la collection ne survit nulle part.
 
-**Termes liés** : [Caching](#caching), [Protocole personnalisé](#protocole-personnalise-custom-protocol), [Chiffrement des données de Boutik](#chiffrement-des-donnees-de-boutik-encryption-at-rest).
+**Termes liés** : [Caching](#caching), [Protocole personnalisé](#protocole-personnalise-custom-protocol), [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest).
 
 ---
 
@@ -1316,7 +1336,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Toute lecture d'événement dans Boutik passe par `rowToEvent`, qui retire les champs de `CHAMPS_SENSIBLES` (`secretHash`, `hashes`). Le test e2e des codes de secours vérifie que ni les lectures de l'interface ni les journaux de l'app ne contiennent de code ou d'empreinte.
 
-**Termes liés** : [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Trace d'appels](#trace-d-appels-stack-trace).
+**Termes liés** : [Journal d'erreurs](/devops/#journal-d-erreurs-log), [Trace d'appels](#trace-d-appels-stack-trace), [Journal des erreurs et rapport de problème](/architectures/journal-erreurs).
 
 ---
 
@@ -1416,7 +1436,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Une copie de Boutik est chiffrée par une clé de sauvegarde tirée au hasard. Elle contient une enveloppe par le mot de passe du patron et une par code de secours encore valable : le patron peut l'ouvrir avec l'un ou l'autre. Les enveloppes sont préparées quand ces secrets passent en clair (création de la boutique, connexion, nouvelle série de codes) et gardées sur le poste : une copie automatique n'a besoin d'aucun secret.
 
-**Termes liés** : [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [argon2id](#argon2id), [safeStorage](#safestorage), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+**Termes liés** : [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [argon2id](#argon2id), [safeStorage](#safestorage), [Chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm), [Sauvegarde chiffrée sans serveur](/architectures/sauvegarde-chiffree).
 
 ---
 

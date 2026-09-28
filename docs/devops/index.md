@@ -440,7 +440,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : Dans Boutik, les outils de dev (`canaux-dev.ts`, dont la création d'un « ancien produit » pour les tests) sont conditionnés par `import.meta.env.DEV` : le build de production les retire entièrement.
 
-**Termes liés** : [Build](#build), [Code mort](/backend/#code-mort-dead-code), [app.isPackaged](#app-ispackaged).
+**Termes liés** : [Build](#build), [Code mort](/backend/#code-mort-dead-code), [app.isPackaged](#app-ispackaged), [Séparation développement / production](/architectures/developpement-production).
 
 ---
 
@@ -491,6 +491,46 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 **Contexte / exemple concret** : Le `CLAUDE.md` de Boutik fixe les règles non négociables (event sourcing, permissions, secrets), les commandes de test, et désormais la règle du glossaire.
 
 **Termes liés** : [README](#readme).
+
+---
+
+## Skill (*Claude Code*)
+
+**Définition simple** : Un dossier d'instructions (un fichier `SKILL.md`, parfois des scripts ou des documents) que Claude Code charge quand une tâche correspond à sa description : un savoir-faire rangé une fois pour toutes, au lieu d'être réexpliqué à chaque conversation. Seuls le nom et la description sont toujours lus ; le reste n'est chargé qu'au besoin.
+
+**Contexte / exemple concret** : Pour Boutik, le skill `glossaire-kelenpe` range les termes dans ce glossaire, `ui-ux-pro-max` guide les écrans, et `skill-creator` sert à écrire de nouveaux skills.
+
+**Termes liés** : [Skill personnel](#skill-personnel-personal-skill), [CLAUDE.md](#claude-md), [Document de conception](#document-de-conception-design-document).
+
+---
+
+## Skill personnel (*Personal skill*)
+
+**Définition simple** : Un skill rangé dans le dossier de l'utilisateur (`~/.claude/skills/`), et non dans un projet : il sert dans tous les projets de cet utilisateur, sur cet ordinateur.
+
+**Contexte / exemple concret** : Le 28 septembre 2026, quatre skills personnels ont été tirés de Boutik (`journal-evenements-hors-ligne`, `licence-logicielle-hors-ligne`, `sauvegarde-chiffree-sans-serveur`, `synchronisation-multi-poste`), pour réutiliser ces systèmes dans d'autres logiciels sans refaire la conception. Ils ne gardent que les principes ; les prix et les noms de Boutik restent dans son dépôt.
+
+**Termes liés** : [Skill](#skill-claude-code), [Implémentation de référence](#implementation-de-reference-reference-implementation), [Document de conception](#document-de-conception-design-document).
+
+---
+
+## Document de conception (*Design document*)
+
+**Définition simple** : Un document écrit avant le code, qui consigne les décisions d'un système (ce qu'on fait, ce qu'on ne fait pas, et pourquoi), les valeurs choisies et les questions encore ouvertes. Il évite de refaire les mêmes débats, et sert de référence pour vérifier le code plus tard.
+
+**Contexte / exemple concret** : `docs/licence.md` du dépôt Boutik : licence, mises à jour et backoffice, conçus avant toute ligne de code, avec un tableau des valeurs propres à Boutik et 22 questions ouvertes.
+
+**Termes liés** : [Implémentation de référence](#implementation-de-reference-reference-implementation), [Skill personnel](#skill-personnel-personal-skill), [README](#readme).
+
+---
+
+## Implémentation de référence (*Reference implementation*)
+
+**Définition simple** : Un logiciel existant qui met en œuvre une méthode et sert de modèle : pour un nouveau projet, on y regarde comment les décisions ont été traduites en code et quels tests les vérifient, plutôt que de repartir de zéro.
+
+**Contexte / exemple concret** : Boutik est l'implémentation de référence des skills personnels de Drissa : chaque skill renvoie à ses fichiers, par exemple `src/main/sauvegarde/` pour la sauvegarde chiffrée, ou `src/main/events/` pour le journal d'événements.
+
+**Termes liés** : [Skill personnel](#skill-personnel-personal-skill), [Document de conception](#document-de-conception-design-document).
 
 ---
 
@@ -1004,7 +1044,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : Boutik imprime en RAW sous Windows ; la CI le vérifie avec une imprimante « Generic / Text Only ».
 
-**Termes liés** : [ESC/POS](/media/#esc-pos), [File d'impression](#file-d-impression-print-spooler), [Pilote](#pilote-driver).
+**Termes liés** : [ESC/POS](/media/#esc-pos), [File d'impression](#file-d-impression-print-spooler), [Pilote](#pilote-driver), [Impression de tickets ESC/POS](/architectures/impression-escpos).
 
 ---
 
@@ -1224,7 +1264,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : Pour Boutik, Drissa pousse sur `ci/verification` (`git push origin main:ci/verification`) : le workflow Build Windows se lance, avec l'installateur et les e2e sous Windows.
 
-**Termes liés** : [Branche](#branche-branch), [Push](#push), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Workflow](#workflow).
+**Termes liés** : [Branche](#branche-branch), [Push](#push), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Workflow](#workflow), [Vérification sous Windows sans PC Windows](/architectures/verification-windows).
 
 ---
 
@@ -1246,7 +1286,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : Boutik écrit ses messages sur la sortie de la console (« [Boutik] Base ouverte… »), que lisent les tests e2e. Il n'y a pas encore de fichier de journal sur le poste de la boutique. Règle : jamais de secret dedans.
 
-**Termes liés** : [Niveau de journalisation](#niveau-de-journalisation-log-level), [Rotation des journaux](#rotation-des-journaux-log-rotation), [Caviardage des données sensibles](/backend/#caviardage-des-donnees-sensibles-redaction).
+**Termes liés** : [Niveau de journalisation](#niveau-de-journalisation-log-level), [Rotation des journaux](#rotation-des-journaux-log-rotation), [Caviardage des données sensibles](/backend/#caviardage-des-donnees-sensibles-redaction), [Journal des erreurs et rapport de problème](/architectures/journal-erreurs).
 
 ---
 
@@ -1276,9 +1316,45 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Définition simple** : Faire passer les postes à une nouvelle version : la construire, la distribuer (installateur, téléchargement), l'installer, en gardant lisibles les données créées par l'ancienne version.
 
-**Contexte / exemple concret** : L'installateur Windows de Boutik est construit par la CI ; il n'y a pas encore de mise à jour automatique. `test:e2e:mise-a-jour` rouvre avec la nouvelle version une base créée sous Electron 37 (clé, données, images, codes de secours, PIN).
+**Contexte / exemple concret** : L'installateur Windows de Boutik est construit par la CI ; la mise à jour automatique est conçue, pas construite (voir [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne)). `test:e2e:mise-a-jour` rouvre avec la nouvelle version une base créée sous Electron 37 (clé, données, images, codes de secours, PIN).
 
-**Termes liés** : [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Version majeure](#version-majeure-semantic-versioning-semver).
+**Termes liés** : [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Version majeure](#version-majeure-semantic-versioning-semver), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
+
+---
+
+## Mise à jour différentielle (*Differential update, delta*)
+
+![La version installée a les blocs a à e ; la nouvelle a a, b, c′ changé, d, e et f nouveau ; seuls c′ et f sont téléchargés, les autres sont repris de la version installée](/diagrams/mise-a-jour-differentielle.svg)
+
+**Définition simple** : Ne télécharger d'une nouvelle version que les morceaux qui ont changé : le programme découpe la version installée et la nouvelle en blocs, compare leurs empreintes, et ne demande que les blocs nouveaux ou modifiés.
+
+**Contexte / exemple concret** : Conçu pour Boutik, pas construit : une mise à jour qui ne change que quelques écrans ne doit pas coûter tout l'installateur sur le forfait du téléphone.
+
+**Calcul** : blocs à télécharger ≈ taille × part des blocs changés. Un installateur de 120 Mo dont 3 % des blocs changent ne demande qu'environ 120 × 0,03 = 3,6 Mo, plus la petite liste des empreintes.
+
+**Termes liés** : [Connexion facturée à l'usage](#connexion-facturee-a-l-usage-metered-connection), [Mise à jour de l'application](#mise-a-jour-de-l-application-application-update-distribution-des-versions), [Hachage](/backend/#hachage-hash-empreinte), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
+
+---
+
+## Connexion facturée à l'usage (*Metered connection*)
+
+**Définition simple** : Une connexion où chaque méga-octet se paie (forfait mobile, partage de connexion du téléphone), par opposition à une connexion illimitée. Windows et Android permettent de la signaler, et les programmes bien conçus évitent alors les gros téléchargements sans demander.
+
+**Contexte / exemple concret** : Dans beaucoup de boutiques au Mali, internet passe par le partage de connexion du téléphone. Les mises à jour de Boutik (conçues) n'y téléchargent rien de gros sans afficher la taille et demander ; l'activation d'une licence, elle, ne pèse que quelques kilo-octets.
+
+**Termes liés** : [Mise à jour différentielle](#mise-a-jour-differentielle-differential-update-delta), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
+
+---
+
+## Retour à la version précédente (*Rollback*)
+
+![Version 1, copie, version 2 installée, puis contrôle du démarrage : si oui, la version 2 est gardée ; sinon, la version 1 est relancée et la copie reste disponible](/diagrams/retour-version-precedente.svg)
+
+**Définition simple** : Revenir automatiquement à la version d'avant quand une mise à jour ne fonctionne pas (le programme ne démarre pas, ou plante au lancement). On garde l'ancienne version et une copie des données jusqu'à ce que la nouvelle ait prouvé qu'elle démarre. À ne pas confondre avec le [journal de retour arrière](/backend/#journal-de-retour-arriere-rollback-journal) de SQLite.
+
+**Contexte / exemple concret** : Conçu pour Boutik : copie de sauvegarde avant d'installer, puis retour à la précédente si la nouvelle ne démarre pas. Limite connue : si la nouvelle version a déjà écrit des données d'un nouveau format, l'ancienne ne sait pas les lire, et il faut aussi revenir à la copie.
+
+**Termes liés** : [Mise à jour de l'application](#mise-a-jour-de-l-application-application-update-distribution-des-versions), [Mise à jour différentielle](#mise-a-jour-differentielle-differential-update-delta), [Sauvegarde de la base](/backend/#sauvegarde-de-la-base-database-backup), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
 
 ---
 
