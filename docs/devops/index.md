@@ -550,7 +550,19 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : Une branche d'essai de Boutik (par exemple la montée en version d'Electron) est fusionnée dans `main` une fois validée.
 
-**Termes liés** : [Branche](#branche-branch), [Rebase](#rebase).
+**Termes liés** : [Branche](#branche-branch), [Rebase](#rebase), [Commit de fusion](#commit-de-fusion-merge-commit), [Pull request](#pull-request-pr-demande-de-fusion).
+
+---
+
+## Commit de fusion (*Merge commit*)
+
+![Pull request en quatre étapes, puis commit de fusion 7cb7d26 relié à ses deux parents, 0f88d06 sur main et fded20a sur ci/verification](/diagrams/pull-request.svg)
+
+**Définition simple** : Un commit qui a deux parents au lieu d'un : il réunit deux lignes d'historique. Il n'apporte pas de code à lui ; son contenu est le résultat de la fusion. Git en crée un quand l'avance rapide est impossible, ou quand on le demande (bouton *Merge pull request* de GitHub).
+
+**Contexte / exemple concret** : Le 28 septembre 2026, la fusion de la pull request n° 8 a créé `7cb7d26` sur le `main` de Boutik, avec pour parents `0f88d06` (l'ancien `main`) et `fded20a` (le travail vérifié). `git diff fded20a 7cb7d26` est vide : mêmes fichiers que le commit testé, d'où un `git pull` en avance rapide sur le poste.
+
+**Termes liés** : [Fusion](#fusion-merge), [Avance rapide](#avance-rapide-fast-forward-ff-only), [Pull request](#pull-request-pr-demande-de-fusion), [Rebase](#rebase).
 
 ---
 
@@ -670,7 +682,29 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Contexte / exemple concret** : L'installateur Windows de Boutik se télécharge dans l'artefact **Boutik-windows** du run.
 
-**Termes liés** : [Job](#job), [CI/CD](#ci-cd-integration-continue-deploiement-continu).
+**Termes liés** : [Job](#job), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Cache de GitHub Actions](#cache-de-github-actions-actions-cache), [Quota de stockage des artefacts](#quota-de-stockage-des-artefacts-artifact-storage-quota).
+
+---
+
+## Cache de GitHub Actions (*actions/cache*)
+
+![Comparaison : l'artefact compte dans le quota de stockage, le cache a sa propre limite de 10 Go par dépôt ; l'installateur de Boutik passe du job Windows NSIS au job E2E Windows par le cache](/diagrams/cache-artefact.svg)
+
+**Définition simple** : Une réserve de fichiers que GitHub Actions garde d'un job à l'autre, repérés par une clé (un nom choisi). Un job les dépose (`save`), un autre les reprend (`restore`). Elle a sa propre limite (10 Go par dépôt) : pleine, elle efface elle-même les plus anciens ; un fichier non utilisé depuis 7 jours disparaît aussi.
+
+**Contexte / exemple concret** : Le job « Windows NSIS » de Boutik dépose l'installateur sous la clé `boutik-installateur-<run>-<essai>`, que le job « E2E Windows » reprend (`fail-on-cache-miss` : échec clair s'il manque). Avant, il passait par un artefact, et le [quota de stockage des artefacts](#quota-de-stockage-des-artefacts-artifact-storage-quota), atteint, bloquait toute la CI. Le même mécanisme garde déjà les téléchargements d'Electron, avec une clé calculée sur `package-lock.json`.
+
+**Termes liés** : [Artefact](#artefact-artifact), [Job](#job), [GitHub Actions](#github-actions), [Quota de stockage des artefacts](#quota-de-stockage-des-artefacts-artifact-storage-quota).
+
+---
+
+## Quota de stockage des artefacts (*Artifact storage quota*)
+
+**Définition simple** : La place que GitHub accorde à un compte pour garder les artefacts de ses workflows (et ses paquets). Une fois atteinte, tout nouvel envoi d'artefact échoue. Le décompte n'est recalculé que toutes les 6 à 12 heures : un artefact supprimé ne libère pas la place tout de suite.
+
+**Contexte / exemple concret** : En septembre 2026, la CI de Boutik échouait sur « Artifact storage quota has been hit », sans qu'aucun test ne soit en faute. Supprimer environ 1 Go d'anciens artefacts n'a rien changé dans l'immédiat. Réponse : l'installateur passe entre les jobs par le [cache](#cache-de-github-actions-actions-cache), l'artefact téléchargeable n'est gardé que 3 jours (`retention-days`) et son échec n'arrête plus la CI (`continue-on-error`).
+
+**Termes liés** : [Artefact](#artefact-artifact), [Cache de GitHub Actions](#cache-de-github-actions-actions-cache), [Workflow](#workflow).
 
 ---
 
@@ -1194,6 +1228,18 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 ---
 
+## Pull request (*PR, demande de fusion*)
+
+![Pull request en quatre étapes : branche poussée, demande ouverte, vérifications vertes, Merge pull request qui crée un commit de fusion](/diagrams/pull-request.svg)
+
+**Définition simple** : Sur GitHub, une demande de fusion d'une branche dans une autre. Elle montre les changements, lance les vérifications de la CI et laisse place aux commentaires ; on la fusionne une fois tout vert, souvent par le bouton *Merge pull request*.
+
+**Contexte / exemple concret** : Pour Boutik, la [branche de vérification](#branche-de-verification-verification-branch) `ci/verification` est fusionnée dans `main` par une pull request (n° 8 pour le lot sauvegarde, journal des erreurs et détourage par lot), après le « Build Windows » vert. Le poste récupère ensuite le résultat par `git pull`.
+
+**Termes liés** : [Commit de fusion](#commit-de-fusion-merge-commit), [Branche de vérification](#branche-de-verification-verification-branch), [Fusion](#fusion-merge), [GitHub Actions](#github-actions).
+
+---
+
 ## Journal d'erreurs (*Log*)
 
 **Définition simple** : Un fichier ou un flux où un programme note, avec l'heure, ce qu'il fait et ce qui se passe mal, pour comprendre un problème après coup.
@@ -1275,6 +1321,18 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 **Contexte / exemple concret** : `test/electron-44` n'existe que sur le poste ; `git push origin test/electron-44:ci/verification` crée ou met à jour la branche distante `ci/verification`, qui déclenche le workflow Windows.
 
 **Termes liés** : [Branche](#branche-branch), [Push](#push), [git fetch](#git-fetch), [Branche de vérification](#branche-de-verification-verification-branch).
+
+---
+
+## Branches empilées (*Stacked branches*)
+
+![Quatre branches empilées : feat/detourage-lot part de main, chacune des suivantes part de la précédente ; une seule avance rapide fait entrer les 34 commits dans main](/diagrams/branches-empilees.svg)
+
+**Définition simple** : Des branches qui partent chacune de la précédente plutôt que de la branche principale. La dernière contient donc toutes les autres. On peut tout fusionner d'un coup, mais tant que rien n'est fusionné, tout s'accumule, et un correctif dans une branche du bas oblige à rebaser toutes celles du dessus.
+
+**Contexte / exemple concret** : Dans Boutik, `feat/detourage-lot` (5 commits), `feat/journal-erreurs` (+6), `feat/sauvegarde` (+9) et `feat/sauvegarde-cable` (+14) étaient empilées : une seule avance rapide de `main` a fait entrer les 34 commits, puis les quatre branches ont été supprimées (`git branch -d`). La règle est depuis : un lot à la fois, fusionné dès que sa CI Windows est verte.
+
+**Termes liés** : [Branche](#branche-branch), [Avance rapide](#avance-rapide-fast-forward-ff-only), [Rebase](#rebase), [Branche de vérification](#branche-de-verification-verification-branch).
 
 ---
 
@@ -1533,5 +1591,17 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 **Contexte / exemple concret** : la bibliothèque libmtp installe des règles udev qui donnent l'accès aux téléphones Android à l'utilisateur connecté : pas besoin de `sudo` pour que Boutik y dépose ses copies.
 
 **Termes liés** : [GVfs et gvfs-mtp](#gvfs-et-gvfs-mtp-gnome-virtual-file-system), [MTP](/backend/#mtp-media-transfer-protocol).
+
+---
+
+## Variable d'environnement (*Environment variable*)
+
+![Chaque programme reçoit une copie des variables de celui qui le lance : VSCode pose ELECTRON_RUN_AS_NODE, env la retire et ajoute XDG_CONFIG_HOME pour la seule commande npm run dev ; export reste dans le terminal, set -Ux de fish vaut pour tous les terminaux](/diagrams/variables-environnement.svg)
+
+**Définition simple** : Un réglage nommé (`NOM=valeur`) que chaque programme reçoit, en copie, de celui qui le lance. Changer une variable dans un terminal ne touche ni les autres terminaux ni les programmes déjà lancés. `env` permet d'en retirer (`-u`) ou d'en ajouter pour une seule commande. Dans le shell fish, `set -Ux` crée une variable « universelle », partagée par tous les terminaux fish, même ceux déjà ouverts.
+
+**Contexte / exemple concret** : `env -u ELECTRON_RUN_AS_NODE XDG_CONFIG_HOME=$BOUTIK_ESSAI npm run dev` lance Boutik sans la variable héritée de VSCode (qui ferait tourner Electron comme Node) et avec sa base dans un dossier d'essai. Pour vérifier ce dossier depuis un second terminal pendant que Boutik tourne, `set -Ux BOUTIK_ESSAI /tmp/boutik-essai-telephone` : avec un simple `export`, le second terminal ne verrait pas la variable.
+
+**Termes liés** : [Electron](#electron), [npm](#npm).
 
 ---

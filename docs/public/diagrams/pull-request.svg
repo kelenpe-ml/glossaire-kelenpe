@@ -1,0 +1,35 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Les quatre étapes d'une pull request, puis le commit de fusion qu'elle crée, avec ses deux parents" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Pull request et commit de fusion</title>
+<rect x="0" y="0" width="820" height="330" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">1. La pull request, étape par étape</text>
+<rect x="30" y="56" width="175" height="68" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="117.5" y="84" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Branche poussée</text>
+<text x="117.5" y="104" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ci/verification</text>
+<line x1="205" y1="90" x2="223" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="225" y="56" width="175" height="68" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="312.5" y="84" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Demande ouverte</text>
+<text x="312.5" y="104" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">n° 8, vers main</text>
+<line x1="400" y1="90" x2="418" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="420" y="56" width="175" height="68" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="507.5" y="84" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Vérifications</text>
+<text x="507.5" y="104" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">Build Windows vert</text>
+<line x1="595" y1="90" x2="613" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="615" y="56" width="175" height="68" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="702.5" y="84" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Merge pull request</text>
+<text x="702.5" y="104" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">crée un commit de fusion</text>
+<text x="30" y="170" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">2. Le commit de fusion a deux parents</text>
+<text x="30" y="219" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">main</text>
+<rect x="140" y="200" width="100" height="30" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="190" y="219.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e293b">0f88d06</text>
+<text x="30" y="279" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ci/verification</text>
+<rect x="140" y="260" width="100" height="30" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="190" y="279.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e293b">fded20a</text>
+<line x1="240" y1="215" x2="328" y2="240" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="240" y1="275" x2="328" y2="252" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="330" y="230" width="100" height="30" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="380" y="249.5" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e293b">7cb7d26</text>
+<text x="460" y="232" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Nouveau commit sur main, sans code à lui :</text>
+<text x="460" y="250" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">il réunit les deux lignes d’historique.</text>
+<text x="460" y="268" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Ici, mêmes fichiers que fded20a.</text>
+</svg>

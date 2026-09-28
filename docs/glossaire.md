@@ -62,6 +62,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Branche (Branch)](/devops/#branche-branch)** — *DevOps & infra*
 - **[Branche de vérification (Verification branch)](/devops/#branche-de-verification-verification-branch)** — *DevOps & infra*
 - **[Branche locale / branche distante (Local branch / remote branch)](/devops/#branche-locale-branche-distante-local-branch-remote-branch)** — *DevOps & infra*
+- **[Branches empilées (Stacked branches)](/devops/#branches-empilees-stacked-branches)** — *DevOps & infra*
 - **[Breakpoint](/frontend/#breakpoint)** — *Frontend & UI/UX*
 - **[BSPCE](/business/#bspce)** — *Jargon entrepreneurial*
 - **[Buffering / Stall](/streaming/#buffering-stall)** — *Transcoding & streaming*
@@ -72,6 +73,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## C
 
+- **[Cache de GitHub Actions (actions/cache)](/devops/#cache-de-github-actions-actions-cache)** — *DevOps & infra*
 - **[Cache HTTP (HTTP cache, Cache-Control)](/backend/#cache-http-http-cache-cache-control)** — *Backend & architecture*
 - **[Cache invalidation](/backend/#cache-invalidation)** — *Backend & architecture*
 - **[Caching](/backend/#caching)** — *Backend & architecture*
@@ -106,6 +108,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Codec](/streaming/#codec)** — *Transcoding & streaming*
 - **[Commit](/devops/#commit)** — *DevOps & infra*
 - **[Commit conventionnel (Conventional commit)](/devops/#commit-conventionnel-conventional-commit)** — *DevOps & infra*
+- **[Commit de fusion (Merge commit)](/devops/#commit-de-fusion-merge-commit)** — *DevOps & infra*
 - **[Composant (Component)](/frontend/#composant-component)** — *Frontend & UI/UX*
 - **[Compositing](/media/#compositing)** — *Édition média*
 - **[Compression d'image](/media/#compression-d-image)** — *Édition média*
@@ -427,8 +430,13 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Props](/frontend/#props)** — *Frontend & UI/UX*
 - **[Protocole personnalisé (Custom protocol)](/backend/#protocole-personnalise-custom-protocol)** — *Backend & architecture*
 - **[Proxy direct (Forward proxy)](/devops/#proxy-direct-forward-proxy)** — *DevOps & infra*
+- **[Pull request (PR, demande de fusion)](/devops/#pull-request-pr-demande-de-fusion)** — *DevOps & infra*
 - **[Puppeteer](/devops/#puppeteer)** — *DevOps & infra*
 - **[Push](/devops/#push)** — *DevOps & infra*
+
+## Q
+
+- **[Quota de stockage des artefacts (Artifact storage quota)](/devops/#quota-de-stockage-des-artefacts-artifact-storage-quota)** — *DevOps & infra*
 
 ## R
 
@@ -571,6 +579,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Valeur du stock (Inventory value)](/business/#valeur-du-stock-inventory-value)** — *Jargon entrepreneurial*
 - **[Validation côté serveur / côté client (Server-side / client-side validation)](/backend/#validation-cote-serveur-cote-client-server-side-client-side-validation)** — *Backend & architecture*
 - **[Valorisation](/business/#valorisation-valuation)** — *Jargon entrepreneurial*
+- **[Variable d'environnement (Environment variable)](/devops/#variable-d-environnement-environment-variable)** — *DevOps & infra*
 - **[Vector (Vecteur)](/frontend/#vector-vecteur)** — *Frontend & UI/UX*
 - **[Vente au carton (Case sale)](/business/#vente-au-carton-case-sale)** — *Jargon entrepreneurial*
 - **[Verrouillage de fichier sous Windows (File locking)](/devops/#verrouillage-de-fichier-sous-windows-file-locking)** — *DevOps & infra*

@@ -1,0 +1,30 @@
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison entre l'artefact et le cache de GitHub Actions, puis passage de l'installateur d'un job à l'autre par le cache" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Artefact ou cache de GitHub Actions</title>
+<rect x="0" y="0" width="820" height="340" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Deux réserves séparées</text>
+<rect x="30" y="54" width="370" height="136" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="50" y="82" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Artefact</text>
+<text x="50" y="106" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• fichier à télécharger depuis la page du run</text>
+<text x="50" y="128" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• compte dans le quota de stockage du compte</text>
+<text x="50" y="150" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• quota recalculé toutes les 6 à 12 h</text>
+<text x="50" y="172" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• gardé 1 à 90 jours (retention-days)</text>
+<rect x="420" y="54" width="370" height="136" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="440" y="82" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Cache (actions/cache)</text>
+<text x="440" y="106" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• fichier repris par un autre job, grâce à sa clé</text>
+<text x="440" y="128" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• limite à part : 10 Go par dépôt</text>
+<text x="440" y="150" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• plein : les plus anciens sont effacés</text>
+<text x="440" y="172" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">• effacé après 7 jours sans usage</text>
+<text x="30" y="226" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Dans Boutik : l’installateur passe par le cache</text>
+<rect x="30" y="244" width="220" height="68" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="140" y="272" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Job Windows NSIS</text>
+<text x="140" y="292" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">cache/save</text>
+<line x1="250" y1="278" x2="298" y2="278" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="300" y="244" width="240" height="68" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="420" y="272" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Cache</text>
+<text x="420" y="292" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">clé : boutik-installateur-&lt;run&gt;</text>
+<line x1="540" y1="278" x2="568" y2="278" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<rect x="570" y="244" width="220" height="68" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="680" y="272" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Job E2E Windows</text>
+<text x="680" y="292" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">cache/restore</text>
+</svg>
