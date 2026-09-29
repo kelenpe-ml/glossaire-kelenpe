@@ -69,34 +69,24 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 
 ## Exemple : Boutik
 
-État : **conçu, pas construit** (mis à jour le 29 septembre 2026). Toutes les questions sont tranchées ; seule la signature de code Windows reste hors sujet.
+État : **cœur construit** (mis à jour le 29 septembre 2026), avec des clés de **test** seulement ; activation, codes et serveur pas encore construits. Détail : `docs/licence.md`, section « Ce qui est construit ».
 
-Les valeurs propres à Boutik sont dans `docs/licence.md` :
-
-- **Essai :** un mois, qui commence à la création de la boutique.
-- **Rappels :** à 14 jours, 7 jours, puis chaque jour ; 7 jours de grâce.
-- **Transferts :** 2 automatiques par an.
-- **Code tapé :** en blocs de 5 caractères.
-- **Déblocage :** code valable 24 h.
-- **Formules :** au lancement, Solo seule (60 000 FCFA par an ou 18 000 par trimestre). Duo et Boutique arriveront avec la synchronisation.
-- **Parrainage :** 1 mois pour le filleul, 2 mois pour le parrain.
-- **Canal de secours :** WhatsApp.
-
-Ordre de construction prévu :
-
-1. l'export des données (**construit** le 29 septembre 2026, voir `docs/export.md`) ;
-2. la licence côté Boutik, avec des clés de test ;
-3. le backoffice minimal et l'activation en ligne ;
-4. les mises à jour signées ;
-5. les fonctionnalités à la carte et les découvertes.
-
-Ce qui existe déjà et servira :
-
-- l'export des données (`src/main/export/`), dont les canaux sont déclarés dans `CANAUX_TOUJOURS_PERMIS` (`src/main/acces.ts`) : la lecture seule ne pourra pas les bloquer ;
-- le journal d'événements, pour la date de création de la boutique ;
-- la récupération d'un fichier sur le téléphone par câble (`src/main/sauvegarde/telephone.ts`) ;
-- les points d'entrée protégés, pour la lecture seule.
+- **Format :** licence de 61 octets en encodage canonique, signée Ed25519 (`src/shared/licence/format.ts`, partagé avec le futur backoffice ; `src/main/licence/signature.ts`).
+- **Clés :** T1 et T2 (test) importées seulement en développement ; aucune clé de production n'existe encore, donc l'exécutable n'accepte aucune licence et seul l'essai y fonctionne. Un test sur l'exécutable le vérifie, ainsi que l'absence des clés de test dans le paquet.
+- **Calendrier monotone :** table `licence_calendrier` de la base chiffrée (hors journal), avancée chaque minute, jamais en retard sur le dernier événement.
+- **Empreinte :** carte mère, processeur, disque (PowerShell et CIM sous Windows ; `machine-id`, `/proc/cpuinfo`, `lsblk` sous Linux), 2 pièces sur 3 suffisent.
+- **États :** essai de 30 jours depuis la création de la boutique, licence active, 7 jours de grâce, lecture seule ; périodes enchaînées sans perte.
+- **Lecture seule :** appliquée dans `gerer` (`ipc-protege.ts`), avec une catégorie par canal (`src/main/licence/categories.ts`) et un blocage par défaut vérifié par un test.
+- **Interface :** Réglages › Licence (import d'un fichier), bandeau « Renouveler », caisse remplacée par une explication en lecture seule.
+- **Reste à faire :**
+  1. rappels à 14 et 7 jours ;
+  2. référence de paiement ;
+  3. code de demande, fichier par câble et code tapé ;
+  4. codes spéciaux ;
+  5. trace cachée ;
+  6. backoffice et activation en ligne ;
+  7. mises à jour signées.
 
 ## Termes liés
 
-[Licence logicielle](/business/#licence-logicielle-software-license) · [Période d'essai](/business/#periode-d-essai-trial-period) · [Formules de licence](/business/#formules-de-licence-license-tiers) · [Poste facturable](/business/#poste-facturable-billable-seat) · [Révocation de licence](/business/#revocation-de-licence-license-revocation) · [Ne jamais faire confiance à l'utilisateur](/backend/#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user) · [Empreinte matérielle](/backend/#empreinte-materielle-hardware-fingerprint) · [Calendrier monotone](/backend/#calendrier-monotone-monotonic-clock) · [Caractère de contrôle](/backend/#caractere-de-controle-check-character) · [Lecture seule](/backend/#lecture-seule-read-only-mode) · [Référence de paiement](/business/#reference-de-paiement-payment-reference) · [Signature cryptographique](/backend/#signature-cryptographique-digital-signature) · [Clé de réserve](/backend/#cle-de-reserve-backup-key-rotation-de-cle) · [Hors ligne d'abord](/backend/#hors-ligne-d-abord-offline-first)
+[Licence logicielle](/business/#licence-logicielle-software-license) · [Période d'essai](/business/#periode-d-essai-trial-period) · [Formules de licence](/business/#formules-de-licence-license-tiers) · [Poste facturable](/business/#poste-facturable-billable-seat) · [Révocation de licence](/business/#revocation-de-licence-license-revocation) · [Ne jamais faire confiance à l'utilisateur](/backend/#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user) · [Empreinte matérielle](/backend/#empreinte-materielle-hardware-fingerprint) · [Calendrier monotone](/backend/#calendrier-monotone-monotonic-clock) · [Caractère de contrôle](/backend/#caractere-de-controle-check-character) · [Lecture seule](/backend/#lecture-seule-read-only-mode) · [Référence de paiement](/business/#reference-de-paiement-payment-reference) · [Signature cryptographique](/backend/#signature-cryptographique-digital-signature) · [Clé de réserve](/backend/#cle-de-reserve-backup-key-rotation-de-cle) · [Hors ligne d'abord](/backend/#hors-ligne-d-abord-offline-first) · [Encodage canonique](/backend/#encodage-canonique-canonical-encoding) · [Blocage par défaut](/backend/#blocage-par-defaut-deny-by-default) · [Période de grâce](/business/#periode-de-grace-grace-period)

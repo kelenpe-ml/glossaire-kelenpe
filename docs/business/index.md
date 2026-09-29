@@ -394,6 +394,16 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 ---
 
+## Période de grâce (*Grace period*)
+
+**Définition simple** : Quelques jours pendant lesquels un service continue de fonctionner normalement après la fin de l'abonnement, le temps de renouveler. Elle évite qu'un retard de paiement, ou un oubli, arrête tout du jour au lendemain.
+
+**Contexte / exemple concret** : Dans Boutik (construit le 29 septembre 2026) : 7 jours de grâce après la fin de l'essai ou de la licence, avec un bandeau « Renouveler » ; les ventes continuent. Ensuite, [lecture seule](/backend/#lecture-seule-read-only-mode). Les jours sont comptés sur le [calendrier monotone](/backend/#calendrier-monotone-monotonic-clock), pas sur l'horloge.
+
+**Termes liés** : [Période d'essai](#periode-d-essai-trial-period), [Lecture seule](/backend/#lecture-seule-read-only-mode), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
 ## Formules de licence (*License tiers*)
 
 **Définition simple** : Les différentes offres d'un même logiciel, à des prix différents, selon l'usage (nombre de postes, fonctions).

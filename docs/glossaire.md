@@ -60,6 +60,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[BEN2](/media/#ben2)** — *Édition média*
 - **[BiRefNet](/media/#birefnet)** — *Édition média*
 - **[Bitrate](/streaming/#bitrate)** — *Transcoding & streaming*
+- **[Blocage par défaut (Deny by default)](/backend/#blocage-par-defaut-deny-by-default)** — *Backend & architecture*
 - **[Bluetooth SPP (Serial Port Profile)](/backend/#bluetooth-spp-serial-port-profile)** — *Backend & architecture*
 - **[Boucle d'événements et tâche bloquante (Event loop, blocking task)](/backend/#boucle-d-evenements-et-tache-bloquante-event-loop-blocking-task)** — *Backend & architecture*
 - **[Branche (Branch)](/devops/#branche-branch)** — *DevOps & infra*
@@ -106,6 +107,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Clé d'un composant React (key)](/frontend/#cle-d-un-composant-react-key)** — *Frontend & UI/UX*
 - **[Clé de chiffrement (Encryption key)](/backend/#cle-de-chiffrement-encryption-key)** — *Backend & architecture*
 - **[Clé de réserve (Backup key, rotation de clé)](/backend/#cle-de-reserve-backup-key-rotation-de-cle)** — *Backend & architecture*
+- **[Clé de test (Test key)](/backend/#cle-de-test-test-key)** — *Backend & architecture*
 - **[Clé publique / clé privée (Public / private key)](/backend/#cle-publique-cle-privee-public-private-key)** — *Backend & architecture*
 - **[Cliff](/business/#cliff)** — *Jargon entrepreneurial*
 - **[ClipboardItem](/backend/#clipboarditem)** — *Backend & architecture*
@@ -179,6 +181,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 ## E
 
 - **[Empreinte matérielle (Hardware fingerprint)](/backend/#empreinte-materielle-hardware-fingerprint)** — *Backend & architecture*
+- **[Encodage canonique (Canonical encoding)](/backend/#encodage-canonique-canonical-encoding)** — *Backend & architecture*
 - **[Envoy](/devops/#envoy)** — *DevOps & infra*
 - **[Exception à une règle de sécurité (Security exception)](/backend/#exception-a-une-regle-de-securite-security-exception)** — *Backend & architecture*
 - **[.exe](/devops/#exe)** — *DevOps & infra*
@@ -286,6 +289,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[--inspect](/devops/#inspect)** — *DevOps & infra*
 - **[Idempotence](/backend/#idempotence)** — *Backend & architecture*
+- **[Identifiant de clé (Key ID, kid)](/backend/#identifiant-de-cle-key-id-kid)** — *Backend & architecture*
 - **[Identifiant de poste (device_id)](/backend/#identifiant-de-poste-device-id)** — *Backend & architecture*
 - **[Identifiant technique (Technical identifier)](/backend/#identifiant-technique-technical-identifier)** — *Backend & architecture*
 - **[Images par seconde (Frames per second, fps)](/frontend/#images-par-seconde-frames-per-second-fps)** — *Frontend & UI/UX*
@@ -343,6 +347,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Licence non commerciale (Non-commercial license)](/business/#licence-non-commerciale-non-commercial-license)** — *Jargon entrepreneurial*
 - **[Licence open source (Open source license)](/business/#licence-open-source-open-source-license)** — *Jargon entrepreneurial*
 - **[Lignes JSON (JSON Lines)](/backend/#lignes-json-json-lines)** — *Backend & architecture*
+- **[Liste d'autorisation (Allowlist)](/backend/#liste-d-autorisation-allowlist)** — *Backend & architecture*
 - **[Liste de mots de passe courants (Common password list)](/backend/#liste-de-mots-de-passe-courants-common-password-list)** — *Backend & architecture*
 - **[Load balancing](/devops/#load-balancing-repartition-de-charge)** — *DevOps & infra*
 - **[LocalSend](/backend/#localsend)** — *Backend & architecture*
@@ -428,6 +433,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Percentile (p95)](/frontend/#percentile-p95)** — *Frontend & UI/UX*
 - **[Période critique](/cropsuite/#periode-critique)** — *CropSuite (PFE)*
 - **[Période d'essai (Trial period)](/business/#periode-d-essai-trial-period)** — *Jargon entrepreneurial*
+- **[Période de grâce (Grace period)](/business/#periode-de-grace-grace-period)** — *Jargon entrepreneurial*
 - **[Permissions et modules](/backend/#permissions-et-modules)** — *Backend & architecture*
 - **[pH](/cropsuite/#ph)** — *CropSuite (PFE)*
 - **[Phone-home](/backend/#phone-home)** — *Backend & architecture*

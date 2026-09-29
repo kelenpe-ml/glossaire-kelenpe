@@ -810,9 +810,41 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un algorithme moderne de signature cryptographique : rapide, avec des signatures courtes (64 octets), et réputé difficile à mal utiliser.
 
-**Contexte / exemple concret** : Algorithme retenu pour signer les futures licences de Boutik ; Node.js le fournit d'origine (`crypto.sign`), sans dépendance à ajouter.
+**Contexte / exemple concret** : Construit dans Boutik (29 septembre 2026) : chaque licence est signée en Ed25519 sur ses 61 octets en [encodage canonique](#encodage-canonique-canonical-encoding) ; Boutik vérifie avec la clé publique que désigne l'[identifiant de clé](#identifiant-de-cle-key-id-kid). Node.js le fournit d'origine (`crypto.sign`, `crypto.verify`), sans dépendance à ajouter.
 
 **Termes liés** : [Signature cryptographique](#signature-cryptographique-digital-signature), [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key).
+
+---
+
+## Encodage canonique (*Canonical encoding*)
+
+![Un contenu de licence donne toujours les mêmes 61 octets, sur lesquels porte la signature ; relu et réencodé, il doit être identique ; toute autre écriture du même contenu est refusée](/diagrams/encodage-canonique.svg)
+
+**Définition simple** : Une façon d'écrire des données qui ne laisse qu'une seule écriture possible pour un même contenu : champs toujours dans le même ordre, de la même taille, sans espace ni variante. Indispensable pour signer : la signature porte sur des octets, et deux programmes (l'émetteur et le vérificateur) doivent produire exactement les mêmes.
+
+**Contexte / exemple concret** : Une licence Boutik fait 61 octets fixes (boutique, empreinte, formule, postes, dates, identifiant de clé, version), décrits dans `shared/licence/format.ts`, partagé avec le futur backoffice. À la lecture, Boutik réencode le contenu et refuse le fichier si le résultat diffère d'un seul octet ; le texte base64url est vérifié de la même façon.
+
+**Termes liés** : [Ed25519](#ed25519), [Signature cryptographique](#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Identifiant de clé (*Key ID, kid*)
+
+**Définition simple** : Un court identifiant, écrit dans ce qui est signé, qui dit quelle clé a signé. Le vérificateur sait ainsi quelle clé publique employer, et une clé peut être remplacée par une autre sans ambiguïté.
+
+**Contexte / exemple concret** : Chaque licence Boutik porte 2 caractères : « P1 », « P2 » pour les futures clés de production (en service, de réserve), « T1 », « T2 » pour les [clés de test](#cle-de-test-test-key). L'exécutable de production refuse toute clé qui commence par « T ».
+
+**Termes liés** : [Clé de réserve](#cle-de-reserve-backup-key-rotation-de-cle), [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key), [Encodage canonique](#encodage-canonique-canonical-encoding).
+
+---
+
+## Clé de test (*Test key*)
+
+**Définition simple** : Une paire de clés créée seulement pour le développement et les tests. Sa clé privée n'est pas secrète (elle est dans le dépôt, pour que les tests puissent signer) : le logiciel livré ne doit donc jamais accepter ce qu'elle signe.
+
+**Contexte / exemple concret** : Les clés T1 et T2 de Boutik (`main/licence/cles-test.ts`) ne sont importées que sous `import.meta.env.DEV`, donc absentes de l'exécutable ; en plus, l'exécutable refuse toute clé « T… ». Un test sur l'exécutable de production vérifie qu'une licence de test est refusée et qu'aucune de ces clés n'est dans le paquet.
+
+**Termes liés** : [Identifiant de clé](#identifiant-de-cle-key-id-kid), [Build de développement / de production](/devops/#build-de-developpement-de-production-development-production-build), [Défense en profondeur](#defense-en-profondeur-defense-in-depth).
 
 ---
 
@@ -897,6 +929,28 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Principe premier de la licence de Boutik (décidé le 29 septembre 2026). L'essai commence à la création de la boutique, inscrite dans le journal, plutôt qu'à une date qu'on pourrait effacer ; le temps se compte sur un [calendrier monotone](#calendrier-monotone-monotonic-clock) et non sur l'horloge ; pour débloquer un mot de passe, Drissa rappelle le numéro enregistré à l'achat, jamais celui qui a écrit. Le message affiché reste « L'heure de cet ordinateur semble incorrecte », sans rien dire du calendrier.
 
 **Termes liés** : [Défense en profondeur](#defense-en-profondeur-defense-in-depth), [Validation côté serveur / côté client](#validation-cote-serveur-cote-client-server-side-client-side-validation), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Blocage par défaut (*Deny by default*)
+
+![Chaque canal appelé est cherché dans une table des catégories : lecture et toujours permis passent, travail est bloqué en lecture seule, un canal absent de la table est bloqué aussi ; un test vérifie que chaque canal a sa catégorie](/diagrams/blocage-par-defaut.svg)
+
+**Définition simple** : Une règle de sécurité : tout ce qui n'est pas explicitement autorisé est interdit. Un oubli (une action nouvelle qu'on n'a pas classée) donne un refus, pas une faille.
+
+**Contexte / exemple concret** : En lecture seule, Boutik bloque tout canal de la catégorie « travail », et tout canal absent de la table `main/licence/categories.ts`. Un test vérifie que chaque canal enregistré y figure : un nouveau canal oublié est bloqué, puis signalé par le test.
+
+**Termes liés** : [Liste d'autorisation](#liste-d-autorisation-allowlist), [Lecture seule](#lecture-seule-read-only-mode), [Défense en profondeur](#defense-en-profondeur-defense-in-depth).
+
+---
+
+## Liste d'autorisation (*Allowlist*)
+
+**Définition simple** : La liste de ce qui est permis ; tout le reste est refusé. C'est l'inverse d'une liste de refus (*denylist*), qui énumère ce qui est interdit et laisse passer ce qu'on a oublié.
+
+**Contexte / exemple concret** : Dans Boutik, `CANAUX_TOUJOURS_PERMIS` (export) et les catégories « lecture » et « toujours » de la licence forment la liste d'autorisation de la lecture seule ; les suggestions de saisie n'acceptent que les catégories de champs listées, jamais un champ secret.
+
+**Termes liés** : [Blocage par défaut](#blocage-par-defaut-deny-by-default), [Lecture seule](#lecture-seule-read-only-mode).
 
 ---
 

@@ -28,7 +28,7 @@ Les principes de quatre de ces systèmes sont aussi repris dans des skills perso
 | [Suggestions de saisie](./suggestions-saisie) | Construit |
 | [Journal des erreurs et rapport de problème](./journal-erreurs) | Construit |
 | [Vérification sous Windows sans PC Windows](./verification-windows) | Construit |
-| [Licence logicielle hors ligne](./licence-hors-ligne) | Conçu, pas construit |
+| [Licence logicielle hors ligne](./licence-hors-ligne) | Cœur construit (clés de test) ; activation et serveur à venir |
 | [Mises à jour d'une application hors ligne](./mises-a-jour-hors-ligne) | Conçu, pas construit |
 | [Backoffice et gestion des clés de signature](./backoffice-cles) | Conçu, pas construit |
 | [Synchronisation multi-poste pair-à-pair](./synchronisation-multi-poste) | Conçu, pas construit |
