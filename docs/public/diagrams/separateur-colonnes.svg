@@ -1,0 +1,21 @@
+<svg viewBox="0 0 820 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Séparateur de colonnes : Excel en anglais sépare par des virgules et écrit les décimales avec un point ; Excel en français sépare par des points-virgules et écrit les décimales avec une virgule ; une virgule comme séparateur coupe 1,5 en deux colonnes" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Séparateur de colonnes : Excel en anglais sépare par des virgules et écrit les décimales avec un point ; Excel en français sépare par des points-virgules et écrit les décimales avec une virgule ; une virgule comme séparateur coupe 1,5 en deux colonnes</title>
+<rect x="0" y="0" width="820" height="290" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">La même ligne, deux lectures</text>
+<text x="30" y="262" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Boutik écrit des FCFA entiers (aucune décimale), séparés par des points-virgules.</text>
+<rect x="30" y="60" width="370" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="215.0" y="86.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Excel en anglais</text>
+<text x="215.0" y="103.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">séparateur : virgule · décimale : point</text>
+<rect x="420" y="60" width="370" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="605.0" y="86.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Excel en français</text>
+<text x="605.0" y="103.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">séparateur : point-virgule · décimale : virgule</text>
+<rect x="30" y="160" width="370" height="60" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="215.0" y="186.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✗ « Riz,1,5 » ouvert en français</text>
+<text x="215.0" y="203.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">3 colonnes au lieu de 2</text>
+<rect x="420" y="160" width="370" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="605.0" y="186.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ « Riz;1,5 »</text>
+<text x="605.0" y="203.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">2 colonnes, et 1,5 reste un nombre</text>
+<line x1="215.0" y1="122.0" x2="215.0" y2="158.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="605.0" y1="122.0" x2="605.0" y2="158.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

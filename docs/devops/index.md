@@ -1134,7 +1134,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Définition simple** : Un fichier de tableau en texte simple : une ligne par enregistrement, les colonnes séparées par des virgules ou des points-virgules. Lisible par Excel et par tous les programmes.
 
-**Contexte / exemple concret** : L'écran Import de Boutik accepte un CSV de produits (nom, prix, unité, carton, famille, fournisseur) ; les lignes en erreur sont signalées une par une.
+**Contexte / exemple concret** : L'écran Import de Boutik accepte un CSV de produits (nom, prix, unité, carton, famille, fournisseur) ; les lignes en erreur sont signalées une par une. L'[export](#export-de-donnees-data-export) écrit des CSV pour Excel en français : UTF-8 avec [marque d'ordre des octets](#marque-d-ordre-des-octets-bom-byte-order-mark), [point-virgule](#separateur-de-colonnes-delimiter), dates jj/mm/aaaa hh:mm et FCFA entiers.
 
 **Termes liés** : [Tableur Excel (xlsx / xls)](#tableur-excel-xlsx-xls), [SheetJS](#sheetjs).
 
@@ -1147,6 +1147,92 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 **Contexte / exemple concret** : L'import de Boutik lit les deux, pour que le commerçant puisse reprendre sa liste de produits telle qu'il la tient déjà.
 
 **Termes liés** : [CSV](#csv-comma-separated-values), [SheetJS](#sheetjs).
+
+---
+
+## Export de données (*Data export*)
+
+![Tout exporter (patron) ou la liste d'un écran avec ses filtres : le main vérifie le droit, un processus séparé fabrique un classeur .xlsx, une archive .zip ou un fichier .csv ; ces canaux sont toujours permis](/diagrams/export-donnees.svg)
+
+**Définition simple** : Sortir les données d'un logiciel dans un fichier ouvert (tableur, CSV), lisible par un humain et par d'autres logiciels. Ce n'est pas une sauvegarde : un export sert à consulter ou à reprendre les données ailleurs, une sauvegarde sert à restaurer le logiciel tel qu'il était.
+
+**Contexte / exemple concret** : Boutik (29 septembre 2026) : Réglages › Données exporte toute la boutique en [classeur](#classeur-et-feuille-workbook-and-sheet) (une feuille par type de données) ou en [archive .zip](#archive-zip-zip-archive) de CSV ; un bouton « Exporter » sur les listes de Stock, Créances, Historique, Fournisseurs et Rapports exporte ce qui est affiché. Le fichier est fabriqué dans un processus séparé, et aucune restriction de licence ne peut bloquer l'export (voir `docs/export.md`).
+
+**Termes liés** : [CSV](#csv-comma-separated-values), [Aller-retour](#aller-retour-round-trip), [Portabilité des données](/business/#portabilite-des-donnees-data-portability), [utilityProcess](/backend/#utilityprocess), [Lecture seule](/backend/#lecture-seule-read-only-mode).
+
+---
+
+## Classeur et feuille (*Workbook and sheet*)
+
+**Définition simple** : Dans un tableur, le classeur est le fichier (`.xlsx`) ; il contient une ou plusieurs feuilles, chacune un tableau à part, avec son onglet en bas de l'écran. Une cellule y garde son type : un vrai nombre (qu'Excel peut additionner), une vraie date, ou du texte.
+
+**Contexte / exemple concret** : L'export complet de Boutik est un classeur de dix feuilles : Produits, Stock, Mouvements de stock, Clients, Ventes, Lignes de vente, Remboursements, Fournisseurs, Employés, À propos. La feuille Produits est la première, parce que l'Import lit la première feuille.
+
+**Termes liés** : [Tableur Excel (xlsx / xls)](#tableur-excel-xlsx-xls), [Export de données](#export-de-donnees-data-export), [SheetJS](#sheetjs).
+
+---
+
+## Marque d'ordre des octets (*BOM, Byte Order Mark*)
+
+**Définition simple** : Trois octets invisibles (EF BB BF) placés au tout début d'un fichier texte pour dire « ce fichier est en UTF-8 ». Sans eux, Excel sous Windows lit souvent un CSV dans un ancien encodage, et les accents deviennent des signes bizarres (« Ã© » au lieu de « é »).
+
+**Contexte / exemple concret** : Chaque CSV exporté par Boutik commence par cette marque ; l'import de Boutik la retire à la lecture.
+
+**Termes liés** : [CSV](#csv-comma-separated-values), [Séparateur de colonnes](#separateur-de-colonnes-delimiter).
+
+---
+
+## Séparateur de colonnes (*Delimiter*)
+
+![Excel en anglais sépare par des virgules et écrit 1.5, Excel en français sépare par des points-virgules et écrit 1,5 ; une virgule comme séparateur coupe 1,5 en deux colonnes](/diagrams/separateur-colonnes.svg)
+
+**Définition simple** : Le caractère qui sépare deux colonnes dans un fichier CSV. En anglais, c'est la virgule ; en français, la virgule sert déjà aux nombres décimaux, donc Excel attend le point-virgule. Un texte qui contient le séparateur est mis entre guillemets.
+
+**Contexte / exemple concret** : Boutik exporte ses CSV avec le point-virgule, pour qu'Excel en français les ouvre directement, une colonne par champ ; « Huile d'arachide; 1 L » est écrit entre guillemets. L'import de Boutik reconnaît les deux séparateurs (et la tabulation).
+
+**Termes liés** : [CSV](#csv-comma-separated-values), [Marque d'ordre des octets](#marque-d-ordre-des-octets-bom-byte-order-mark).
+
+---
+
+## Injection de formule (*CSV injection, formula injection*)
+
+**Définition simple** : Un texte qui commence par `=`, `+`, `-` ou `@` est pris pour une formule quand un CSV est ouvert dans un tableur. Un nom de produit ou de client piégé pourrait ainsi lancer une formule chez celui qui ouvre l'export. La parade : précéder ce texte d'une apostrophe, pour qu'il reste du texte.
+
+**Contexte / exemple concret** : Dans un CSV exporté par Boutik, un produit nommé « =1+1 » devient « '=1+1 » ; l'import de Boutik retire l'apostrophe, et l'aller-retour reste exact. Dans le classeur `.xlsx`, chaque cellule de texte est marquée texte : elle ne peut pas devenir une formule.
+
+**Termes liés** : [CSV](#csv-comma-separated-values), [Export de données](#export-de-donnees-data-export), [Validation côté serveur / côté client](/backend/#validation-cote-serveur-cote-client-server-side-client-side-validation).
+
+---
+
+## Archive .zip (*Zip archive*)
+
+**Définition simple** : Un seul fichier qui en contient plusieurs, compressés. Windows l'ouvre comme un dossier (« dossier compressé ») ; chaque fichier y est vérifié par un [CRC32](#crc32-controle-de-redondance-cyclique).
+
+**Contexte / exemple concret** : L'export complet de Boutik au format « dossier compressé » est une archive de dix CSV (`produits.csv`, `ventes.csv`…). Boutik l'écrit lui-même, avec la compression de Node, sans bibliothèque de plus.
+
+**Termes liés** : [CSV](#csv-comma-separated-values), [Compression LZMA / xz](#compression-lzma-xz), [CRC32](#crc32-controle-de-redondance-cyclique).
+
+---
+
+## CRC32 (*Contrôle de redondance cyclique*)
+
+**Définition simple** : Un nombre de 32 bits calculé à partir du contenu d'un fichier, comme une somme de contrôle : s'il ne correspond plus à la relecture, le fichier a été abîmé. Il détecte les accidents (copie tronquée, disque défaillant), pas les modifications volontaires : pour cela, il faut un [hachage](/backend/#hachage-hash-empreinte) ou un [chiffrement authentifié](/backend/#chiffrement-authentifie-authenticated-encryption-aes-gcm).
+
+**Contexte / exemple concret** : Chaque CSV de l'archive `.zip` exportée par Boutik porte son CRC32 ; les tests relisent l'archive et vérifient chacun.
+
+**Termes liés** : [Archive .zip](#archive-zip-zip-archive), [Caractère de contrôle](/backend/#caractere-de-controle-check-character), [Hachage](/backend/#hachage-hash-empreinte).
+
+---
+
+## Aller-retour (*Round trip*)
+
+![Les produits d'une boutique sont exportés en produits.csv puis réimportés dans une boutique neuve ; ils sont identiques champ par champ ; les titres de colonnes sont ceux de l'Import ; photos et archivage ne reviennent pas](/diagrams/aller-retour.svg)
+
+**Définition simple** : Faire sortir des données d'un logiciel puis les y faire rentrer, et vérifier qu'on retrouve exactement la même chose. C'est la preuve qu'un format d'export est complet et sans perte, au moins pour les champs qui comptent.
+
+**Contexte / exemple concret** : L'export des produits de Boutik (feuille Produits, `produits.csv` ou liste de Stock) se réimporte tel quel par l'écran Import : mêmes titres de colonnes, emoji compris. Un test exporte quatre produits (carton, famille, fournisseur, texte avec point-virgule, nom qui ressemble à une formule), les réimporte dans une boutique neuve, en CSV puis en `.xlsx`, et les compare champ par champ.
+
+**Termes liés** : [Export de données](#export-de-donnees-data-export), [CSV](#csv-comma-separated-values), [Test e2e](#test-e2e-end-to-end-test-test-de-bout-en-bout).
 
 ---
 

@@ -41,6 +41,12 @@ Mettre les données à l'abri d'une panne, d'un vol ou d'un incendie :
   - construire une base neuve à part, puis basculer, avec un marqueur qui permet de reprendre après une coupure ;
   - ne jamais effacer la base remplacée ; la mettre de côté.
 
+- **Export et sauvegarde sont deux choses distinctes :**
+  - l'[export](/devops/#export-de-donnees-data-export) donne des tableaux lisibles (classeur, CSV), non chiffrés, pour consulter ou changer de logiciel ;
+  - la sauvegarde donne une copie chiffrée, pour restaurer le logiciel tel qu'il était.
+
+  Il faut les deux, et ne jamais présenter l'export comme une sauvegarde.
+
 ## Pièges connus
 
 - **Copier la base seule** alors qu'elle est en journal WAL : les dernières écritures sont dans un autre fichier. Il faut les fichiers ensemble, application fermée, ou l'API de sauvegarde.

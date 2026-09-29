@@ -1,0 +1,27 @@
+<svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aller-retour : les produits d&#x27;une boutique sont exportés, puis réimportés dans une autre boutique ; on vérifie champ par champ qu&#x27;ils sont identiques ; les titres de colonnes sont ceux que l&#x27;import reconnaît ; photos et archivage ne reviennent pas" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Aller-retour : les produits d&#x27;une boutique sont exportés, puis réimportés dans une autre boutique ; on vérifie champ par champ qu&#x27;ils sont identiques ; les titres de colonnes sont ceux que l&#x27;import reconnaît ; photos et archivage ne reviennent pas</title>
+<rect x="0" y="0" width="820" height="280" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Exporter puis réimporter sans rien perdre</text>
+<rect x="30" y="70" width="160" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="110.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Boutik</text>
+<text x="110.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">4 produits</text>
+<rect x="230" y="70" width="160" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="310.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Export</text>
+<text x="310.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">produits.csv</text>
+<rect x="430" y="70" width="160" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="510.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Import</text>
+<text x="510.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">boutique neuve</text>
+<rect x="630" y="70" width="160" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="710.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Identiques</text>
+<text x="710.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">champ par champ</text>
+<rect x="30" y="186" width="370" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="215.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Mêmes titres de colonnes</text>
+<text x="215.0" y="229.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">reconnus par l&#x27;Import, sans réglage</text>
+<rect x="420" y="186" width="370" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="605.0" y="212.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Ce qui ne revient pas</text>
+<text x="605.0" y="229.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">photos ; les archivés reviennent actifs</text>
+<line x1="192.0" y1="102.0" x2="228.0" y2="102.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="392.0" y1="102.0" x2="428.0" y2="102.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="592.0" y1="102.0" x2="628.0" y2="102.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

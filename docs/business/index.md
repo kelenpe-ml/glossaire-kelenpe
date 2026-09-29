@@ -456,6 +456,16 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 ---
 
+## Portabilité des données (*Data portability*)
+
+**Définition simple** : Le droit, et la possibilité réelle, de récupérer ses propres données dans un format ouvert, pour les emporter vers un autre logiciel ou un autre fournisseur. C'est une garantie de confiance : le client n'est pas prisonnier du logiciel.
+
+**Contexte / exemple concret** : Principe de Boutik : ne jamais prendre les données en otage. L'[export](/devops/#export-de-donnees-data-export) (classeur Excel ou CSV) reste possible en toutes circonstances, même en [lecture seule](/backend/#lecture-seule-read-only-mode) après la fin d'une licence ; il a été construit avant la licence pour cette raison.
+
+**Termes liés** : [Export de données](/devops/#export-de-donnees-data-export), [Licence logicielle](#licence-logicielle-software-license), [Lecture seule](/backend/#lecture-seule-read-only-mode).
+
+---
+
 ## Prix fondateur (*Founder pricing*)
 
 **Définition simple** : Une réduction réservée aux tout premiers clients, en échange de leur confiance et de leur aide (retours, témoignage, recommandation). Elle dure en général tant qu'ils restent clients sans interruption.

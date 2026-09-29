@@ -45,7 +45,7 @@ Garder comme seule vérité la **liste de tout ce qui s'est passé** (les évén
 
 ## Exemple : Boutik
 
-État : **construit** (mis à jour le 28 septembre 2026).
+État : **construit** (mis à jour le 29 septembre 2026).
 
 - **Le journal :**
   - table `events` : `id`, `aggregate_type`, `aggregate_id`, `event_type`, `payload`, `author_id`, `device_id`, `occurred_at`, `logical_clock`, `schema_version` ;
@@ -53,7 +53,7 @@ Garder comme seule vérité la **liste de tout ce qui s'est passé** (les évén
   - toute écriture passe par `writeEvent` (`src/main/events/store.ts`) ;
   - l'auteur vient de la session (`auteurDepuisSession()`).
 - **Les projections :** une par domaine (`produits/`, `clients/`, `ventes/`, `fournisseurs/`, `comptes/`), chacune avec sa fonction `reconstruire*`.
-- **Les secrets :** les lectures passent par `rowToEvent` (`src/main/events/row.ts`), qui retire les champs sensibles (`CHAMPS_SENSIBLES`).
+- **Les secrets :** les lectures passent par `rowToEvent` (`src/main/events/row.ts`), qui retire les champs sensibles (`CHAMPS_SENSIBLES`). Cela vaut aussi sur une connexion à part : le processus d'export lit le journal par `src/main/events/lecture-seule.ts`, contrôlé par le même test.
 - **Exceptions voulues :**
   - les tables `saisie_*` des suggestions de saisie ;
   - les octets des images (`images_octets`, repérés par leur SHA-256, le journal ne portant que la référence).

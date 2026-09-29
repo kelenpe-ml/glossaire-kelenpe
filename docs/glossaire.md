@@ -14,6 +14,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[AGPL-3.0](/business/#agpl-3-0)** — *Jargon entrepreneurial*
 - **[Agrégat (Aggregate)](/backend/#agregat-aggregate)** — *Backend & architecture*
 - **[Ajustement de stock (Stock adjustment)](/business/#ajustement-de-stock-stock-adjustment)** — *Jargon entrepreneurial*
+- **[Aller-retour (Round trip)](/devops/#aller-retour-round-trip)** — *DevOps & infra*
 - **[Alpha / Transparence](/media/#alpha-transparence)** — *Édition média*
 - **[Alpha prémultiplié (Premultiplied alpha)](/media/#alpha-premultiplie-premultiplied-alpha)** — *Édition média*
 - **[Animation](/frontend/#animation)** — *Frontend & UI/UX*
@@ -27,6 +28,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[AppImage](/devops/#appimage)** — *DevOps & infra*
 - **[Application compagnon (Companion app)](/frontend/#application-compagnon-companion-app)** — *Frontend & UI/UX*
 - **[Architecture Electron (Main / Renderer / Preload)](/backend/#architecture-electron-main-renderer-preload)** — *Backend & architecture*
+- **[Archive .zip (Zip archive)](/devops/#archive-zip-zip-archive)** — *DevOps & infra*
 - **[Ardoise (Créance client)](/business/#ardoise-creance-client)** — *Jargon entrepreneurial*
 - **[argon2id](/backend/#argon2id)** — *Backend & architecture*
 - **[aria-label](/frontend/#aria-label)** — *Frontend & UI/UX*
@@ -99,6 +101,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Chromium](/frontend/#chromium)** — *Frontend & UI/UX*
 - **[CI/CD](/devops/#ci-cd-integration-continue-deploiement-continu)** — *DevOps & infra*
 - **[Classement par fréquence et récence (Frecency)](/frontend/#classement-par-frequence-et-recence-frecency)** — *Frontend & UI/UX*
+- **[Classeur et feuille (Workbook and sheet)](/devops/#classeur-et-feuille-workbook-and-sheet)** — *DevOps & infra*
 - **[CLAUDE.md](/devops/#claude-md)** — *DevOps & infra*
 - **[Clé d'un composant React (key)](/frontend/#cle-d-un-composant-react-key)** — *Frontend & UI/UX*
 - **[Clé de chiffrement (Encryption key)](/backend/#cle-de-chiffrement-encryption-key)** — *Backend & architecture*
@@ -134,6 +137,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Coté en bourse (IPO)](/business/#cote-en-bourse-publicly-listed-ipo)** — *Jargon entrepreneurial*
 - **[Couche 4 / couche 7 (L4 / L7)](/devops/#couche-4-couche-7-l4-l7)** — *DevOps & infra*
 - **[Coupe du papier (Paper cut)](/media/#coupe-du-papier-paper-cut)** — *Édition média*
+- **[CRC32 (Contrôle de redondance cyclique)](/devops/#crc32-controle-de-redondance-cyclique)** — *DevOps & infra*
 - **[Croissance quadratique (Quadratic growth)](/backend/#croissance-quadratique-quadratic-growth)** — *Backend & architecture*
 - **[CSS (Cascading Style Sheets)](/frontend/#css-cascading-style-sheets)** — *Frontend & UI/UX*
 - **[CSV (Comma-Separated Values)](/devops/#csv-comma-separated-values)** — *DevOps & infra*
@@ -205,6 +209,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Événement immuable (Immutable event)](/backend/#evenement-immuable-immutable-event)** — *Backend & architecture*
 - **[Event sourcing (journal d'événements)](/backend/#event-sourcing-journal-d-evenements)** — *Backend & architecture*
 - **[Event streaming (Kafka / Redpanda)](/backend/#event-streaming-kafka-redpanda)** — *Backend & architecture*
+- **[Export de données (Data export)](/devops/#export-de-donnees-data-export)** — *DevOps & infra*
 
 ## F
 
@@ -292,6 +297,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Index](/backend/#index)** — *Backend & architecture*
 - **[Inférence (Inference)](/media/#inference-inference)** — *Édition média*
 - **[Info-bulle (Tooltip)](/frontend/#info-bulle-tooltip)** — *Frontend & UI/UX*
+- **[Injection de formule (CSV injection, formula injection)](/devops/#injection-de-formule-csv-injection-formula-injection)** — *DevOps & infra*
 - **[Injection de panne (Fault injection)](/devops/#injection-de-panne-fault-injection)** — *DevOps & infra*
 - **[Installateur (Installer)](/devops/#installateur-installer)** — *DevOps & infra*
 - **[Installation silencieuse (Silent install)](/devops/#installation-silencieuse-silent-install)** — *DevOps & infra*
@@ -346,6 +352,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## M
 
+- **[Marque d'ordre des octets (BOM, Byte Order Mark)](/devops/#marque-d-ordre-des-octets-bom-byte-order-mark)** — *DevOps & infra*
 - **[Masque (Mask)](/media/#masque-mask)** — *Édition média*
 - **[mDNS (Multicast DNS)](/backend/#mdns-multicast-dns)** — *Backend & architecture*
 - **[Media query](/frontend/#media-query)** — *Frontend & UI/UX*
@@ -439,6 +446,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Polyfill](/devops/#polyfill)** — *DevOps & infra*
 - **[Pooling](/backend/#pooling)** — *Backend & architecture*
 - **[Port](/backend/#port)** — *Backend & architecture*
+- **[Portabilité des données (Data portability)](/business/#portabilite-des-donnees-data-portability)** — *Jargon entrepreneurial*
 - **[Portée d'accès (Scope)](/backend/#portee-d-acces-scope)** — *Backend & architecture*
 - **[Poste facturable (Billable seat)](/business/#poste-facturable-billable-seat)** — *Jargon entrepreneurial*
 - **[Poussée forcée prudente (--force-with-lease)](/devops/#poussee-forcee-prudente-force-with-lease)** — *DevOps & infra*
@@ -534,6 +542,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Schéma (Schema)](/backend/#schema-schema)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*
 - **[sendInputEvent](/devops/#sendinputevent)** — *DevOps & infra*
+- **[Séparateur de colonnes (Delimiter)](/devops/#separateur-de-colonnes-delimiter)** — *DevOps & infra*
 - **[Séparation développement / production](/architectures/developpement-production)** — *Architectures*
 - **[SHA-256](/backend/#sha-256)** — *Backend & architecture*
 - **[SheetJS](/devops/#sheetjs)** — *DevOps & infra*

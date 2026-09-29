@@ -84,7 +84,7 @@ Les valeurs propres à Boutik sont dans `docs/licence.md` :
 
 Ordre de construction prévu :
 
-1. l'export des données ;
+1. l'export des données (**construit** le 29 septembre 2026, voir `docs/export.md`) ;
 2. la licence côté Boutik, avec des clés de test ;
 3. le backoffice minimal et l'activation en ligne ;
 4. les mises à jour signées ;
@@ -92,6 +92,7 @@ Ordre de construction prévu :
 
 Ce qui existe déjà et servira :
 
+- l'export des données (`src/main/export/`), dont les canaux sont déclarés dans `CANAUX_TOUJOURS_PERMIS` (`src/main/acces.ts`) : la lecture seule ne pourra pas les bloquer ;
 - le journal d'événements, pour la date de création de la boutique ;
 - la récupération d'un fichier sur le téléphone par câble (`src/main/sauvegarde/telephone.ts`) ;
 - les points d'entrée protégés, pour la lecture seule.
