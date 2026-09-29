@@ -1,0 +1,25 @@
+<svg viewBox="0 0 820 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parrainage bilatéral : le parrain donne sa référence ; le filleul paie en l&#x27;indiquant et reçoit un mois offert à son premier paiement ; une fois six mois payés par le filleul, le parrain reçoit deux mois ajoutés à son échéance" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Parrainage bilatéral : le parrain donne sa référence ; le filleul paie en l&#x27;indiquant et reçoit un mois offert à son premier paiement ; une fois six mois payés par le filleul, le parrain reçoit deux mois ajoutés à son échéance</title>
+<rect x="0" y="0" width="820" height="290" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Les deux côtés sont récompensés</text>
+<rect x="30" y="70" width="170" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="115.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Parrain</text>
+<text x="115.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">donne sa référence</text>
+<rect x="250" y="70" width="200" height="64" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="350.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Paiement du filleul</text>
+<text x="350.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">avec la référence</text>
+<rect x="500" y="70" width="290" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="645.0" y="98.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Filleul : 1 mois offert</text>
+<text x="645.0" y="115.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">à son premier paiement</text>
+<rect x="250" y="190" width="200" height="64" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="350.0" y="218.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Seuil atteint</text>
+<text x="350.0" y="235.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">6 mois payés</text>
+<rect x="500" y="190" width="290" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="645.0" y="218.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">✓ Parrain : 2 mois</text>
+<text x="645.0" y="235.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ajoutés à son échéance</text>
+<line x1="202.0" y1="102.0" x2="248.0" y2="102.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="452.0" y1="102.0" x2="498.0" y2="102.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="350.0" y1="136.0" x2="350.0" y2="188.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="452.0" y1="222.0" x2="498.0" y2="222.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

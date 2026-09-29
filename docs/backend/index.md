@@ -356,6 +356,18 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
+## Calendrier monotone (*Monotonic clock*)
+
+![L'horloge de l'ordinateur va du 1er au 2 mars puis est reculée au 20 février ; le calendrier de l'application ignore le recul, reste au 2 mars puis passe au 3 mars au rythme du temps écoulé](/diagrams/calendrier-monotone.svg)
+
+**Définition simple** : Une horloge qui ne recule jamais. Le programme tient son propre calendrier : quand l'horloge de l'ordinateur avance, il avance d'autant ; quand elle recule, il ignore le recul puis continue d'avancer au rythme du temps réellement écoulé. Reculer l'heure ne fait donc gagner aucun jour. Les systèmes d'exploitation fournissent aussi une horloge monotone, mais elle repart de zéro à chaque démarrage : il faut garder la dernière valeur connue.
+
+**Contexte / exemple concret** : Décidé pour Boutik (pas encore construit) : le temps d'essai et de licence est compté sur ce calendrier ; avec internet, l'heure du serveur sert de référence. Une question d'horloge ne bloque jamais les ventes : un message simple suffit. Une date très lointaine enregistrée par erreur se corrige par le partage de connexion ou un code signé de correction d'horloge.
+
+**Termes liés** : [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [Ne jamais faire confiance à l'utilisateur](#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
 ## Identifiant de poste (*device_id*)
 
 **Définition simple** : Un numéro unique donné à chaque ordinateur où l'application est installée, pour savoir de quel appareil vient chaque action.
@@ -363,6 +375,18 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Boutik crée cet identifiant au premier lancement et le garde dans `device.json`. Chaque événement du journal porte le `device_id` du poste qui l'a écrit, ce qui servira à la synchronisation entre caisses.
 
 **Termes liés** : [Horloge logique](#horloge-logique-logical-clock-lamport-clock), [UUID](#uuid-universally-unique-identifier), [Synchronisation](#synchronisation).
+
+---
+
+## Empreinte matérielle (*Hardware fingerprint*)
+
+![Carte mère, processeur et disque forment l'empreinte ; avec le disque seul remplacé, deux pièces sur trois concordent et c'est le même ordinateur ; avec trois pièces différentes, c'est un autre ordinateur ; seul un résumé brouillé quitte l'ordinateur](/diagrams/empreinte-materielle.svg)
+
+**Définition simple** : Une façon de reconnaître un ordinateur à partir de quelques-unes de ses pièces (carte mère, processeur, disque). Une empreinte tolérante reconnaît encore l'ordinateur si la majorité des pièces sont les mêmes : changer un disque ne le transforme pas en un autre. On n'envoie qu'un résumé brouillé (haché) de l'empreinte : il permet de comparer, jamais de retrouver les pièces.
+
+**Contexte / exemple concret** : Décidé pour la licence de Boutik : seul un changement d'ordinateur compte comme transfert (2 par an) ; réinstaller Boutik ou restaurer une sauvegarde sur le même ordinateur est gratuit. L'[identifiant de poste](#identifiant-de-poste-device-id) du journal, qui sert à la synchronisation, reste distinct.
+
+**Termes liés** : [Identifiant de poste](#identifiant-de-poste-device-id), [Hachage](#hachage-hash-empreinte), [Appairage d'un poste](/business/#appairage-d-un-poste-device-pairing), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -698,6 +722,18 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
+## Caractère de contrôle (*Check character*)
+
+![La référence BTK-7K4 est suivie du caractère de contrôle M ; recalculé, il concorde ; BTK-7K4N est refusée comme faute de frappe. Un code tapé en blocs dit « le bloc 3 contient une erreur »](/diagrams/caractere-de-controle.svg)
+
+**Définition simple** : Un caractère ajouté à la fin d'un code, calculé à partir des autres (comme la clé d'un RIB ou le dernier chiffre d'un code-barres). En le recalculant, on détecte la plupart des fautes de frappe (un caractère changé, deux caractères inversés) avant même d'utiliser le code. Mis sur chaque bloc d'un long code, il dit dans quel bloc est l'erreur.
+
+**Contexte / exemple concret** : Décidé pour Boutik : la référence de paiement (`BTK-7K4M`) se termine par un caractère de contrôle ; le code d'activation tapé en dernier recours est découpé en blocs de 5 caractères, vérifiés un par un (« le bloc 7 contient une erreur »).
+
+**Termes liés** : [Hachage](#hachage-hash-empreinte), [Référence de paiement](/business/#reference-de-paiement-payment-reference), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
 ## SHA-256
 
 **Définition simple** : Une fonction de hachage très répandue, qui donne une empreinte de 256 bits (64 caractères hexadécimaux) pour n'importe quelle donnée. Rapide : faite pour vérifier des fichiers, pas pour protéger des mots de passe.
@@ -764,7 +800,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Une seconde paire de clés, préparée à l'avance et gardée hors ligne, dont la clé publique est déjà connue des programmes qui vérifient. Si la clé en service fuit, on passe à la réserve (c'est la rotation de clé) par une simple mise à jour, sans refaire la confiance poste par poste.
 
-**Contexte / exemple concret** : Conçu pour Boutik : dès la première version, l'application embarque les clés publiques de deux clés de licence, celle en service et une de réserve gardée hors ligne. La clé des mises à jour n'a pas encore de réserve : c'est une question ouverte de `docs/licence.md`.
+**Contexte / exemple concret** : Décidé pour Boutik : dès la première version, l'application embarque les clés publiques de deux clés de licence et de deux clés de mises à jour, chaque fois celle en service et une de réserve, gardée hors ligne ailleurs que la clé en service.
 
 **Termes liés** : [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key), [Signature cryptographique](#signature-cryptographique-digital-signature), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 
@@ -854,6 +890,16 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ---
 
+## Ne jamais faire confiance à l'utilisateur (*Never trust the user*)
+
+**Définition simple** : Un principe de conception : aucune protection ne doit reposer sur la bonne foi de la personne qui utilise le logiciel (une case cochée, une date qu'elle peut changer, un fichier qu'elle peut effacer, un message qu'elle envoie). Et l'interface ne révèle jamais comment on se protège : elle décrit la situation, pas le mécanisme, parce qu'une protection expliquée est une protection contournée.
+
+**Contexte / exemple concret** : Principe premier de la licence de Boutik (décidé le 29 septembre 2026). L'essai commence à la création de la boutique, inscrite dans le journal, plutôt qu'à une date qu'on pourrait effacer ; le temps se compte sur un [calendrier monotone](#calendrier-monotone-monotonic-clock) et non sur l'horloge ; pour débloquer un mot de passe, Drissa rappelle le numéro enregistré à l'achat, jamais celui qui a écrit. Le message affiché reste « L'heure de cet ordinateur semble incorrecte », sans rien dire du calendrier.
+
+**Termes liés** : [Défense en profondeur](#defense-en-profondeur-defense-in-depth), [Validation côté serveur / côté client](#validation-cote-serveur-cote-client-server-side-client-side-validation), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
 ## Surface d'attaque (*Attack surface*)
 
 **Définition simple** : L'ensemble des points par lesquels un attaquant peut essayer d'entrer ou d'agir : chaque canal, chaque champ de saisie, chaque dépendance. Moins il y en a, mieux c'est.
@@ -900,7 +946,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un état où l'on peut encore tout consulter et exporter, mais plus créer ni modifier. Pour une licence expirée, c'est l'alternative au blocage total : le client garde l'accès à ses données, seul le travail nouveau s'arrête.
 
-**Contexte / exemple concret** : Conçu pour Boutik : après la fin d'une licence ou d'un essai et 7 jours de grâce, consultation, historique, ardoises, stock et export restent possibles, mais plus de nouvelle vente. Règle : ne jamais prendre les données en otage. Le périmètre exact (remboursement d'une ardoise, entrée de stock) reste une question ouverte.
+**Contexte / exemple concret** : Décidé pour Boutik (pas encore construit) : après la fin d'une licence ou d'un essai et 7 jours de grâce, restent possibles la consultation, l'export de toutes les données, les remboursements des clients (sinon les ardoises deviendraient fausses), la réimpression d'un ancien ticket, les actions de sécurité, les sauvegardes et les corrections de sécurité ; sont bloqués les nouvelles ventes, la création et la modification de produits, clients, fournisseurs et stock, l'import et la création d'employés. Un bandeau discret propose « Renouveler ». L'export des données sera construit avant que la licence puisse bloquer quoi que ce soit.
 
 **Termes liés** : [Licence logicielle](/business/#licence-logicielle-software-license), [Permissions et modules](#permissions-et-modules), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
@@ -910,7 +956,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Quand un logiciel « appelle la maison » : il contacte, souvent en arrière-plan, un serveur de son éditeur (vérifier une licence, envoyer des statistiques).
 
-**Contexte / exemple concret** : Boutik n'en a pas besoin pour fonctionner : les licences se vérifient hors ligne par signature. Seule exception prévue (conçue, pas construite) : l'essai s'enregistre discrètement auprès du serveur quand une connexion apparaît ; ce qui est envoyé reste à décider (voir `docs/licence.md`, questions ouvertes).
+**Contexte / exemple concret** : Boutik n'en a pas besoin pour fonctionner : les licences se vérifient hors ligne par signature. Quand une connexion existe, il échange quelques informations techniques avec le serveur (identifiant technique du poste, résumé brouillé de l'empreinte matérielle, version, état de l'essai ou de la licence), jamais une donnée de la boutique. La politique de confidentialité le dit honnêtement, sans expliquer le rôle de ces informations contre la fraude ; il n'y a pas d'option pour le désactiver, puisque sans connexion rien ne part (décidé le 29 septembre 2026, pas encore construit).
 
 **Termes liés** : [Hors ligne d'abord](#hors-ligne-d-abord-offline-first), [Signature cryptographique](#signature-cryptographique-digital-signature).
 

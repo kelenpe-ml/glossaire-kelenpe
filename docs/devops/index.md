@@ -518,7 +518,7 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Définition simple** : Un document écrit avant le code, qui consigne les décisions d'un système (ce qu'on fait, ce qu'on ne fait pas, et pourquoi), les valeurs choisies et les questions encore ouvertes. Il évite de refaire les mêmes débats, et sert de référence pour vérifier le code plus tard.
 
-**Contexte / exemple concret** : `docs/licence.md` du dépôt Boutik : licence, mises à jour et backoffice, conçus avant toute ligne de code, avec un tableau des valeurs propres à Boutik et 22 questions ouvertes.
+**Contexte / exemple concret** : `docs/licence.md` du dépôt Boutik : licence, mises à jour et backoffice, conçus avant toute ligne de code. La première version (28 septembre 2026) listait 22 questions ouvertes ; Drissa les a tranchées le lendemain, chacune remplacée par sa décision et sa raison, et le document se termine par l'ordre de construction.
 
 **Termes liés** : [Implémentation de référence](#implementation-de-reference-reference-implementation), [Skill personnel](#skill-personnel-personal-skill), [README](#readme).
 
@@ -978,6 +978,18 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 ---
 
+## Numérotation des versions (*Release and patch numbering*)
+
+![La version 1.4 est suivie de travail en cours puis de la version 1.5 ; depuis 1.4, les correctifs 1.4.1 et 1.4.2 n'apportent que des corrections, 1.4.2 portant l'étiquette correction de sécurité](/diagrams/numerotation-versions.svg)
+
+**Définition simple** : Séparer les **versions**, qui apportent des nouveautés (1.4 → 1.5), des **correctifs**, qui n'apportent que des corrections (1.4.1 → 1.4.2). On peut ainsi publier une correction urgente sans embarquer le travail en cours, pas encore prêt. C'est une application de la [version majeure / mineure / correctif](#version-majeure-semantic-versioning-semver).
+
+**Contexte / exemple concret** : Décidé pour Boutik : chaque publication porte aussi l'étiquette « contient une correction de sécurité », ou non ; un poste en lecture seule ne se voit proposer que celles qui la portent, sans version spéciale pour lui.
+
+**Termes liés** : [Version majeure](#version-majeure-semantic-versioning-semver), [Correction en avant](#correction-en-avant-fix-forward), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
+
+---
+
 ## Fin de support (*End of life, EOL*)
 
 **Définition simple** : La date après laquelle un logiciel ne reçoit plus de corrections, même de sécurité. L'utiliser après devient risqué.
@@ -1346,15 +1358,37 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 ---
 
+## Partage de connexion par USB (*USB tethering*)
+
+**Définition simple** : Donner l'internet du téléphone à un ordinateur par le câble USB, au lieu du Wi-Fi. Le téléphone apparaît alors comme une carte réseau. Cela marche même sur un ordinateur sans Wi-Fi, et le téléphone se recharge en même temps.
+
+**Contexte / exemple concret** : Première voie d'activation de la licence de Boutik (décidée le 29 septembre 2026) : le partage de connexion, en Wi-Fi ou par câble USB, pour qu'un ordinateur de caisse sans Wi-Fi puisse s'activer en ligne ; l'échange ne pèse que quelques kilo-octets. Ne pas confondre avec le mode « Transfert de fichiers », qui sert à la sauvegarde par câble.
+
+**Termes liés** : [Connexion facturée à l'usage](#connexion-facturee-a-l-usage-metered-connection), [Mode recharge seule / transfert de fichiers](#mode-recharge-seule-transfert-de-fichiers-usb-charging-only-file-transfer), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
 ## Retour à la version précédente (*Rollback*)
 
 ![Version 1, copie, version 2 installée, puis contrôle du démarrage : si oui, la version 2 est gardée ; sinon, la version 1 est relancée et la copie reste disponible](/diagrams/retour-version-precedente.svg)
 
 **Définition simple** : Revenir automatiquement à la version d'avant quand une mise à jour ne fonctionne pas (le programme ne démarre pas, ou plante au lancement). On garde l'ancienne version et une copie des données jusqu'à ce que la nouvelle ait prouvé qu'elle démarre. À ne pas confondre avec le [journal de retour arrière](/backend/#journal-de-retour-arriere-rollback-journal) de SQLite.
 
-**Contexte / exemple concret** : Conçu pour Boutik : copie de sauvegarde avant d'installer, puis retour à la précédente si la nouvelle ne démarre pas. Limite connue : si la nouvelle version a déjà écrit des données d'un nouveau format, l'ancienne ne sait pas les lire, et il faut aussi revenir à la copie.
+**Contexte / exemple concret** : Décidé pour Boutik : retour automatique uniquement si la nouvelle version ne démarre pas, donc avant toute écriture ; si elle a fonctionné puis pose problème, on publie une [correction en avant](#correction-en-avant-fix-forward). La copie faite avant l'installation reste un dernier recours, avec Drissa.
 
 **Termes liés** : [Mise à jour de l'application](#mise-a-jour-de-l-application-application-update-distribution-des-versions), [Mise à jour différentielle](#mise-a-jour-differentielle-differential-update-delta), [Sauvegarde de la base](/backend/#sauvegarde-de-la-base-database-backup), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
+
+---
+
+## Correction en avant (*Fix forward*)
+
+![La version 1.5 installée : si elle ne démarre pas, rien n'a été écrit et le retour automatique à 1.4 est sûr ; si elle a fonctionné puis pose problème, on publie 1.5.1 ; revenir à 1.4 serait dangereux, car elle ne lit pas les données écrites par 1.5](/diagrams/correction-en-avant.svg)
+
+**Définition simple** : Corriger un problème en publiant une nouvelle version (1.5 → 1.5.1) plutôt qu'en revenant à l'ancienne. C'est la bonne réponse dès que la nouvelle version a écrit des données : l'ancienne ne saurait pas les lire, et revenir en arrière risquerait de les abîmer.
+
+**Contexte / exemple concret** : Décidé pour Boutik : [retour à la version précédente](#retour-a-la-version-precedente-rollback) seulement si la nouvelle version ne démarre pas ; sinon correction en avant, la copie faite avant l'installation restant un dernier recours avec Drissa.
+
+**Termes liés** : [Retour à la version précédente](#retour-a-la-version-precedente-rollback), [Numérotation des versions](#numerotation-des-versions-release-and-patch-numbering), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
 
 ---
 

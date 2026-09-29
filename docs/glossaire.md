@@ -79,11 +79,13 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Cache invalidation](/backend/#cache-invalidation)** — *Backend & architecture*
 - **[Caching](/backend/#caching)** — *Backend & architecture*
 - **[Caddy](/devops/#caddy)** — *DevOps & infra*
+- **[Calendrier monotone (Monotonic clock)](/backend/#calendrier-monotone-monotonic-clock)** — *Backend & architecture*
 - **[Canal IPC (IPC channel)](/backend/#canal-ipc-ipc-channel)** — *Backend & architecture*
 - **[Canvas](/media/#canvas)** — *Édition média*
 - **[Cap table (Table de capitalisation)](/business/#cap-table-table-de-capitalisation)** — *Jargon entrepreneurial*
 - **[Capital social](/business/#capital-social)** — *Jargon entrepreneurial*
 - **[Capital-risque (Venture Capital, VC)](/business/#capital-risque-venture-capital-vc)** — *Jargon entrepreneurial*
+- **[Caractère de contrôle (Check character)](/backend/#caractere-de-controle-check-character)** — *Backend & architecture*
 - **[Carousel](/frontend/#carousel)** — *Frontend & UI/UX*
 - **[Caviardage des données sensibles (Redaction)](/backend/#caviardage-des-donnees-sensibles-redaction)** — *Backend & architecture*
 - **[CDN (Content Delivery Network)](/devops/#cdn-content-delivery-network)** — *DevOps & infra*
@@ -108,6 +110,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[CMAF](/streaming/#cmaf)** — *Transcoding & streaming*
 - **[Code mort (Dead code)](/backend/#code-mort-dead-code)** — *Backend & architecture*
 - **[Code QR (QR code)](/media/#code-qr-qr-code)** — *Édition média*
+- **[Code signé de nouvel essai (Signed trial reset code)](/business/#code-signe-de-nouvel-essai-signed-trial-reset-code)** — *Jargon entrepreneurial*
 - **[Codec](/streaming/#codec)** — *Transcoding & streaming*
 - **[Codes de secours et récupération d'un compte hors ligne](/architectures/codes-de-secours)** — *Architectures*
 - **[Commit](/devops/#commit)** — *DevOps & infra*
@@ -126,6 +129,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[contextBridge](/backend/#contextbridge)** — *Backend & architecture*
 - **[Contraste 4,5:1 (WCAG contrast)](/frontend/#contraste-4-5-1-wcag-contrast)** — *Frontend & UI/UX*
 - **[Copyleft](/business/#copyleft)** — *Jargon entrepreneurial*
+- **[Correction en avant (Fix forward)](/devops/#correction-en-avant-fix-forward)** — *DevOps & infra*
 - **[CORS (Cross-Origin Resource Sharing)](/backend/#cors-cross-origin-resource-sharing)** — *Backend & architecture*
 - **[Coté en bourse (IPO)](/business/#cote-en-bourse-publicly-listed-ipo)** — *Jargon entrepreneurial*
 - **[Couche 4 / couche 7 (L4 / L7)](/devops/#couche-4-couche-7-l4-l7)** — *DevOps & infra*
@@ -170,6 +174,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## E
 
+- **[Empreinte matérielle (Hardware fingerprint)](/backend/#empreinte-materielle-hardware-fingerprint)** — *Backend & architecture*
 - **[Envoy](/devops/#envoy)** — *DevOps & infra*
 - **[Exception à une règle de sécurité (Security exception)](/backend/#exception-a-une-regle-de-securite-security-exception)** — *Backend & architecture*
 - **[.exe](/devops/#exe)** — *DevOps & infra*
@@ -374,6 +379,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[nativeImage](/media/#nativeimage)** — *Édition média*
 - **[NDVI](/cropsuite/#ndvi)** — *CropSuite (PFE)*
+- **[Ne jamais faire confiance à l'utilisateur (Never trust the user)](/backend/#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user)** — *Backend & architecture*
 - **[Nginx](/devops/#nginx)** — *DevOps & infra*
 - **[NIF (Numéro d'Identification Fiscale)](/business/#nif-numero-d-identification-fiscale)** — *Jargon entrepreneurial*
 - **[Niveau de journalisation (Log level)](/devops/#niveau-de-journalisation-log-level)** — *DevOps & infra*
@@ -385,6 +391,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[npm audit](/devops/#npm-audit)** — *DevOps & infra*
 - **[npm ci](/devops/#npm-ci)** — *DevOps & infra*
 - **[NSIS (Nullsoft Scriptable Install System)](/devops/#nsis-nullsoft-scriptable-install-system)** — *DevOps & infra*
+- **[Numérotation des versions (Release and patch numbering)](/devops/#numerotation-des-versions-release-and-patch-numbering)** — *DevOps & infra*
 
 ## O
 
@@ -408,6 +415,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Pagination](/backend/#pagination)** — *Backend & architecture*
 - **[Pair-à-pair (Peer-to-peer, P2P)](/backend/#pair-a-pair-peer-to-peer-p2p)** — *Backend & architecture*
 - **[Parrainage (Referral program)](/business/#parrainage-referral-program)** — *Jargon entrepreneurial*
+- **[Parrainage bilatéral (Two-sided referral)](/business/#parrainage-bilateral-two-sided-referral)** — *Jargon entrepreneurial*
+- **[Partage de connexion par USB (USB tethering)](/devops/#partage-de-connexion-par-usb-usb-tethering)** — *DevOps & infra*
 - **[Payload (Charge utile)](/backend/#payload-charge-utile)** — *Backend & architecture*
 - **[Percentile (p95)](/frontend/#percentile-p95)** — *Frontend & UI/UX*
 - **[Période critique](/cropsuite/#periode-critique)** — *CropSuite (PFE)*
@@ -444,6 +453,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Promesse et await (Promise)](/backend/#promesse-et-await-promise)** — *Backend & architecture*
 - **[Promesse rejetée sans traitement (Unhandled rejection)](/backend/#promesse-rejetee-sans-traitement-unhandled-rejection)** — *Backend & architecture*
 - **[Props](/frontend/#props)** — *Frontend & UI/UX*
+- **[Prorata](/business/#prorata)** — *Jargon entrepreneurial*
 - **[Protocole personnalisé (Custom protocol)](/backend/#protocole-personnalise-custom-protocol)** — *Backend & architecture*
 - **[Proxy direct (Forward proxy)](/devops/#proxy-direct-forward-proxy)** — *DevOps & infra*
 - **[Pull request (PR, demande de fusion)](/devops/#pull-request-pr-demande-de-fusion)** — *DevOps & infra*

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Numérotation des versions : les versions 1.4 puis 1.5 apportent les nouveautés ; depuis 1.4, les correctifs 1.4.1 et 1.4.2 n&#x27;apportent que des corrections, sans le travail en cours ; l&#x27;étiquette correction de sécurité décide de ce qui est proposé à un poste en lecture seule" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Numérotation des versions : les versions 1.4 puis 1.5 apportent les nouveautés ; depuis 1.4, les correctifs 1.4.1 et 1.4.2 n&#x27;apportent que des corrections, sans le travail en cours ; l&#x27;étiquette correction de sécurité décide de ce qui est proposé à un poste en lecture seule</title>
+<rect x="0" y="0" width="820" height="320" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Versions et correctifs</text>
+<text x="30" y="93" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Versions</text>
+<text x="30" y="203" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Correctifs</text>
+<text x="30" y="282" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Un poste en lecture seule ne se voit proposer que les publications « correction de sécurité ».</text>
+<rect x="170" y="60" width="130" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="235.0" y="84.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">1.4</text>
+<text x="235.0" y="101.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">version</text>
+<rect x="350" y="60" width="200" height="56" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="450.0" y="84.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Travail en cours</text>
+<text x="450.0" y="101.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">pas encore publié</text>
+<rect x="600" y="60" width="130" height="56" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="665.0" y="84.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">1.5</text>
+<text x="665.0" y="101.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">nouveautés</text>
+<rect x="170" y="170" width="200" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="270.0" y="194.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">1.4.1</text>
+<text x="270.0" y="211.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">correction simple</text>
+<rect x="420" y="170" width="310" height="56" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="575.0" y="194.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">1.4.2</text>
+<text x="575.0" y="211.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">étiquette « correction de sécurité »</text>
+<line x1="302.0" y1="88.0" x2="348.0" y2="88.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="552.0" y1="88.0" x2="598.0" y2="88.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="244.5" y1="118.0" x2="260.5" y2="168.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+<line x1="372.0" y1="198.0" x2="418.0" y2="198.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
+</svg>

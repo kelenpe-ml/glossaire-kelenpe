@@ -41,12 +41,13 @@ Faire que plusieurs postes d'un même lieu (plusieurs caisses d'une boutique) vo
 
 ## Exemple : Boutik
 
-État : **conçu, pas construit** (mis à jour le 28 septembre 2026).
+État : **conçu, pas construit** (mis à jour le 29 septembre 2026).
 
 - **Déjà préparé :**
   - chaque événement porte `device_id` et `logical_clock`, tenus dans `device.json` (`src/main/events/device.ts`, `nextLogicalClock`) ;
   - tous les objets ont un UUID ;
   - le plan des images est dans `docs/images.md`.
+- **Lien avec la licence :** au lancement, seule la formule Solo (1 poste) est vendue. Duo et Boutique arriveront avec la synchronisation, dont la priorité sera décidée après les entretiens avec des commerçants (« Combien d'ordinateurs avez-vous ? »).
 - **À faire avant :** rendre le compteur de factures (`compteur_factures`, `src/main/ventes/commands.ts`) dérivable du journal.
 
 ## Termes liés

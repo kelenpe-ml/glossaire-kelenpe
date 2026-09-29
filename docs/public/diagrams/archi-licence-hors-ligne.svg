@@ -1,5 +1,5 @@
-<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Licence logicielle hors ligne : essai, licence active, rappels, grâce puis lecture seule ; la licence est un fichier signé par l&#x27;éditeur, obtenu par connexion ou par code, et vérifié sur le poste" font-family="ui-sans-serif,system-ui,sans-serif">
-<title>Licence logicielle hors ligne : essai, licence active, rappels, grâce puis lecture seule ; la licence est un fichier signé par l&#x27;éditeur, obtenu par connexion ou par code, et vérifié sur le poste</title>
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Licence logicielle hors ligne : essai, licence active, rappels, grâce puis lecture seule ; la licence est signée par l&#x27;éditeur, obtenue par connexion, par fichier ou par code, et vérifiée sur le poste avec l&#x27;empreinte matérielle et un calendrier qui ne recule jamais" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Licence logicielle hors ligne : essai, licence active, rappels, grâce puis lecture seule ; la licence est signée par l&#x27;éditeur, obtenue par connexion, par fichier ou par code, et vérifiée sur le poste avec l&#x27;empreinte matérielle et un calendrier qui ne recule jamais</title>
 <rect x="0" y="0" width="820" height="400" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
 <defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
 <text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Tout doit pouvoir se faire sans que le poste ait jamais internet</text>
@@ -26,11 +26,11 @@
 <text x="655.0" y="234.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Licence signée</text>
 <text x="655.0" y="251.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">vérifiée sans réseau</text>
 <rect x="30" y="312" width="370" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
-<text x="215.0" y="338.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Clés publiques embarquées</text>
-<text x="215.0" y="355.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">en service + réserve</text>
+<text x="215.0" y="338.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Empreinte matérielle</text>
+<text x="215.0" y="355.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">clés embarquées : en service + réserve</text>
 <rect x="420" y="312" width="370" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
-<text x="605.0" y="338.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Horloge contrôlée</text>
-<text x="605.0" y="355.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">jamais avant le dernier événement</text>
+<text x="605.0" y="338.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Calendrier monotone</text>
+<text x="605.0" y="355.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ne recule jamais, compte le temps</text>
 <path d="M 712 126 L 712 160 L 255 160 L 255 128" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
 <rect x="445.3" y="152.0" width="69.4" height="17" rx="4" fill="#f8fafc"/>
 <text x="480" y="164" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">renouveler</text>
@@ -41,7 +41,7 @@
 <line x1="477.0" y1="92.0" x2="498.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
 <line x1="612.0" y1="92.0" x2="633.0" y2="92.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
 <line x1="212.0" y1="238.0" x2="258.0" y2="238.0" stroke="#64748b" stroke-width="2" marker-start="url(#fleche)" marker-end="url(#fleche)"/>
-<rect x="179.5" y="184.0" width="111.0" height="17" rx="4" fill="#f8fafc"/>
-<text x="235" y="196" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">connexion ou code</text>
+<rect x="158.7" y="184.0" width="152.6" height="17" rx="4" fill="#f8fafc"/>
+<text x="235" y="196" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#475569">connexion, fichier, code</text>
 <line x1="462.0" y1="238.0" x2="518.0" y2="238.0" stroke="#64748b" stroke-width="2" marker-end="url(#fleche)"/>
 </svg>

@@ -378,9 +378,19 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un temps pendant lequel on peut utiliser le logiciel gratuitement, pour le juger avant d'acheter.
 
-**Contexte / exemple concret** : Conçue pour Boutik : un mois, toutes les fonctionnalités, sans paiement ni internet au démarrage ; le commerçant s'en sert dans sa vraie boutique, puis achète une licence s'il est convaincu.
+**Contexte / exemple concret** : Décidée pour Boutik : un mois, toutes les fonctionnalités, sans paiement ni internet. L'essai commence à la création de la boutique, inscrite dans le journal : restaurer une sauvegarde restaure cette date, et un nouvel essai impose de repartir d'une boutique vide. Drissa peut en offrir un par un [code signé de nouvel essai](#code-signe-de-nouvel-essai-signed-trial-reset-code).
 
 **Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Onboarding](#onboarding-accueil-du-nouvel-utilisateur), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Code signé de nouvel essai (*Signed trial reset code*)
+
+**Définition simple** : Un code fabriqué et signé par l'éditeur, qui autorise un ordinateur précis à recommencer une période d'essai. L'application le vérifie sans internet, grâce à la signature ; personne d'autre ne peut en fabriquer.
+
+**Contexte / exemple concret** : Décidé pour Boutik : sans ce code, un nouvel essai impose de repartir d'une boutique vide ; avec lui, Drissa peut offrir un nouvel essai à un commerçant qui a abandonné puis veut réessayer. Il passe par les mêmes voies que les autres codes signés (partage de connexion, fichier, code tapé).
+
+**Termes liés** : [Période d'essai](#periode-d-essai-trial-period), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
@@ -388,9 +398,21 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Les différentes offres d'un même logiciel, à des prix différents, selon l'usage (nombre de postes, fonctions).
 
-**Contexte / exemple concret** : Formules conçues pour Boutik (prix à confirmer par des entretiens) : Solo (1 poste), Duo (2 postes), Boutique (jusqu'à 5 postes), payées à l'année ou au trimestre. Détail : `docs/licence.md` du dépôt Boutik.
+**Contexte / exemple concret** : Décidées pour Boutik (prix à confirmer par des entretiens) : Solo (1 poste), Duo (2 postes), Boutique (jusqu'à 5 postes), à l'année ou au trimestre (prix annuel ÷ 4 + 20 %). Au lancement, seule Solo est vendue : Duo et Boutique arriveront avec la synchronisation entre postes. Détail : `docs/licence.md` du dépôt Boutik.
 
 **Termes liés** : [Poste facturable](#poste-facturable-billable-seat), [Licence logicielle](#licence-logicielle-software-license), [Fonctionnalités à la carte](#fonctionnalites-a-la-carte-add-on-features), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Prorata
+
+**Définition simple** : Payer en proportion du temps (ou de la quantité) réellement concerné. Changer d'offre en cours de période au prorata, c'est ne payer la différence que pour le temps qui reste.
+
+**Contexte / exemple concret** : Décidé pour Boutik : monter de formule à tout moment en payant la différence pour le temps restant, sans changer l'échéance ; descendre seulement au renouvellement, sans remboursement.
+
+**Calcul** : à payer = (prix annuel de la nouvelle formule − prix annuel de l'ancienne) × jours restants ÷ 365. Passer de Solo (60 000 FCFA) à Duo (90 000 FCFA) avec 146 jours restants : (90 000 − 60 000) × 146 ÷ 365 = 12 000 FCFA.
+
+**Termes liés** : [Formules de licence](#formules-de-licence-license-tiers), [Licence annuelle](#licence-annuelle-annual-license).
 
 ---
 
@@ -428,7 +450,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un code court, propre à chaque client, qu'il indique avec son paiement (dans le motif d'un transfert d'argent mobile, par exemple) pour que l'éditeur sache sans ambiguïté qui a payé quoi.
 
-**Contexte / exemple concret** : Conçu pour Boutik : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4M`. Au lancement, Drissa rapproche le paiement et la référence, puis valide d'un clic dans le backoffice, ce qui fabrique la licence.
+**Contexte / exemple concret** : Décidé pour Boutik : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4M`, calculée sur l'ordinateur à la création de la boutique, sans internet, et terminée par un [caractère de contrôle](/backend/#caractere-de-controle-check-character). Elle s'affiche dans « Acheter » et dans Réglages ; le backoffice détecte les doublons ; elle sert aussi au parrainage.
 
 **Termes liés** : [Backoffice](/backend/#backoffice), [Licence logicielle](#licence-logicielle-software-license), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 
@@ -438,7 +460,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Une réduction réservée aux tout premiers clients, en échange de leur confiance et de leur aide (retours, témoignage, recommandation). Elle dure en général tant qu'ils restent clients sans interruption.
 
-**Contexte / exemple concret** : Conçu pour Boutik : 10 boutiques fondatrices, −30 % pendant 2 ans tant qu'elles renouvellent sans interruption, en échange de retours, d'un témoignage, et de montrer Boutik à un commerçant intéressé.
+**Contexte / exemple concret** : Décidé pour Boutik : 10 boutiques fondatrices, −30 % pendant 2 ans tant qu'elles renouvellent sans interruption, trimestres compris (Solo : 12 600 FCFA le trimestre), en échange de retours, d'un témoignage, et de montrer Boutik à un commerçant intéressé. Une fondatrice peut aussi parrainer.
 
 **Termes liés** : [Parrainage](#parrainage-referral-program), [Formules de licence](#formules-de-licence-license-tiers).
 
@@ -448,9 +470,21 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Récompenser un client qui en amène un autre. Cela coûte moins cher qu'une publicité, et la recommandation d'un pair convainc mieux qu'une annonce.
 
-**Contexte / exemple concret** : Conçu pour Boutik : 2 mois offerts au parrain. Les conditions (le filleul doit-il payer une année ? cumul avec le prix fondateur ?) restent des questions ouvertes.
+**Contexte / exemple concret** : Décidé pour Boutik : un [parrainage bilatéral](#parrainage-bilateral-two-sided-referral), où le filleul reçoit 1 mois et le parrain 2.
 
 **Termes liés** : [Prix fondateur](#prix-fondateur-founder-pricing), [Formules de licence](#formules-de-licence-license-tiers).
+
+---
+
+## Parrainage bilatéral (*Two-sided referral*)
+
+![Le parrain donne sa référence ; le filleul paie en l'indiquant et reçoit un mois offert à son premier paiement ; une fois six mois payés, le parrain reçoit deux mois ajoutés à son échéance](/diagrams/parrainage-bilateral.svg)
+
+**Définition simple** : Un parrainage qui récompense les deux côtés : le client qui recommande (parrain) et le nouveau client (filleul). Le filleul a une raison de dire qui l'a envoyé, et le parrain une raison de recommander. La récompense du parrain attend souvent un seuil (un certain montant payé par le filleul), pour ne pas payer une recommandation qui ne dure pas.
+
+**Contexte / exemple concret** : Décidé pour Boutik : le filleul indique la référence de paiement de son parrain en payant et reçoit 1 mois offert à son premier paiement ; le parrain reçoit 2 mois, ajoutés à son échéance, quand le filleul a payé au moins 6 mois (une année ou deux trimestres).
+
+**Termes liés** : [Parrainage](#parrainage-referral-program), [Prix fondateur](#prix-fondateur-founder-pricing), [Référence de paiement](#reference-de-paiement-payment-reference).
 
 ---
 
