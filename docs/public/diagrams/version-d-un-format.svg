@@ -1,0 +1,24 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Version d&#x27;un format : chaque fichier dit sa version ; la version 2 ajoute des champs à la fin ; le lecteur accepte les deux, et complète une version 1 avec les valeurs qu&#x27;elle sous-entend" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Version d&#x27;un format : chaque fichier dit sa version ; la version 2 ajoute des champs à la fin ; le lecteur accepte les deux, et complète une version 1 avec les valeurs qu&#x27;elle sous-entend</title>
+<rect x="0" y="0" width="820" height="330" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Deux versions du même fichier de licence</text>
+<rect x="30" y="58" width="330" height="58" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="195.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Version 1 : 61 octets</text>
+<text x="195.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">boutique, poste, formule, dates</text>
+<rect x="30" y="132" width="330" height="58" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="195.0" y="157.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Version 2 : 66 octets</text>
+<text x="195.0" y="174.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">version 1 + type + fin des mises à jour</text>
+<line x1="362" y1="87" x2="452" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<line x1="362" y1="161" x2="452" y2="150" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="455" y="108" width="335" height="64" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="622.5" y="136.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Lecteur de Boutik</text>
+<text x="622.5" y="153.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">lit le numéro de version d&#x27;abord</text>
+<rect x="455" y="200" width="335" height="58" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="622.5" y="225.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Version 1 complétée</text>
+<text x="622.5" y="242.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">abonnement, mises à jour jusqu&#x27;à la fin</text>
+<line x1="622" y1="174" x2="622" y2="198" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<text x="30" y="230" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Une version inconnue, ou une taille qui ne va pas avec la version,</text>
+<text x="30" y="248" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">est refusée, jamais devinée.</text>
+<text x="30" y="300" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Les licences déjà vendues restent valables : rien à refaire chez les commerçants.</text>
+</svg>

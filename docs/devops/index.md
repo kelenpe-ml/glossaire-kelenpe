@@ -16,6 +16,16 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ---
 
+## Fichier de configuration (*Configuration file*)
+
+**Définition simple** : Un fichier qui regroupe des valeurs susceptibles de changer (prix, numéros, adresses, réglages), séparées du code qui s'en sert. Pour changer une valeur, on modifie ce seul fichier, sans toucher au reste ni risquer d'en oublier un exemplaire ailleurs.
+
+**Contexte / exemple concret** : Les prix de Boutik (Solo à l'année, au trimestre, achat définitif, forfait de mises à jour) et les numéros Orange Money et Moov Money sont dans `src/shared/licence/offre.ts`, seul endroit à modifier ; un test vérifie qu'ils respectent les règles (trimestre = année ÷ 4 + 20 %, achat définitif au moins égal à 5 ans d'abonnement).
+
+**Termes liés** : [Achat définitif ou licence perpétuelle](/business/#achat-definitif-ou-licence-perpetuelle-perpetual-license), [CI/CD](#ci-cd-integration-continue-deploiement-continu).
+
+---
+
 ## Pipeline
 
 **Définition simple** : une séquence d'étapes automatisées et enchaînées, chacune ne démarrant que si la précédente a réussi (build → test → package → déploiement, ou probe → transcode → package pour une vidéo).

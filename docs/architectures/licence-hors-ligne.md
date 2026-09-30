@@ -38,6 +38,8 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
   - Ce qui est bloqué, c'est le travail nouveau.
   - Tout ce qui protège le client reste possible : consulter, exporter tout, corriger un compte existant, réimprimer, sécurité, sauvegarde.
   - L'export des données doit exister **avant** que la licence puisse bloquer quoi que ce soit.
+- **Achat définitif en option,** à côté de l'abonnement mis en avant : licence qui n'expire jamais pour la version achetée, un an de mises à jour compris, puis un [forfait de mises à jour](/business/#forfait-de-mises-a-jour-maintenance-plan) facultatif ; sans forfait, version figée avec les corrections de sécurité pendant une durée annoncée. Dans le format : un type et une date « mises à jour jusqu'au », par une nouvelle [version du format](/backend/#version-d-un-format-format-version).
+- **Sans internet, demande et réponse :** un [code de demande](/backend/#code-de-demande-request-code) (identifiant des données, empreinte, type, [nonce](/backend/#nonce-number-used-once)) part vers l'éditeur ; la réponse signée revient par fichier (téléphone par câble, ordinateur) ou code tapé en blocs ; les codes spéciaux sont des [codes à usage unique](/backend/#code-a-usage-unique-single-use-code), liés à une demande gardée hors des sauvegardes.
 - **Transferts par le serveur**, dans une limite annuelle. Un ancien poste hors ligne continue jusqu'à la fin de sa période payée.
 - **Déblocage du compte principal par l'éditeur :**
   - après rappel du numéro enregistré à l'achat ;
@@ -69,9 +71,11 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 
 ## Exemple : Boutik
 
-État : **cœur construit** (mis à jour le 30 septembre 2026), avec des clés de **test** seulement ; activation, codes et serveur pas encore construits. Détail : `docs/licence.md`, section « Ce qui est construit ».
+État : **cœur et parcours d'achat sans internet construits** (mis à jour le 30 septembre 2026), avec des clés de **test** seulement ; activation en ligne et serveur pas encore construits. Détail : `docs/licence.md`, sections « Ce qui est construit » et « Parcours d'achat et d'activation sans internet ».
 
-- **Format :** licence de 61 octets en encodage canonique, signée Ed25519 (`src/shared/licence/format.ts`, partagé avec le futur backoffice ; `src/main/licence/signature.ts`).
+- **Format :** licence en encodage canonique, signée Ed25519 : version 1 (61 octets) et version 2 (66 octets, type abonnement ou achat définitif, « mises à jour jusqu'au ») ; les licences version 1 restent valables (`src/shared/licence/format.ts`, partagé avec le futur backoffice ; `src/main/licence/signature.ts`).
+- **Achat sans internet :** écran « Acheter ou renouveler » (Solo à l'année, au trimestre, achat définitif en option ; prix et numéros dans un [fichier de configuration](/devops/#fichier-de-configuration-configuration-file)) ; référence `BTK-` à caractère de contrôle ; code de demande de 19 blocs ; réponse par le téléphone branché (documents WhatsApp), un fichier ou un code tapé (32 ou 31 blocs, bloc faux désigné, somme pondérée modulo 31 plutôt que l'[algorithme de Luhn](/backend/#algorithme-de-luhn-luhn-algorithm)).
+- **Codes spéciaux :** nouvel essai, correction d'horloge (le calendrier repart de l'heure d'émission), déblocage du mot de passe du patron depuis la connexion (24 h, une fois, cet ordinateur ; signalé à la connexion suivante). Demandes en attente dans une table hors journal jamais copiée.
 - **Clés :** T1 et T2 (test) importées seulement en développement ; aucune clé de production n'existe encore, donc l'exécutable n'accepte aucune licence et seul l'essai y fonctionne. Un test sur l'exécutable le vérifie, ainsi que l'absence des clés de test dans le paquet.
 - **Calendrier monotone :** table `licence_calendrier` de la base chiffrée (hors journal), avancée chaque minute, jamais en retard sur le dernier événement.
 - **Empreinte :** carte mère, processeur, disque (PowerShell et CIM sous Windows ; `machine-id`, `/proc/cpuinfo`, `lsblk` sous Linux), 2 pièces sur 3 suffisent.
@@ -80,13 +84,10 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 - **Interface :** Réglages › Licence (import d'un fichier), bandeau « Renouveler », caisse remplacée par une explication en lecture seule.
 - **Reste à faire :**
   1. rappels à 14 et 7 jours ;
-  2. référence de paiement ;
-  3. code de demande, fichier par câble et code tapé ;
-  4. codes spéciaux ;
-  5. trace cachée ;
-  6. backoffice et activation en ligne ;
-  7. mises à jour signées.
+  2. trace cachée ;
+  3. backoffice et activation en ligne ;
+  4. mises à jour signées.
 
 ## Termes liés
 
-[Licence logicielle](/business/#licence-logicielle-software-license) · [Période d'essai](/business/#periode-d-essai-trial-period) · [Formules de licence](/business/#formules-de-licence-license-tiers) · [Poste facturable](/business/#poste-facturable-billable-seat) · [Révocation de licence](/business/#revocation-de-licence-license-revocation) · [Ne jamais faire confiance à l'utilisateur](/backend/#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user) · [Empreinte matérielle](/backend/#empreinte-materielle-hardware-fingerprint) · [Calendrier monotone](/backend/#calendrier-monotone-monotonic-clock) · [Caractère de contrôle](/backend/#caractere-de-controle-check-character) · [Lecture seule](/backend/#lecture-seule-read-only-mode) · [Référence de paiement](/business/#reference-de-paiement-payment-reference) · [Signature cryptographique](/backend/#signature-cryptographique-digital-signature) · [Clé de réserve](/backend/#cle-de-reserve-backup-key-rotation-de-cle) · [Hors ligne d'abord](/backend/#hors-ligne-d-abord-offline-first) · [Encodage canonique](/backend/#encodage-canonique-canonical-encoding) · [Blocage par défaut](/backend/#blocage-par-defaut-deny-by-default) · [Période de grâce](/business/#periode-de-grace-grace-period)
+[Licence logicielle](/business/#licence-logicielle-software-license) · [Période d'essai](/business/#periode-d-essai-trial-period) · [Formules de licence](/business/#formules-de-licence-license-tiers) · [Poste facturable](/business/#poste-facturable-billable-seat) · [Révocation de licence](/business/#revocation-de-licence-license-revocation) · [Ne jamais faire confiance à l'utilisateur](/backend/#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user) · [Empreinte matérielle](/backend/#empreinte-materielle-hardware-fingerprint) · [Calendrier monotone](/backend/#calendrier-monotone-monotonic-clock) · [Caractère de contrôle](/backend/#caractere-de-controle-check-character) · [Lecture seule](/backend/#lecture-seule-read-only-mode) · [Référence de paiement](/business/#reference-de-paiement-payment-reference) · [Signature cryptographique](/backend/#signature-cryptographique-digital-signature) · [Clé de réserve](/backend/#cle-de-reserve-backup-key-rotation-de-cle) · [Hors ligne d'abord](/backend/#hors-ligne-d-abord-offline-first) · [Encodage canonique](/backend/#encodage-canonique-canonical-encoding) · [Blocage par défaut](/backend/#blocage-par-defaut-deny-by-default) · [Période de grâce](/business/#periode-de-grace-grace-period) · [Achat définitif ou licence perpétuelle](/business/#achat-definitif-ou-licence-perpetuelle-perpetual-license) · [Forfait de mises à jour](/business/#forfait-de-mises-a-jour-maintenance-plan) · [Code de demande](/backend/#code-de-demande-request-code) · [Code à usage unique](/backend/#code-a-usage-unique-single-use-code) · [Nonce](/backend/#nonce-number-used-once) · [Version d'un format](/backend/#version-d-un-format-format-version)

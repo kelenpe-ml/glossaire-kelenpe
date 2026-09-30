@@ -368,9 +368,33 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un droit d'usage payé pour un an, à renouveler. L'éditeur a un revenu régulier ; le client paie moins au départ qu'avec un achat définitif.
 
-**Contexte / exemple concret** : Modèle envisagé pour Boutik, avec une période d'essai avant le premier paiement.
+**Contexte / exemple concret** : Offre principale de Boutik, à l'année ou au trimestre, avec une période d'essai avant le premier paiement ; l'[achat définitif](#achat-definitif-ou-licence-perpetuelle-perpetual-license) est proposé en option.
 
 **Termes liés** : [Licence logicielle](#licence-logicielle-software-license), [Période d'essai](#periode-d-essai-trial-period), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Achat définitif ou licence perpétuelle (*Perpetual license*)
+
+![Abonnement payé chaque année, qui mène à la lecture seule s'il n'est pas renouvelé ; achat définitif payé une fois, avec un an de mises à jour, puis un forfait annuel facultatif ; sans forfait, la version reste figée et reçoit les corrections de sécurité pendant deux ans](/diagrams/achat-definitif.svg)
+
+**Définition simple** : Un droit d'usage payé une seule fois, qui ne s'arrête jamais pour la version achetée. Les mises à jour, elles, ne sont comprises que pendant un temps (souvent un an) ; pour continuer à les recevoir, on paie un [forfait de mises à jour](#forfait-de-mises-a-jour-maintenance-plan). Sans ce forfait, le logiciel continue de fonctionner, mais reste sur la dernière version reçue.
+
+**Contexte / exemple concret** : Décidé pour Boutik le 30 septembre 2026, en option à côté de l'abonnement, qui reste mis en avant : 300 000 FCFA en Solo (au moins 5 ans d'abonnement), un an de mises à jour et d'assistance compris, puis 30 000 FCFA par an pour le forfait ; une version figée reçoit encore les corrections de sécurité pendant 2 ans après l'achat. La licence porte son type et une date « mises à jour jusqu'au » ; elle ne mène jamais à la [lecture seule](/backend/#lecture-seule-read-only-mode).
+
+**Termes liés** : [Licence annuelle](#licence-annuelle-annual-license), [Forfait de mises à jour](#forfait-de-mises-a-jour-maintenance-plan), [Formules de licence](#formules-de-licence-license-tiers), [Version d'un format](/backend/#version-d-un-format-format-version), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Forfait de mises à jour (*Maintenance plan*)
+
+![Après l'achat définitif et son année de mises à jour, le forfait annuel payé fait continuer les mises à jour ; sans lui, la version reste figée](/diagrams/achat-definitif.svg)
+
+**Définition simple** : Un montant payé chaque année, après un [achat définitif](#achat-definitif-ou-licence-perpetuelle-perpetual-license), pour continuer à recevoir les nouvelles versions et l'assistance. Il est facultatif : sans lui, le logiciel acheté fonctionne toujours, simplement sans nouveautés.
+
+**Contexte / exemple concret** : Pour Boutik, 30 000 FCFA par an en Solo (à confirmer par le sondage). Quand il est payé, Kelenpe envoie une nouvelle licence définitive dont la date « mises à jour jusqu'au » est repoussée d'un an ; Boutik retient la plus lointaine.
+
+**Termes liés** : [Achat définitif ou licence perpétuelle](#achat-definitif-ou-licence-perpetuelle-perpetual-license), [Licence annuelle](#licence-annuelle-annual-license), [Mises à jour d'une application hors ligne](/architectures/mises-a-jour-hors-ligne).
 
 ---
 
@@ -388,7 +412,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un code fabriqué et signé par l'éditeur, qui autorise un ordinateur précis à recommencer une période d'essai. L'application le vérifie sans internet, grâce à la signature ; personne d'autre ne peut en fabriquer.
 
-**Contexte / exemple concret** : Décidé pour Boutik : sans ce code, un nouvel essai impose de repartir d'une boutique vide ; avec lui, Drissa peut offrir un nouvel essai à un commerçant qui a abandonné puis veut réessayer. Il passe par les mêmes voies que les autres codes signés (partage de connexion, fichier, code tapé).
+**Contexte / exemple concret** : Construit dans Boutik (30 septembre 2026) : sans ce code, un nouvel essai impose de repartir d'une boutique vide ; avec lui, Drissa peut offrir un nouvel essai à un commerçant qui a abandonné puis veut réessayer. Le commerçant envoie un [code de demande](/backend/#code-de-demande-request-code) ; la réponse passe par un fichier (téléphone branché par câble, ordinateur) ou un code tapé, et c'est un [code à usage unique](/backend/#code-a-usage-unique-single-use-code).
 
 **Termes liés** : [Période d'essai](#periode-d-essai-trial-period), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
@@ -460,7 +484,7 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 **Définition simple** : Un code court, propre à chaque client, qu'il indique avec son paiement (dans le motif d'un transfert d'argent mobile, par exemple) pour que l'éditeur sache sans ambiguïté qui a payé quoi.
 
-**Contexte / exemple concret** : Décidé pour Boutik : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4M`, calculée sur l'ordinateur à la création de la boutique, sans internet, et terminée par un [caractère de contrôle](/backend/#caractere-de-controle-check-character). Elle s'affiche dans « Acheter » et dans Réglages ; le backoffice détecte les doublons ; elle sert aussi au parrainage.
+**Contexte / exemple concret** : Construit dans Boutik (30 septembre 2026) : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4MP` (4 caractères et 1 [caractère de contrôle](/backend/#caractere-de-controle-check-character)), calculée sur l'ordinateur à partir de l'identifiant de la boutique, sans internet, identique à chaque ouverture. Elle s'affiche dans « Acheter ou renouveler » et dans Réglages › Licence ; le backoffice détecte les doublons ; elle sert aussi au parrainage.
 
 **Termes liés** : [Backoffice](/backend/#backoffice), [Licence logicielle](#licence-logicielle-software-license), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 

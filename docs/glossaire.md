@@ -8,12 +8,14 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[ABR (Adaptive Bitrate Streaming)](/streaming/#abr-adaptive-bitrate-streaming)** — *Transcoding & streaming*
 - **[Accessibilité (a11y)](/frontend/#accessibilite-a11y)** — *Frontend & UI/UX*
+- **[Achat définitif ou licence perpétuelle (Perpetual license)](/business/#achat-definitif-ou-licence-perpetuelle-perpetual-license)** — *Jargon entrepreneurial*
 - **[Adressage par contenu (Content addressing)](/backend/#adressage-par-contenu-content-addressing)** — *Backend & architecture*
 - **[Adresse IP (IP address)](/backend/#adresse-ip-ip-address)** — *Backend & architecture*
 - **[AES-256 (Advanced Encryption Standard)](/backend/#aes-256-advanced-encryption-standard)** — *Backend & architecture*
 - **[AGPL-3.0](/business/#agpl-3-0)** — *Jargon entrepreneurial*
 - **[Agrégat (Aggregate)](/backend/#agregat-aggregate)** — *Backend & architecture*
 - **[Ajustement de stock (Stock adjustment)](/business/#ajustement-de-stock-stock-adjustment)** — *Jargon entrepreneurial*
+- **[Algorithme de Luhn (Luhn algorithm)](/backend/#algorithme-de-luhn-luhn-algorithm)** — *Backend & architecture*
 - **[Aller-retour (Round trip)](/devops/#aller-retour-round-trip)** — *DevOps & infra*
 - **[Alpha / Transparence](/media/#alpha-transparence)** — *Édition média*
 - **[Alpha prémultiplié (Premultiplied alpha)](/media/#alpha-premultiplie-premultiplied-alpha)** — *Édition média*
@@ -113,6 +115,8 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[ClipboardItem](/backend/#clipboarditem)** — *Backend & architecture*
 - **[Cloudflare](/devops/#cloudflare)** — *DevOps & infra*
 - **[CMAF](/streaming/#cmaf)** — *Transcoding & streaming*
+- **[Code à usage unique (Single-use code)](/backend/#code-a-usage-unique-single-use-code)** — *Backend & architecture*
+- **[Code de demande (Request code)](/backend/#code-de-demande-request-code)** — *Backend & architecture*
 - **[Code mort (Dead code)](/backend/#code-mort-dead-code)** — *Backend & architecture*
 - **[Code QR (QR code)](/media/#code-qr-qr-code)** — *Édition média*
 - **[Code signé de nouvel essai (Signed trial reset code)](/business/#code-signe-de-nouvel-essai-signed-trial-reset-code)** — *Jargon entrepreneurial*
@@ -223,6 +227,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Fenêtre hors écran (Offscreen rendering)](/devops/#fenetre-hors-ecran-offscreen-rendering)** — *DevOps & infra*
 - **[Fenêtre modale (Modal dialog)](/frontend/#fenetre-modale-modal-dialog)** — *Frontend & UI/UX*
 - **[Fichier .d.ts (Declaration file)](/devops/#fichier-d-ts-declaration-file)** — *DevOps & infra*
+- **[Fichier de configuration (Configuration file)](/devops/#fichier-de-configuration-configuration-file)** — *DevOps & infra*
 - **[Fichier de référence (Golden file)](/devops/#fichier-de-reference-golden-file)** — *DevOps & infra*
 - **[Fichier de verrouillage (Lockfile)](/devops/#fichier-de-verrouillage-lockfile)** — *DevOps & infra*
 - **[FIFO (First In, First Out)](/backend/#fifo-first-in-first-out)** — *Backend & architecture*
@@ -239,6 +244,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Fonctionnalités à la carte (Add-on features)](/business/#fonctionnalites-a-la-carte-add-on-features)** — *Jargon entrepreneurial*
 - **[Fond en damier (Checkerboard background)](/media/#fond-en-damier-checkerboard-background)** — *Édition média*
 - **[Force brute (Brute force)](/backend/#force-brute-brute-force)** — *Backend & architecture*
+- **[Forfait de mises à jour (Maintenance plan)](/business/#forfait-de-mises-a-jour-maintenance-plan)** — *Jargon entrepreneurial*
 - **[Format de presse-papiers (Clipboard format)](/frontend/#format-de-presse-papiers-clipboard-format)** — *Frontend & UI/UX*
 - **[Formules de licence (License tiers)](/business/#formules-de-licence-license-tiers)** — *Jargon entrepreneurial*
 - **[Freeze](/streaming/#freeze)** — *Transcoding & streaming*
@@ -398,6 +404,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Node-API](/devops/#node-api)** — *DevOps & infra*
 - **[node-gyp](/devops/#node-gyp)** — *DevOps & infra*
 - **[Node.js](/devops/#node-js)** — *DevOps & infra*
+- **[Nonce (Number used once)](/backend/#nonce-number-used-once)** — *Backend & architecture*
 - **[Notification flottante (Toast)](/frontend/#notification-flottante-toast)** — *Frontend & UI/UX*
 - **[npm](/devops/#npm)** — *DevOps & infra*
 - **[npm audit](/devops/#npm-audit)** — *DevOps & infra*
@@ -635,6 +642,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Vente au carton (Case sale)](/business/#vente-au-carton-case-sale)** — *Jargon entrepreneurial*
 - **[Vérification sous Windows sans PC Windows](/architectures/verification-windows)** — *Architectures*
 - **[Verrouillage de fichier sous Windows (File locking)](/devops/#verrouillage-de-fichier-sous-windows-file-locking)** — *DevOps & infra*
+- **[Version d'un format (Format version)](/backend/#version-d-un-format-format-version)** — *Backend & architecture*
 - **[Version majeure (Semantic versioning, semver)](/devops/#version-majeure-semantic-versioning-semver)** — *DevOps & infra*
 - **[Vesting](/business/#vesting)** — *Jargon entrepreneurial*
 - **[Visual C++ Redistributable](/devops/#visual-c-redistributable)** — *DevOps & infra*

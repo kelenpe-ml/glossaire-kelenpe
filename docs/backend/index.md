@@ -728,9 +728,71 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un caractère ajouté à la fin d'un code, calculé à partir des autres (comme la clé d'un RIB ou le dernier chiffre d'un code-barres). En le recalculant, on détecte la plupart des fautes de frappe (un caractère changé, deux caractères inversés) avant même d'utiliser le code. Mis sur chaque bloc d'un long code, il dit dans quel bloc est l'erreur.
 
-**Contexte / exemple concret** : Décidé pour Boutik : la référence de paiement (`BTK-7K4M`) se termine par un caractère de contrôle ; le code d'activation tapé en dernier recours est découpé en blocs de 5 caractères, vérifiés un par un (« le bloc 7 contient une erreur »).
+**Contexte / exemple concret** : Construit dans Boutik (30 septembre 2026) : la référence de paiement (`BTK-7K4MP`) se termine par un caractère de contrôle ; les codes tapés sont découpés en blocs de 5 caractères, dont un de contrôle qui dépend aussi de la place du bloc, vérifiés un par un pendant la saisie (« le bloc 7 contient une erreur »). Le calcul est une somme pondérée modulo 31 plutôt que l'[algorithme de Luhn](#algorithme-de-luhn-luhn-algorithm), qui laisse passer des fautes avec 31 caractères.
 
-**Termes liés** : [Hachage](#hachage-hash-empreinte), [Référence de paiement](/business/#reference-de-paiement-payment-reference), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+**Termes liés** : [Hachage](#hachage-hash-empreinte), [Algorithme de Luhn](#algorithme-de-luhn-luhn-algorithm), [Code de demande](#code-de-demande-request-code), [Référence de paiement](/business/#reference-de-paiement-payment-reference), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Algorithme de Luhn (*Luhn algorithm*)
+
+![En base 31, doubler 1 donne 2, et doubler 16 donne 32, soit « 1 1 », dont la somme est aussi 2 : la faute passe ; une somme pondérée modulo 31 repère toute faute d'un caractère et toute inversion](/diagrams/algorithme-de-luhn.svg)
+
+**Définition simple** : La méthode qui calcule le dernier chiffre d'un numéro de carte bancaire : on double un chiffre sur deux, on additionne les chiffres du résultat, et le dernier chiffre est choisi pour que le total tombe juste. Il repère toute faute sur un seul chiffre. Il existe une version pour d'autres alphabets (« Luhn mod N »), mais avec un nombre impair de symboles, doubler n'est plus sans collision : certaines fautes passent.
+
+**Contexte / exemple concret** : Essayé pour les codes de Boutik, écrits avec 31 caractères sans ambiguïté : le test qui change chaque caractère de chaque bloc a montré des fautes non vues (1 et 16 donnent le même résultat une fois doublés). Boutik utilise à la place une somme pondérée modulo 31 (voir « Calcul »).
+
+**Calcul** : Somme pondérée retenue par Boutik, pour des valeurs v₁…vₖ (0 à 30) et le caractère de contrôle c : 1·v₁ + 2·v₂ + … + k·vₖ + (k+1)·c ≡ 0 (mod 31). 31 étant premier et les poids tous différents, une faute (vᵢ remplacé) ou une inversion (vᵢ et vⱼ échangés) change toujours la somme.
+
+**Termes liés** : [Caractère de contrôle](#caractere-de-controle-check-character), [Code de demande](#code-de-demande-request-code).
+
+---
+
+## Code de demande (*Request code*)
+
+![Boutik tire un nonce et garde la demande en attente ; le code de demande part par WhatsApp ; Kelenpe signe une réponse qui reprend le nonce ; Boutik la vérifie, l'accepte et clôt la demande ; le même code une deuxième fois est refusé](/diagrams/code-de-demande.svg)
+
+**Définition simple** : Un code fabriqué par le logiciel, que l'utilisateur envoie à l'éditeur pour demander quelque chose (une licence, un déblocage…) sans connexion internet. Il contient ce dont l'éditeur a besoin pour répondre (quel client, quel ordinateur, quelle demande), jamais les données du client ; la réponse de l'éditeur, signée, ne vaut que pour cette demande.
+
+**Contexte / exemple concret** : Dans Boutik : 19 blocs de 5 caractères, avec « Copier », à envoyer par WhatsApp à Kelenpe. Il porte le type de demande (activation, transfert vers ce nouvel ordinateur, déblocage du mot de passe, nouvel essai, correction d'horloge), l'état de la licence, un [nonce](#nonce-number-used-once), l'identifiant de la boutique et le résumé de l'[empreinte matérielle](#empreinte-materielle-hardware-fingerprint). Rouvrir l'écran redonne le même code tant que la demande est en attente.
+
+**Termes liés** : [Nonce](#nonce-number-used-once), [Code à usage unique](#code-a-usage-unique-single-use-code), [Caractère de contrôle](#caractere-de-controle-check-character), [Signature cryptographique](#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Code à usage unique (*Single-use code*)
+
+![La réponse reprend le nonce d'une demande en attente ; acceptée, elle clôt la demande ; présentée une deuxième fois, elle est refusée car plus aucune demande n'est en attente](/diagrams/code-de-demande.svg)
+
+**Définition simple** : Un code qui ne marche qu'une fois : après usage, il est refusé. Sans serveur pour tenir la liste des codes utilisés, c'est l'appareil lui-même qui retient la demande à laquelle le code répond, et la ferme dès que le code a servi.
+
+**Contexte / exemple concret** : Dans Boutik, les codes de nouvel essai, de correction d'horloge et de déblocage du mot de passe : chacun reprend le [nonce](#nonce-number-used-once) d'une demande de cet ordinateur. Les demandes en attente sont gardées hors du journal et **jamais copiées par la sauvegarde** ; la demande est close dans la même opération que l'écriture de l'événement. Restaurer une copie ne rouvre donc aucune demande close : un code déjà utilisé reste refusé.
+
+**Termes liés** : [Nonce](#nonce-number-used-once), [Code de demande](#code-de-demande-request-code), [Transaction](#transaction), [Codes de secours et récupération d'un compte hors ligne](/architectures/codes-de-secours).
+
+---
+
+## Nonce (*Number used once*)
+
+![Le nonce tiré par Boutik voyage dans le code de demande, revient dans la réponse signée, et sert à reconnaître la demande en attente](/diagrams/code-de-demande.svg)
+
+**Définition simple** : Un nombre tiré au hasard pour ne servir qu'une fois. Placé dans une demande puis repris dans la réponse, il prouve que la réponse a été faite pour cette demande-là, et pas copiée d'une autre ou réutilisée.
+
+**Contexte / exemple concret** : Chaque code de demande de Boutik porte un nonce de 32 bits, tiré par l'ordinateur. Kelenpe le recopie dans la réponse, qu'il signe : Boutik n'accepte un code spécial que si son nonce correspond à une demande encore en attente, du même type.
+
+**Termes liés** : [Code à usage unique](#code-a-usage-unique-single-use-code), [Code de demande](#code-de-demande-request-code), [Signature cryptographique](#signature-cryptographique-digital-signature).
+
+---
+
+## Version d'un format (*Format version*)
+
+![Versions 1 et 2 du fichier de licence, de 61 et 66 octets ; le lecteur lit d'abord le numéro de version, accepte les deux et complète la version 1 ; une version inconnue est refusée](/diagrams/version-d-un-format.svg)
+
+**Définition simple** : Un numéro écrit au début d'un fichier ou d'un message, qui dit selon quelles règles le lire. Quand on ajoute des champs, on augmente le numéro : le lecteur sait alors quels champs attendre, et les anciens fichiers restent lisibles.
+
+**Contexte / exemple concret** : Le fichier de licence de Boutik est passé en version 2 (30 septembre 2026) pour l'[achat définitif](/business/#achat-definitif-ou-licence-perpetuelle-perpetual-license) : 66 octets au lieu de 61, avec le type et la date « mises à jour jusqu'au ». Le préfixe du fichier (`BOUTIK-LICENCE-2:`) et l'octet de version doivent concorder avec la taille ; une licence version 1 est lue comme un abonnement. Les licences déjà vendues restent valables.
+
+**Termes liés** : [Encodage canonique](#encodage-canonique-canonical-encoding), [Schéma](#schema-schema), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
 ---
 
