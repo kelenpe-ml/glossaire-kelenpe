@@ -480,11 +480,21 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 ---
 
+## Argent mobile (*Mobile money*)
+
+**Définition simple** : Un porte-monnaie lié à un numéro de téléphone, géré par un opérateur, qui permet d'envoyer et de recevoir de l'argent sans compte en banque : on dépose des espèces chez un agent, puis on paie ou on transfère depuis son téléphone, même sans smartphone.
+
+**Contexte / exemple concret** : Au Mali, les services les plus courants sont Orange Money et Wave. Boutik se paie par l'un ou l'autre, au même numéro (+223 72 19 66 36). Comme on ne sait pas si chaque application permet d'ajouter un message au transfert, la [référence de paiement](#reference-de-paiement-payment-reference) est à écrire dans le motif seulement si c'est possible ; dans tous les cas, le commerçant envoie à Kelenpe par WhatsApp son code de demande et le SMS de confirmation du transfert.
+
+**Termes liés** : [Référence de paiement](#reference-de-paiement-payment-reference), [Licence logicielle](#licence-logicielle-software-license).
+
+---
+
 ## Référence de paiement (*Payment reference*)
 
 **Définition simple** : Un code court, propre à chaque client, qu'il indique avec son paiement (dans le motif d'un transfert d'argent mobile, par exemple) pour que l'éditeur sache sans ambiguïté qui a payé quoi.
 
-**Contexte / exemple concret** : Construit dans Boutik (30 septembre 2026) : paiement par Orange Money ou Moov Money avec une référence du type `BTK-7K4MP` (4 caractères et 1 [caractère de contrôle](/backend/#caractere-de-controle-check-character)), calculée sur l'ordinateur à partir de l'identifiant de la boutique, sans internet, identique à chaque ouverture. Elle s'affiche dans « Acheter ou renouveler » et dans Réglages › Licence ; le backoffice détecte les doublons ; elle sert aussi au parrainage.
+**Contexte / exemple concret** : Construit dans Boutik (30 septembre 2026) : paiement par [argent mobile](#argent-mobile-mobile-money) (Orange Money ou Wave) avec une référence du type `BTK-7K4MP` (4 caractères et 1 [caractère de contrôle](/backend/#caractere-de-controle-check-character)), calculée sur l'ordinateur à partir de l'identifiant de la boutique, sans internet, identique à chaque ouverture. Elle s'affiche dans « Acheter ou renouveler » et dans Réglages › Licence ; le backoffice détecte les doublons ; elle sert aussi au parrainage.
 
 **Termes liés** : [Backoffice](/backend/#backoffice), [Licence logicielle](#licence-logicielle-software-license), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
 

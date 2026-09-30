@@ -32,6 +32,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Architecture Electron (Main / Renderer / Preload)](/backend/#architecture-electron-main-renderer-preload)** — *Backend & architecture*
 - **[Archive .zip (Zip archive)](/devops/#archive-zip-zip-archive)** — *DevOps & infra*
 - **[Ardoise (Créance client)](/business/#ardoise-creance-client)** — *Jargon entrepreneurial*
+- **[Argent mobile (Mobile money)](/business/#argent-mobile-mobile-money)** — *Jargon entrepreneurial*
 - **[argon2id](/backend/#argon2id)** — *Backend & architecture*
 - **[aria-label](/frontend/#aria-label)** — *Frontend & UI/UX*
 - **[Artefact (Artifact)](/devops/#artefact-artifact)** — *DevOps & infra*

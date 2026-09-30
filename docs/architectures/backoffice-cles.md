@@ -56,7 +56,7 @@ Donner à l'éditeur un outil interne pour gérer clients, paiements, licences e
   - une copie chiffrée chaque jour hors du serveur, et une restauration essayée chaque mois.
 - **Ses fonctions :**
   - boutiques, formules, numéro du patron ;
-  - paiements Orange Money, Moov Money et espèces ;
+  - paiements Orange Money, Wave et espèces ;
   - parrainages ;
   - codes signés : activation, ajout de poste, transfert, déblocage, nouvel essai, correction d'horloge ;
   - essais ;
