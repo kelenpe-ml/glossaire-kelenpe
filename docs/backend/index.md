@@ -766,7 +766,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un code qui ne marche qu'une fois : après usage, il est refusé. Sans serveur pour tenir la liste des codes utilisés, c'est l'appareil lui-même qui retient la demande à laquelle le code répond, et la ferme dès que le code a servi.
 
-**Contexte / exemple concret** : Dans Boutik, les codes de nouvel essai, de correction d'horloge et de déblocage du mot de passe : chacun reprend le [nonce](#nonce-number-used-once) d'une demande de cet ordinateur. Les demandes en attente sont gardées hors du journal et **jamais copiées par la sauvegarde** ; la demande est close dans la même opération que l'écriture de l'événement. Restaurer une copie ne rouvre donc aucune demande close : un code déjà utilisé reste refusé.
+**Contexte / exemple concret** : Dans Boutik, les codes de nouvel essai, de correction d'horloge et de déblocage du mot de passe : chacun reprend le [nonce](#nonce-number-used-once) d'une demande de cet ordinateur. Les demandes en attente sont gardées hors du journal et **jamais copiées par la sauvegarde** ; la demande est close dans la même opération que l'écriture de l'événement. Restaurer une copie ne rouvre donc aucune demande close : un code déjà utilisé reste refusé. Et si le commerçant saisit la réponse à une demande effacée par la restauration, Boutik le lui dit simplement : « Cette demande date d'avant la restauration de votre sauvegarde. Refaites une demande. »
 
 **Termes liés** : [Nonce](#nonce-number-used-once), [Code de demande](#code-de-demande-request-code), [Transaction](#transaction), [Codes de secours et récupération d'un compte hors ligne](/architectures/codes-de-secours).
 
