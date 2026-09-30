@@ -69,14 +69,14 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 
 ## Exemple : Boutik
 
-État : **cœur construit** (mis à jour le 29 septembre 2026), avec des clés de **test** seulement ; activation, codes et serveur pas encore construits. Détail : `docs/licence.md`, section « Ce qui est construit ».
+État : **cœur construit** (mis à jour le 30 septembre 2026), avec des clés de **test** seulement ; activation, codes et serveur pas encore construits. Détail : `docs/licence.md`, section « Ce qui est construit ».
 
 - **Format :** licence de 61 octets en encodage canonique, signée Ed25519 (`src/shared/licence/format.ts`, partagé avec le futur backoffice ; `src/main/licence/signature.ts`).
 - **Clés :** T1 et T2 (test) importées seulement en développement ; aucune clé de production n'existe encore, donc l'exécutable n'accepte aucune licence et seul l'essai y fonctionne. Un test sur l'exécutable le vérifie, ainsi que l'absence des clés de test dans le paquet.
 - **Calendrier monotone :** table `licence_calendrier` de la base chiffrée (hors journal), avancée chaque minute, jamais en retard sur le dernier événement.
 - **Empreinte :** carte mère, processeur, disque (PowerShell et CIM sous Windows ; `machine-id`, `/proc/cpuinfo`, `lsblk` sous Linux), 2 pièces sur 3 suffisent.
 - **États :** essai de 30 jours depuis la création de la boutique, licence active, 7 jours de grâce, lecture seule ; périodes enchaînées sans perte.
-- **Lecture seule :** appliquée dans `gerer` (`ipc-protege.ts`), avec une catégorie par canal (`src/main/licence/categories.ts`) et un blocage par défaut vérifié par un test.
+- **Lecture seule :** appliquée dans `gerer` (`ipc-protege.ts`), avec une catégorie par canal (`src/main/licence/categories.ts`) et un blocage par défaut vérifié par un test ; restent permis, outre l'export, les remboursements, la réimpression et la sécurité, les réglages du poste (imprimante, suggestions de saisie) et les informations de la boutique, qui n'ont aucun usage commercial.
 - **Interface :** Réglages › Licence (import d'un fichier), bandeau « Renouveler », caisse remplacée par une explication en lecture seule.
 - **Reste à faire :**
   1. rappels à 14 et 7 jours ;
