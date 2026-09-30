@@ -754,7 +754,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un code fabriqué par le logiciel, que l'utilisateur envoie à l'éditeur pour demander quelque chose (une licence, un déblocage…) sans connexion internet. Il contient ce dont l'éditeur a besoin pour répondre (quel client, quel ordinateur, quelle demande), jamais les données du client ; la réponse de l'éditeur, signée, ne vaut que pour cette demande.
 
-**Contexte / exemple concret** : Dans Boutik : 19 blocs de 5 caractères, avec « Copier », à envoyer par WhatsApp à Kelenpe. Il porte le type de demande (activation, transfert vers ce nouvel ordinateur, déblocage du mot de passe, nouvel essai, correction d'horloge), l'état de la licence, un [nonce](#nonce-number-used-once), le jour de la demande (qui devient le début d'une licence reçue par code tapé : le code n'a pas à transporter de dates), l'identifiant de la boutique et le résumé de l'[empreinte matérielle](#empreinte-materielle-hardware-fingerprint). Rouvrir l'écran redonne le même code tant que la demande est en attente.
+**Contexte / exemple concret** : Dans Boutik : 21 blocs de 5 caractères, avec « Copier », à envoyer par WhatsApp à Kelenpe. Pour un achat ou un renouvellement, il porte aussi la formule, la durée et le montant choisis : une [demande non fiable](#demande-non-fiable-untrusted-claim), qui prépare la réponse sans rien décider. Il porte le type de demande (activation, transfert vers ce nouvel ordinateur, déblocage du mot de passe, nouvel essai, correction d'horloge), l'état de la licence, un [nonce](#nonce-number-used-once), le jour de la demande (qui devient le début d'une licence reçue par code tapé : le code n'a pas à transporter de dates), l'identifiant de la boutique et le résumé de l'[empreinte matérielle](#empreinte-materielle-hardware-fingerprint). Rouvrir l'écran redonne le même code tant que la demande est en attente.
 
 **Termes liés** : [Nonce](#nonce-number-used-once), [Code à usage unique](#code-a-usage-unique-single-use-code), [Caractère de contrôle](#caractere-de-controle-check-character), [Signature cryptographique](#signature-cryptographique-digital-signature), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
 
@@ -991,6 +991,18 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Principe premier de la licence de Boutik (décidé le 29 septembre 2026). L'essai commence à la création de la boutique, inscrite dans le journal, plutôt qu'à une date qu'on pourrait effacer ; le temps se compte sur un [calendrier monotone](#calendrier-monotone-monotonic-clock) et non sur l'horloge ; pour débloquer un mot de passe, Drissa rappelle le numéro enregistré à l'achat, jamais celui qui a écrit. Le message affiché reste « L'heure de cet ordinateur semble incorrecte », sans rien dire du calendrier.
 
 **Termes liés** : [Défense en profondeur](#defense-en-profondeur-defense-in-depth), [Validation côté serveur / côté client](#validation-cote-serveur-cote-client-server-side-client-side-validation), [Licence logicielle hors ligne](/architectures/licence-hors-ligne).
+
+---
+
+## Demande non fiable (*Untrusted claim*)
+
+![Le code de demande affirme un achat définitif à 300 000 FCFA ; le SMS de confirmation montre 18 000 FCFA reçus ; après rapprochement, seul le trimestre payé est accordé](/diagrams/reconciliation-paiement.svg)
+
+**Définition simple** : Une information qui vient du client et que rien ne garantit : il peut l'avoir mal saisie, ou modifiée exprès. On peut s'en servir pour préparer la suite, jamais pour décider : ce qui est accordé repose sur ce que l'éditeur a vérifié lui-même. C'est l'application concrète du principe « [ne jamais faire confiance à l'utilisateur](#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user) ».
+
+**Contexte / exemple concret** : Le code de demande d'achat de Boutik porte la formule, la durée et le montant choisis dans l'écran « Acheter » (le montant est recalculé par Boutik, jamais repris de l'interface). Drissa voit ainsi tout de suite ce que le commerçant pense avoir payé. Mais le backoffice accordera ce qui a réellement été reçu, après [réconciliation du paiement](/business/#reconciliation-d-un-paiement-payment-reconciliation) : une demande d'achat définitif payée comme un trimestre donne un trimestre.
+
+**Termes liés** : [Ne jamais faire confiance à l'utilisateur](#ne-jamais-faire-confiance-a-l-utilisateur-never-trust-the-user), [Code de demande](#code-de-demande-request-code), [Validation côté serveur / côté client](#validation-cote-serveur-cote-client-server-side-client-side-validation), [Réconciliation d'un paiement](/business/#reconciliation-d-un-paiement-payment-reconciliation).
 
 ---
 

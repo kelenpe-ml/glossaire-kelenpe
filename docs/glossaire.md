@@ -166,6 +166,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Défilement infini (Infinite scroll)](/frontend/#defilement-infini-infinite-scroll)** — *Frontend & UI/UX*
 - **[Délai d'attente (Timeout)](/backend/#delai-d-attente-timeout)** — *Backend & architecture*
 - **[Délai uniformisé (Timing attack protection)](/backend/#delai-uniformise-timing-attack-protection)** — *Backend & architecture*
+- **[Demande non fiable (Untrusted claim)](/backend/#demande-non-fiable-untrusted-claim)** — *Backend & architecture*
 - **[Dépendance (Dependency)](/devops/#dependance-dependency)** — *DevOps & infra*
 - **[Dépendance de production / de développement (dependencies, devDependencies)](/devops/#dependance-de-production-de-developpement-dependencies-devdependencies)** — *DevOps & infra*
 - **[Déploiement local des DLL (App-local deployment)](/devops/#deploiement-local-des-dll-app-local-deployment)** — *DevOps & infra*
@@ -502,6 +503,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Réapprovisionnement (Restocking)](/business/#reapprovisionnement-restocking)** — *Jargon entrepreneurial*
 - **[Rebase](/devops/#rebase)** — *DevOps & infra*
 - **[Recompilation (Rebuild)](/devops/#recompilation-rebuild)** — *DevOps & infra*
+- **[Réconciliation d'un paiement (Payment reconciliation)](/business/#reconciliation-d-un-paiement-payment-reconciliation)** — *Jargon entrepreneurial*
 - **[Reconstruction d'une projection (Replay)](/backend/#reconstruction-d-une-projection-replay)** — *Backend & architecture*
 - **[Redémarrage contrôlé (Controlled restart)](/backend/#redemarrage-controle-controlled-restart)** — *Backend & architecture*
 - **[Redimensionnement (Resizing, Lanczos)](/media/#redimensionnement-resizing-lanczos)** — *Édition média*

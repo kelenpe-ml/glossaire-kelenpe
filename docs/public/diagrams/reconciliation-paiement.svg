@@ -1,0 +1,26 @@
+<svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Réconciliation d&#x27;un paiement : le code de demande affirme une offre et un montant, qui ne sont qu&#x27;une demande non fiable ; Kelenpe les rapproche du SMS de confirmation du transfert réellement reçu ; la licence accordée correspond à ce qui a été payé, pas à ce que la demande prétend" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Réconciliation d&#x27;un paiement : le code de demande affirme une offre et un montant, qui ne sont qu&#x27;une demande non fiable ; Kelenpe les rapproche du SMS de confirmation du transfert réellement reçu ; la licence accordée correspond à ce qui a été payé, pas à ce que la demande prétend</title>
+<rect x="0" y="0" width="820" height="380" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Ce que le client affirme : une demande, non fiable</text>
+<rect x="30" y="56" width="360" height="62" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="210.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Code de demande</text>
+<text x="210.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">Solo, achat définitif, 300 000 FCFA</text>
+<text x="430" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Ce que Kelenpe a réellement reçu</text>
+<rect x="430" y="56" width="360" height="62" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="610.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">SMS de confirmation du transfert</text>
+<text x="610.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">18 000 FCFA, référence BTK-7K4MP</text>
+<line x1="210" y1="120" x2="380" y2="168" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<line x1="610" y1="120" x2="440" y2="168" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="230" y="170" width="360" height="62" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="410.0" y="197.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Réconciliation</text>
+<text x="410.0" y="214.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">on rapproche les deux, montant et référence</text>
+<line x1="330" y1="234" x2="230" y2="262" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="30" y="264" width="360" height="62" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="210.0" y="291.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Licence accordée</text>
+<text x="210.0" y="308.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">un trimestre : ce qui a été payé</text>
+<rect x="430" y="264" width="360" height="62" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="610.0" y="291.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Jamais accordé</text>
+<text x="610.0" y="308.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">l&#x27;achat définitif que le code prétend</text>
+<text x="30" y="356" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">La demande prépare la réponse ; seul le paiement reçu décide de ce qui est accordé.</text>
+</svg>

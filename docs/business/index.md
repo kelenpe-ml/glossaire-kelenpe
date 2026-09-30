@@ -480,6 +480,18 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 ---
 
+## Réconciliation d'un paiement (*Payment reconciliation*)
+
+![Le code de demande (ce que le client affirme) et le SMS de confirmation (ce qui a été reçu) sont rapprochés ; la licence accordée correspond au paiement reçu, jamais à ce que la demande prétend](/diagrams/reconciliation-paiement.svg)
+
+**Définition simple** : Le rapprochement entre ce qu'un client dit avoir payé et ce que l'entreprise a réellement reçu : montant, date, référence. On ne livre qu'après ce rapprochement, et on livre ce qui correspond à l'argent reçu, pas à ce qui était annoncé.
+
+**Contexte / exemple concret** : Pour Boutik, Drissa rapproche le code de demande (offre et montant demandés, une [demande non fiable](/backend/#demande-non-fiable-untrusted-claim)) du SMS de confirmation du transfert Orange Money ou Wave que le commerçant lui envoie par WhatsApp, avec la [référence de paiement](#reference-de-paiement-payment-reference) quand l'application a permis de l'écrire. Le backoffice (lot suivant) enregistrera le paiement reçu et fabriquera la licence qui lui correspond.
+
+**Termes liés** : [Argent mobile](#argent-mobile-mobile-money), [Référence de paiement](#reference-de-paiement-payment-reference), [Demande non fiable](/backend/#demande-non-fiable-untrusted-claim), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
+
+---
+
 ## Argent mobile (*Mobile money*)
 
 **Définition simple** : Un porte-monnaie lié à un numéro de téléphone, géré par un opérateur, qui permet d'envoyer et de recevoir de l'argent sans compte en banque : on dépose des espèces chez un agent, puis on paie ou on transfère depuis son téléphone, même sans smartphone.
