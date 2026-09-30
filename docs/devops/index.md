@@ -76,6 +76,66 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ---
 
+## Coolify
+
+![Un push sur main lance GitHub Actions, qui construit l'image et la publie dans GHCR, puis appelle le webhook de Coolify ; Coolify télécharge l'image et relance le conteneur avec les variables d'environnement du serveur](/diagrams/circuit-deploiement-coolify.svg)
+
+**Définition simple** : Un [PaaS](#paas-platform-as-a-service) libre qu'on installe sur son propre serveur. Il fait tourner les applications dans des conteneurs [Docker](#docker), gère leurs noms de domaine et leurs certificats HTTPS (par son proxy), garde leurs [variables d'environnement](#variable-d-environnement-environment-variable), et les redéploie quand on le lui demande, par exemple par un [webhook](#webhook).
+
+**Contexte / exemple concret** : Prodora y tourne : à chaque push sur `main`, GitHub Actions publie l'image dans [GHCR](#ghcr-github-container-registry) puis appelle le webhook de Coolify, qui relance le conteneur. Redis et les variables de production (base, JWT, courriel) sont réglés dans l'interface de Coolify, pas dans le dépôt. Le backoffice de Boutik pourra suivre le même circuit, sur le même serveur, avec sa propre base.
+
+**Termes liés** : [PaaS](#paas-platform-as-a-service), [Docker](#docker), [CI/CD](#ci-cd-integration-continue-deploiement-continu), [Webhook](#webhook), [GHCR](#ghcr-github-container-registry), [Reverse proxy](#reverse-proxy).
+
+---
+
+## GHCR (*GitHub Container Registry*)
+
+![Un push sur main lance GitHub Actions, qui construit l'image et la publie dans GHCR, puis appelle le webhook de Coolify ; Coolify télécharge l'image et relance le conteneur avec les variables d'environnement du serveur](/diagrams/circuit-deploiement-coolify.svg)
+
+**Définition simple** : Le registre d'images Docker de GitHub (adresses en `ghcr.io/…`). La CI y dépose l'image construite ; le serveur vient l'y chercher. Une image y porte des étiquettes : `latest` pour la dernière, et souvent l'identifiant du commit, pour pouvoir revenir à une version précise.
+
+**Contexte / exemple concret** : Prodora publie `ghcr.io/kelenpe-ml/prodora-backend` et `ghcr.io/kelenpe-ml/prodora-user-ui`, étiquetées `latest` et avec le numéro du commit ; la CI s'y connecte avec un jeton gardé dans les secrets du dépôt (`GHCR_PAT`).
+
+**Termes liés** : [Docker](#docker), [Coolify](#coolify), [CI/CD](#ci-cd-integration-continue-deploiement-continu).
+
+---
+
+## Webhook
+
+![Un push sur main lance GitHub Actions, qui construit l'image et la publie dans GHCR, puis appelle le webhook de Coolify ; Coolify télécharge l'image et relance le conteneur avec les variables d'environnement du serveur](/diagrams/circuit-deploiement-coolify.svg)
+
+**Définition simple** : Une adresse web qu'un service met à disposition pour qu'un autre le prévienne qu'il s'est passé quelque chose : au lieu de demander sans cesse « du nouveau ? », on l'appelle au bon moment. L'adresse et son jeton sont des secrets : qui les connaît peut déclencher l'action.
+
+**Contexte / exemple concret** : La dernière étape de la CI de Prodora appelle le webhook de [Coolify](#coolify) (adresse et jeton dans les secrets du dépôt, `COOLIFY_WEBHOOK` et `COOLIFY_TOKEN`) : Coolify télécharge alors la nouvelle image et redéploie.
+
+**Termes liés** : [Coolify](#coolify), [CI/CD](#ci-cd-integration-continue-deploiement-continu).
+
+---
+
+## Sous-domaine (*Subdomain*)
+
+![Le navigateur demande l'adresse d'apiprodora.kelenpe.com au DNS ; un enregistrement renvoie l'IP du serveur ; le proxy de Coolify aiguille selon le nom vers le conteneur du site, de l'API ou d'un autre service](/diagrams/sous-domaine-dns.svg)
+
+**Définition simple** : Un nom placé devant un nom de domaine (`api` dans `api.exemple.com`), qu'on crée librement une fois le domaine acheté. Chaque sous-domaine peut désigner un service différent, sur le même serveur ou ailleurs, grâce à son [enregistrement DNS](#enregistrement-dns-dns-record).
+
+**Contexte / exemple concret** : Prodora utilise `prodora.kelenpe.com` (site), `apiprodora.kelenpe.com` (API), `storage.kelenpe.com` (images) et `analytics.prodora.kelenpe.com` (mesure d'audience). Le backoffice de Boutik aura le sien, sur le même serveur : c'est le proxy de Coolify qui choisit le conteneur selon le nom demandé.
+
+**Termes liés** : [Enregistrement DNS](#enregistrement-dns-dns-record), [Reverse proxy](#reverse-proxy), [Coolify](#coolify).
+
+---
+
+## Enregistrement DNS (*DNS record*)
+
+![Le navigateur demande l'adresse d'apiprodora.kelenpe.com au DNS ; un enregistrement renvoie l'IP du serveur ; le proxy de Coolify aiguille selon le nom vers le conteneur du site, de l'API ou d'un autre service](/diagrams/sous-domaine-dns.svg)
+
+**Définition simple** : Une ligne de l'annuaire d'Internet (le DNS) qui associe un nom à une destination : un enregistrement **A** donne l'adresse IP d'un serveur, un **CNAME** renvoie vers un autre nom. Sans lui, un nom de domaine ne mène nulle part. Un changement met de quelques minutes à quelques heures à se propager.
+
+**Contexte / exemple concret** : Pour que le futur backoffice de Boutik soit joignable, il faudra un enregistrement A (ou CNAME) pour son [sous-domaine](#sous-domaine-subdomain), vers le serveur où tourne déjà Prodora ; Coolify obtiendra ensuite le certificat HTTPS.
+
+**Termes liés** : [Sous-domaine](#sous-domaine-subdomain), [mDNS](/backend/#mdns-multicast-dns), [Coolify](#coolify).
+
+---
+
 ## Reverse proxy
 
 ![Proxy direct au service des clients d'un bureau, à gauche ; reverse proxy au service des serveurs, qui reçoit les visiteurs et envoie chaque demande au site, à l'API ou à l'administration, à droite](/diagrams/proxy-direct-reverse.svg)
@@ -1806,8 +1866,8 @@ En résumé : Nginx est le couteau suisse le plus courant ; HAProxy, le spécial
 
 **Définition simple** : Un réglage nommé (`NOM=valeur`) que chaque programme reçoit, en copie, de celui qui le lance. Changer une variable dans un terminal ne touche ni les autres terminaux ni les programmes déjà lancés. `env` permet d'en retirer (`-u`) ou d'en ajouter pour une seule commande. Dans le shell fish, `set -Ux` crée une variable « universelle », partagée par tous les terminaux fish, même ceux déjà ouverts.
 
-**Contexte / exemple concret** : `env -u ELECTRON_RUN_AS_NODE XDG_CONFIG_HOME=$BOUTIK_ESSAI npm run dev` lance Boutik sans la variable héritée de VSCode (qui ferait tourner Electron comme Node) et avec sa base dans un dossier d'essai. Pour vérifier ce dossier depuis un second terminal pendant que Boutik tourne, `set -Ux BOUTIK_ESSAI /tmp/boutik-essai-telephone` : avec un simple `export`, le second terminal ne verrait pas la variable.
+**Contexte / exemple concret** : `env -u ELECTRON_RUN_AS_NODE XDG_CONFIG_HOME=$BOUTIK_ESSAI npm run dev` lance Boutik sans la variable héritée de VSCode (qui ferait tourner Electron comme Node) et avec sa base dans un dossier d'essai. Pour vérifier ce dossier depuis un second terminal pendant que Boutik tourne, `set -Ux BOUTIK_ESSAI /tmp/boutik-essai-telephone` : avec un simple `export`, le second terminal ne verrait pas la variable. Sur un serveur, c'est aussi le moyen de donner ses secrets à une application sans les mettre dans le code : Prodora lit `SPRING_DATASOURCE_URL`, `JWT_SECRET`, etc., posées dans [Coolify](#coolify).
 
-**Termes liés** : [Electron](#electron), [npm](#npm).
+**Termes liés** : [Electron](#electron), [npm](#npm), [Coolify](#coolify).
 
 ---

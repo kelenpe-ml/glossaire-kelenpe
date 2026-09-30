@@ -492,6 +492,16 @@ Le Mali fait partie de l'espace **OHADA** (*Organisation pour l'Harmonisation en
 
 ---
 
+## Numéro de transaction (*Transaction ID*)
+
+**Définition simple** : L'identifiant unique qu'un opérateur d'[argent mobile](#argent-mobile-mobile-money) donne à chaque transfert, écrit dans le SMS de confirmation reçu par l'expéditeur et par le destinataire. Il prouve qu'un paiement précis a eu lieu, et ne peut servir qu'une fois.
+
+**Contexte / exemple concret** : Pour Boutik, c'est la meilleure pièce de la [réconciliation d'un paiement](#reconciliation-d-un-paiement-payment-reconciliation) : le commerçant envoie par WhatsApp le SMS de confirmation, dont Drissa retrouve le numéro de transaction dans ses propres reçus Orange Money ou Wave. Le backoffice pourra l'enregistrer pour qu'un même transfert ne serve jamais à deux licences.
+
+**Termes liés** : [Argent mobile](#argent-mobile-mobile-money), [Réconciliation d'un paiement](#reconciliation-d-un-paiement-payment-reconciliation), [Référence de paiement](#reference-de-paiement-payment-reference).
+
+---
+
 ## Argent mobile (*Mobile money*)
 
 **Définition simple** : Un porte-monnaie lié à un numéro de téléphone, géré par un opérateur, qui permet d'envoyer et de recevoir de l'argent sans compte en banque : on dépose des espèces chez un agent, puis on paie ou on transfère depuis son téléphone, même sans smartphone.

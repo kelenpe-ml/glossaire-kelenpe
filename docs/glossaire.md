@@ -138,6 +138,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[content-visibility](/frontend/#content-visibility)** — *Frontend & UI/UX*
 - **[contextBridge](/backend/#contextbridge)** — *Backend & architecture*
 - **[Contraste 4,5:1 (WCAG contrast)](/frontend/#contraste-4-5-1-wcag-contrast)** — *Frontend & UI/UX*
+- **[Coolify](/devops/#coolify)** — *DevOps & infra*
 - **[Copyleft](/business/#copyleft)** — *Jargon entrepreneurial*
 - **[Correction en avant (Fix forward)](/devops/#correction-en-avant-fix-forward)** — *DevOps & infra*
 - **[CORS (Cross-Origin Resource Sharing)](/backend/#cors-cross-origin-resource-sharing)** — *Backend & architecture*
@@ -188,6 +189,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 - **[Empreinte matérielle (Hardware fingerprint)](/backend/#empreinte-materielle-hardware-fingerprint)** — *Backend & architecture*
 - **[Encodage canonique (Canonical encoding)](/backend/#encodage-canonique-canonical-encoding)** — *Backend & architecture*
+- **[Enregistrement DNS (DNS record)](/devops/#enregistrement-dns-dns-record)** — *DevOps & infra*
 - **[Envoy](/devops/#envoy)** — *DevOps & infra*
 - **[Exception à une règle de sécurité (Security exception)](/backend/#exception-a-une-regle-de-securite-security-exception)** — *Backend & architecture*
 - **[.exe](/devops/#exe)** — *DevOps & infra*
@@ -256,6 +258,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 
 ## G
 
+- **[GHCR (GitHub Container Registry)](/devops/#ghcr-github-container-registry)** — *DevOps & infra*
 - **[gio](/devops/#gio)** — *DevOps & infra*
 - **[.gitattributes](/devops/#gitattributes)** — *DevOps & infra*
 - **[.gitignore](/devops/#gitignore)** — *DevOps & infra*
@@ -412,6 +415,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[npm audit](/devops/#npm-audit)** — *DevOps & infra*
 - **[npm ci](/devops/#npm-ci)** — *DevOps & infra*
 - **[NSIS (Nullsoft Scriptable Install System)](/devops/#nsis-nullsoft-scriptable-install-system)** — *DevOps & infra*
+- **[Numéro de transaction (Transaction ID)](/business/#numero-de-transaction-transaction-id)** — *Jargon entrepreneurial*
 - **[Numérotation des versions (Release and patch numbering)](/devops/#numerotation-des-versions-release-and-patch-numbering)** — *DevOps & infra*
 
 ## O
@@ -575,6 +579,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Socket](/backend/#socket)** — *Backend & architecture*
 - **[Solidité d'un mot de passe (Password strength)](/backend/#solidite-d-un-mot-de-passe-password-strength)** — *Backend & architecture*
 - **[Source unique de vérité (Single source of truth)](/backend/#source-unique-de-verite-single-source-of-truth)** — *Backend & architecture*
+- **[Sous-domaine (Subdomain)](/devops/#sous-domaine-subdomain)** — *DevOps & infra*
 - **[SQLCipher](/backend/#sqlcipher)** — *Backend & architecture*
 - **[SSIM (Structural Similarity)](/media/#ssim-structural-similarity)** — *Édition média*
 - **[SSR / SSG / Hydration](/frontend/#ssr-ssg-hydration)** — *Frontend & UI/UX*
@@ -657,6 +662,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[WAF (Web Application Firewall)](/devops/#waf-web-application-firewall)** — *DevOps & infra*
 - **[Wayland](/frontend/#wayland)** — *Frontend & UI/UX*
 - **[WebAssembly (Wasm)](/backend/#webassembly-wasm)** — *Backend & architecture*
+- **[Webhook](/devops/#webhook)** — *DevOps & infra*
 - **[WebP](/media/#webp)** — *Édition média*
 - **[WebSocket](/backend/#websocket)** — *Backend & architecture*
 - **[White labeling](/backend/#white-labeling-marque-blanche)** — *Backend & architecture*

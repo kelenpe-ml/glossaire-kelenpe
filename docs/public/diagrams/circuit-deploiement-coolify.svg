@@ -1,0 +1,34 @@
+<svg viewBox="0 0 820 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circuit de déploiement : un push sur main lance la CI de GitHub Actions, qui construit l&#x27;image Docker et la publie dans GHCR, puis appelle le webhook de Coolify ; Coolify télécharge l&#x27;image et remplace le conteneur, derrière son proxy, avec les variables d&#x27;environnement gardées sur le serveur" font-family="ui-sans-serif,system-ui,sans-serif">
+<title>Circuit de déploiement : un push sur main lance la CI de GitHub Actions, qui construit l&#x27;image Docker et la publie dans GHCR, puis appelle le webhook de Coolify ; Coolify télécharge l&#x27;image et remplace le conteneur, derrière son proxy, avec les variables d&#x27;environnement gardées sur le serveur</title>
+<rect x="0" y="0" width="820" height="390" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<defs><marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+<text x="30" y="36" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Du push au conteneur en service</text>
+<rect x="30" y="58" width="170" height="58" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="115.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">git push</text>
+<text x="115.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">sur la branche main</text>
+<line x1="202" y1="87" x2="228" y2="87" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="230" y="58" width="250" height="58" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="355.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">GitHub Actions (CI)</text>
+<text x="355.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">construit l&#x27;image Docker</text>
+<line x1="482" y1="87" x2="508" y2="87" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="510" y="58" width="280" height="58" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="650.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">GHCR (registre)</text>
+<text x="650.0" y="100.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">ghcr.io/…:latest et :&lt;commit&gt;</text>
+<line x1="355" y1="118" x2="355" y2="158" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="230" y="160" width="250" height="58" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="355.0" y="185.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Webhook</text>
+<text x="355.0" y="202.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">la CI appelle l&#x27;adresse de Coolify</text>
+<line x1="482" y1="189" x2="508" y2="189" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<line x1="650" y1="118" x2="650" y2="158" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="510" y="160" width="280" height="58" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="650.0" y="185.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Coolify, sur le serveur</text>
+<text x="650.0" y="202.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">télécharge l&#x27;image, relance</text>
+<line x1="650" y1="220" x2="650" y2="256" stroke="#64748b" stroke-width="1.5" marker-end="url(#fleche)"/>
+<rect x="430" y="258" width="360" height="58" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="610.0" y="283.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Conteneur en service</text>
+<text x="610.0" y="300.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">variables d&#x27;environnement du serveur</text>
+<rect x="30" y="258" width="360" height="58" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="210.0" y="283.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">Secrets du dépôt GitHub</text>
+<text x="210.0" y="300.0" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11.5" fill="#64748b">jeton GHCR, adresse et jeton du webhook</text>
+<text x="30" y="356" text-anchor="start" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">Aucun secret de l&#x27;application dans l&#x27;image : ils sont posés dans Coolify et lus au démarrage.</text>
+</svg>
