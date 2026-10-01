@@ -658,6 +658,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Contexte / exemple concret** : Boutik chiffre toute sa base par SQLCipher, avec une clé de 256 bits tirée au hasard et rangée dans le coffre du système (DPAPI sous Windows, trousseau sous Linux) ; les mots de passe, eux, sont hachés. La chaîne complète, étape par étape, est dans la section « Exemple : Boutik » de la page d'architecture.
 
+Une clé privée peut elle aussi être chiffrée au repos : les clés de signature de Boutik ne sont jamais écrites en clair, mais chiffrées par une clé tirée de la phrase de passe ([scrypt](#scrypt) puis AES-256-GCM) ; seule la clé de licence destinée au serveur sort en clair, dans un [fichier en lecture seule](/devops/#fichier-en-lecture-seule-file-permissions).
+
 **Termes liés** : [SQLCipher](#sqlcipher), [AES-256](#aes-256-advanced-encryption-standard), [Clé de chiffrement](#cle-de-chiffrement-encryption-key), [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [HMAC](#hmac-hash-based-message-authentication-code), [DPAPI](#dpapi-data-protection-api), [Trousseau de clés](#trousseau-de-cles-keyring-secret-service-libsecret-gnome-keyring-kwallet), [safeStorage](#safestorage), [Hachage](#hachage-hash-empreinte), [argon2id](#argon2id).
 
 ---
@@ -697,6 +699,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Définition simple** : Fabriquer une clé de chiffrement à partir d'un secret (un mot de passe, une phrase) par un calcul volontairement long, répété des centaines de milliers de fois. Pour l'utilisateur, c'est une fraction de seconde ; pour un voleur qui essaie des milliards de secrets, ce sont des siècles. PBKDF2 est la méthode la plus répandue.
 
 **Contexte / exemple concret** : SQLCipher 4 passe le secret de Boutik par PBKDF2-HMAC-SHA512, 256 000 tours, avant de s'en servir pour chiffrer. Pour les copies de sauvegarde, Boutik dérive une clé du mot de passe du patron avec [argon2id](#argon2id) (64 Mio de mémoire, 3 passes, environ un tiers de seconde) : c'est elle qui ouvre l'[enveloppe](#enveloppe-de-cle-key-wrapping) de la copie. Les codes de secours, tirés au hasard (environ 79 bits), se contentent d'une dérivation plus légère : on ne peut pas les deviner.
+
+L'outil des clés de signature utilise [scrypt](#scrypt), présent d'office dans Node, pour ne dépendre d'aucun module ajouté.
 
 **Termes liés** : [Chiffrement au repos](#chiffrement-au-repos-encryption-at-rest), [Force brute](#force-brute-brute-force), [HMAC](#hmac-hash-based-message-authentication-code), [Enveloppe de clé](#enveloppe-de-cle-key-wrapping).
 
@@ -850,7 +854,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Une paire de clés liées mathématiquement. La clé privée reste secrète chez son propriétaire ; la clé publique peut être donnée à tout le monde. Ce que l'une signe, seule l'autre peut le vérifier.
 
-**Contexte / exemple concret** : Pour les licences de Boutik, la clé privée resterait chez Kelenpe (pour signer), la clé publique serait intégrée à l'application (pour vérifier).
+**Contexte / exemple concret** : Pour les licences de Boutik, la clé privée reste chez Kelenpe (pour signer), la clé publique est intégrée à l'application (pour vérifier). Les vraies clés (L1, L2 pour les licences, U1, U2 pour les mises à jour) sont créées par Drissa lors d'une [cérémonie de clés](#ceremonie-de-cles-key-ceremony) : une clé privée ne se montre jamais, une clé publique peut se transmettre à tout le monde, avec une courte empreinte pour la vérifier à l'œil.
 
 **Termes liés** : [Signature cryptographique](#signature-cryptographique-digital-signature), [Ed25519](#ed25519).
 
@@ -865,6 +869,30 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 **Contexte / exemple concret** : Décidé pour Boutik : dès la première version, l'application embarque les clés publiques de deux clés de licence et de deux clés de mises à jour, chaque fois celle en service et une de réserve, gardée hors ligne ailleurs que la clé en service.
 
 **Termes liés** : [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key), [Signature cryptographique](#signature-cryptographique-digital-signature), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
+
+---
+
+## Cérémonie de clés (*Key ceremony*)
+
+![Une seule fois, sans réseau : l'outil crée L1, L2, U1, U2, chiffre chaque clé privée par la phrase de passe, range chaque clé à sa place (copies hors ligne, serveur pour L1, ordinateur pour U1) ; seules les clés publiques vont dans Boutik ; jamais de clé privée ou de phrase dans un chat, un e-mail, Git ou une session d'IA](/diagrams/ceremonie-cles.svg)
+
+**Définition simple** : Le moment, préparé et écrit à l'avance, où l'on crée les clés privées les plus importantes d'un système, et où l'on décide où chacune sera rangée. On le fait une seule fois, sur une machine de confiance, sans réseau, avec un outil relu, pour qu'aucune clé ne soit jamais vue ailleurs qu'à sa place.
+
+**Contexte / exemple concret** : Pour Boutik, Drissa lance lui-même `outils/cles/` dans son terminal : quatre paires [Ed25519](#ed25519) (L1 et L2 pour les licences, U1 et U2 pour les mises à jour), chaque clé privée [chiffrée au repos](#chiffrement-au-repos-encryption-at-rest) par sa [phrase de passe](#phrase-de-passe-passphrase). L1 : deux copies hors ligne et un fichier pour le serveur ; L2 et U2 : deux copies hors ligne seulement ; U1 : sur son ordinateur et deux copies. Seul `cles-publiques.json` est transmis. Aucune clé privée ne doit traverser une session de Claude Code.
+
+**Termes liés** : [Clé publique / clé privée](#cle-publique-cle-privee-public-private-key), [Clé de réserve](#cle-de-reserve-backup-key-rotation-de-cle), [Identifiant de clé](#identifiant-de-cle-key-id-kid), [Test de restauration d'une copie](/devops/#test-de-restauration-d-une-copie-restore-test), [Backoffice et gestion des clés de signature](/architectures/backoffice-cles).
+
+---
+
+## scrypt
+
+**Définition simple** : Une fonction de [dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2) volontairement lente et gourmande en mémoire : elle transforme une phrase de passe en clé de chiffrement. Chaque essai coûte beaucoup de mémoire, ce qui rend très coûteux d'essayer des milliers de phrases en série, même avec des cartes graphiques. Une cousine d'[argon2id](#argon2id), présente d'office dans Node.
+
+**Contexte / exemple concret** : L'outil des clés de Boutik chiffre chaque clé privée avec une clé tirée de la phrase de passe par scrypt (N = 131 072, r = 8, p = 1 : 128 Mo et une demi-seconde par essai), puis par [chiffrement authentifié](#chiffrement-authentifie-authenticated-encryption-aes-gcm) AES-256-GCM.
+
+**Calcul** : mémoire utilisée ≈ 128 × N × r octets ; avec N = 131 072 et r = 8 : 128 × 131 072 × 8 = 134 217 728 octets, soit 128 Mio par essai.
+
+**Termes liés** : [Dérivation de clé](#derivation-de-cle-key-derivation-pbkdf2), [argon2id](#argon2id), [Phrase de passe](#phrase-de-passe-passphrase).
 
 ---
 
@@ -1616,6 +1644,8 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 ## Restauration (*Restore*)
 
+*Essayer régulièrement de restaurer : voir le [test de restauration d'une copie](/devops/#test-de-restauration-d-une-copie-restore-test).*
+
 ![Fichier choisi, secret, vérification de chaque objet, résumé avec confirmation, puis écriture et contrôle ; un secret faux ou un octet modifié arrête tout avant l'écriture](/diagrams/restauration.svg)
 
 **Définition simple** : Remettre les données d'une sauvegarde dans l'application, par exemple sur un ordinateur neuf après une panne ou un vol. Une bonne restauration vérifie tout avant d'écrire quoi que ce soit, montre ce qu'elle va remettre, et ne remplace jamais des données existantes sans le demander clairement.
@@ -1722,7 +1752,7 @@ Concepts de conception logicielle côté serveur, avec des exemples tirés de **
 
 **Définition simple** : Un mot de passe fait de plusieurs mots ordinaires, par exemple quatre ou cinq mots sans lien évident. Facile à retenir, facile à taper, et très difficile à deviner parce qu'il est long.
 
-**Contexte / exemple concret** : Boutik encourage le patron à choisir une courte phrase connue de lui seul : l'indicateur de solidité la note « Très bon », même tout en minuscules et sans chiffre.
+**Contexte / exemple concret** : Boutik encourage le patron à choisir une courte phrase connue de lui seul : l'indicateur de solidité la note « Très bon », même tout en minuscules et sans chiffre. Les clés de signature de Boutik sont protégées par une phrase de passe d'au moins 20 caractères, tapée sans écho, gardée dans un gestionnaire de mots de passe et sur papier, à deux endroits distincts : jamais dans un chat, un e-mail, Git ou une session de Claude Code.
 
 **Termes liés** : [Solidité d'un mot de passe](#solidite-d-un-mot-de-passe-password-strength), [Entropie](#entropie-entropy).
 

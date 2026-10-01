@@ -48,7 +48,7 @@ Donner à l'éditeur un outil interne pour gérer clients, paiements, licences e
 
 ## Exemple : Boutik
 
-État : **conçu, pas construit** (mis à jour le 29 septembre 2026).
+État : **backoffice conçu, pas construit ; code partagé et outil des clés construits** (mis à jour le 1er octobre 2026).
 
 - **Le backoffice prévu :**
   - en TypeScript, dans le dépôt de Boutik, sur le serveur de Prodora ;
@@ -62,7 +62,9 @@ Donner à l'éditeur un outil interne pour gérer clients, paiements, licences e
   - essais ;
   - découvertes ;
   - publication des mises à jour.
-- **La phrase de passe** des copies de clés est gardée dans un gestionnaire de mots de passe et sur papier chez Drissa.
+- **Code partagé :** tout ce qui fabrique et vérifie une licence est dans `src/shared/licence/` du dépôt de Boutik, pur (la signature est fournie par `ed25519-node.ts`) : le backoffice l'importera tel quel. Des [vecteurs de référence](/devops/#vecteur-de-reference-test-vector) (`tests/vecteurs/licence.json`) cassent les tests si les deux côtés divergent.
+- **Cérémonie de clés :** l'outil `outils/cles/` crée L1, L2 (licences) et U1, U2 (mises à jour), chiffrées au repos ([scrypt](/backend/#scrypt) puis AES-256-GCM), hors réseau, hors dépôt Git ; Drissa le lance lui-même, jamais dans une session de Claude Code. L1 : deux copies hors ligne et un [fichier en lecture seule](/devops/#fichier-en-lecture-seule-file-permissions) pour Coolify ; L2 et U2 : deux copies hors ligne ; U1 : son ordinateur et deux copies. [Test de restauration](/devops/#test-de-restauration-d-une-copie-restore-test) des copies tous les trois mois.
+- **La phrase de passe** des copies de clés est gardée dans un gestionnaire de mots de passe et sur papier chez Drissa, à deux endroits distincts.
 - **Ordre de construction :** troisième étape.
 
 Tout est décrit dans `docs/licence.md`.

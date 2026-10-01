@@ -71,7 +71,7 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 
 ## Exemple : Boutik
 
-État : **cœur et parcours d'achat sans internet construits** (mis à jour le 30 septembre 2026), avec des clés de **test** seulement ; activation en ligne et serveur pas encore construits. Détail : `docs/licence.md`, sections « Ce qui est construit » et « Parcours d'achat et d'activation sans internet ».
+État : **cœur, parcours d'achat sans internet et outil des clés construits** (mis à jour le 1er octobre 2026), avec des clés de **test** seulement tant que L1 et L2 ne sont pas embarquées ; activation en ligne et serveur pas encore construits. Détail : `docs/licence.md`, sections « Ce qui est construit » et « Parcours d'achat et d'activation sans internet ».
 
 - **Format :** licence en encodage canonique, signée Ed25519 : version 1 (61 octets) et version 2 (66 octets, type abonnement ou achat définitif, « mises à jour jusqu'au ») ; les licences version 1 restent valables (`src/shared/licence/format.ts`, partagé avec le futur backoffice ; `src/main/licence/signature.ts`).
 - **Achat sans internet :** écran « Acheter ou renouveler » (Solo à l'année, au trimestre, achat définitif en option ; prix et numéros dans un [fichier de configuration](/devops/#fichier-de-configuration-configuration-file)) ; référence `BTK-` à caractère de contrôle ; code de demande de 21 blocs, qui porte pour un achat l'offre et le montant choisis ([demande non fiable](/backend/#demande-non-fiable-untrusted-claim) : le backoffice accordera ce qui a été reçu, après [réconciliation du paiement](/business/#reconciliation-d-un-paiement-payment-reconciliation)) ; réponse par le téléphone branché (documents WhatsApp), un fichier ou un code tapé (28 blocs pour une licence, dont 26 de signature, sans les dates, déduites de la demande ; 31 pour un code spécial ; bloc faux désigné, somme pondérée modulo 31 plutôt que l'[algorithme de Luhn](/backend/#algorithme-de-luhn-luhn-algorithm)).
@@ -82,6 +82,7 @@ Vendre un droit d'usage (essai, abonnement, nombre de postes) et le faire respec
 - **États :** essai de 30 jours depuis la création de la boutique, licence active, 7 jours de grâce, lecture seule ; périodes enchaînées sans perte.
 - **Lecture seule :** appliquée dans `gerer` (`ipc-protege.ts`), avec une catégorie par canal (`src/main/licence/categories.ts`) et un blocage par défaut vérifié par un test ; restent permis, outre l'export, les remboursements, la réimpression et la sécurité, les réglages du poste (imprimante, suggestions de saisie) et les informations de la boutique, qui n'ont aucun usage commercial.
 - **Interface :** Réglages › Licence (import d'un fichier), bandeau « Renouveler », caisse remplacée par une explication en lecture seule.
+- **Clés de production :** L1, L2 (licences), U1, U2 (mises à jour), créées par Drissa avec `outils/cles/` lors d'une [cérémonie de clés](/backend/#ceremonie-de-cles-key-ceremony) ; seules les clés publiques entreront dans Boutik (étape suivante). Le code qui fabrique et vérifie une licence est partagé avec le backoffice, gardé par des [vecteurs de référence](/devops/#vecteur-de-reference-test-vector).
 - **Reste à faire :**
   1. rappels à 14 et 7 jours ;
   2. trace cachée ;

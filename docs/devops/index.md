@@ -26,6 +26,40 @@ Le vocabulaire du déploiement et de l'exploitation, avec des repères vers l'in
 
 ---
 
+## Vecteur de référence (*Test vector*)
+
+![Un même fichier d'entrées et de sorties attendues est vérifié par les tests de Boutik et par ceux du backoffice ; si l'un des deux change le format seul, ses tests échouent avant d'avoir bloqué une boutique](/diagrams/vecteurs-reference.svg)
+
+**Définition simple** : Un exemple figé dans un fichier : des entrées précises et les sorties exactes qu'elles doivent produire, octet par octet. Deux programmes qui doivent parler le même format le vérifient chacun dans leurs tests ; si l'un change sans l'autre, les tests le disent tout de suite.
+
+**Contexte / exemple concret** : `tests/vecteurs/licence.json` fige des licences, des codes tapés, des codes de demande, des codes spéciaux, des références de paiement et le barème, fabriqués avec la clé de test T1 ([Ed25519](/backend/#ed25519) est déterministe : même entrée, même signature). Boutik les vérifie dans les deux sens (fabriquer redonne les sorties, relire redonne les entrées) ; le backoffice vérifiera le même fichier.
+
+**Termes liés** : [Encodage canonique](/backend/#encodage-canonique-canonical-encoding), [Fichier de référence](#fichier-de-reference-golden-file), [Signature cryptographique](/backend/#signature-cryptographique-digital-signature).
+
+---
+
+## Fichier en lecture seule (*File permissions*)
+
+**Définition simple** : Un fichier dont les droits interdisent toute modification : on peut le lire, pas l'écrire. Sous Linux et macOS, les droits se notent par trois chiffres (propriétaire, groupe, autres) : 400 = lecture pour le propriétaire seulement ; 600 = lecture et écriture pour lui seul ; 700 pour un dossier = lui seul peut y entrer. À ne pas confondre avec la [lecture seule](/backend/#lecture-seule-read-only-mode) de Boutik, qui est un état de la licence.
+
+**Contexte / exemple concret** : L'outil des clés écrit les clés privées chiffrées en 600, dans un dossier en 700, et le fichier de la clé de licence destiné au serveur en 400 ; dans Coolify, ce fichier est monté en lecture seule pour le backoffice, qui ne peut donc ni le modifier ni le remplacer.
+
+**Termes liés** : [Coolify](#coolify), [Cérémonie de clés](/backend/#ceremonie-de-cles-key-ceremony).
+
+---
+
+## Test de restauration d'une copie (*Restore test*)
+
+![Tous les trois mois, chaque copie est ouverte avec la phrase de passe, comparée à la clé publique, puis sert à signer et vérifier un message de test ; une copie qui échoue est remplacée sans attendre](/diagrams/test-restauration.svg)
+
+**Définition simple** : Essayer, à date fixe, de se servir réellement d'une copie de sauvegarde, pour découvrir qu'elle est abîmée ou incomplète avant le jour où l'on en aurait besoin. Une copie jamais essayée n'est qu'un espoir.
+
+**Contexte / exemple concret** : Tous les trois mois, Drissa passe chaque copie des clés de signature de Boutik dans `node outils/cles/cles.ts verifier` : la copie est déchiffrée, comparée à la clé publique attendue, puis signe et vérifie un message de test. Le backoffice suivra la même règle pour sa base : un essai de [restauration](/backend/#restauration-restore) chaque mois.
+
+**Termes liés** : [Restauration](/backend/#restauration-restore), [Cérémonie de clés](/backend/#ceremonie-de-cles-key-ceremony).
+
+---
+
 ## Pipeline
 
 **Définition simple** : une séquence d'étapes automatisées et enchaînées, chacune ne démarrant que si la précédente a réussi (build → test → package → déploiement, ou probe → transcode → package pour une vidéo).

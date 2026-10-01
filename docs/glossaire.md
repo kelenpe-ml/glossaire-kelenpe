@@ -95,6 +95,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Carousel](/frontend/#carousel)** — *Frontend & UI/UX*
 - **[Caviardage des données sensibles (Redaction)](/backend/#caviardage-des-donnees-sensibles-redaction)** — *Backend & architecture*
 - **[CDN (Content Delivery Network)](/devops/#cdn-content-delivery-network)** — *DevOps & infra*
+- **[Cérémonie de clés (Key ceremony)](/backend/#ceremonie-de-cles-key-ceremony)** — *Backend & architecture*
 - **[Chargement progressif (Lazy loading)](/frontend/#chargement-progressif-lazy-loading)** — *Frontend & UI/UX*
 - **[Chiffre d'affaires (Revenue, turnover)](/business/#chiffre-d-affaires-revenue-turnover)** — *Jargon entrepreneurial*
 - **[Chiffrement (Encryption)](/backend/#chiffrement-encryption)** — *Backend & architecture*
@@ -234,6 +235,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Fichier de configuration (Configuration file)](/devops/#fichier-de-configuration-configuration-file)** — *DevOps & infra*
 - **[Fichier de référence (Golden file)](/devops/#fichier-de-reference-golden-file)** — *DevOps & infra*
 - **[Fichier de verrouillage (Lockfile)](/devops/#fichier-de-verrouillage-lockfile)** — *DevOps & infra*
+- **[Fichier en lecture seule (File permissions)](/devops/#fichier-en-lecture-seule-file-permissions)** — *DevOps & infra*
 - **[FIFO (First In, First Out)](/backend/#fifo-first-in-first-out)** — *Backend & architecture*
 - **[Fil d'exécution (Thread)](/backend/#fil-d-execution-thread)** — *Backend & architecture*
 - **[File d'impression (Print spooler)](/devops/#file-d-impression-print-spooler)** — *DevOps & infra*
@@ -560,6 +562,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Sauvegarde incrémentale (Incremental backup)](/backend/#sauvegarde-incrementale-incremental-backup)** — *Backend & architecture*
 - **[Scalabilité](/backend/#scalabilite-scalability)** — *Backend & architecture*
 - **[Schéma (Schema)](/backend/#schema-schema)** — *Backend & architecture*
+- **[scrypt](/backend/#scrypt)** — *Backend & architecture*
 - **[Seed / Série A / Série B](/business/#seed-serie-a-serie-b)** — *Jargon entrepreneurial*
 - **[sendInputEvent](/devops/#sendinputevent)** — *DevOps & infra*
 - **[Séparateur de colonnes (Delimiter)](/devops/#separateur-de-colonnes-delimiter)** — *DevOps & infra*
@@ -614,6 +617,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Terminaison TLS (TLS termination)](/devops/#terminaison-tls-tls-termination)** — *DevOps & infra*
 - **[Test de performance (Benchmark)](/devops/#test-de-performance-benchmark)** — *DevOps & infra*
 - **[Test de régression (Regression test)](/devops/#test-de-regression-regression-test)** — *DevOps & infra*
+- **[Test de restauration d'une copie (Restore test)](/devops/#test-de-restauration-d-une-copie-restore-test)** — *DevOps & infra*
 - **[Test e2e (End-to-end test, test de bout en bout)](/devops/#test-e2e-end-to-end-test-test-de-bout-en-bout)** — *DevOps & infra*
 - **[Test instable (Flaky test)](/devops/#test-instable-flaky-test)** — *DevOps & infra*
 - **[Test unitaire (Unit test)](/devops/#test-unitaire-unit-test)** — *DevOps & infra*
@@ -646,6 +650,7 @@ Tous les termes du site, tous domaines confondus. Utilise la recherche (en haut)
 - **[Validation côté serveur / côté client (Server-side / client-side validation)](/backend/#validation-cote-serveur-cote-client-server-side-client-side-validation)** — *Backend & architecture*
 - **[Valorisation](/business/#valorisation-valuation)** — *Jargon entrepreneurial*
 - **[Variable d'environnement (Environment variable)](/devops/#variable-d-environnement-environment-variable)** — *DevOps & infra*
+- **[Vecteur de référence (Test vector)](/devops/#vecteur-de-reference-test-vector)** — *DevOps & infra*
 - **[Vector (Vecteur)](/frontend/#vector-vecteur)** — *Frontend & UI/UX*
 - **[Vente au carton (Case sale)](/business/#vente-au-carton-case-sale)** — *Jargon entrepreneurial*
 - **[Vérification sous Windows sans PC Windows](/architectures/verification-windows)** — *Architectures*
